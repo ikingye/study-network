@@ -9,5 +9,23 @@
 	<atom:link href="https://ikingye.github.io/study-network/docs/appendix/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>教程</title>
+      <link>https://ikingye.github.io/study-network/docs/appendix/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-network/docs/appendix/tutorial/</guid>
+      <description>教程 基础 进阶 高阶 </description>
+    </item>
+    
+    <item>
+      <title>关注</title>
+      <link>https://ikingye.github.io/study-network/docs/appendix/attention/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-network/docs/appendix/attention/</guid>
+      <description>关注 其他 octocat/Spoon-Knife  </description>
+    </item>
+    
   </channel>
 </rss>
