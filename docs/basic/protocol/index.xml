@@ -18,7 +18,7 @@
       <description>DNS /etc/hosts hosts 文件是 Linux 系统中一个负责 IP 地址与域名快速解析的文件
 /etc/resolv.conf 该文件是 DNS 域名解析的配置文件，它的格式很简单， 每行以一个关键字开头，后接配置参数。
 resolv.conf 的关键字主要有四个：
- nameserver #定义 DNS 服务器的 IP 地址 domain #定义本地域名 search #定义域名的搜索列表 sortlist #对返回的域名进行排序  最主要是 nameserver 关键字，如果没指定 nameserver 就找不到 DNS 服务器，其它关键字是可选的。
+ nameserver # 定义 DNS 服务器的 IP 地址 domain # 定义本地域名 search # 定义域名的搜索列表 sortlist # 对返回的域名进行排序  最主要是 nameserver 关键字，如果没指定 nameserver 就找不到 DNS 服务器，其它关键字是可选的。
 domain centoscn.com search www.centocn.com www.wgjlb.com nameserver 202.96.128.86 nameserver 202.96.128.166 /etc/host.conf 解析器查询顺序配置文件
 # 表示先查询本地 hosts 文件，如果没有结果，再尝试查找 BIND dns 服务器 order hosts bind </description>
     </item>
