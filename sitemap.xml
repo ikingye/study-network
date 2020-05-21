@@ -48,8 +48,16 @@
   </url>
   
   <url>
+    <loc>https://ikingye.github.io/study-network/docs/basic/cmd/iptables/</loc>
+  </url>
+  
+  <url>
     <loc>https://ikingye.github.io/study-network/docs/basic/protocol/tls/mtls/</loc>
     <lastmod>2020-04-07T18:01:50+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-network/docs/basic/cmd/netfilter/</loc>
   </url>
   
   <url>
@@ -60,6 +68,10 @@
   <url>
     <loc>https://ikingye.github.io/study-network/docs/appendix/attention/</loc>
     <lastmod>2020-04-10T22:56:48+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://ikingye.github.io/study-network/docs/basic/cmd/</loc>
   </url>
   
   <url>

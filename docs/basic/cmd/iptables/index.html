@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="iptables Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。 netfilter 组件也称为内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。 iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
+原理  一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 ESTABLISHED 状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。
+INVALID INVALID 状态指出该信息包与任何已知的流或连接都不相关联，它可能包含错误的数据或头。
+NEW 状态 NEW 意味着该信息包已经或将启动新的连接，或者它与尚未用于发送和接收信息包的连接相关联。
+RELATED RELATED 表示该信息包正在启动新连接，以及它与已建立的连接相关联。
+ 规则 /rules  规则（rules）其实就是网络管理员预定义的条件， 规则一般的定义为 &ldquo;如果数据包头符合这样的条件，就这样处理这个数据包&rdquo;。 规则存储在内核空间的信息包过滤表中， 这些规则分别指定了**源地址、目的地址、传输协议（如 TCP、UDP、ICMP）和服务类型（如 HTTP、FTP 和 SMTP）**等。 当数据包与规则匹配时，iptables 就根据规则所定义的方法来处理这些数据包，如放行（accept）、拒绝（reject）和丢弃（drop）等。 配置防火墙的主要工作就是添加、修改和删除这些规则。   基础命令 iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]"><meta property="og:title" content="iptables" />
+<meta property="og:description" content="iptables Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。 netfilter 组件也称为内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。 iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
+原理  一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 ESTABLISHED 状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。
+INVALID INVALID 状态指出该信息包与任何已知的流或连接都不相关联，它可能包含错误的数据或头。
+NEW 状态 NEW 意味着该信息包已经或将启动新的连接，或者它与尚未用于发送和接收信息包的连接相关联。
+RELATED RELATED 表示该信息包正在启动新连接，以及它与已建立的连接相关联。
+ 规则 /rules  规则（rules）其实就是网络管理员预定义的条件， 规则一般的定义为 &ldquo;如果数据包头符合这样的条件，就这样处理这个数据包&rdquo;。 规则存储在内核空间的信息包过滤表中， 这些规则分别指定了**源地址、目的地址、传输协议（如 TCP、UDP、ICMP）和服务类型（如 HTTP、FTP 和 SMTP）**等。 当数据包与规则匹配时，iptables 就根据规则所定义的方法来处理这些数据包，如放行（accept）、拒绝（reject）和丢弃（drop）等。 配置防火墙的主要工作就是添加、修改和删除这些规则。   基础命令 iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/cmd/iptables/" />
+
+<title>iptables | 网络学习笔记</title>
+<link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
+
+
+<link rel="stylesheet" href="/study-network/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
+
+
+<script defer src="/study-network/en.search.min.773b8b65ddbec9e28e4a8180848d00d342dd50c0c0eee427ba321bd163494a27.js" integrity="sha256-dzuLZd2&#43;yeKOSoGAhI0A00LdUMDA7uQnujIb0WNJSic="></script>
+
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/study-network"><span>网络学习笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+
+
+
+
+
+ 
+  
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <span>第一部分 基础入门</span>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-network/docs/basic/cmd/" class="collapsed ">命令</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/basic/cmd/iptables/" class="active">iptables</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/basic/cmd/netfilter/" class="">netfilter</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-network/docs/basic/protocol/" class="collapsed ">协议</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-network/docs/basic/practice/" class="collapsed ">实践</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <span>第二部分 设计</span>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <span>第三部分 源码实现</span>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <span>第四部分 附录</span>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/appendix/tutorial/" class="">教程</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/appendix/attention/" class="">关注</a>
+  
+
+</li>
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-network/docs/appendix/interview/" class="collapsed ">面试题</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/study-network/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>iptables</strong>
+
+  <label for="toc-control">
+    <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#iptables">iptables</a>
+      <ul>
+        <li><a href="#原理">原理</a></li>
+        <li><a href="#状态">状态</a>
+          <ul>
+            <li><a href="#established">ESTABLISHED</a></li>
+            <li><a href="#invalid">INVALID</a></li>
+            <li><a href="#new">NEW</a></li>
+            <li><a href="#related">RELATED</a></li>
+          </ul>
+        </li>
+        <li><a href="#规则-rules">规则 /rules</a></li>
+        <li><a href="#基础命令">基础命令</a></li>
+        <li><a href="#表-tables">表 /tables</a>
+          <ul>
+            <li><a href="#raw">Raw</a></li>
+            <li><a href="#mangle">Mangle</a></li>
+            <li><a href="#nat">NAT</a></li>
+            <li><a href="#filter">Filter</a></li>
+            <li><a href="#security">security</a></li>
+            <li><a href="#表具有的链类型">表具有的链类型</a></li>
+          </ul>
+        </li>
+        <li><a href="#命令选项">命令选项</a></li>
+        <li><a href="#链-chains">链 /chains</a>
+          <ul>
+            <li><a href="#prerouting-链">PREROUTING 链</a></li>
+            <li><a href="#input-链">INPUT 链</a></li>
+            <li><a href="#output-链">OUTPUT 链</a></li>
+            <li><a href="#forward-链">FORWARD 链</a></li>
+            <li><a href="#postrouting-链">POSTROUTING 链</a></li>
+            <li><a href="#iptables-调用链">iptables 调用链</a></li>
+          </ul>
+        </li>
+        <li><a href="#条件匹配">条件匹配</a></li>
+        <li><a href="#目标动作或跳转">目标动作或跳转</a></li>
+        <li><a href="#保存-iptables-修改">保存 iptables 修改</a></li>
+        <li><a href="#教程">教程</a>
+          <ul>
+            <li><a href="#超级详细的-iptable-教程文档httpswwwcnblogscomdicky-zhangp5904429html"><a href="https://www.cnblogs.com/Dicky-Zhang/p/5904429.html">超级详细的 iptable 教程文档</a></a></li>
+            <li><a href="#常见-iptables-使用规则场景整理httpsmhlxyzlinuxiptableshtml"><a href="https://mhl.xyz/Linux/iptables.html">常见 iptables 使用规则场景整理</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="iptables">iptables</h1>
+<p>Linux 的包过滤功能，即 Linux 防火墙，
+它由 <code>netfilter</code> 和 <code>iptables</code> 两个组件组成。
+<code>netfilter</code> 组件也称为内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。
+<code>iptables</code> 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。</p>
+<h2 id="原理">原理</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506113258.png" alt="" /></p>
+<ul>
+<li>一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去</li>
+<li>如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链</li>
+<li>数据包到了 INPUT 链后，任何进程都会收到它。</li>
+<li>如果数据包是要转发出去的，且<strong>内核允许转发</strong>，数据包就会如图所示向右移动，经过 FORWARD 链，</li>
+<li>然后到达 POSTROUTING 链输出。</li>
+<li>本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链</li>
+<li>然后到达 POSTROUTING 链输出</li>
+</ul>
+<hr>
+<h2 id="状态">状态</h2>
+<h3 id="established">ESTABLISHED</h3>
+<p>状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。</p>
+<h3 id="invalid">INVALID</h3>
+<p>INVALID 状态指出该信息包与任何已知的流或连接都不相关联，它可能包含错误的数据或头。</p>
+<h3 id="new">NEW</h3>
+<p>状态 NEW 意味着该信息包已经或将启动新的连接，或者它与尚未用于发送和接收信息包的连接相关联。</p>
+<h3 id="related">RELATED</h3>
+<p>RELATED 表示该信息包正在启动新连接，以及它与已建立的连接相关联。</p>
+<hr>
+<h2 id="规则-rules">规则 /rules</h2>
+<ul>
+<li>规则（rules）其实就是网络管理员预定义的条件，</li>
+<li>规则一般的定义为 &ldquo;如果数据包头符合这样的条件，就这样处理这个数据包&rdquo;。</li>
+<li>规则存储在<strong>内核空间</strong>的<strong>信息包过滤表</strong>中，</li>
+<li>这些规则分别指定了**源地址、目的地址、传输协议（如 TCP、UDP、ICMP）和服务类型（如 HTTP、FTP 和 SMTP）**等。</li>
+<li>当数据包与规则匹配时，iptables 就根据规则所定义的方法来处理这些数据包，如放行（accept）、拒绝（reject）和丢弃（drop）等。</li>
+<li>配置防火墙的主要工作就是添加、修改和删除这些规则。</li>
+</ul>
+<hr>
+<h2 id="基础命令">基础命令</h2>
+<p><code>iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]</code></p>
+<hr>
+<h2 id="表-tables">表 /tables</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506113551.png" alt="" /></p>
+<h3 id="raw">Raw</h3>
+<ul>
+<li>
+<p>RAW 表 只使用在 PREROUTING 链和 OUTPUT 链上，因为优先级最高，</p>
+</li>
+<li>
+<p>从而可以对收到的数据包在连接跟踪前进行处理。</p>
+</li>
+<li>
+<p>一但用户使用了 RAW 表，在 某个链上，RAW 表处理完后，将跳过 NAT 表和 ip_conntrack 处理，</p>
+</li>
+<li>
+<p>即不再做<strong>地址转换</strong>和数据包的<strong>链接跟踪</strong>处理了.</p>
+</li>
+</ul>
+<h3 id="mangle">Mangle</h3>
+<ul>
+<li>主要用于对指定数据包进行更改，</li>
+<li>在内核版本 2.4.18 后的 linux 版本中该表包含的链为：INPUT 链（处理进入的数据包），RORWARD 链（处理转发的数据包），OUTPUT 链（处理本地生成的数据包）POSTROUTING 链（修改即将出去的数据包），PREROUTING 链（修改即将到来的数据包）</li>
+</ul>
+<h3 id="nat">NAT</h3>
+<ul>
+<li>主要用于网络地址转换 NAT，该表可以实现一对一，一对多，多对多等 NAT 工作，</li>
+<li>iptables 就是使用该表实现共享上网的，</li>
+<li>NAT 表包含了 PREROUTING 链（修改即将到来的数据包），POSTROUTING 链（修改即将出去的数据包），OUTPUT 链（修改路由之前本地生成的数据包）</li>
+</ul>
+<h3 id="filter">Filter</h3>
+<ul>
+<li>
+<p>Filter 表是默认的表，</p>
+</li>
+<li>
+<p>如果没有指定哪个表，iptables 就默认使用 filter 表来执行所有命令，</p>
+</li>
+<li>
+<p>filter 表包含了 INPUT 链（处理进入的数据包），RORWARD 链（处理转发的数据包），OUTPUT 链（处理本地生成的数据包）</p>
+</li>
+<li>
+<p>在 filter 表中只能允许对数据包进行接受，丢弃的操作，而无法对数据包进行更改</p>
+</li>
+</ul>
+<h3 id="security">security</h3>
+<p>用于<a href="https://wiki.archlinux.org/index.php/Security#Mandatory_access_control">强制访问控制</a>网络规则</p>
+<h3 id="表具有的链类型">表具有的链类型</h3>
+<table>
+<thead>
+<tr>
+<th>规则名称</th>
+<th>raw</th>
+<th>mangle</th>
+<th>nat</th>
+<th>filter</th>
+<th>security</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PREROUTING</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>INPUT</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>OUTPUT</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+<tr>
+<td>POSTROUTING</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>FORWARD</td>
+<td>✓</td>
+<td>✓</td>
+<td></td>
+<td>✓</td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="命令选项">命令选项</h2>
+<p>命令选项用于指定 iptables 的执行方式，包括插入规则，删除规则和添加规则，如下表所示</p>
+<table>
+<thead>
+<tr>
+<th>短命令</th>
+<th>长命令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-P</td>
+<td>&ndash;policy</td>
+<td>定义默认策略</td>
+</tr>
+<tr>
+<td>-L</td>
+<td>&ndash;list</td>
+<td>查看 iptables 规则列表</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>&ndash;append</td>
+<td>在规则列表的最后增加 1 条规则</td>
+</tr>
+<tr>
+<td>-I</td>
+<td>&ndash;insert</td>
+<td>在指定的位置插入 1 条规则</td>
+</tr>
+<tr>
+<td>-D</td>
+<td>&ndash;delete</td>
+<td>从规则列表中删除 1 条规则</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>&ndash;replace</td>
+<td>替换规则列表中的某条规则</td>
+</tr>
+<tr>
+<td>-F</td>
+<td>&ndash;flush</td>
+<td>删除表中所有规则</td>
+</tr>
+<tr>
+<td>-Z</td>
+<td>&ndash;zero</td>
+<td>将表中数据包计数器和流量计数器归零</td>
+</tr>
+<tr>
+<td>-X</td>
+<td>&ndash;delete-chain</td>
+<td>删除自定义链</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>&ndash;verbose</td>
+<td>与 - L 他命令一起使用显示更多更详细的信息</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="链-chains">链 /chains</h2>
+<ul>
+<li>当一个数据包到达一个链时，iptables 就会从链中第一条规则开始检查，看该数据包是否满足规则所定义的条件。</li>
+<li>如果满足，系统就会根据该条规则所定义的方法处理该数据包；否则 iptables 将继续检查下一条规则，</li>
+<li>如果该数据包不符合链中任一条规则，iptables 就会根据该链预先定义的<strong>默认策略</strong>来处理数据包。</li>
+</ul>
+<h3 id="prerouting-链">PREROUTING 链</h3>
+<p>内核根据数据包目的 IP 判断是否需要转发出去</p>
+<h3 id="input-链">INPUT 链</h3>
+<p>处理来自外部的数据</p>
+<h3 id="output-链">OUTPUT 链</h3>
+<p>处理向外发送的数据</p>
+<h3 id="forward-链">FORWARD 链</h3>
+<p>将数据转发到本机的其他网卡设备上。</p>
+<h3 id="postrouting-链">POSTROUTING 链</h3>
+<hr>
+<h3 id="iptables-调用链">iptables 调用链</h3>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506124301.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506124325.png" alt="" /></p>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506124346.png" alt="" /></p>
+<hr>
+<h2 id="条件匹配">条件匹配</h2>
+<table>
+<thead>
+<tr>
+<th>短命令</th>
+<th>长命令</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-i</td>
+<td>&ndash;in-interface</td>
+<td>网络接口名</td>
+<td>指定数据包从哪个网络接口进入</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>&ndash;out-interface</td>
+<td>网络接口名</td>
+<td>指定数据包从哪个网络接口输出</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>&mdash;proto</td>
+<td>协议类型</td>
+<td>指定数据包匹配的协议，如 TCP、UDP 和 ICMP 等</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>&ndash;source</td>
+<td>源地址或子网</td>
+<td>指定数据包匹配的源地址</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;sport</td>
+<td>源端口号</td>
+<td>指定数据包匹配的源端口号</td>
+</tr>
+<tr>
+<td></td>
+<td>&ndash;dport</td>
+<td>目的端口号</td>
+<td>指定数据包匹配的目的端口号</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>&ndash;match</td>
+<td>匹配的模块</td>
+<td>指定数据包规则所使用的过滤模块</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="目标动作或跳转">目标动作或跳转</h2>
+<p>ACCEPT、REJECT、DROP、REDIRECT 、MASQUERADE</p>
+<p>还有 LOG、ULOG、DNAT、RETURN、TOS、SNAT、MIRROR、QUEUE、TTL、MARK</p>
+<hr>
+<h2 id="保存-iptables-修改">保存 iptables 修改</h2>
+<p>方法一：<code>service iptables save</code></p>
+<p>方法二：</p>
+<ul>
+<li>
+<p>修改 /etc/sysconfig/iptables-config</p>
+</li>
+<li>
+<p>将里面的 IPTABLES_SAVE_ON_STOP=&quot;no&rdquo;, 改为 &ldquo;yes&rdquo;</p>
+</li>
+<li>
+<p>这样每次服务在停止之前会自动将现有的规则保存在 <code>/etc/sysconfig/iptables</code>   这个文件中去。</p>
+</li>
+</ul>
+<hr>
+<h2 id="教程">教程</h2>
+<h3 id="超级详细的-iptable-教程文档httpswwwcnblogscomdicky-zhangp5904429html"><a href="https://www.cnblogs.com/Dicky-Zhang/p/5904429.html">超级详细的 iptable 教程文档</a></h3>
+<h3 id="常见-iptables-使用规则场景整理httpsmhlxyzlinuxiptableshtml"><a href="https://mhl.xyz/Linux/iptables.html">常见 iptables 使用规则场景整理</a></h3>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-network"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#iptables">iptables</a>
+      <ul>
+        <li><a href="#原理">原理</a></li>
+        <li><a href="#状态">状态</a>
+          <ul>
+            <li><a href="#established">ESTABLISHED</a></li>
+            <li><a href="#invalid">INVALID</a></li>
+            <li><a href="#new">NEW</a></li>
+            <li><a href="#related">RELATED</a></li>
+          </ul>
+        </li>
+        <li><a href="#规则-rules">规则 /rules</a></li>
+        <li><a href="#基础命令">基础命令</a></li>
+        <li><a href="#表-tables">表 /tables</a>
+          <ul>
+            <li><a href="#raw">Raw</a></li>
+            <li><a href="#mangle">Mangle</a></li>
+            <li><a href="#nat">NAT</a></li>
+            <li><a href="#filter">Filter</a></li>
+            <li><a href="#security">security</a></li>
+            <li><a href="#表具有的链类型">表具有的链类型</a></li>
+          </ul>
+        </li>
+        <li><a href="#命令选项">命令选项</a></li>
+        <li><a href="#链-chains">链 /chains</a>
+          <ul>
+            <li><a href="#prerouting-链">PREROUTING 链</a></li>
+            <li><a href="#input-链">INPUT 链</a></li>
+            <li><a href="#output-链">OUTPUT 链</a></li>
+            <li><a href="#forward-链">FORWARD 链</a></li>
+            <li><a href="#postrouting-链">POSTROUTING 链</a></li>
+            <li><a href="#iptables-调用链">iptables 调用链</a></li>
+          </ul>
+        </li>
+        <li><a href="#条件匹配">条件匹配</a></li>
+        <li><a href="#目标动作或跳转">目标动作或跳转</a></li>
+        <li><a href="#保存-iptables-修改">保存 iptables 修改</a></li>
+        <li><a href="#教程">教程</a>
+          <ul>
+            <li><a href="#超级详细的-iptable-教程文档httpswwwcnblogscomdicky-zhangp5904429html"><a href="https://www.cnblogs.com/Dicky-Zhang/p/5904429.html">超级详细的 iptable 教程文档</a></a></li>
+            <li><a href="#常见-iptables-使用规则场景整理httpsmhlxyzlinuxiptableshtml"><a href="https://mhl.xyz/Linux/iptables.html">常见 iptables 使用规则场景整理</a></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+<a href="https://github.com/ikingye/study-network" 
+class="github-corner" aria-label="View source on GitHub">
+<svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+  <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+  <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+  <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+</svg></a>
+<style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

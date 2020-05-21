@@ -46,12 +46,35 @@
     </item>
     
     <item>
+      <title>iptables</title>
+      <link>https://ikingye.github.io/study-network/docs/basic/cmd/iptables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-network/docs/basic/cmd/iptables/</guid>
+      <description>iptables Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。 netfilter 组件也称为内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。 iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
+原理  一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 ESTABLISHED 状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。
+INVALID INVALID 状态指出该信息包与任何已知的流或连接都不相关联，它可能包含错误的数据或头。
+NEW 状态 NEW 意味着该信息包已经或将启动新的连接，或者它与尚未用于发送和接收信息包的连接相关联。
+RELATED RELATED 表示该信息包正在启动新连接，以及它与已建立的连接相关联。
+ 规则 /rules  规则（rules）其实就是网络管理员预定义的条件， 规则一般的定义为 &amp;ldquo;如果数据包头符合这样的条件，就这样处理这个数据包&amp;rdquo;。 规则存储在内核空间的信息包过滤表中， 这些规则分别指定了**源地址、目的地址、传输协议（如 TCP、UDP、ICMP）和服务类型（如 HTTP、FTP 和 SMTP）**等。 当数据包与规则匹配时，iptables 就根据规则所定义的方法来处理这些数据包，如放行（accept）、拒绝（reject）和丢弃（drop）等。 配置防火墙的主要工作就是添加、修改和删除这些规则。   基础命令 iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]</description>
+    </item>
+    
+    <item>
       <title>mTLS</title>
       <link>https://ikingye.github.io/study-network/docs/basic/protocol/tls/mtls/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-network/docs/basic/protocol/tls/mtls/</guid>
       <description>mTLS </description>
+    </item>
+    
+    <item>
+      <title>netfilter</title>
+      <link>https://ikingye.github.io/study-network/docs/basic/cmd/netfilter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ikingye.github.io/study-network/docs/basic/cmd/netfilter/</guid>
+      <description>netfilter </description>
     </item>
     
     <item>
