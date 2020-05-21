@@ -4,12 +4,22 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="高阶面试题 "><meta property="og:title" content="高阶" />
-<meta property="og:description" content="高阶面试题 " />
+<meta name="description" content="DNS /etc/hosts hosts 文件是 Linux 系统中一个负责 IP 地址与域名快速解析的文件
+/etc/resolv.conf 该文件是 DNS 域名解析的配置文件，它的格式很简单， 每行以一个关键字开头，后接配置参数。
+resolv.conf 的关键字主要有四个：
+ nameserver #定义 DNS 服务器的 IP 地址 domain #定义本地域名 search #定义域名的搜索列表 sortlist #对返回的域名进行排序  最主要是 nameserver 关键字，如果没指定 nameserver 就找不到 DNS 服务器，其它关键字是可选的。
+domain centoscn.com search www.centocn.com www.wgjlb.com nameserver 202.96.128.86 nameserver 202.96.128.166 /etc/host.conf 解析器查询顺序配置文件
+# 表示先查询本地 hosts 文件，如果没有结果，再尝试查找 BIND dns 服务器 order hosts bind "><meta property="og:title" content="DNS" />
+<meta property="og:description" content="DNS /etc/hosts hosts 文件是 Linux 系统中一个负责 IP 地址与域名快速解析的文件
+/etc/resolv.conf 该文件是 DNS 域名解析的配置文件，它的格式很简单， 每行以一个关键字开头，后接配置参数。
+resolv.conf 的关键字主要有四个：
+ nameserver #定义 DNS 服务器的 IP 地址 domain #定义本地域名 search #定义域名的搜索列表 sortlist #对返回的域名进行排序  最主要是 nameserver 关键字，如果没指定 nameserver 就找不到 DNS 服务器，其它关键字是可选的。
+domain centoscn.com search www.centocn.com www.wgjlb.com nameserver 202.96.128.86 nameserver 202.96.128.166 /etc/host.conf 解析器查询顺序配置文件
+# 表示先查询本地 hosts 文件，如果没有结果，再尝试查找 BIND dns 服务器 order hosts bind " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-network/docs/appendix/interview/expert/" />
-<meta property="article:modified_time" content="2020-04-17T00:53:28+08:00" />
-<title>高阶 | 网络学习笔记</title>
+<meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/protocol/dns/" />
+
+<title>DNS | 网络学习笔记</title>
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 
 
@@ -130,6 +140,91 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/basic/protocol/dns/" class="active">DNS</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/basic/protocol/http/" class="">HTTP</a>
+  
+
+</li>
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/basic/protocol/tcp/" class="">TCP</a>
+  
+
+</li>
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-network/docs/basic/protocol/tls/" class="">TLS</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/basic/protocol/tls/mtls/" class="">mTLS</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/basic/protocol/udp/" class="">UDP</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
 
 
 
@@ -284,42 +379,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/appendix/interview/basic/" class="">基础</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/appendix/interview/advanced/" class="">进阶</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/appendix/interview/expert/" class="active">高阶</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
 
 
   </li>
@@ -378,7 +437,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-network/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>高阶</strong>
+  <strong>DNS</strong>
 
   <label for="toc-control">
     <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -392,7 +451,13 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#高阶面试题">高阶面试题</a></li>
+    <li><a href="#dns">DNS</a>
+      <ul>
+        <li><a href="#etchosts"><code>/etc/hosts</code></a></li>
+        <li><a href="#etcresolvconf"><code>/etc/resolv.conf</code></a></li>
+        <li><a href="#etchostconf"><code>/etc/host.conf</code></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -404,8 +469,29 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="高阶面试题">高阶面试题</h1>
-</article>
+  <article class="markdown"><h1 id="dns">DNS</h1>
+<h2 id="etchosts"><code>/etc/hosts</code></h2>
+<p>hosts 文件是 Linux 系统中一个负责 IP 地址与域名快速解析的文件</p>
+<h2 id="etcresolvconf"><code>/etc/resolv.conf</code></h2>
+<p>该文件是 DNS 域名解析的配置文件，它的格式很简单，
+每行以一个关键字开头，后接配置参数。</p>
+<p>resolv.conf 的关键字主要有四个：</p>
+<ul>
+<li>nameserver #定义 DNS 服务器的 IP 地址</li>
+<li>domain #定义本地域名</li>
+<li>search #定义域名的搜索列表</li>
+<li>sortlist #对返回的域名进行排序</li>
+</ul>
+<p>最主要是 nameserver 关键字，如果没指定 nameserver 就找不到 DNS 服务器，其它关键字是可选的。</p>
+<pre><code class="language-conf" data-lang="conf">domain centoscn.com
+search  www.centocn.com www.wgjlb.com
+nameserver 202.96.128.86
+nameserver 202.96.128.166
+</code></pre><h2 id="etchostconf"><code>/etc/host.conf</code></h2>
+<p>解析器查询顺序配置文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 表示先查询本地 hosts 文件，如果没有结果，再尝试查找 BIND dns 服务器</span>
+order hosts bind
+</code></pre></div></article>
  
       
 
@@ -414,14 +500,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/note/commit/99caeec88f29c56c5d32492cb2fded13a15b66bd" title='Last modified by yewang | 2020-04-17' target="_blank" rel="noopener">
-      <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-04-17</span>
-    </a>
-  </div>
 
 
 
@@ -454,7 +532,13 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#高阶面试题">高阶面试题</a></li>
+    <li><a href="#dns">DNS</a>
+      <ul>
+        <li><a href="#etchosts"><code>/etc/hosts</code></a></li>
+        <li><a href="#etcresolvconf"><code>/etc/resolv.conf</code></a></li>
+        <li><a href="#etchostconf"><code>/etc/host.conf</code></a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
