@@ -4,12 +4,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="HTTP "><meta property="og:title" content="HTTP" />
-<meta property="og:description" content="HTTP " />
+<meta name="description" content="SSL  SSL，Secure Socket Layer，安全套接字层 TLS，Transport Layer Security，传输层安全协议   握手流程  Client-hello 阶段 Server-hello 阶段   版本  1994 年，NetScape 公司设计了 SSL 协议（Secure Sockets Layer）的 1.0 版，但是未发布。 1995 年，NetScape 公司发布 SSL 2.0 版，很快发现有严重漏洞。 1996 年，SSL 3.0 版问世，得到大规模应用。 1999 年，互联网标准化组织 ISOC 接替 NetScape 公司，发布了 SSL 的升级版 TLS 1.0 版。 2006 年和 2008 年，TLS 进行了两次升级，分别为 TLS 1.1 版和 TLS 1.2 版。最新的变动是 2018 年 TLS 1.3 的修订版。   TLS rfc5246"><meta property="og:title" content="SSL" />
+<meta property="og:description" content="SSL  SSL，Secure Socket Layer，安全套接字层 TLS，Transport Layer Security，传输层安全协议   握手流程  Client-hello 阶段 Server-hello 阶段   版本  1994 年，NetScape 公司设计了 SSL 协议（Secure Sockets Layer）的 1.0 版，但是未发布。 1995 年，NetScape 公司发布 SSL 2.0 版，很快发现有严重漏洞。 1996 年，SSL 3.0 版问世，得到大规模应用。 1999 年，互联网标准化组织 ISOC 接替 NetScape 公司，发布了 SSL 的升级版 TLS 1.0 版。 2006 年和 2008 年，TLS 进行了两次升级，分别为 TLS 1.1 版和 TLS 1.2 版。最新的变动是 2018 年 TLS 1.3 的修订版。   TLS rfc5246" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/protocol/http/" />
-<meta property="article:modified_time" content="2020-05-21T10:38:03+08:00" />
-<title>HTTP | 网络学习笔记</title>
+<meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/protocol/ssl/" />
+
+<title>SSL | 网络学习笔记</title>
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 
 
@@ -168,7 +168,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-network/docs/basic/protocol/http/" class="active">HTTP</a>
+  <a href="/study-network/docs/basic/protocol/http/" class="">HTTP</a>
   
 
 </li>
@@ -178,7 +178,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
 
   
-  <a href="/study-network/docs/basic/protocol/ssl/" class="">SSL</a>
+  <a href="/study-network/docs/basic/protocol/ssl/" class="active">SSL</a>
   
 
 </li>
@@ -418,7 +418,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-network/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>HTTP</strong>
+  <strong>SSL</strong>
 
   <label for="toc-control">
     <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -432,7 +432,24 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#http">HTTP</a></li>
+    <li><a href="#ssl">SSL</a>
+      <ul>
+        <li><a href="#握手流程">握手流程</a></li>
+        <li><a href="#版本">版本</a></li>
+        <li><a href="#tls">TLS</a>
+          <ul>
+            <li><a href="#dtls">DTLS</a></li>
+            <li><a href="#openssl">OpenSSL</a>
+              <ul>
+                <li><a href="#切换-openssl-版本">切换 openssl 版本</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#mtls">mTLS</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
@@ -444,7 +461,53 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="http">HTTP</h1>
+  <article class="markdown"><h1 id="ssl">SSL</h1>
+<ul>
+<li><code>SSL</code>，<code>Secure Socket Layer</code>，安全套接字层</li>
+<li><code>TLS</code>，<code>Transport Layer Security</code>，传输层安全协议</li>
+</ul>
+<hr>
+<h2 id="握手流程">握手流程</h2>
+<ol>
+<li>Client-hello 阶段</li>
+<li>Server-hello 阶段</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525110303.png" alt="" /></p>
+<hr>
+<h2 id="版本">版本</h2>
+<p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525104221.png" alt="" /></p>
+<ul>
+<li>1994 年，NetScape 公司设计了 SSL 协议（Secure Sockets Layer）的 1.0 版，但是未发布。</li>
+<li>1995 年，NetScape 公司发布 SSL 2.0 版，很快发现有严重漏洞。</li>
+<li>1996 年，SSL 3.0 版问世，得到大规模应用。</li>
+<li>1999 年，互联网标准化组织 ISOC 接替 NetScape 公司，发布了 SSL 的升级版 TLS 1.0 版。</li>
+<li>2006 年和 2008 年，TLS 进行了两次升级，分别为 TLS 1.1 版和 TLS 1.2 版。最新的变动是 2018 年 TLS 1.3 的<a href="https://tools.ietf.org/html/rfc8447">修订版</a>。</li>
+</ul>
+<hr>
+<h2 id="tls">TLS</h2>
+<p><a href="https://tools.ietf.org/html/rfc5246">rfc5246</a></p>
+<p>TLS 是一个信道建立和信道的表达方式，向下依托于 TCP，向上对应用程序服务。</p>
+<p>该协议由两层组成：</p>
+<ul>
+<li>TLS 记录协议</li>
+<li>TLS 握手协议</li>
+</ul>
+<hr>
+<h3 id="dtls">DTLS</h3>
+<p>就是同样的 TLS 逻辑被应用于 UDP 业务之上</p>
+<hr>
+<h3 id="openssl">OpenSSL</h3>
+<h4 id="切换-openssl-版本">切换 openssl 版本</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ ls -l /usr/local/opt/openssl*
+lrwxr-xr-x  <span style="color:#ae81ff">1</span> yewang  admin  <span style="color:#ae81ff">24</span> May <span style="color:#ae81ff">19</span> 10:16 /usr/local/opt/openssl -&gt; ../Cellar/openssl/1.0.2s
+lrwxr-xr-x  <span style="color:#ae81ff">1</span> yewang  admin  <span style="color:#ae81ff">24</span> May <span style="color:#ae81ff">19</span> 10:16 /usr/local/opt/openssl@1.0 -&gt; ../Cellar/openssl/1.0.2s
+lrwxr-xr-x  <span style="color:#ae81ff">1</span> yewang  admin  <span style="color:#ae81ff">28</span> May <span style="color:#ae81ff">18</span> 20:25 /usr/local/opt/openssl@1.1 -&gt; ../Cellar/openssl@1.1/1.1.1g
+
+$ brew switch openssl 1.0.2s
+</code></pre></div><hr>
+<h2 id="mtls">mTLS</h2>
+<hr>
+<h2 id="参考">参考</h2>
 </article>
  
       
@@ -454,14 +517,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/note/commit/0d04021eac3a6aab0ea72ddd9731de2429e603e2" title='Last modified by yewang | 2020-05-21' target="_blank" rel="noopener">
-      <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-05-21</span>
-    </a>
-  </div>
 
 
 
@@ -494,7 +549,24 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#http">HTTP</a></li>
+    <li><a href="#ssl">SSL</a>
+      <ul>
+        <li><a href="#握手流程">握手流程</a></li>
+        <li><a href="#版本">版本</a></li>
+        <li><a href="#tls">TLS</a>
+          <ul>
+            <li><a href="#dtls">DTLS</a></li>
+            <li><a href="#openssl">OpenSSL</a>
+              <ul>
+                <li><a href="#切换-openssl-版本">切换 openssl 版本</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#mtls">mTLS</a></li>
+        <li><a href="#参考">参考</a></li>
+      </ul>
+    </li>
   </ul>
 </nav>
 
