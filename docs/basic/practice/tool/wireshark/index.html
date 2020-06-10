@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Wireshark 查询 ip.addr == 192.168.137.109 "><meta property="og:title" content="Wireshark" />
-<meta property="og:description" content="Wireshark 查询 ip.addr == 192.168.137.109 " />
+<meta name="description" content="Wireshark 查询 ip.addr == 192.168.137.109 MacOS 打开两个 Wireshark # 使用 -n 可以打开多个 open -n /Applications/Wireshark.app 参考：
+ Open Multiple Instances of Wireshark on MacOS  "><meta property="og:title" content="Wireshark" />
+<meta property="og:description" content="Wireshark 查询 ip.addr == 192.168.137.109 MacOS 打开两个 Wireshark # 使用 -n 可以打开多个 open -n /Applications/Wireshark.app 参考：
+ Open Multiple Instances of Wireshark on MacOS  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/practice/tool/wireshark/" />
 <meta property="article:modified_time" content="2020-06-04T00:17:11+08:00" />
@@ -16,7 +18,7 @@
 <link rel="stylesheet" href="/study-network/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
 
 
-<script defer src="/study-network/en.search.min.a8f69d4232ee7df5a49975d0e7f8793de5e8fecf9f17238c980694e3e97270e6.js" integrity="sha256-qPadQjLuffWkmXXQ5/h5PeXo/s&#43;fFyOMmAaU4&#43;lycOY="></script>
+<script defer src="/study-network/en.search.min.9587b08c51e2eaa2e2499dced2abb7ff903a912655f5d240812530cb366a84f7.js" integrity="sha256-lYewjFHi6qLiSZ3O0qu3/5A6kSZV9dJAgSUwyzZqhPc="></script>
 
 <!--
 Made with Book Theme
@@ -496,6 +498,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#wireshark">Wireshark</a>
       <ul>
         <li><a href="#查询">查询</a></li>
+        <li><a href="#macos-打开两个-wireshark">MacOS 打开两个 Wireshark</a></li>
       </ul>
     </li>
   </ul>
@@ -513,7 +516,14 @@ https://github.com/alex-shpak/hugo-book
 <h2 id="查询">查询</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ip.addr <span style="color:#f92672">==</span> 192.168.137.109
 
-</code></pre></div></article>
+</code></pre></div><h2 id="macos-打开两个-wireshark">MacOS 打开两个 Wireshark</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 使用 -n 可以打开多个</span>
+open -n /Applications/Wireshark.app
+</code></pre></div><p>参考：</p>
+<ul>
+<li><a href="https://ttlzero.wordpress.com/2017/07/13/first-blog-post/">Open Multiple Instances of Wireshark on MacOS</a></li>
+</ul>
+</article>
  
       
 
@@ -565,6 +575,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#wireshark">Wireshark</a>
       <ul>
         <li><a href="#查询">查询</a></li>
+        <li><a href="#macos-打开两个-wireshark">MacOS 打开两个 Wireshark</a></li>
       </ul>
     </li>
   </ul>

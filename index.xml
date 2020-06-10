@@ -88,7 +88,8 @@ RELATED RELATED 表示该信息包正在启动新连接，以及它与已建立�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-network/docs/basic/practice/tool/wireshark/</guid>
-      <description>Wireshark 查询 ip.addr == 192.168.137.109 </description>
+      <description>Wireshark 查询 ip.addr == 192.168.137.109 MacOS 打开两个 Wireshark # 使用 -n 可以打开多个 open -n /Applications/Wireshark.app 参考：
+ Open Multiple Instances of Wireshark on MacOS  </description>
     </item>
     
     <item>
