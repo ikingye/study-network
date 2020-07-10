@@ -23,7 +23,7 @@
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 
 
-<link rel="stylesheet" href="/study-network/book.min.2b565af4d61986071164f1ead48c719f32bb138a148802dc3943b967fc4f20c6.css" integrity="sha256-K1Za9NYZhgcRZPHq1IxxnzK7E4oUiALcOUO5Z/xPIMY=">
+<link rel="stylesheet" href="/study-network/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
 
 
 <script defer src="/study-network/en.search.min.5b99fcbc47064df29ef958ebf5e646350acb3a870044f481ac0b0040f95f30a6.js" integrity="sha256-W5n8vEcGTfKe&#43;Vjr9eZGNQrLOocARPSBrAsAQPlfMKY="></script>
@@ -442,89 +442,85 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#tcp">TCP</a>
+    <li><a href="#tcp-报文格式">TCP 报文格式</a></li>
+    <li><a href="#三次握手">三次握手</a></li>
+    <li><a href="#四次挥手">四次挥手</a></li>
+    <li><a href="#tcp-有限状态机">TCP 有限状态机</a></li>
+    <li><a href="#tcp-状态变迁图">TCP 状态变迁图</a></li>
+    <li><a href="#tcp-是全双工的">TCP 是全双工的</a></li>
+    <li><a href="#tcp-的-rtt-算法">TCP 的 RTT 算法</a>
       <ul>
-        <li><a href="#tcp-报文格式">TCP 报文格式</a></li>
-        <li><a href="#三次握手">三次握手</a></li>
-        <li><a href="#四次挥手">四次挥手</a></li>
-        <li><a href="#tcp-有限状态机">TCP 有限状态机</a></li>
-        <li><a href="#tcp-状态变迁图">TCP 状态变迁图</a></li>
-        <li><a href="#tcp-是全双工的">TCP 是全双工的</a></li>
-        <li><a href="#tcp-的-rtt-算法">TCP 的 RTT 算法</a>
-          <ul>
-            <li><a href="#经典算法rfc793httptoolsietforghtmlrfc793">经典算法（<a href="http://tools.ietf.org/html/rfc793">RFC793</a>）</a></li>
-            <li><a href="#karn--partridge-算法">Karn / Partridge 算法</a></li>
-            <li><a href="#jacobson--karels-算法">Jacobson / Karels 算法</a></li>
-          </ul>
-        </li>
-        <li><a href="#tcp-滑动窗口">TCP 滑动窗口</a>
-          <ul>
-            <li><a href="#发送方的滑动窗口">发送方的滑动窗口</a></li>
-            <li><a href="#接受端控制发送端的图示">接受端控制发送端的图示</a></li>
-          </ul>
-        </li>
-        <li><a href="#tcp-的拥塞处理">TCP 的拥塞处理</a>
-          <ul>
-            <li><a href="#慢热启动算法--slow-start">慢热启动算法 – Slow Start</a></li>
-            <li><a href="#拥塞避免算法--congestion-avoidance">拥塞避免算法 – Congestion Avoidance</a></li>
-            <li><a href="#拥塞状态时的算法">拥塞状态时的算法</a></li>
-            <li><a href="#快速恢复算法--fast-recovery">快速恢复算法 – Fast Recovery</a></li>
-            <li><a href="#fack-算法">FACK 算法</a></li>
-          </ul>
-        </li>
-        <li><a href="#syn-攻击">SYN 攻击</a>
-          <ul>
-            <li><a href="#解决">解决</a></li>
-          </ul>
-        </li>
-        <li><a href="#问答">问答</a>
-          <ul>
-            <li><a href="#为什么建立连接是三次握手而关闭连接却是四次挥手呢">为什么建立连接是三次握手，而关闭连接却是四次挥手呢？</a></li>
-            <li><a href="#单台服务器并发-tcp-连接数到底可以有多少">单台服务器并发 TCP 连接数到底可以有多少？</a>
-              <ul>
-                <li><a href="#文件句柄限制">文件句柄限制</a>
-                  <ul>
-                    <li><a href="#进程限制">进程限制</a></li>
-                    <li><a href="#全局限制">全局限制</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#为什么服务总会抛出一个-connet-reset-by-peer">为什么服务总会抛出一个 <code>connet reset by peer</code>？</a></li>
-            <li><a href="#出现大量-time_wait-状态怎么办">出现大量 time_wait 状态怎么办？</a>
-              <ul>
-                <li><a href="#time_wait-是怎么产生的">TIME_WAIT 是怎么产生的？</a>
-                  <ul>
-                    <li><a href="#连接关闭的过程">连接关闭的过程</a></li>
-                    <li><a href="#time_wait-只会出现在主动断开连接的一方">TIME_WAIT 只会出现在主动断开连接的一方</a></li>
-                  </ul>
-                </li>
-                <li><a href="#大量-time_wait-造成的影响">大量 TIME_WAIT 造成的影响</a></li>
-                <li><a href="#排查">排查</a>
-                  <ul>
-                    <li><a href="#查看-tcp-各个状态的数量">查看 TCP 各个状态的数量</a></li>
-                    <li><a href="#tcp-状态含义">TCP 状态含义</a></li>
-                    <li><a href="#统计-time_wait-连接的本地地址">统计 TIME_WAIT 连接的本地地址</a></li>
-                  </ul>
-                </li>
-                <li><a href="#如何尽量处理-timewait-过多的问题">如何尽量处理 TIMEWAIT 过多的问题？</a>
-                  <ul>
-                    <li><a href="#修改内核文件-etcsysctlconf">修改内核文件 /etc/sysctl.conf</a></li>
-                    <li><a href="#nginx-配置问题">nginx 配置问题</a>
-                      <ul>
-                        <li><a href="#proxy_pass-与-fastcgi_pass-的区别">proxy_pass 与 fastcgi_pass 的区别</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="#为什么要有-time_wait-状态">为什么要有 TIME_WAIT 状态？</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#参考">参考</a></li>
+        <li><a href="#经典算法rfc793httptoolsietforghtmlrfc793">经典算法（<a href="http://tools.ietf.org/html/rfc793">RFC793</a>）</a></li>
+        <li><a href="#karn--partridge-算法">Karn / Partridge 算法</a></li>
+        <li><a href="#jacobson--karels-算法">Jacobson / Karels 算法</a></li>
       </ul>
     </li>
+    <li><a href="#tcp-滑动窗口">TCP 滑动窗口</a>
+      <ul>
+        <li><a href="#发送方的滑动窗口">发送方的滑动窗口</a></li>
+        <li><a href="#接受端控制发送端的图示">接受端控制发送端的图示</a></li>
+      </ul>
+    </li>
+    <li><a href="#tcp-的拥塞处理">TCP 的拥塞处理</a>
+      <ul>
+        <li><a href="#慢热启动算法--slow-start">慢热启动算法 – Slow Start</a></li>
+        <li><a href="#拥塞避免算法--congestion-avoidance">拥塞避免算法 – Congestion Avoidance</a></li>
+        <li><a href="#拥塞状态时的算法">拥塞状态时的算法</a></li>
+        <li><a href="#快速恢复算法--fast-recovery">快速恢复算法 – Fast Recovery</a></li>
+        <li><a href="#fack-算法">FACK 算法</a></li>
+      </ul>
+    </li>
+    <li><a href="#syn-攻击">SYN 攻击</a>
+      <ul>
+        <li><a href="#解决">解决</a></li>
+      </ul>
+    </li>
+    <li><a href="#问答">问答</a>
+      <ul>
+        <li><a href="#为什么建立连接是三次握手而关闭连接却是四次挥手呢">为什么建立连接是三次握手，而关闭连接却是四次挥手呢？</a></li>
+        <li><a href="#单台服务器并发-tcp-连接数到底可以有多少">单台服务器并发 TCP 连接数到底可以有多少？</a>
+          <ul>
+            <li><a href="#文件句柄限制">文件句柄限制</a>
+              <ul>
+                <li><a href="#进程限制">进程限制</a></li>
+                <li><a href="#全局限制">全局限制</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#为什么服务总会抛出一个-connet-reset-by-peer">为什么服务总会抛出一个 <code>connet reset by peer</code>？</a></li>
+        <li><a href="#出现大量-time_wait-状态怎么办">出现大量 time_wait 状态怎么办？</a>
+          <ul>
+            <li><a href="#time_wait-是怎么产生的">TIME_WAIT 是怎么产生的？</a>
+              <ul>
+                <li><a href="#连接关闭的过程">连接关闭的过程</a></li>
+                <li><a href="#time_wait-只会出现在主动断开连接的一方">TIME_WAIT 只会出现在主动断开连接的一方</a></li>
+              </ul>
+            </li>
+            <li><a href="#大量-time_wait-造成的影响">大量 TIME_WAIT 造成的影响</a></li>
+            <li><a href="#排查">排查</a>
+              <ul>
+                <li><a href="#查看-tcp-各个状态的数量">查看 TCP 各个状态的数量</a></li>
+                <li><a href="#tcp-状态含义">TCP 状态含义</a></li>
+                <li><a href="#统计-time_wait-连接的本地地址">统计 TIME_WAIT 连接的本地地址</a></li>
+              </ul>
+            </li>
+            <li><a href="#如何尽量处理-timewait-过多的问题">如何尽量处理 TIMEWAIT 过多的问题？</a>
+              <ul>
+                <li><a href="#修改内核文件-etcsysctlconf">修改内核文件 /etc/sysctl.conf</a></li>
+                <li><a href="#nginx-配置问题">nginx 配置问题</a>
+                  <ul>
+                    <li><a href="#proxy_pass-与-fastcgi_pass-的区别">proxy_pass 与 fastcgi_pass 的区别</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#为什么要有-time_wait-状态">为什么要有 TIME_WAIT 状态？</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
 
@@ -961,89 +957,85 @@ net.ipv4.tcp_max_tw_buckets <span style="color:#f92672">=</span> <span style="co
       
   <nav id="TableOfContents">
   <ul>
-    <li><a href="#tcp">TCP</a>
+    <li><a href="#tcp-报文格式">TCP 报文格式</a></li>
+    <li><a href="#三次握手">三次握手</a></li>
+    <li><a href="#四次挥手">四次挥手</a></li>
+    <li><a href="#tcp-有限状态机">TCP 有限状态机</a></li>
+    <li><a href="#tcp-状态变迁图">TCP 状态变迁图</a></li>
+    <li><a href="#tcp-是全双工的">TCP 是全双工的</a></li>
+    <li><a href="#tcp-的-rtt-算法">TCP 的 RTT 算法</a>
       <ul>
-        <li><a href="#tcp-报文格式">TCP 报文格式</a></li>
-        <li><a href="#三次握手">三次握手</a></li>
-        <li><a href="#四次挥手">四次挥手</a></li>
-        <li><a href="#tcp-有限状态机">TCP 有限状态机</a></li>
-        <li><a href="#tcp-状态变迁图">TCP 状态变迁图</a></li>
-        <li><a href="#tcp-是全双工的">TCP 是全双工的</a></li>
-        <li><a href="#tcp-的-rtt-算法">TCP 的 RTT 算法</a>
-          <ul>
-            <li><a href="#经典算法rfc793httptoolsietforghtmlrfc793">经典算法（<a href="http://tools.ietf.org/html/rfc793">RFC793</a>）</a></li>
-            <li><a href="#karn--partridge-算法">Karn / Partridge 算法</a></li>
-            <li><a href="#jacobson--karels-算法">Jacobson / Karels 算法</a></li>
-          </ul>
-        </li>
-        <li><a href="#tcp-滑动窗口">TCP 滑动窗口</a>
-          <ul>
-            <li><a href="#发送方的滑动窗口">发送方的滑动窗口</a></li>
-            <li><a href="#接受端控制发送端的图示">接受端控制发送端的图示</a></li>
-          </ul>
-        </li>
-        <li><a href="#tcp-的拥塞处理">TCP 的拥塞处理</a>
-          <ul>
-            <li><a href="#慢热启动算法--slow-start">慢热启动算法 – Slow Start</a></li>
-            <li><a href="#拥塞避免算法--congestion-avoidance">拥塞避免算法 – Congestion Avoidance</a></li>
-            <li><a href="#拥塞状态时的算法">拥塞状态时的算法</a></li>
-            <li><a href="#快速恢复算法--fast-recovery">快速恢复算法 – Fast Recovery</a></li>
-            <li><a href="#fack-算法">FACK 算法</a></li>
-          </ul>
-        </li>
-        <li><a href="#syn-攻击">SYN 攻击</a>
-          <ul>
-            <li><a href="#解决">解决</a></li>
-          </ul>
-        </li>
-        <li><a href="#问答">问答</a>
-          <ul>
-            <li><a href="#为什么建立连接是三次握手而关闭连接却是四次挥手呢">为什么建立连接是三次握手，而关闭连接却是四次挥手呢？</a></li>
-            <li><a href="#单台服务器并发-tcp-连接数到底可以有多少">单台服务器并发 TCP 连接数到底可以有多少？</a>
-              <ul>
-                <li><a href="#文件句柄限制">文件句柄限制</a>
-                  <ul>
-                    <li><a href="#进程限制">进程限制</a></li>
-                    <li><a href="#全局限制">全局限制</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#为什么服务总会抛出一个-connet-reset-by-peer">为什么服务总会抛出一个 <code>connet reset by peer</code>？</a></li>
-            <li><a href="#出现大量-time_wait-状态怎么办">出现大量 time_wait 状态怎么办？</a>
-              <ul>
-                <li><a href="#time_wait-是怎么产生的">TIME_WAIT 是怎么产生的？</a>
-                  <ul>
-                    <li><a href="#连接关闭的过程">连接关闭的过程</a></li>
-                    <li><a href="#time_wait-只会出现在主动断开连接的一方">TIME_WAIT 只会出现在主动断开连接的一方</a></li>
-                  </ul>
-                </li>
-                <li><a href="#大量-time_wait-造成的影响">大量 TIME_WAIT 造成的影响</a></li>
-                <li><a href="#排查">排查</a>
-                  <ul>
-                    <li><a href="#查看-tcp-各个状态的数量">查看 TCP 各个状态的数量</a></li>
-                    <li><a href="#tcp-状态含义">TCP 状态含义</a></li>
-                    <li><a href="#统计-time_wait-连接的本地地址">统计 TIME_WAIT 连接的本地地址</a></li>
-                  </ul>
-                </li>
-                <li><a href="#如何尽量处理-timewait-过多的问题">如何尽量处理 TIMEWAIT 过多的问题？</a>
-                  <ul>
-                    <li><a href="#修改内核文件-etcsysctlconf">修改内核文件 /etc/sysctl.conf</a></li>
-                    <li><a href="#nginx-配置问题">nginx 配置问题</a>
-                      <ul>
-                        <li><a href="#proxy_pass-与-fastcgi_pass-的区别">proxy_pass 与 fastcgi_pass 的区别</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="#为什么要有-time_wait-状态">为什么要有 TIME_WAIT 状态？</a></li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li><a href="#参考">参考</a></li>
+        <li><a href="#经典算法rfc793httptoolsietforghtmlrfc793">经典算法（<a href="http://tools.ietf.org/html/rfc793">RFC793</a>）</a></li>
+        <li><a href="#karn--partridge-算法">Karn / Partridge 算法</a></li>
+        <li><a href="#jacobson--karels-算法">Jacobson / Karels 算法</a></li>
       </ul>
     </li>
+    <li><a href="#tcp-滑动窗口">TCP 滑动窗口</a>
+      <ul>
+        <li><a href="#发送方的滑动窗口">发送方的滑动窗口</a></li>
+        <li><a href="#接受端控制发送端的图示">接受端控制发送端的图示</a></li>
+      </ul>
+    </li>
+    <li><a href="#tcp-的拥塞处理">TCP 的拥塞处理</a>
+      <ul>
+        <li><a href="#慢热启动算法--slow-start">慢热启动算法 – Slow Start</a></li>
+        <li><a href="#拥塞避免算法--congestion-avoidance">拥塞避免算法 – Congestion Avoidance</a></li>
+        <li><a href="#拥塞状态时的算法">拥塞状态时的算法</a></li>
+        <li><a href="#快速恢复算法--fast-recovery">快速恢复算法 – Fast Recovery</a></li>
+        <li><a href="#fack-算法">FACK 算法</a></li>
+      </ul>
+    </li>
+    <li><a href="#syn-攻击">SYN 攻击</a>
+      <ul>
+        <li><a href="#解决">解决</a></li>
+      </ul>
+    </li>
+    <li><a href="#问答">问答</a>
+      <ul>
+        <li><a href="#为什么建立连接是三次握手而关闭连接却是四次挥手呢">为什么建立连接是三次握手，而关闭连接却是四次挥手呢？</a></li>
+        <li><a href="#单台服务器并发-tcp-连接数到底可以有多少">单台服务器并发 TCP 连接数到底可以有多少？</a>
+          <ul>
+            <li><a href="#文件句柄限制">文件句柄限制</a>
+              <ul>
+                <li><a href="#进程限制">进程限制</a></li>
+                <li><a href="#全局限制">全局限制</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li><a href="#为什么服务总会抛出一个-connet-reset-by-peer">为什么服务总会抛出一个 <code>connet reset by peer</code>？</a></li>
+        <li><a href="#出现大量-time_wait-状态怎么办">出现大量 time_wait 状态怎么办？</a>
+          <ul>
+            <li><a href="#time_wait-是怎么产生的">TIME_WAIT 是怎么产生的？</a>
+              <ul>
+                <li><a href="#连接关闭的过程">连接关闭的过程</a></li>
+                <li><a href="#time_wait-只会出现在主动断开连接的一方">TIME_WAIT 只会出现在主动断开连接的一方</a></li>
+              </ul>
+            </li>
+            <li><a href="#大量-time_wait-造成的影响">大量 TIME_WAIT 造成的影响</a></li>
+            <li><a href="#排查">排查</a>
+              <ul>
+                <li><a href="#查看-tcp-各个状态的数量">查看 TCP 各个状态的数量</a></li>
+                <li><a href="#tcp-状态含义">TCP 状态含义</a></li>
+                <li><a href="#统计-time_wait-连接的本地地址">统计 TIME_WAIT 连接的本地地址</a></li>
+              </ul>
+            </li>
+            <li><a href="#如何尽量处理-timewait-过多的问题">如何尽量处理 TIMEWAIT 过多的问题？</a>
+              <ul>
+                <li><a href="#修改内核文件-etcsysctlconf">修改内核文件 /etc/sysctl.conf</a></li>
+                <li><a href="#nginx-配置问题">nginx 配置问题</a>
+                  <ul>
+                    <li><a href="#proxy_pass-与-fastcgi_pass-的区别">proxy_pass 与 fastcgi_pass 的区别</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><a href="#为什么要有-time_wait-状态">为什么要有 TIME_WAIT 状态？</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
 
