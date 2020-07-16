@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="netfilter "><meta property="og:title" content="netfilter" />
-<meta property="og:description" content="netfilter " />
+<meta name="description" content="Wireshark 查询 ip.addr == 192.168.137.109 MacOS 打开两个 Wireshark # 使用 -n 可以打开多个 open -n /Applications/Wireshark.app 参考：
+ Open Multiple Instances of Wireshark on MacOS  "><meta property="og:title" content="Wireshark" />
+<meta property="og:description" content="Wireshark 查询 ip.addr == 192.168.137.109 MacOS 打开两个 Wireshark # 使用 -n 可以打开多个 open -n /Applications/Wireshark.app 参考：
+ Open Multiple Instances of Wireshark on MacOS  " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/cmd/netfilter/" />
-<meta property="article:modified_time" content="2020-05-21T09:50:35+08:00" />
-<title>netfilter | 网络学习笔记</title>
+<meta property="og:url" content="https://ikingye.github.io/study-network/docs/advanced/tool/wireshark/" />
+
+<title>Wireshark | 网络学习笔记</title>
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 
 
@@ -120,32 +122,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/basic/cmd/iptables/" class="">iptables</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/basic/cmd/netfilter/" class="active">netfilter</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
 
 
   </li>
@@ -243,6 +219,22 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+      
+        <li>
+
+  
+  <a href="/study-network/docs/advanced/tool/wireshark/" class="active">Wireshark</a>
+  
+
+</li>
+      
+    
+  </ul>
+  
 
 
 
@@ -419,7 +411,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-network/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>netfilter</strong>
+  <strong>Wireshark</strong>
 
   <label for="toc-control">
     <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -431,7 +423,12 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#查询">查询</a></li>
+    <li><a href="#macos-打开两个-wireshark">MacOS 打开两个 Wireshark</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -441,7 +438,17 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="netfilter">netfilter</h1>
+  <article class="markdown"><h1 id="wireshark">Wireshark</h1>
+<h2 id="查询">查询</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ip.addr <span style="color:#f92672">==</span> 192.168.137.109
+
+</code></pre></div><h2 id="macos-打开两个-wireshark">MacOS 打开两个 Wireshark</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 使用 -n 可以打开多个</span>
+open -n /Applications/Wireshark.app
+</code></pre></div><p>参考：</p>
+<ul>
+<li><a href="https://ttlzero.wordpress.com/2017/07/13/first-blog-post/">Open Multiple Instances of Wireshark on MacOS</a></li>
+</ul>
 </article>
  
       
@@ -451,14 +458,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/note/commit/a782ff7d0f2b75c2f81c448544162f2423318779" title='Last modified by yewang | 2020-05-21' target="_blank" rel="noopener">
-      <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-05-21</span>
-    </a>
-  </div>
 
 
 
@@ -489,7 +488,12 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#查询">查询</a></li>
+    <li><a href="#macos-打开两个-wireshark">MacOS 打开两个 Wireshark</a></li>
+  </ul>
+</nav>
 
  
     </aside>

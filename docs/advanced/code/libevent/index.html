@@ -4,12 +4,14 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="netfilter "><meta property="og:title" content="netfilter" />
-<meta property="og:description" content="netfilter " />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/cmd/netfilter/" />
-<meta property="article:modified_time" content="2020-05-21T09:50:35+08:00" />
-<title>netfilter | 网络学习笔记</title>
+<meta name="description" content="libevent libevent/libevent Event notification library https://libevent.org
+支持多种 I/O 多路复用技术，epoll、poll、dev/poll、select 和 kqueue 等
+ reactor 参考  Libevent 深入浅出  "><meta property="og:title" content="libevent" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ikingye.github.io/study-network/docs/advanced/code/libevent/" />
+
+<title>libevent | 网络学习笔记</title>
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 
 
@@ -18,6 +20,7 @@
 
 <script defer src="/study-network/en.search.min.7694fc08e14071c2238a57dde2cc92314054f49daa60ffb3e9e2c269b757af20.js" integrity="sha256-dpT8COFAccIjilfd4sySMUBU9J2qYP&#43;z6eLCabdXryA="></script>
 
+<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-network/docs/advanced/code/libevent/index.xml" title="网络学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -120,32 +123,6 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  
-  <ul>
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/basic/cmd/iptables/" class="">iptables</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/basic/cmd/netfilter/" class="active">netfilter</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
 
 
   </li>
@@ -220,6 +197,110 @@ https://github.com/alex-shpak/hugo-book
 
 
 
+
+  
+  <ul>
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-network/docs/advanced/code/spec/" class="collapsed ">编程规范</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-network/docs/advanced/code/epoll/" class="collapsed ">epoll</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-network/docs/advanced/code/libevent/" class="collapsed active">libevent</a>
+  
+
+
+    
+
+
+
+
+  
+  <ul>
+    
+  </ul>
+  
+
+
+
+  </li>
+
+
+      
+    
+      
+        
+
+  <li>
+    
+
+  
+  <a href="/study-network/docs/advanced/code/select/" class="collapsed ">select</a>
+  
+
+
+    
+
+
+
+
+
+
+  </li>
+
+
+      
+    
+  </ul>
+  
 
 
 
@@ -419,7 +500,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-network/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>netfilter</strong>
+  <strong>libevent</strong>
 
   <label for="toc-control">
     <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
@@ -431,7 +512,12 @@ https://github.com/alex-shpak/hugo-book
     <input type="checkbox" class="hidden" id="toc-control" />
     <aside class="hidden clearfix">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#reactor">reactor</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
 
 
     </aside>
@@ -441,7 +527,17 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="netfilter">netfilter</h1>
+  <article class="markdown"><h1 id="libevent">libevent</h1>
+<p><a href="https://github.com/libevent/libevent">libevent/libevent</a> <img src="https://img.shields.io/github/stars/libevent/libevent.svg" alt="Github stars" /></p>
+<p>Event notification library
+<a href="https://libevent.org">https://libevent.org</a></p>
+<p>支持多种 I/O 多路复用技术，epoll、poll、dev/poll、select 和 kqueue 等</p>
+<hr>
+<h2 id="reactor">reactor</h2>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://aceld.gitbooks.io/libevent/content/">Libevent 深入浅出</a></li>
+</ul>
 </article>
  
       
@@ -451,14 +547,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex justify-between">
 
 
-
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/note/commit/a782ff7d0f2b75c2f81c448544162f2423318779" title='Last modified by yewang | 2020-05-21' target="_blank" rel="noopener">
-      <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-05-21</span>
-    </a>
-  </div>
 
 
 
@@ -489,7 +577,12 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#reactor">reactor</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
 
  
     </aside>
