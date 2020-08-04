@@ -1,25 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="libevent libevent/libevent Event notification library https://libevent.org
+<meta name="description" content="libevent #  libevent/libevent Event notification library https://libevent.org
 支持多种 I/O 多路复用技术，epoll、poll、dev/poll、select 和 kqueue 等
- reactor 参考  Libevent 深入浅出  "><meta property="og:title" content="libevent" />
+ reactor #  参考 #   Libevent 深入浅出  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="libevent" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ikingye.github.io/study-network/docs/advanced/code/libevent/" />
 
 <title>libevent | 网络学习笔记</title>
+<link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
-
-
-<link rel="stylesheet" href="/study-network/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
-
-
-<script defer src="/study-network/en.search.min.7694fc08e14071c2238a57dde2cc92314054f49daa60ffb3e9e2c269b757af20.js" integrity="sha256-dpT8COFAccIjilfd4sySMUBU9J2qYP&#43;z6eLCabdXryA="></script>
-
+<link rel="stylesheet" href="/study-network/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
+<script defer src="/study-network/en.search.min.ffb239aaec6b2263597c10d3000eacc8415ff3ebe8622c3c83a738a0a740ca49.js" integrity="sha256-/7I5quxrImNZfBDTAA6syEFf8&#43;voYiw8g6c4oKdAykk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-network/docs/advanced/code/libevent/index.xml" title="网络学习笔记" />
 <!--
 Made with Book Theme
@@ -29,8 +26,9 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
   <main class="container flex">
     <aside class="book-menu">
       
@@ -43,7 +41,7 @@ https://github.com/alex-shpak/hugo-book
 
 <div class="book-search">
   <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -71,395 +69,293 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-  
-  
-
-
-
-
-
- 
-  
-    
-
-
 
 
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
   
-  <span>第一部分 基础入门</span>
   
-
-
-    
-
-
-
-
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/basic/cmd/" class="collapsed ">1.1 命令</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/basic/protocol/" class="collapsed ">1.2 协议</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第二部分 进阶实战</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/" class="collapsed ">2.1 网络编程</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/spec/" class="collapsed ">编程规范</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/epoll/" class="collapsed ">epoll</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/libevent/" class="collapsed active">libevent</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/select/" class="collapsed ">select</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/tool/" class="collapsed ">2.2 网络工具</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第三部分 设计与实现</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/code/stack/" class="collapsed ">3.1 协议栈</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第四部分 附录</span>
-  
-
-
-    
-
-
-
 
   
   <ul>
     
       
         <li>
+          
+  
+    <span>第一部分 基础入门</span>
+  
+
+          
+  
+  
+  
 
   
-  <a href="/study-network/docs/appendix/tutorial/" class="">4.1 教程</a>
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/cmd/" class="collapsed ">1.1 命令</a>
   
 
-</li>
+          
+  
+  
+  
+
+  
+
+        </li>
       
     
       
         <li>
-
+          
   
-  <a href="/study-network/docs/appendix/interview/" class="">4.2 面试题</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/appendix/attention/" class="">4.3 关注项目</a>
+    <a href="/study-network/docs/basic/protocol/" class="collapsed ">1.2 协议</a>
   
 
-</li>
+          
+  
+  
+  
+
+  
+
+        </li>
       
     
   </ul>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第二部分 进阶实战</span>
+  
 
+          
+  
+  
+  
 
-  </li>
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/" class="collapsed ">2.1 网络编程</a>
+  
 
+          
+  
+  
+  
 
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/spec/" class="collapsed ">编程规范</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/epoll/" class="collapsed ">epoll</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/libevent/" class="collapsed active">libevent</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/select/" class="collapsed ">select</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
       
     
   </ul>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/tool/" class="collapsed ">2.2 网络工具</a>
+  
 
+          
+  
+  
+  
 
   
 
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第三部分 设计与实现</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/code/stack/" class="collapsed ">3.1 协议栈</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/tutorial/" class="">4.1 教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/interview/" class="">4.2 面试题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/attention/" class="">4.3 关注项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
 
 
 
@@ -503,15 +399,16 @@ https://github.com/alex-shpak/hugo-book
   <strong>libevent</strong>
 
   <label for="toc-control">
+    
     <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
   </label>
 </div>
 
 
   
-    <input type="checkbox" class="hidden" id="toc-control" />
-    <aside class="hidden clearfix">
-      
+  <aside class="hidden clearfix">
+    
   <nav id="TableOfContents">
   <ul>
     <li><a href="#reactor">reactor</a></li>
@@ -520,21 +417,30 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-    </aside>
+  </aside>
   
  
       </header>
 
       
       
-  <article class="markdown"><h1 id="libevent">libevent</h1>
+  <article class="markdown"><h1 id="libevent">
+  libevent
+  <a class="anchor" href="#libevent">#</a>
+</h1>
 <p><a href="https://github.com/libevent/libevent">libevent/libevent</a> <img src="https://img.shields.io/github/stars/libevent/libevent.svg" alt="Github stars" /></p>
 <p>Event notification library
 <a href="https://libevent.org">https://libevent.org</a></p>
 <p>支持多种 I/O 多路复用技术，epoll、poll、dev/poll、select 和 kqueue 等</p>
 <hr>
-<h2 id="reactor">reactor</h2>
-<h2 id="参考">参考</h2>
+<h2 id="reactor">
+  reactor
+  <a class="anchor" href="#reactor">#</a>
+</h2>
+<h2 id="参考">
+  参考
+  <a class="anchor" href="#%e5%8f%82%e8%80%83">#</a>
+</h2>
 <ul>
 <li><a href="https://aceld.gitbooks.io/libevent/content/">Libevent 深入浅出</a></li>
 </ul>
@@ -544,13 +450,11 @@ https://github.com/alex-shpak/hugo-book
 
       <footer class="book-footer">
         
-  <div class="flex justify-between">
+  <div class="flex flex-wrap justify-between">
 
 
 
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-network/commit/04661a33ce448777eca0077353f83fd6d0a3e02b" title='Last modified by yewang | 2020-07-16' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/04661a33ce448777eca0077353f83fd6d0a3e02b" title='Last modified by yewang | 2020-07-16' target="_blank" rel="noopener">
       <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>2020-07-16</span>
     </a>

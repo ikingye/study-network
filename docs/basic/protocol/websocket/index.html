@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="WebSocket WebSocket 的目标是在一个单独的持久连接上提供全双工、双向通信。
+<meta name="description" content="WebSocket #  WebSocket 的目标是在一个单独的持久连接上提供全双工、双向通信。
 在 Javascript 创建了 Web Socket 之后，会有一个 HTTP 请求发送到浏览器以发起连接。 在取得服务器响应后，建立的连接会将 HTTP 升级为 WebSocket 协议。
 由于 WebSocket 使用自定义的协议，所以 URL 模式也略有不同。
 未加密的连接不再是 http://，而是 ws://; 加密的连接也不是 https://，而是 wss://。
 使用自定义协议而非 HTTP 协议的好处是，能够在客户端和服务器之间发送非常少量的数据，而不必担心 HTTP 那样字节级的开销。
 由于传递的数据包很小，所以 WebSocket 非常适合移动应用。
-特点  可以发送文本，也可以发送二进制数据。 没有同源限制，客户端可以与任意服务器通信。  参考：
- 推送技术 阮一峰 - WebSocket 教程  "><meta property="og:title" content="WebSocket" />
-<meta property="og:description" content="WebSocket WebSocket 的目标是在一个单独的持久连接上提供全双工、双向通信。
+特点 #   可以发送文本，也可以发送二进制数据。 没有同源限制，客户端可以与任意服务器通信。  参考：
+ 推送技术 阮一峰 - WebSocket 教程  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="WebSocket" />
+<meta property="og:description" content="WebSocket #  WebSocket 的目标是在一个单独的持久连接上提供全双工、双向通信。
 在 Javascript 创建了 Web Socket 之后，会有一个 HTTP 请求发送到浏览器以发起连接。 在取得服务器响应后，建立的连接会将 HTTP 升级为 WebSocket 协议。
 由于 WebSocket 使用自定义的协议，所以 URL 模式也略有不同。
 未加密的连接不再是 http://，而是 ws://; 加密的连接也不是 https://，而是 wss://。
 使用自定义协议而非 HTTP 协议的好处是，能够在客户端和服务器之间发送非常少量的数据，而不必担心 HTTP 那样字节级的开销。
 由于传递的数据包很小，所以 WebSocket 非常适合移动应用。
-特点  可以发送文本，也可以发送二进制数据。 没有同源限制，客户端可以与任意服务器通信。  参考：
+特点 #   可以发送文本，也可以发送二进制数据。 没有同源限制，客户端可以与任意服务器通信。  参考：
  推送技术 阮一峰 - WebSocket 教程  " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/protocol/websocket/" />
 <meta property="article:modified_time" content="2020-06-16T17:36:43+08:00" />
 <title>WebSocket | 网络学习笔记</title>
+<link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
-
-
-<link rel="stylesheet" href="/study-network/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
-
-
-<script defer src="/study-network/en.search.min.7694fc08e14071c2238a57dde2cc92314054f49daa60ffb3e9e2c269b757af20.js" integrity="sha256-dpT8COFAccIjilfd4sySMUBU9J2qYP&#43;z6eLCabdXryA="></script>
-
+<link rel="stylesheet" href="/study-network/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
+<script defer src="/study-network/en.search.min.ffb239aaec6b2263597c10d3000eacc8415ff3ebe8622c3c83a738a0a740ca49.js" integrity="sha256-/7I5quxrImNZfBDTAA6syEFf8&#43;voYiw8g6c4oKdAykk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -40,8 +37,9 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
   <main class="container flex">
     <aside class="book-menu">
       
@@ -54,7 +52,7 @@ https://github.com/alex-shpak/hugo-book
 
 <div class="book-search">
   <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -82,367 +80,291 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-  
-  
-
-
-
-
-
- 
-  
-    
-
-
 
 
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
   
-  <span>第一部分 基础入门</span>
   
-
-
-    
-
-
-
-
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/basic/cmd/" class="collapsed ">1.1 命令</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/basic/protocol/" class="collapsed ">1.2 协议</a>
-  
-
-
-    
-
-
-
 
   
   <ul>
     
       
         <li>
-
+          
   
-  <a href="/study-network/docs/basic/protocol/tcp/" class="">TCP</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/basic/protocol/udp/" class="">UDP</a>
+    <span>第一部分 基础入门</span>
   
 
-</li>
-      
-    
-      
-        <li>
-
+          
   
-  <a href="/study-network/docs/basic/protocol/dns/" class="">DNS</a>
   
-
-</li>
-      
-    
-      
-        <li>
-
   
-  <a href="/study-network/docs/basic/protocol/http/" class="">HTTP</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/basic/protocol/ssl/" class="">SSL</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/basic/protocol/websocket/" class="active">WebSocket</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/basic/protocol/https/" class="">HTTPs</a>
-  
-
-</li>
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第二部分 进阶实战</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/" class="collapsed ">2.1 网络编程</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/tool/" class="collapsed ">2.2 网络工具</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第三部分 设计与实现</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/code/stack/" class="collapsed ">3.1 协议栈</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第四部分 附录</span>
-  
-
-
-    
-
-
-
 
   
   <ul>
     
       
         <li>
+          
+  
+    <a href="/study-network/docs/basic/cmd/" class="collapsed ">1.1 命令</a>
+  
+
+          
+  
+  
+  
 
   
-  <a href="/study-network/docs/appendix/tutorial/" class="">4.1 教程</a>
-  
 
-</li>
+        </li>
       
     
       
         <li>
+          
+  
+    <a href="/study-network/docs/basic/protocol/" class="collapsed ">1.2 协议</a>
+  
+
+          
+  
+  
+  
 
   
-  <a href="/study-network/docs/appendix/interview/" class="">4.2 面试题</a>
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/protocol/tcp/" class="">TCP</a>
   
 
-</li>
+        </li>
       
     
       
         <li>
-
+          
   
-  <a href="/study-network/docs/appendix/attention/" class="">4.3 关注项目</a>
+    <a href="/study-network/docs/basic/protocol/udp/" class="">UDP</a>
   
 
-</li>
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/protocol/dns/" class="">DNS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/protocol/http/" class="">HTTP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/protocol/ssl/" class="">SSL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/protocol/websocket/" class="active">WebSocket</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/protocol/https/" class="">HTTPs</a>
+  
+
+        </li>
       
     
   </ul>
   
 
-
-
-  </li>
-
-
+        </li>
       
     
   </ul>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第二部分 进阶实战</span>
+  
 
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/" class="collapsed ">2.1 网络编程</a>
+  
+
+          
+  
+  
+  
 
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/tool/" class="collapsed ">2.2 网络工具</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第三部分 设计与实现</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/code/stack/" class="collapsed ">3.1 协议栈</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/tutorial/" class="">4.1 教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/interview/" class="">4.2 面试题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/attention/" class="">4.3 关注项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
 
 
 
@@ -486,15 +408,16 @@ https://github.com/alex-shpak/hugo-book
   <strong>WebSocket</strong>
 
   <label for="toc-control">
+    
     <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
   </label>
 </div>
 
 
   
-    <input type="checkbox" class="hidden" id="toc-control" />
-    <aside class="hidden clearfix">
-      
+  <aside class="hidden clearfix">
+    
   <nav id="TableOfContents">
   <ul>
     <li><a href="#特点">特点</a></li>
@@ -502,14 +425,17 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-    </aside>
+  </aside>
   
  
       </header>
 
       
       
-  <article class="markdown"><h1 id="websocket">WebSocket</h1>
+  <article class="markdown"><h1 id="websocket">
+  WebSocket
+  <a class="anchor" href="#websocket">#</a>
+</h1>
 <p>WebSocket 的目标是在一个单独的持久连接上提供全双工、双向通信。</p>
 <p>在 Javascript 创建了 Web Socket 之后，会有一个 HTTP 请求发送到浏览器以发起连接。
 在取得服务器响应后，建立的连接会将 HTTP <strong>升级</strong>为 WebSocket 协议。</p>
@@ -517,7 +443,10 @@ https://github.com/alex-shpak/hugo-book
 <p>未加密的连接不再是 http://，而是 <code>ws://</code>; 加密的连接也不是 https://，而是 <code>wss://</code>。</p>
 <p>使用自定义协议而非 HTTP 协议的好处是，能够在客户端和服务器之间<strong>发送非常少量的数据</strong>，而不必担心 HTTP 那样<strong>字节级</strong>的开销。</p>
 <p>由于传递的数据包很小，所以 WebSocket 非常适合移动应用。</p>
-<h2 id="特点">特点</h2>
+<h2 id="特点">
+  特点
+  <a class="anchor" href="#%e7%89%b9%e7%82%b9">#</a>
+</h2>
 <ul>
 <li>可以发送文本，也可以发送二进制数据。</li>
 <li>没有同源限制，客户端可以与任意服务器通信。</li>
@@ -533,13 +462,11 @@ https://github.com/alex-shpak/hugo-book
 
       <footer class="book-footer">
         
-  <div class="flex justify-between">
+  <div class="flex flex-wrap justify-between">
 
 
 
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-network/commit/086785543b13caab6b2e5b303a44c9caec915aa1" title='Last modified by yewang | 2020-06-16' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/086785543b13caab6b2e5b303a44c9caec915aa1" title='Last modified by yewang | 2020-06-16' target="_blank" rel="noopener">
       <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>2020-06-16</span>
     </a>

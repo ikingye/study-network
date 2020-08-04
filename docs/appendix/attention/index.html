@@ -1,35 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="关注 其他 netty/netty  Netty project - an event-driven asynchronous network application framework http://netty.io/
-libuv/libuv  Cross-platform asynchronous I/O https://libuv.org/
-panjf2000/gnet  gnet 是一个基于事件驱动的高性能和轻量级网络框架。它直接使用 epoll 和 kqueue 系统调用而非标准 Go 网络包：net 来构建网络应用，它的工作原理类似两个开源的网络库：netty/netty 和 libuv/libuv 。
+<meta name="description" content="关注 #  其他 #  netty/netty #  Netty project - an event-driven asynchronous network application framework http://netty.io/
+libuv/libuv #  Cross-platform asynchronous I/O https://libuv.org/
+panjf2000/gnet #  gnet 是一个基于事件驱动的高性能和轻量级网络框架。它直接使用 epoll 和 kqueue 系统调用而非标准 Go 网络包：net 来构建网络应用，它的工作原理类似两个开源的网络库：netty/netty 和 libuv/libuv 。
 gnet 设计开发的初衷不是为了取代 Go 的标准网络库：net，而是为了创造出一个类似于 antirez/redis 、haproxy/haproxy 能高效处理网络包的 Go 语言网络服务器框架。
-gnet 的卖点在于它是一个高性能、轻量级、非阻塞的纯 Go 实现的传输层（TCP/UDP/Unix Domain Socket）网络框架，开发者可以使用 gnet 来实现自己的应用层网络协议 (HTTP、RPC、Redis、WebSocket 等等)，从而构建出自己的应用层网络应用：比如在 gnet 上实现 HTTP 协议就可以创建出一个 HTTP 服务器 或者 Web 开发框架，实现 Redis 协议就可以创建出自己的 Redis 服务器等等。
-gnet 衍生自另一个项目：tidwall/evio ，但拥有更丰富的功能特性，且性能远胜之。
-tidwall/evio  Fast event-loop networking for Go"><meta property="og:title" content="4.3 关注项目" />
-<meta property="og:description" content="关注 其他 netty/netty  Netty project - an event-driven asynchronous network application framework http://netty.io/
-libuv/libuv  Cross-platform asynchronous I/O https://libuv.org/
-panjf2000/gnet  gnet 是一个基于事件驱动的高性能和轻量级网络框架。它直接使用 epoll 和 kqueue 系统调用而非标准 Go 网络包：net 来构建网络应用，它的工作原理类似两个开源的网络库：netty/netty 和 libuv/libuv 。
+gnet 的卖点在于它是一个高性能、轻量级、非阻塞的纯 Go 实现的传输层（TCP/UDP/Unix Domain Socket）网络框架，开发者可以使用 gnet 来实现自己的应用层网络协议 (HTTP、RPC、Redis、WebSocket 等等)，从而构建出自己的应用层网络应用：比如在 gnet 上实现 HTTP 协议就可以创建出一个 HTTP 服务器 或者 Web 开发框架，实现 Redis 协议就可以创建出自己的 Redis 服务器等等。">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="4.3 关注项目" />
+<meta property="og:description" content="关注 #  其他 #  netty/netty #  Netty project - an event-driven asynchronous network application framework http://netty.io/
+libuv/libuv #  Cross-platform asynchronous I/O https://libuv.org/
+panjf2000/gnet #  gnet 是一个基于事件驱动的高性能和轻量级网络框架。它直接使用 epoll 和 kqueue 系统调用而非标准 Go 网络包：net 来构建网络应用，它的工作原理类似两个开源的网络库：netty/netty 和 libuv/libuv 。
 gnet 设计开发的初衷不是为了取代 Go 的标准网络库：net，而是为了创造出一个类似于 antirez/redis 、haproxy/haproxy 能高效处理网络包的 Go 语言网络服务器框架。
-gnet 的卖点在于它是一个高性能、轻量级、非阻塞的纯 Go 实现的传输层（TCP/UDP/Unix Domain Socket）网络框架，开发者可以使用 gnet 来实现自己的应用层网络协议 (HTTP、RPC、Redis、WebSocket 等等)，从而构建出自己的应用层网络应用：比如在 gnet 上实现 HTTP 协议就可以创建出一个 HTTP 服务器 或者 Web 开发框架，实现 Redis 协议就可以创建出自己的 Redis 服务器等等。
-gnet 衍生自另一个项目：tidwall/evio ，但拥有更丰富的功能特性，且性能远胜之。
-tidwall/evio  Fast event-loop networking for Go" />
+gnet 的卖点在于它是一个高性能、轻量级、非阻塞的纯 Go 实现的传输层（TCP/UDP/Unix Domain Socket）网络框架，开发者可以使用 gnet 来实现自己的应用层网络协议 (HTTP、RPC、Redis、WebSocket 等等)，从而构建出自己的应用层网络应用：比如在 gnet 上实现 HTTP 协议就可以创建出一个 HTTP 服务器 或者 Web 开发框架，实现 Redis 协议就可以创建出自己的 Redis 服务器等等。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-network/docs/appendix/attention/" />
 <meta property="article:modified_time" content="2020-07-16T20:41:07+08:00" />
 <title>4.3 关注项目 | 网络学习笔记</title>
+<link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
-
-
-<link rel="stylesheet" href="/study-network/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
-
-
-<script defer src="/study-network/en.search.min.7694fc08e14071c2238a57dde2cc92314054f49daa60ffb3e9e2c269b757af20.js" integrity="sha256-dpT8COFAccIjilfd4sySMUBU9J2qYP&#43;z6eLCabdXryA="></script>
-
+<link rel="stylesheet" href="/study-network/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
+<script defer src="/study-network/en.search.min.ffb239aaec6b2263597c10d3000eacc8415ff3ebe8622c3c83a738a0a740ca49.js" integrity="sha256-/7I5quxrImNZfBDTAA6syEFf8&#43;voYiw8g6c4oKdAykk="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -38,8 +31,9 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
   <main class="container flex">
     <aside class="book-menu">
       
@@ -52,7 +46,7 @@ https://github.com/alex-shpak/hugo-book
 
 <div class="book-search">
   <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -80,291 +74,217 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-  
-  
-
-
-
-
-
- 
-  
-    
-
-
 
 
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
   
-  <span>第一部分 基础入门</span>
   
-
-
-    
-
-
-
-
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/basic/cmd/" class="collapsed ">1.1 命令</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/basic/protocol/" class="collapsed ">1.2 协议</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第二部分 进阶实战</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/" class="collapsed ">2.1 网络编程</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/tool/" class="collapsed ">2.2 网络工具</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第三部分 设计与实现</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/code/stack/" class="collapsed ">3.1 协议栈</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第四部分 附录</span>
-  
-
-
-    
-
-
-
 
   
   <ul>
     
       
         <li>
+          
+  
+    <span>第一部分 基础入门</span>
+  
+
+          
+  
+  
+  
 
   
-  <a href="/study-network/docs/appendix/tutorial/" class="">4.1 教程</a>
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/cmd/" class="collapsed ">1.1 命令</a>
   
 
-</li>
+          
+  
+  
+  
+
+  
+
+        </li>
       
     
       
         <li>
-
+          
   
-  <a href="/study-network/docs/appendix/interview/" class="">4.2 面试题</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/appendix/attention/" class="active">4.3 关注项目</a>
+    <a href="/study-network/docs/basic/protocol/" class="collapsed ">1.2 协议</a>
   
 
-</li>
+          
+  
+  
+  
+
+  
+
+        </li>
       
     
   </ul>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第二部分 进阶实战</span>
+  
 
+          
+  
+  
+  
 
-  </li>
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/" class="collapsed ">2.1 网络编程</a>
+  
 
+          
+  
+  
+  
 
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/tool/" class="collapsed ">2.2 网络工具</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
       
     
   </ul>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第三部分 设计与实现</span>
+  
 
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/code/stack/" class="collapsed ">3.1 协议栈</a>
+  
+
+          
+  
+  
+  
 
   
 
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/tutorial/" class="">4.1 教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/interview/" class="">4.2 面试题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/attention/" class="active">4.3 关注项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
 
 
 
@@ -408,15 +328,16 @@ https://github.com/alex-shpak/hugo-book
   <strong>4.3 关注项目</strong>
 
   <label for="toc-control">
+    
     <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
   </label>
 </div>
 
 
   
-    <input type="checkbox" class="hidden" id="toc-control" />
-    <aside class="hidden clearfix">
-      
+  <aside class="hidden clearfix">
+    
   <nav id="TableOfContents">
   <ul>
     <li><a href="#其他">其他</a>
@@ -431,25 +352,43 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-    </aside>
+  </aside>
   
  
       </header>
 
       
       
-  <article class="markdown"><h1 id="关注">关注</h1>
-<h2 id="其他">其他</h2>
-<h3 id="nettynettyhttpsgithubcomnettynetty-github-starshttpsimgshieldsiogithubstarsnettynettysvg"><a href="https://github.com/netty/netty">netty/netty</a> <img src="https://img.shields.io/github/stars/netty/netty.svg" alt="Github stars" /></h3>
+  <article class="markdown"><h1 id="关注">
+  关注
+  <a class="anchor" href="#%e5%85%b3%e6%b3%a8">#</a>
+</h1>
+<h2 id="其他">
+  其他
+  <a class="anchor" href="#%e5%85%b6%e4%bb%96">#</a>
+</h2>
+<a href="https://github.com/netty/netty">netty/netty</a> <h3 id="nettynettyhttpsgithubcomnettynetty-github-starshttpsimgshieldsiogithubstarsnettynettysvg">
+  <img src="https://img.shields.io/github/stars/netty/netty.svg" alt="Github stars" />
+  <a class="anchor" href="#nettynettyhttpsgithubcomnettynetty-github-starshttpsimgshieldsiogithubstarsnettynettysvg">#</a>
+</h3>
 <p>Netty project - an event-driven asynchronous network application framework <a href="http://netty.io/">http://netty.io/</a></p>
-<h3 id="libuvlibuvhttpsgithubcomlibuvlibuv-github-starshttpsimgshieldsiogithubstarslibuvlibuvsvg"><a href="https://github.com/libuv/libuv">libuv/libuv</a> <img src="https://img.shields.io/github/stars/libuv/libuv.svg" alt="Github stars" /></h3>
+<a href="https://github.com/libuv/libuv">libuv/libuv</a> <h3 id="libuvlibuvhttpsgithubcomlibuvlibuv-github-starshttpsimgshieldsiogithubstarslibuvlibuvsvg">
+  <img src="https://img.shields.io/github/stars/libuv/libuv.svg" alt="Github stars" />
+  <a class="anchor" href="#libuvlibuvhttpsgithubcomlibuvlibuv-github-starshttpsimgshieldsiogithubstarslibuvlibuvsvg">#</a>
+</h3>
 <p>Cross-platform asynchronous I/O <a href="https://libuv.org/">https://libuv.org/</a></p>
-<h3 id="panjf2000gnethttpsgithubcompanjf2000gnet-github-starshttpsimgshieldsiogithubstarspanjf2000gnetsvg-go-versionhttpsimgshieldsiogithubgo-modgo-versionpanjf2000gnet"><a href="https://github.com/panjf2000/gnet">panjf2000/gnet</a> <img src="https://img.shields.io/github/stars/panjf2000/gnet.svg" alt="Github stars" /> <img src="https://img.shields.io/github/go-mod/go-version/panjf2000/gnet" alt="Go version" /></h3>
+<a href="https://github.com/panjf2000/gnet">panjf2000/gnet</a> <img src="https://img.shields.io/github/stars/panjf2000/gnet.svg" alt="Github stars" /> <h3 id="panjf2000gnethttpsgithubcompanjf2000gnet-github-starshttpsimgshieldsiogithubstarspanjf2000gnetsvg-go-versionhttpsimgshieldsiogithubgo-modgo-versionpanjf2000gnet">
+  <img src="https://img.shields.io/github/go-mod/go-version/panjf2000/gnet" alt="Go version" />
+  <a class="anchor" href="#panjf2000gnethttpsgithubcompanjf2000gnet-github-starshttpsimgshieldsiogithubstarspanjf2000gnetsvg-go-versionhttpsimgshieldsiogithubgo-modgo-versionpanjf2000gnet">#</a>
+</h3>
 <p>gnet 是一个基于事件驱动的高性能和轻量级网络框架。它直接使用 epoll 和 kqueue 系统调用而非标准 Go 网络包：net 来构建网络应用，它的工作原理类似两个开源的网络库：<a href="https://github.com/netty/netty">netty/netty</a> <img src="https://img.shields.io/github/stars/netty/netty.svg" alt="Github stars" /> 和 <a href="https://github.com/libuv/libuv">libuv/libuv</a> <img src="https://img.shields.io/github/stars/libuv/libuv.svg" alt="Github stars" />。</p>
 <p>gnet 设计开发的初衷不是为了取代 Go 的标准网络库：net，而是为了创造出一个类似于 <a href="https://github.com/antirez/redis">antirez/redis</a> <img src="https://img.shields.io/github/stars/antirez/redis.svg" alt="Github stars" />、<a href="https://github.com/haproxy/haproxy">haproxy/haproxy</a> <img src="https://img.shields.io/github/stars/haproxy/haproxy.svg" alt="Github stars" /> 能高效处理网络包的 Go 语言网络服务器框架。</p>
 <p>gnet 的卖点在于它是一个高性能、轻量级、非阻塞的纯 Go 实现的传输层（TCP/UDP/Unix Domain Socket）网络框架，开发者可以使用 gnet 来实现自己的应用层网络协议 (HTTP、RPC、Redis、WebSocket 等等)，从而构建出自己的应用层网络应用：比如在 gnet 上实现 HTTP 协议就可以创建出一个 HTTP 服务器 或者 Web 开发框架，实现 Redis 协议就可以创建出自己的 Redis 服务器等等。</p>
 <p>gnet 衍生自另一个项目：<a href="https://github.com/tidwall/evio">tidwall/evio</a> <img src="https://img.shields.io/github/stars/tidwall/evio.svg" alt="Github stars" />，但拥有更丰富的功能特性，且性能远胜之。</p>
-<h3 id="tidwalleviohttpsgithubcomtidwallevio-github-starshttpsimgshieldsiogithubstarstidwalleviosvg"><a href="https://github.com/tidwall/evio">tidwall/evio</a> <img src="https://img.shields.io/github/stars/tidwall/evio.svg" alt="Github stars" /></h3>
+<a href="https://github.com/tidwall/evio">tidwall/evio</a> <h3 id="tidwalleviohttpsgithubcomtidwallevio-github-starshttpsimgshieldsiogithubstarstidwalleviosvg">
+  <img src="https://img.shields.io/github/stars/tidwall/evio.svg" alt="Github stars" />
+  <a class="anchor" href="#tidwalleviohttpsgithubcomtidwallevio-github-starshttpsimgshieldsiogithubstarstidwalleviosvg">#</a>
+</h3>
 <p>Fast event-loop networking for Go</p>
 </article>
  
@@ -457,13 +396,11 @@ https://github.com/alex-shpak/hugo-book
 
       <footer class="book-footer">
         
-  <div class="flex justify-between">
+  <div class="flex flex-wrap justify-between">
 
 
 
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-network/commit/04661a33ce448777eca0077353f83fd6d0a3e02b" title='Last modified by yewang | 2020-07-16' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/04661a33ce448777eca0077353f83fd6d0a3e02b" title='Last modified by yewang | 2020-07-16' target="_blank" rel="noopener">
       <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>2020-07-16</span>
     </a>

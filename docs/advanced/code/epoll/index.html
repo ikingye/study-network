@@ -1,24 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir=>
 
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="epoll 阻塞  多进程 多线程  非阻塞 忙轮询 while true { for i in 流[] { if i has 数据 { 读 或者 其他处理 } } } select select 代收员 比较懒，她只会告诉你快递到了，但是是谁到的，你需要挨个快递员问一遍。
-while true { select(流[]); # 阻塞 for i in 流[] { if i has 数据 { 读 或者 其他处理 } } } epoll while true { 可处理的流[] = epoll_wait(epoll_fd); # 阻塞 for i in 可处理的流[] { 读 或者 其他处理 } } epoll 编程框架 //创建 epoll int epfd = epoll_crete(1000); //将 listen_fd 添加进 epoll 中 epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, &amp;listen_event); while (1) { //阻塞等待 epoll 中 的 fd 触发  int active_cnt = epoll_wait(epfd, events, 1000, -1); for (i = 0 ; i &lt; active_cnt; i&#43;&#43;) { if (evnets[i]."><meta property="og:title" content="epoll" />
+<meta name="description" content="epoll #  阻塞 #   多进程 多线程  非阻塞 #  忙轮询 #  while true { for i in 流[] { if i has 数据 { 读 或者 其他处理 } } } select #  select 代收员 比较懒，她只会告诉你快递到了，但是是谁到的，你需要挨个快递员问一遍。
+while true { select(流[]); # 阻塞 for i in 流[] { if i has 数据 { 读 或者 其他处理 } } } epoll #  while true { 可处理的流[] = epoll_wait(epoll_fd); # 阻塞 for i in 可处理的流[] { 读 或者 其他处理 } } epoll 编程框架 #  //创建 epoll int epfd = epoll_crete(1000); //将 listen_fd 添加进 epoll 中 epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, &amp;listen_event); while (1) { //阻塞等待 epoll 中 的 fd 触发  int active_cnt = epoll_wait(epfd, events, 1000, -1); for (i = 0 ; i &lt; active_cnt; i&#43;&#43;) { if (evnets[i].">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="epoll" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://ikingye.github.io/study-network/docs/advanced/code/epoll/" />
 
 <title>epoll | 网络学习笔记</title>
+<link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
-
-
-<link rel="stylesheet" href="/study-network/book.min.169e83d32687959b39a421cc33db54d2a9d6fc29b4c5f314c1e2ec7610f913a5.css" integrity="sha256-Fp6D0yaHlZs5pCHMM9tU0qnW/Cm0xfMUweLsdhD5E6U=">
-
-
-<script defer src="/study-network/en.search.min.7694fc08e14071c2238a57dde2cc92314054f49daa60ffb3e9e2c269b757af20.js" integrity="sha256-dpT8COFAccIjilfd4sySMUBU9J2qYP&#43;z6eLCabdXryA="></script>
-
+<link rel="stylesheet" href="/study-network/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
+<script defer src="/study-network/en.search.min.ffb239aaec6b2263597c10d3000eacc8415ff3ebe8622c3c83a738a0a740ca49.js" integrity="sha256-/7I5quxrImNZfBDTAA6syEFf8&#43;voYiw8g6c4oKdAykk="></script>
 <link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-network/docs/advanced/code/epoll/index.xml" title="网络学习笔记" />
 <!--
 Made with Book Theme
@@ -28,8 +25,9 @@ https://github.com/alex-shpak/hugo-book
   
 </head>
 
-<body>
-  <input type="checkbox" class="hidden" id="menu-control" />
+<body dir=>
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
   <main class="container flex">
     <aside class="book-menu">
       
@@ -42,7 +40,7 @@ https://github.com/alex-shpak/hugo-book
 
 <div class="book-search">
   <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
-  <div class="book-search-spinner spinner hidden"></div>
+  <div class="book-search-spinner hidden"></div>
   <ul id="book-search-results"></ul>
 </div>
 
@@ -70,395 +68,293 @@ https://github.com/alex-shpak/hugo-book
 
   
 
-  
-  
-
-
-
-
-
- 
-  
-    
-
-
 
 
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
   
-  <span>第一部分 基础入门</span>
   
-
-
-    
-
-
-
-
   
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/basic/cmd/" class="collapsed ">1.1 命令</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/basic/protocol/" class="collapsed ">1.2 协议</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第二部分 进阶实战</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/" class="collapsed ">2.1 网络编程</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/spec/" class="collapsed ">编程规范</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/epoll/" class="collapsed active">epoll</a>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/libevent/" class="collapsed ">libevent</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/code/select/" class="collapsed ">select</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/advanced/tool/" class="collapsed ">2.2 网络工具</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第三部分 设计与实现</span>
-  
-
-
-    
-
-
-
-
-  
-  <ul>
-    
-      
-        
-
-  <li>
-    
-
-  
-  <a href="/study-network/docs/code/stack/" class="collapsed ">3.1 协议栈</a>
-  
-
-
-    
-
-
-
-
-
-
-  </li>
-
-
-      
-    
-  </ul>
-  
-
-
-
-  </li>
-
-
-      
-    
-      
-        
-
-  <li>
-    
-
-  
-  <span>第四部分 附录</span>
-  
-
-
-    
-
-
-
 
   
   <ul>
     
       
         <li>
+          
+  
+    <span>第一部分 基础入门</span>
+  
+
+          
+  
+  
+  
 
   
-  <a href="/study-network/docs/appendix/tutorial/" class="">4.1 教程</a>
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/cmd/" class="collapsed ">1.1 命令</a>
   
 
-</li>
+          
+  
+  
+  
+
+  
+
+        </li>
       
     
       
         <li>
-
+          
   
-  <a href="/study-network/docs/appendix/interview/" class="">4.2 面试题</a>
-  
-
-</li>
-      
-    
-      
-        <li>
-
-  
-  <a href="/study-network/docs/appendix/attention/" class="">4.3 关注项目</a>
+    <a href="/study-network/docs/basic/protocol/" class="collapsed ">1.2 协议</a>
   
 
-</li>
+          
+  
+  
+  
+
+  
+
+        </li>
       
     
   </ul>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第二部分 进阶实战</span>
+  
 
+          
+  
+  
+  
 
-  </li>
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/" class="collapsed ">2.1 网络编程</a>
+  
 
+          
+  
+  
+  
 
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/spec/" class="collapsed ">编程规范</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/epoll/" class="collapsed active">epoll</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/libevent/" class="collapsed ">libevent</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/code/select/" class="collapsed ">select</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
       
     
   </ul>
   
 
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/advanced/tool/" class="collapsed ">2.2 网络工具</a>
+  
 
+          
+  
+  
+  
 
   
 
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第三部分 设计与实现</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/code/stack/" class="collapsed ">3.1 协议栈</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/tutorial/" class="">4.1 教程</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/interview/" class="">4.2 面试题</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/appendix/attention/" class="">4.3 关注项目</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
 
 
 
@@ -502,15 +398,16 @@ https://github.com/alex-shpak/hugo-book
   <strong>epoll</strong>
 
   <label for="toc-control">
+    
     <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
   </label>
 </div>
 
 
   
-    <input type="checkbox" class="hidden" id="toc-control" />
-    <aside class="hidden clearfix">
-      
+  <aside class="hidden clearfix">
+    
   <nav id="TableOfContents">
   <ul>
     <li><a href="#阻塞">阻塞</a></li>
@@ -532,21 +429,33 @@ https://github.com/alex-shpak/hugo-book
 </nav>
 
 
-    </aside>
+  </aside>
   
  
       </header>
 
       
       
-  <article class="markdown"><h1 id="epoll">epoll</h1>
-<h2 id="阻塞">阻塞</h2>
+  <article class="markdown"><h1 id="epoll">
+  epoll
+  <a class="anchor" href="#epoll">#</a>
+</h1>
+<h2 id="阻塞">
+  阻塞
+  <a class="anchor" href="#%e9%98%bb%e5%a1%9e">#</a>
+</h2>
 <ul>
 <li>多进程</li>
 <li>多线程</li>
 </ul>
-<h2 id="非阻塞">非阻塞</h2>
-<h3 id="忙轮询">忙轮询</h3>
+<h2 id="非阻塞">
+  非阻塞
+  <a class="anchor" href="#%e9%9d%9e%e9%98%bb%e5%a1%9e">#</a>
+</h2>
+<h3 id="忙轮询">
+  忙轮询
+  <a class="anchor" href="#%e5%bf%99%e8%bd%ae%e8%af%a2">#</a>
+</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">while</span> true {
     <span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> <span style="color:#960050;background-color:#1e0010">流</span>[] {
         <span style="color:#66d9ef">if</span> i has <span style="color:#960050;background-color:#1e0010">数据</span> {
@@ -554,7 +463,10 @@ https://github.com/alex-shpak/hugo-book
         }
     }
 }
-</code></pre></div><h3 id="select">select</h3>
+</code></pre></div><h3 id="select">
+  select
+  <a class="anchor" href="#select">#</a>
+</h3>
 <p>select 代收员 比较懒，她只会告诉你快递到了，但是是谁到的，你需要挨个快递员问一遍。</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">while</span> true {
     select(<span style="color:#960050;background-color:#1e0010">流</span>[]);  <span style="color:#75715e"># 阻塞</span>
@@ -565,7 +477,10 @@ https://github.com/alex-shpak/hugo-book
         }
     }
 }
-</code></pre></div><h3 id="epoll-1">epoll</h3>
+</code></pre></div><h3 id="epoll-1">
+  epoll
+  <a class="anchor" href="#epoll-1">#</a>
+</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">while</span> true {
     <span style="color:#960050;background-color:#1e0010">可处理的流</span>[] <span style="color:#f92672">=</span> epoll_wait(epoll_fd);  <span style="color:#75715e"># 阻塞</span>
 
@@ -573,7 +488,10 @@ https://github.com/alex-shpak/hugo-book
         <span style="color:#960050;background-color:#1e0010">读</span> <span style="color:#960050;background-color:#1e0010">或者</span> <span style="color:#960050;background-color:#1e0010">其他处理</span>
    }
 }
-</code></pre></div><h2 id="epoll-编程框架">epoll 编程框架</h2>
+</code></pre></div><h2 id="epoll-编程框架">
+  epoll 编程框架
+  <a class="anchor" href="#epoll-%e7%bc%96%e7%a8%8b%e6%a1%86%e6%9e%b6">#</a>
+</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">//创建 epoll
 </span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> epfd <span style="color:#f92672">=</span> epoll_crete(<span style="color:#ae81ff">1000</span>);
 
@@ -596,7 +514,10 @@ https://github.com/alex-shpak/hugo-book
 </span><span style="color:#75715e"></span>        }
     }
 }
-</code></pre></div><h3 id="服务端">服务端</h3>
+</code></pre></div><h3 id="服务端">
+  服务端
+  <a class="anchor" href="#%e6%9c%8d%e5%8a%a1%e7%ab%af">#</a>
+</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;ctype.h&gt;</span><span style="color:#75715e">
@@ -743,7 +664,10 @@ END:
     close(listen_fd);
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre></div><h3 id="客户端">客户端</h3>
+</code></pre></div><h3 id="客户端">
+  客户端
+  <a class="anchor" href="#%e5%ae%a2%e6%88%b7%e7%ab%af">#</a>
+</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cpp" data-lang="cpp"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
@@ -851,7 +775,10 @@ END:
 
     <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
 }
-</code></pre></div><h2 id="参考">参考</h2>
+</code></pre></div><h2 id="参考">
+  参考
+  <a class="anchor" href="#%e5%8f%82%e8%80%83">#</a>
+</h2>
 <ul>
 <li><a href="https://aceld.gitbooks.io/libevent/content/">Libevent 深入浅出</a></li>
 </ul>
@@ -861,13 +788,11 @@ END:
 
       <footer class="book-footer">
         
-  <div class="flex justify-between">
+  <div class="flex flex-wrap justify-between">
 
 
 
-  <div>
-    
-    <a class="flex align-center" href="https://github.com/ikingye/study-network/commit/04661a33ce448777eca0077353f83fd6d0a3e02b" title='Last modified by yewang | 2020-07-16' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/04661a33ce448777eca0077353f83fd6d0a3e02b" title='Last modified by yewang | 2020-07-16' target="_blank" rel="noopener">
       <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
       <span>2020-07-16</span>
     </a>
