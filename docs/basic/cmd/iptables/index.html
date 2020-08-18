@@ -5,16 +5,18 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="iptables #  Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。 netfilter 组件也称为内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。 iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
-原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。
-INVALID #  INVALID 状态指出该信息包与任何已知的流或连接都不相关联，它可能包含错误的数据或头。
-NEW #  状态 NEW 意味着该信息包已经或将启动新的连接，或者它与尚未用于发送和接收信息包的连接相关联。
-RELATED #  RELATED 表示该信息包正在启动新连接，以及它与已建立的连接相关联。">
+iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
+iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &ldquo;安全框架&rdquo; 中， 这个 &ldquo;安全框架&rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter
+配套的常用命令有：
+ iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   基础命令 #  iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]
+ 原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="iptables" />
 <meta property="og:description" content="iptables #  Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。 netfilter 组件也称为内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。 iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
-原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。
-INVALID #  INVALID 状态指出该信息包与任何已知的流或连接都不相关联，它可能包含错误的数据或头。
-NEW #  状态 NEW 意味着该信息包已经或将启动新的连接，或者它与尚未用于发送和接收信息包的连接相关联。
-RELATED #  RELATED 表示该信息包正在启动新连接，以及它与已建立的连接相关联。" />
+iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
+iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &ldquo;安全框架&rdquo; 中， 这个 &ldquo;安全框架&rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter
+配套的常用命令有：
+ iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   基础命令 #  iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]
+ 原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/cmd/iptables/" />
 <meta property="article:modified_time" content="2020-05-21T09:50:35+08:00" />
@@ -22,7 +24,7 @@ RELATED #  RELATED 表示该信息包正在启动新连接，以及它与已建�
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
-<script defer src="/study-network/en.search.min.ffb239aaec6b2263597c10d3000eacc8415ff3ebe8622c3c83a738a0a740ca49.js" integrity="sha256-/7I5quxrImNZfBDTAA6syEFf8&#43;voYiw8g6c4oKdAykk="></script>
+<script defer src="/study-network/en.search.min.ff2b397f268118beaca434b02809b60ade73ac0bfaf48eecb62bc44e8890bf11.js" integrity="sha256-/ys5fyaBGL6spDSwKAm2Ct5zrAv69I7stivEToiQvxE="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -364,6 +366,7 @@ https://github.com/alex-shpak/hugo-book
     
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#基础命令">基础命令</a></li>
     <li><a href="#原理">原理</a></li>
     <li><a href="#状态">状态</a>
       <ul>
@@ -374,7 +377,6 @@ https://github.com/alex-shpak/hugo-book
       </ul>
     </li>
     <li><a href="#规则-rules">规则 /rules</a></li>
-    <li><a href="#基础命令">基础命令</a></li>
     <li><a href="#表-tables">表 /tables</a>
       <ul>
         <li><a href="#raw">Raw</a></li>
@@ -424,6 +426,22 @@ https://github.com/alex-shpak/hugo-book
 它由 <code>netfilter</code> 和 <code>iptables</code> 两个组件组成。
 <code>netfilter</code> 组件也称为内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。
 <code>iptables</code> 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。</p>
+<p>iptables 是 linux 系统下用来配置 netfilter 子系统的一个 <code>client tool</code>。</p>
+<p>iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &ldquo;安全框架&rdquo; 中，
+这个 &ldquo;安全框架&rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter</p>
+<p>配套的常用命令有：</p>
+<ul>
+<li>iptables: 对表、链、规则进行配置</li>
+<li>iptables-save: dump 已配置的规则，可以用 <code>&gt;</code> 重定向到一个文件中</li>
+<li>iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。</li>
+</ul>
+<hr>
+<h2 id="基础命令">
+  基础命令
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80%e5%91%bd%e4%bb%a4">#</a>
+</h2>
+<p><code>iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]</code></p>
+<hr>
 <h2 id="原理">
   原理
   <a class="anchor" href="#%e5%8e%9f%e7%90%86">#</a>
@@ -476,12 +494,6 @@ https://github.com/alex-shpak/hugo-book
 <li>当数据包与规则匹配时，iptables 就根据规则所定义的方法来处理这些数据包，如放行（accept）、拒绝（reject）和丢弃（drop）等。</li>
 <li>配置防火墙的主要工作就是添加、修改和删除这些规则。</li>
 </ul>
-<hr>
-<h2 id="基础命令">
-  基础命令
-  <a class="anchor" href="#%e5%9f%ba%e7%a1%80%e5%91%bd%e4%bb%a4">#</a>
-</h2>
-<p><code>iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]</code></p>
 <hr>
 <h2 id="表-tables">
   表 /tables
@@ -857,6 +869,7 @@ https://github.com/alex-shpak/hugo-book
       
   <nav id="TableOfContents">
   <ul>
+    <li><a href="#基础命令">基础命令</a></li>
     <li><a href="#原理">原理</a></li>
     <li><a href="#状态">状态</a>
       <ul>
@@ -867,7 +880,6 @@ https://github.com/alex-shpak/hugo-book
       </ul>
     </li>
     <li><a href="#规则-rules">规则 /rules</a></li>
-    <li><a href="#基础命令">基础命令</a></li>
     <li><a href="#表-tables">表 /tables</a>
       <ul>
         <li><a href="#raw">Raw</a></li>

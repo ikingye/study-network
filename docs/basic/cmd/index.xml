@@ -16,10 +16,11 @@
       
       <guid>https://ikingye.github.io/study-network/docs/basic/cmd/iptables/</guid>
       <description>iptables #  Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。 netfilter 组件也称为内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。 iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
-原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。
-INVALID #  INVALID 状态指出该信息包与任何已知的流或连接都不相关联，它可能包含错误的数据或头。
-NEW #  状态 NEW 意味着该信息包已经或将启动新的连接，或者它与尚未用于发送和接收信息包的连接相关联。
-RELATED #  RELATED 表示该信息包正在启动新连接，以及它与已建立的连接相关联。</description>
+iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
+iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &amp;ldquo;安全框架&amp;rdquo; 中， 这个 &amp;ldquo;安全框架&amp;rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter
+配套的常用命令有：
+ iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &amp;gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   基础命令 #  iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]
+ 原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。</description>
     </item>
     
     <item>
