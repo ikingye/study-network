@@ -19,7 +19,7 @@ iptables 其实不是真正的防火墙，我们可以把它理解成一个客�
  原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/cmd/iptables/" />
-<meta property="article:modified_time" content="2020-05-21T09:50:35+08:00" />
+<meta property="article:modified_time" content="2020-08-18T17:09:14+08:00" />
 <title>iptables | 网络学习笔记</title>
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
@@ -832,9 +832,9 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/a782ff7d0f2b75c2f81c448544162f2423318779" title='Last modified by yewang | 2020-05-21' target="_blank" rel="noopener">
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/82a5300ba3d6feafa378c6bee7a25ec4405ebd0d" title='Last modified by yewang | 2020-08-18' target="_blank" rel="noopener">
       <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-05-21</span>
+      <span>2020-08-18</span>
     </a>
   </div>
 
