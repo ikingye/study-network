@@ -11,7 +11,7 @@ time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time
 time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time_connect: %{time_connect} （从开始到tcp建连完成）\n time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n ----------\n DNS 解析耗时: %{time_namelookup} \n tcp 建连耗时: %{time_connect} - %{time_namelookup} \n ssl 耗时: %{time_appconnect} - %{time_connect} \n 服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n ----------\n time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n 详细参考: https://curl.haxx.se/docs/manpage.html \n " />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/cmd/curl/" />
-
+<meta property="article:modified_time" content="2020-08-27T16:51:13+08:00" />
 <title>curl | 网络学习笔记</title>
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
@@ -413,6 +413,12 @@ time_starttransfer:  %<span style="color:#f92672">{</span>time_starttransfer<spa
   <div class="flex flex-wrap justify-between">
 
 
+
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/b62fd6d9cf1ddf27049162d93fb5a6f81984108c" title='Last modified by yewang | 2020-08-27' target="_blank" rel="noopener">
+      <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
+      <span>2020-08-27</span>
+    </a>
+  </div>
 
 
 
