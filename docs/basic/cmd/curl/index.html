@@ -4,18 +4,19 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="网络编程 #  ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="2.1 网络编程" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://ikingye.github.io/study-network/docs/advanced/code/" />
+<meta name="description" content="curl #  curl format #  curl -w @curl-format -o /dev/null -s http://www.baidu.com
+time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time_connect: %{time_connect} （从开始到tcp建连完成）\n time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n ----------\n DNS 解析耗时: %{time_namelookup} \n tcp 建连耗时: %{time_connect} - %{time_namelookup} \n ssl 耗时: %{time_appconnect} - %{time_connect} \n 服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n ----------\n time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n 详细参考: https://curl.haxx.se/docs/manpage.html \n ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="curl" />
+<meta property="og:description" content="curl #  curl format #  curl -w @curl-format -o /dev/null -s http://www.baidu.com
+time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time_connect: %{time_connect} （从开始到tcp建连完成）\n time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n ----------\n DNS 解析耗时: %{time_namelookup} \n tcp 建连耗时: %{time_connect} - %{time_namelookup} \n ssl 耗时: %{time_appconnect} - %{time_connect} \n 服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n ----------\n time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n 详细参考: https://curl.haxx.se/docs/manpage.html \n " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/cmd/curl/" />
 
-<title>2.1 网络编程 | 网络学习笔记</title>
+<title>curl | 网络学习笔记</title>
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.d51ae1346c6c6be6d266ee675dbefadff112d8cb316f6b14f34def47903e2c63.css" integrity="sha256-1RrhNGxsa&#43;bSZu5nXb763/ES2Msxb2sU803vR5A&#43;LGM=">
 <script defer src="/study-network/en.search.min.9d88d7128ccdf09b0b9361582f790b3a1875114cb50cfe9eb4b2f628284bc3b4.js" integrity="sha256-nYjXEozN8JsLk2FYL3kLOhh1EUy1DP6etLL2KChLw7Q="></script>
-<link rel="alternate" type="application/rss+xml" href="https://ikingye.github.io/study-network/docs/advanced/code/index.xml" title="网络学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -105,6 +106,40 @@ https://github.com/alex-shpak/hugo-book
   
 
   
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/cmd/curl/" class="active">curl</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/cmd/iptables/" class="">iptables</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/study-network/docs/basic/cmd/netfilter/" class="">netfilter</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
 
         </li>
       
@@ -151,7 +186,7 @@ https://github.com/alex-shpak/hugo-book
         <li>
           
   
-    <a href="/study-network/docs/advanced/code/" class="collapsed active">2.1 网络编程</a>
+    <a href="/study-network/docs/advanced/code/" class="collapsed ">2.1 网络编程</a>
   
 
           
@@ -159,78 +194,6 @@ https://github.com/alex-shpak/hugo-book
   
   
 
-  
-  <ul>
-    
-      
-        <li>
-          
-  
-    <a href="/study-network/docs/advanced/code/spec/" class="collapsed ">编程规范</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-network/docs/advanced/code/epoll/" class="collapsed ">epoll</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-network/docs/advanced/code/libevent/" class="collapsed ">libevent</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-      
-        <li>
-          
-  
-    <a href="/study-network/docs/advanced/code/select/" class="collapsed ">select</a>
-  
-
-          
-  
-  
-  
-
-  
-
-        </li>
-      
-    
-  </ul>
   
 
         </li>
@@ -390,7 +353,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-network/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>2.1 网络编程</strong>
+  <strong>curl</strong>
 
   <label for="toc-control">
     
@@ -403,7 +366,11 @@ https://github.com/alex-shpak/hugo-book
   
   <aside class="hidden clearfix">
     
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#curl-format">curl format</a></li>
+  </ul>
+</nav>
 
 
   </aside>
@@ -413,11 +380,31 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article class="markdown"><h1 id="网络编程">
-  网络编程
-  <a class="anchor" href="#%e7%bd%91%e7%bb%9c%e7%bc%96%e7%a8%8b">#</a>
+  <article class="markdown"><h1 id="curl">
+  curl
+  <a class="anchor" href="#curl">#</a>
 </h1>
-</article>
+<h2 id="curl-format">
+  curl format
+  <a class="anchor" href="#curl-format">#</a>
+</h2>
+<p><code>curl -w @curl-format -o /dev/null -s http://www.baidu.com</code></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">   time_appconnect:  %<span style="color:#f92672">{</span>time_appconnect<span style="color:#f92672">}</span> （从开始到ssl/ssh连接完成）<span style="color:#ae81ff">\n</span>
+      time_connect:  %<span style="color:#f92672">{</span>time_connect<span style="color:#f92672">}</span> （从开始到tcp建连完成）<span style="color:#ae81ff">\n</span>
+   time_namelookup:  %<span style="color:#f92672">{</span>time_namelookup<span style="color:#f92672">}</span> （从开始到域名解析完成）<span style="color:#ae81ff">\n</span>
+  time_pretransfer:  %<span style="color:#f92672">{</span>time_pretransfer<span style="color:#f92672">}</span> （从开始到文件传输即将开始，不包括服务器处理时间）<span style="color:#ae81ff">\n</span>
+     time_redirect:  %<span style="color:#f92672">{</span>time_redirect<span style="color:#f92672">}</span> （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）<span style="color:#ae81ff">\n</span>
+time_starttransfer:  %<span style="color:#f92672">{</span>time_starttransfer<span style="color:#f92672">}</span> （从开始到第一个byte即将传输，包括服务器处理时间）<span style="color:#ae81ff">\n</span>
+                    ----------<span style="color:#ae81ff">\n</span>
+      DNS 解析耗时:  %<span style="color:#f92672">{</span>time_namelookup<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
+      tcp 建连耗时:  %<span style="color:#f92672">{</span>time_connect<span style="color:#f92672">}</span> - %<span style="color:#f92672">{</span>time_namelookup<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
+          ssl 耗时:  %<span style="color:#f92672">{</span>time_appconnect<span style="color:#f92672">}</span> - %<span style="color:#f92672">{</span>time_connect<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
+    服务器处理耗时:  %<span style="color:#f92672">{</span>time_starttransfer<span style="color:#f92672">}</span> - %<span style="color:#f92672">{</span>time_pretransfer<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
+                    ----------<span style="color:#ae81ff">\n</span>
+        time_total:  %<span style="color:#f92672">{</span>time_total<span style="color:#f92672">}</span> （全部时间；以上单位都是 秒）<span style="color:#ae81ff">\n\n</span>
+
+详细参考: https://curl.haxx.se/docs/manpage.html <span style="color:#ae81ff">\n</span>
+</code></pre></div></article>
  
       
 
@@ -426,12 +413,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/04661a33ce448777eca0077353f83fd6d0a3e02b" title='Last modified by yewang | 2020-07-16' target="_blank" rel="noopener">
-      <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2020-07-16</span>
-    </a>
-  </div>
 
 
 
@@ -462,7 +443,11 @@ https://github.com/alex-shpak/hugo-book
     
     <aside class="book-toc">
       
-  <nav id="TableOfContents"></nav>
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#curl-format">curl format</a></li>
+  </ul>
+</nav>
 
  
     </aside>
