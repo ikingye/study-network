@@ -125,7 +125,7 @@ gnet 的卖点在于它是一个高性能、轻量级、非阻塞的纯 Go 实�
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-network/docs/basic/protocol/http/</guid>
-      <description>HTTP #  </description>
+      <description>HTTP #  教程 #  EZLippi/Tinyhttpd #  Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。 官网:http://tinyhttpd.sourceforge.net</description>
     </item>
     
     <item>
