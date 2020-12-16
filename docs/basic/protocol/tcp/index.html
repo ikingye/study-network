@@ -791,9 +791,9 @@ net.ipv4.netfilter.ip_conntrack_max <span style="color:#f92672">=</span> <span s
 <p><img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200409000158.png" alt="" /></p>
 <ul>
 <li>主动关闭连接的一方，调用 <code>close()</code>；协议层发送 FIN 包</li>
-<li>被动关闭的一方收到 FIN 包后，协议层回复 ACK；然后被动关闭的一方，进入 <code>CLOSE_WAIT</code> 状态；主动关闭的一方等待对方关闭，则进入 <code>FIN_WAIT_2</code> 状态</li>
+<li>被动关闭的一方收到 FIN 包后，协议层回复 ACK；然后<strong>被动关闭</strong>的一方，进入 <code>CLOSE_WAIT</code> 状态；主动关闭的一方等待对方关闭，则进入 <code>FIN_WAIT_2</code> 状态</li>
 <li>被动关闭的一方在完成所有数据发送后，调用 <code>close()</code> 操作，协议层发送 FIN 包给主动关闭的一方，等待对方的 ACK，被动关闭的一方进入 <code>LAST_ACK</code> 状态</li>
-<li>主动关闭的一方收到 FIN 包，协议层回复 ACK，主动关闭连接的一方进入 <code>TIME_WAIT</code> 状态；而被动关闭的一方，进入 <code>CLOSED</code> 状态</li>
+<li>主动关闭的一方收到 FIN 包，协议层回复 ACK，<strong>主动关闭连</strong>接的一方进入 <code>TIME_WAIT</code> 状态；而被动关闭的一方，进入 <code>CLOSED</code> 状态</li>
 <li>等待 <code>2MSL</code> 时间，主动关闭的一方，结束 TIME_WAIT，进入 <code>CLOSED</code> 状态</li>
 </ul>
 <h5 id="time_wait-只会出现在主动断开连接的一方">
