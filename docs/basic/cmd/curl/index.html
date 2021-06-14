@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.71.0" />
+  <meta name="generator" content="Hugo 0.83.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="curl #  curl format #  curl -w @curl-format -o /dev/null -s http://www.baidu.com
@@ -11,13 +11,15 @@ time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time
 <meta property="og:description" content="curl #  curl format #  curl -w @curl-format -o /dev/null -s http://www.baidu.com
 time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time_connect: %{time_connect} （从开始到tcp建连完成）\n time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n ----------\n DNS 解析耗时: %{time_namelookup} \n tcp 建连耗时: %{time_connect} - %{time_namelookup} \n ssl 耗时: %{time_appconnect} - %{time_connect} \n 服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n ----------\n time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n 详细参考: https://curl.haxx.se/docs/manpage.html \n " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/cmd/curl/" />
-<meta property="article:modified_time" content="2020-08-27T16:51:13+08:00" />
+<meta property="og:url" content="https://ikingye.github.io/study-network/docs/basic/cmd/curl/" /><meta property="article:section" content="docs" />
+
+<meta property="article:modified_time" content="2020-08-27T16:51:13&#43;08:00" />
+
 <title>curl | 网络学习笔记</title>
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
-<link rel="stylesheet" href="/study-network/book.min.26a6a1da4e42a220331949b9698d1ff3bce6dde3dcb70ead9b3f675f3054b860.css" integrity="sha256-Jqah2k5CoiAzGUm5aY0f87zm3ePctw6tmz9nXzBUuGA=">
-<script defer src="/study-network/en.search.min.71f8613439dd013b582898df4d2808f164bf3d54823a638b2e61e50aaaa811c7.js" integrity="sha256-cfhhNDndATtYKJjfTSgI8WS/PVSCOmOLLmHlCqqoEcc="></script>
+<link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
+<script defer src="/study-network/en.search.min.a834097393a873211dc6d6b48086e6aff66c87d4348fdc18cd6ceb930cfa467d.js" integrity="sha256-qDQJc5OocyEdxta0gIbmr/Zsh9Q0j9wYzWzrkwz6Rn0="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -565,7 +567,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  

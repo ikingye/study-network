@@ -4,11 +4,7 @@
     <title>1.1 命令 on 网络学习笔记</title>
     <link>https://ikingye.github.io/study-network/docs/basic/cmd/</link>
     <description>Recent content in 1.1 命令 on 网络学习笔记</description>
-    <generator>Hugo -- gohugo.io</generator>
-    
-	<atom:link href="https://ikingye.github.io/study-network/docs/basic/cmd/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://ikingye.github.io/study-network/docs/basic/cmd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>curl</title>
       <link>https://ikingye.github.io/study-network/docs/basic/cmd/curl/</link>
