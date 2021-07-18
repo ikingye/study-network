@@ -5,11 +5,11 @@
   <meta name="generator" content="Hugo 0.83.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Wireshark #  查询 #  ip.addr == 192.168.137.109 MacOS 打开两个 Wireshark #  # 使用 -n 可以打开多个 open -n /Applications/Wireshark.app 参考：
- Open Multiple Instances of Wireshark on MacOS  ">
+<meta name="description" content="Wireshark #  安装 #  https://www.wireshark.org/download.html
+yum install -y wireshark tshark #  # 列出当前存在的网络接口 tshark -D # 实时打印当前http请求的url $ tshark -s 512 -i eth0 -n -f &#39;tcp dst port 80&#39; -R &#39;http.host and http.request.uri&#39; -T fields -e http.host -e http.request.uri -l | tr -d &#39;\t&#39; # 参数含义： # -s 512 :只抓取前512个字节数据 # -i eth0 :捕获eth0网卡 # -n :禁止网络对象名称解析 # -f &#39;tcp dst port 80&#39; :只捕捉协议为tcp,目的端口为80的数据包 # -R &#39;http.host and http.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Wireshark" />
-<meta property="og:description" content="Wireshark #  查询 #  ip.addr == 192.168.137.109 MacOS 打开两个 Wireshark #  # 使用 -n 可以打开多个 open -n /Applications/Wireshark.app 参考：
- Open Multiple Instances of Wireshark on MacOS  " />
+<meta property="og:description" content="Wireshark #  安装 #  https://www.wireshark.org/download.html
+yum install -y wireshark tshark #  # 列出当前存在的网络接口 tshark -D # 实时打印当前http请求的url $ tshark -s 512 -i eth0 -n -f &#39;tcp dst port 80&#39; -R &#39;http.host and http.request.uri&#39; -T fields -e http.host -e http.request.uri -l | tr -d &#39;\t&#39; # 参数含义： # -s 512 :只抓取前512个字节数据 # -i eth0 :捕获eth0网卡 # -n :禁止网络对象名称解析 # -f &#39;tcp dst port 80&#39; :只捕捉协议为tcp,目的端口为80的数据包 # -R &#39;http.host and http." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://ikingye.github.io/study-network/docs/advanced/tool/wireshark/" /><meta property="article:section" content="docs" />
 
@@ -19,7 +19,7 @@
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-network/en.search.min.a834097393a873211dc6d6b48086e6aff66c87d4348fdc18cd6ceb930cfa467d.js" integrity="sha256-qDQJc5OocyEdxta0gIbmr/Zsh9Q0j9wYzWzrkwz6Rn0="></script>
+<script defer src="/study-network/en.search.min.1e0edf12e379643e42e46e9cfcb0b83a72c50543e5f52a87bd85221e70737351.js" integrity="sha256-Hg7fEuN5ZD5C5G6c/LC4OnLFBUPl9SqHvYUiHnBzc1E="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -598,6 +598,12 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#tshark">tshark</a>
+      <ul>
+        <li><a href="#linux-安装-wireshark">Linux 安装 Wireshark</a></li>
+      </ul>
+    </li>
     <li><a href="#查询">查询</a></li>
     <li><a href="#macos-打开两个-wireshark">MacOS 打开两个 Wireshark</a></li>
   </ul>
@@ -616,6 +622,46 @@ https://github.com/alex-shpak/hugo-book
   Wireshark
   <a class="anchor" href="#wireshark">#</a>
 </h1>
+<h2 id="安装">
+  安装
+  <a class="anchor" href="#%e5%ae%89%e8%a3%85">#</a>
+</h2>
+<p><a href="https://www.wireshark.org/download.html">https://www.wireshark.org/download.html</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install -y wireshark
+</code></pre></div><h2 id="tshark">
+  tshark
+  <a class="anchor" href="#tshark">#</a>
+</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 列出当前存在的网络接口</span>
+tshark -D
+
+
+<span style="color:#75715e"># 实时打印当前http请求的url</span>
+$ tshark -s <span style="color:#ae81ff">512</span> -i eth0 -n -f <span style="color:#e6db74">&#39;tcp dst port 80&#39;</span> -R <span style="color:#e6db74">&#39;http.host and http.request.uri&#39;</span> -T fields -e http.host -e http.request.uri -l | tr -d <span style="color:#e6db74">&#39;\t&#39;</span>
+<span style="color:#75715e"># 参数含义：</span>
+<span style="color:#75715e">#     -s 512 :只抓取前512个字节数据</span>
+<span style="color:#75715e">#     -i eth0 :捕获eth0网卡</span>
+<span style="color:#75715e">#     -n :禁止网络对象名称解析</span>
+<span style="color:#75715e">#     -f &#39;tcp dst port 80&#39; :只捕捉协议为tcp,目的端口为80的数据包</span>
+<span style="color:#75715e">#     -R &#39;http.host and http.request.uri&#39; :过滤出http.host和http.request.uri</span>
+<span style="color:#75715e">#     -T fields -e http.host -e http.request.uri :打印http.host和http.request.uri</span>
+<span style="color:#75715e">#     -l ：输出到标准输出</span>
+
+<span style="color:#75715e"># 实时打印当前mysql查询语句</span>
+$ tshark -s <span style="color:#ae81ff">512</span> -i eth0 -n -f <span style="color:#e6db74">&#39;tcp dst port 3306&#39;</span> -R <span style="color:#e6db74">&#39;mysql.query&#39;</span> -T fields -e mysql.query
+<span style="color:#75715e"># 参数含义：</span>
+<span style="color:#75715e">#     -s 512 :只抓取前512个字节数据</span>
+<span style="color:#75715e">#     -i eth0 :捕获eth0网卡</span>
+<span style="color:#75715e">#     -n :禁止网络对象名称解析</span>
+<span style="color:#75715e">#     -f &#39;tcp dst port 3306&#39; :只捕捉协议为tcp,目的端口为3306的数据包</span>
+<span style="color:#75715e">#     -R &#39;mysql.query&#39; :过滤出mysql.query</span>
+<span style="color:#75715e">#     -T fields -e mysql.query :打印mysql查询语句</span>
+
+</code></pre></div><h3 id="linux-安装-wireshark">
+  Linux 安装 Wireshark
+  <a class="anchor" href="#linux-%e5%ae%89%e8%a3%85-wireshark">#</a>
+</h3>
+<hr>
 <h2 id="查询">
   查询
   <a class="anchor" href="#%e6%9f%a5%e8%af%a2">#</a>
@@ -702,6 +748,12 @@ open -n /Applications/Wireshark.app
   
 <nav id="TableOfContents">
   <ul>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#tshark">tshark</a>
+      <ul>
+        <li><a href="#linux-安装-wireshark">Linux 安装 Wireshark</a></li>
+      </ul>
+    </li>
     <li><a href="#查询">查询</a></li>
     <li><a href="#macos-打开两个-wireshark">MacOS 打开两个 Wireshark</a></li>
   </ul>

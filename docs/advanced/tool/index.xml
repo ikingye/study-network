@@ -11,8 +11,8 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://ikingye.github.io/study-network/docs/advanced/tool/wireshark/</guid>
-      <description>Wireshark #  查询 #  ip.addr == 192.168.137.109 MacOS 打开两个 Wireshark #  # 使用 -n 可以打开多个 open -n /Applications/Wireshark.app 参考：
- Open Multiple Instances of Wireshark on MacOS  </description>
+      <description>Wireshark #  安装 #  https://www.wireshark.org/download.html
+yum install -y wireshark tshark #  # 列出当前存在的网络接口 tshark -D # 实时打印当前http请求的url $ tshark -s 512 -i eth0 -n -f &amp;#39;tcp dst port 80&amp;#39; -R &amp;#39;http.host and http.request.uri&amp;#39; -T fields -e http.host -e http.request.uri -l | tr -d &amp;#39;\t&amp;#39; # 参数含义： # -s 512 :只抓取前512个字节数据 # -i eth0 :捕获eth0网卡 # -n :禁止网络对象名称解析 # -f &amp;#39;tcp dst port 80&amp;#39; :只捕捉协议为tcp,目的端口为80的数据包 # -R &amp;#39;http.host and http.</description>
     </item>
     
   </channel>
