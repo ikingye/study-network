@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>1.2 协议 on 网络学习笔记</title>
-    <link>https://ikingye.github.io/study-network/docs/basic/protocol/</link>
+    <link>https://kingye.me/study-network/docs/basic/protocol/</link>
     <description>Recent content in 1.2 协议 on 网络学习笔记</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://ikingye.github.io/study-network/docs/basic/protocol/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator><atom:link href="https://kingye.me/study-network/docs/basic/protocol/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>TCP</title>
-      <link>https://ikingye.github.io/study-network/docs/basic/protocol/tcp/</link>
+      <link>https://kingye.me/study-network/docs/basic/protocol/tcp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-network/docs/basic/protocol/tcp/</guid>
+      <guid>https://kingye.me/study-network/docs/basic/protocol/tcp/</guid>
       <description>TCP #  TCP 报文格式 #   序号：Seq 序号，占 32 位，用来标识从 TCP 源端向目的端发送的字节流，发起方发送数据时对此进行标记。 确认序号：Ack 序号，占 32 位，只有 ACK 标志位为 1 时，确认序号字段才有效，Ack=Seq+1。 标志位：共 6 个，即 URG、ACK、PSH、RST、SYN、FIN 等，具体含义如下：  URG：紧急指针（urgent pointer）有效。 ACK：确认序号有效。 PSH：接收方应该尽快将这个报文交给应用层。 RST：重置连接。 SYN：发起一个新连接。 FIN：释放一个连接。    三次握手 #  四次挥手 #  实际中还会出现同时发起主动关闭的情况
  TCP 有限状态机 #  The TCP Finite State Machine (FSM)
 
@@ -20,19 +20,19 @@
     
     <item>
       <title>UDP</title>
-      <link>https://ikingye.github.io/study-network/docs/basic/protocol/udp/</link>
+      <link>https://kingye.me/study-network/docs/basic/protocol/udp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-network/docs/basic/protocol/udp/</guid>
+      <guid>https://kingye.me/study-network/docs/basic/protocol/udp/</guid>
       <description>UDP #  </description>
     </item>
     
     <item>
       <title>DNS</title>
-      <link>https://ikingye.github.io/study-network/docs/basic/protocol/dns/</link>
+      <link>https://kingye.me/study-network/docs/basic/protocol/dns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-network/docs/basic/protocol/dns/</guid>
+      <guid>https://kingye.me/study-network/docs/basic/protocol/dns/</guid>
       <description>DNS #  /etc/hosts #  hosts 文件是 Linux 系统中一个负责 IP 地址与域名快速解析的文件
 /etc/resolv.conf #  该文件是 DNS 域名解析的配置文件，它的格式很简单， 每行以一个关键字开头，后接配置参数。
 resolv.conf 的关键字主要有四个：
@@ -43,28 +43,28 @@ domain centoscn.com search www.centocn.com www.wgjlb.com nameserver 202.96.128.8
     
     <item>
       <title>HTTP</title>
-      <link>https://ikingye.github.io/study-network/docs/basic/protocol/http/</link>
+      <link>https://kingye.me/study-network/docs/basic/protocol/http/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-network/docs/basic/protocol/http/</guid>
+      <guid>https://kingye.me/study-network/docs/basic/protocol/http/</guid>
       <description>HTTP #  教程 #  EZLippi/Tinyhttpd #  Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。 官网:http://tinyhttpd.sourceforge.net</description>
     </item>
     
     <item>
       <title>SSL</title>
-      <link>https://ikingye.github.io/study-network/docs/basic/protocol/ssl/</link>
+      <link>https://kingye.me/study-network/docs/basic/protocol/ssl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-network/docs/basic/protocol/ssl/</guid>
+      <guid>https://kingye.me/study-network/docs/basic/protocol/ssl/</guid>
       <description>SSL #   SSL，Secure Socket Layer，安全套接字层 TLS，Transport Layer Security，传输层安全协议   版本 #   1994 年，NetScape 公司设计了 SSL 协议（Secure Sockets Layer）的 1.0 版，但是未发布。 1995 年，NetScape 公司发布 SSL 2.0 版，很快发现有严重漏洞。 1996 年，SSL 3.0 版问世，得到大规模应用。 1999 年，互联网标准化组织 ISOC 接替 NetScape 公司，发布了 SSL 的升级版 TLS 1.0 版。 2006 年和 2008 年，TLS 进行了两次升级，分别为 TLS 1.1 版和 TLS 1.2 版。最新的变动是 2018 年 TLS 1.3 的修订版。     Protocol Published Status     SSL 1.</description>
     </item>
     
     <item>
       <title>WebSocket</title>
-      <link>https://ikingye.github.io/study-network/docs/basic/protocol/websocket/</link>
+      <link>https://kingye.me/study-network/docs/basic/protocol/websocket/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-network/docs/basic/protocol/websocket/</guid>
+      <guid>https://kingye.me/study-network/docs/basic/protocol/websocket/</guid>
       <description>WebSocket #  WebSocket 的目标是在一个单独的持久连接上提供全双工、双向通信。
 在 Javascript 创建了 Web Socket 之后，会有一个 HTTP 请求发送到浏览器以发起连接。 在取得服务器响应后，建立的连接会将 HTTP 升级为 WebSocket 协议。
 由于 WebSocket 使用自定义的协议，所以 URL 模式也略有不同。
@@ -77,10 +77,10 @@ domain centoscn.com search www.centocn.com www.wgjlb.com nameserver 202.96.128.8
     
     <item>
       <title>HTTPs</title>
-      <link>https://ikingye.github.io/study-network/docs/basic/protocol/https/</link>
+      <link>https://kingye.me/study-network/docs/basic/protocol/https/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://ikingye.github.io/study-network/docs/basic/protocol/https/</guid>
+      <guid>https://kingye.me/study-network/docs/basic/protocol/https/</guid>
       <description>HTTPs #  从 HTTP 切换到 HTTPs 需要几步 #   EVALUATE YOUR WEBSITE FOR SECURITY RISKS PERFORM FULL WEBSITE BACKUP MAKE THE RIGHTCERTIFICATE CHOICE INSTALL AND TESTCERTIFICATES REMOVE MIXED CONTENT MAINTAIN CERTIFICATE COMPLIANCE REDIRECT HTTP TRAFFIC TO HTTPS IMPLEMENT AN AUTOMATED SCANNING SYSTEM SECURE YOUR COOKIES IMPLEMENT HTTP STRICT TRANSPORT SECURITY  参考
  10 STEPS TO SWITCH FROM HTTP TO HTTPS  </description>
     </item>
