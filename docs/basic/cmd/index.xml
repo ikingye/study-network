@@ -21,9 +21,11 @@ time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://kingye.me/study-network/docs/basic/cmd/iptables/</guid>
-      <description>iptables #  Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。 netfilter 组件也称为内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。 iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
-iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
-iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &amp;ldquo;安全框架&amp;rdquo; 中， 这个 &amp;ldquo;安全框架&amp;rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter
+      <description>iptables #  Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。
+netfilter 组件位于内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。
+iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
+ iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
+iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &amp;ldquo;安全框架&amp;rdquo; 中， 这个 &amp;ldquo;安全框架&amp;rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter。
 配套的常用命令有：
  iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &amp;gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   基础命令 #  iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]
 iptables v1.4.21 Usage: iptables -[ACD] chain rule-specification [options] iptables -I chain [rulenum] rule-specification [options] iptables -R chain rulenum rule-specification [options] iptables -D chain rulenum [options] iptables -[LS] [chain [rulenum]] [options] iptables -[FZ] [chain] [options] iptables -[NX] chain iptables -E old-chain-name new-chain-name iptables -P chain target [options] iptables -h (print this help information) Commands: Either long or short options are allowed.</description>
