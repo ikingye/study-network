@@ -11,8 +11,7 @@ iptables 组件是一种工具，位于用户空间，它使插入、修改和�
  iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
 iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &ldquo;安全框架&rdquo; 中， 这个 &ldquo;安全框架&rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter。
 配套的常用命令有：
- iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   基础命令 #  iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]
-iptables v1.4.21 Usage: iptables -[ACD] chain rule-specification [options] iptables -I chain [rulenum] rule-specification [options] iptables -R chain rulenum rule-specification [options] iptables -D chain rulenum [options] iptables -[LS] [chain [rulenum]] [options] iptables -[FZ] [chain] [options] iptables -[NX] chain iptables -E old-chain-name new-chain-name iptables -P chain target [options] iptables -h (print this help information) Commands: Either long or short options are allowed.">
+ iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="iptables" />
 <meta property="og:description" content="iptables #  Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。
 netfilter 组件位于内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。
@@ -20,8 +19,7 @@ iptables 组件是一种工具，位于用户空间，它使插入、修改和�
  iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
 iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &ldquo;安全框架&rdquo; 中， 这个 &ldquo;安全框架&rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter。
 配套的常用命令有：
- iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   基础命令 #  iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]
-iptables v1.4.21 Usage: iptables -[ACD] chain rule-specification [options] iptables -I chain [rulenum] rule-specification [options] iptables -R chain rulenum rule-specification [options] iptables -D chain rulenum [options] iptables -[LS] [chain [rulenum]] [options] iptables -[FZ] [chain] [options] iptables -[NX] chain iptables -E old-chain-name new-chain-name iptables -P chain target [options] iptables -h (print this help information) Commands: Either long or short options are allowed." />
+ iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-network/docs/basic/cmd/iptables/" /><meta property="article:section" content="docs" />
 
@@ -31,7 +29,7 @@ iptables v1.4.21 Usage: iptables -[ACD] chain rule-specification [options] iptab
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-network/en.search.min.0f140e36064d589d96d4086dd408f30b2d30a2a6fcdab71e8e30a9d0b53acb14.js" integrity="sha256-DxQONgZNWJ2W1Aht1AjzCy0woqb82rcejjCp0LU6yxQ="></script>
+<script defer src="/study-network/en.search.min.4ee5e965c328a2679a75e0aff1812b0ae5c5263043cccbc51f08e3b5b26099d0.js" integrity="sha256-TuXpZcMoomeadeCv8YErCuXFJjBDzMvFHwjjtbJgmdA="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -610,7 +608,6 @@ https://github.com/alex-shpak/hugo-book
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#基础命令">基础命令</a></li>
     <li><a href="#原理">原理</a></li>
     <li><a href="#状态">状态</a>
       <ul>
@@ -648,6 +645,7 @@ https://github.com/alex-shpak/hugo-book
     <li><a href="#dnat">DNAT</a></li>
     <li><a href="#snat">SNAT</a></li>
     <li><a href="#保存-iptables-修改">保存 iptables 修改</a></li>
+    <li><a href="#基础命令">基础命令</a></li>
     <li><a href="#教程">教程</a>
       <ul>
         <li><a href="#超级详细的-iptable-教程文档httpswwwcnblogscomdicky-zhangp5904429html"><a href="https://www.cnblogs.com/Dicky-Zhang/p/5904429.html">超级详细的 iptable 教程文档</a></a></li>
@@ -685,85 +683,6 @@ https://github.com/alex-shpak/hugo-book
 <li><code>iptables-restore</code>: 从之前导出的 iptable 规则配置文件加载规则。</li>
 </ul>
 <hr>
-<h2 id="基础命令">
-  基础命令
-  <a class="anchor" href="#%e5%9f%ba%e7%a1%80%e5%91%bd%e4%bb%a4">#</a>
-</h2>
-<p><code>iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">iptables v1.4.21
-
-Usage: iptables -<span style="color:#f92672">[</span>ACD<span style="color:#f92672">]</span> chain rule-specification <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-       iptables -I chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]</span> rule-specification <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-       iptables -R chain rulenum rule-specification <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-       iptables -D chain rulenum <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-       iptables -<span style="color:#f92672">[</span>LS<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]]</span> <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-       iptables -<span style="color:#f92672">[</span>FZ<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>chain<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-       iptables -<span style="color:#f92672">[</span>NX<span style="color:#f92672">]</span> chain
-       iptables -E old-chain-name new-chain-name
-       iptables -P chain target <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
-       iptables -h <span style="color:#f92672">(</span>print this help information<span style="color:#f92672">)</span>
-
-Commands:
-Either long or short options are allowed.
-  --append  -A chain		Append to chain
-  --check   -C chain		Check <span style="color:#66d9ef">for</span> the existence of a rule
-  --delete  -D chain		Delete matching rule from chain
-  --delete  -D chain rulenum
-				Delete rule rulenum <span style="color:#f92672">(</span>1 <span style="color:#f92672">=</span> first<span style="color:#f92672">)</span> from chain
-  --insert  -I chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]</span>
-				Insert in chain as rulenum <span style="color:#f92672">(</span>default 1<span style="color:#f92672">=</span>first<span style="color:#f92672">)</span>
-  --replace -R chain rulenum
-				Replace rule rulenum <span style="color:#f92672">(</span>1 <span style="color:#f92672">=</span> first<span style="color:#f92672">)</span> in chain
-  --list    -L <span style="color:#f92672">[</span>chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]]</span>
-				List the rules in a chain or all chains
-  --list-rules -S <span style="color:#f92672">[</span>chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]]</span>
-				Print the rules in a chain or all chains
-  --flush   -F <span style="color:#f92672">[</span>chain<span style="color:#f92672">]</span>		Delete all rules in  chain or all chains
-  --zero    -Z <span style="color:#f92672">[</span>chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]]</span>
-				Zero counters in chain or all chains
-  --new     -N chain		Create a new user-defined chain
-  --delete-chain
-            -X <span style="color:#f92672">[</span>chain<span style="color:#f92672">]</span>		Delete a user-defined chain
-  --policy  -P chain target
-				Change policy on chain to target
-  --rename-chain
-            -E old-chain new-chain
-				Change chain name, <span style="color:#f92672">(</span>moving any references<span style="color:#f92672">)</span>
-Options:
-    --ipv4	-4		Nothing <span style="color:#f92672">(</span>line is ignored by ip6tables-restore<span style="color:#f92672">)</span>
-    --ipv6	-6		Error <span style="color:#f92672">(</span>line is ignored by iptables-restore<span style="color:#f92672">)</span>
-<span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> --protocol	-p proto	protocol: by number or name, eg. <span style="color:#e6db74">`</span>tcp<span style="color:#e6db74">&#39;
-</span><span style="color:#e6db74">[!] --source	-s address[/mask][...]
-</span><span style="color:#e6db74">				source specification
-</span><span style="color:#e6db74">[!] --destination -d address[/mask][...]
-</span><span style="color:#e6db74">				destination specification
-</span><span style="color:#e6db74">[!] --in-interface -i input name[+]
-</span><span style="color:#e6db74">				network interface name ([+] for wildcard)
-</span><span style="color:#e6db74"> --jump	-j target
-</span><span style="color:#e6db74">				target for rule (may load target extension)
-</span><span style="color:#e6db74">  --goto      -g chain
-</span><span style="color:#e6db74">                              jump to chain with no return
-</span><span style="color:#e6db74">  --match	-m match
-</span><span style="color:#e6db74">				extended match (may load extension)
-</span><span style="color:#e6db74">  --numeric	-n		numeric output of addresses and ports
-</span><span style="color:#e6db74">[!] --out-interface -o output name[+]
-</span><span style="color:#e6db74">				network interface name ([+] for wildcard)
-</span><span style="color:#e6db74">  --table	-t table	table to manipulate (default: `filter&#39;</span><span style="color:#f92672">)</span>
-  --verbose	-v		verbose mode
-  --wait	-w <span style="color:#f92672">[</span>seconds<span style="color:#f92672">]</span>	maximum wait to acquire xtables lock before give up
-  --wait-interval -W <span style="color:#f92672">[</span>usecs<span style="color:#f92672">]</span>	wait time to try to acquire xtables lock
-				default is <span style="color:#ae81ff">1</span> second
-  --line-numbers		print line numbers when listing
-  --exact	-x		expand numbers <span style="color:#f92672">(</span>display exact values<span style="color:#f92672">)</span>
-<span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> --fragment	-f		match second or further fragments only
-  --modprobe<span style="color:#f92672">=</span>&lt;command&gt;		try to insert modules using this command
-  --set-counters PKTS BYTES	set the counter during insert/append
-<span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> --version	-V		print package version.
-</code></pre></div><p>默认是 filter 表</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">iptables -L -n
-
-iptables -t nat -L -n
-</code></pre></div><hr>
 <h2 id="原理">
   原理
   <a class="anchor" href="#%e5%8e%9f%e7%90%86">#</a>
@@ -1154,6 +1073,85 @@ iptables -t nat -L -n
 </li>
 </ul>
 <hr>
+<h2 id="基础命令">
+  基础命令
+  <a class="anchor" href="#%e5%9f%ba%e7%a1%80%e5%91%bd%e4%bb%a4">#</a>
+</h2>
+<p><code>iptables [ -t 表名] 命令选项 [链名] [条件匹配] [-j 目标动作或跳转]</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">iptables v1.4.21
+
+Usage: iptables -<span style="color:#f92672">[</span>ACD<span style="color:#f92672">]</span> chain rule-specification <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
+       iptables -I chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]</span> rule-specification <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
+       iptables -R chain rulenum rule-specification <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
+       iptables -D chain rulenum <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
+       iptables -<span style="color:#f92672">[</span>LS<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]]</span> <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
+       iptables -<span style="color:#f92672">[</span>FZ<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>chain<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
+       iptables -<span style="color:#f92672">[</span>NX<span style="color:#f92672">]</span> chain
+       iptables -E old-chain-name new-chain-name
+       iptables -P chain target <span style="color:#f92672">[</span>options<span style="color:#f92672">]</span>
+       iptables -h <span style="color:#f92672">(</span>print this help information<span style="color:#f92672">)</span>
+
+Commands:
+Either long or short options are allowed.
+  --append  -A chain		Append to chain
+  --check   -C chain		Check <span style="color:#66d9ef">for</span> the existence of a rule
+  --delete  -D chain		Delete matching rule from chain
+  --delete  -D chain rulenum
+				Delete rule rulenum <span style="color:#f92672">(</span>1 <span style="color:#f92672">=</span> first<span style="color:#f92672">)</span> from chain
+  --insert  -I chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]</span>
+				Insert in chain as rulenum <span style="color:#f92672">(</span>default 1<span style="color:#f92672">=</span>first<span style="color:#f92672">)</span>
+  --replace -R chain rulenum
+				Replace rule rulenum <span style="color:#f92672">(</span>1 <span style="color:#f92672">=</span> first<span style="color:#f92672">)</span> in chain
+  --list    -L <span style="color:#f92672">[</span>chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]]</span>
+				List the rules in a chain or all chains
+  --list-rules -S <span style="color:#f92672">[</span>chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]]</span>
+				Print the rules in a chain or all chains
+  --flush   -F <span style="color:#f92672">[</span>chain<span style="color:#f92672">]</span>		Delete all rules in  chain or all chains
+  --zero    -Z <span style="color:#f92672">[</span>chain <span style="color:#f92672">[</span>rulenum<span style="color:#f92672">]]</span>
+				Zero counters in chain or all chains
+  --new     -N chain		Create a new user-defined chain
+  --delete-chain
+            -X <span style="color:#f92672">[</span>chain<span style="color:#f92672">]</span>		Delete a user-defined chain
+  --policy  -P chain target
+				Change policy on chain to target
+  --rename-chain
+            -E old-chain new-chain
+				Change chain name, <span style="color:#f92672">(</span>moving any references<span style="color:#f92672">)</span>
+Options:
+    --ipv4	-4		Nothing <span style="color:#f92672">(</span>line is ignored by ip6tables-restore<span style="color:#f92672">)</span>
+    --ipv6	-6		Error <span style="color:#f92672">(</span>line is ignored by iptables-restore<span style="color:#f92672">)</span>
+<span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> --protocol	-p proto	protocol: by number or name, eg. <span style="color:#e6db74">`</span>tcp<span style="color:#e6db74">&#39;
+</span><span style="color:#e6db74">[!] --source	-s address[/mask][...]
+</span><span style="color:#e6db74">				source specification
+</span><span style="color:#e6db74">[!] --destination -d address[/mask][...]
+</span><span style="color:#e6db74">				destination specification
+</span><span style="color:#e6db74">[!] --in-interface -i input name[+]
+</span><span style="color:#e6db74">				network interface name ([+] for wildcard)
+</span><span style="color:#e6db74"> --jump	-j target
+</span><span style="color:#e6db74">				target for rule (may load target extension)
+</span><span style="color:#e6db74">  --goto      -g chain
+</span><span style="color:#e6db74">                              jump to chain with no return
+</span><span style="color:#e6db74">  --match	-m match
+</span><span style="color:#e6db74">				extended match (may load extension)
+</span><span style="color:#e6db74">  --numeric	-n		numeric output of addresses and ports
+</span><span style="color:#e6db74">[!] --out-interface -o output name[+]
+</span><span style="color:#e6db74">				network interface name ([+] for wildcard)
+</span><span style="color:#e6db74">  --table	-t table	table to manipulate (default: `filter&#39;</span><span style="color:#f92672">)</span>
+  --verbose	-v		verbose mode
+  --wait	-w <span style="color:#f92672">[</span>seconds<span style="color:#f92672">]</span>	maximum wait to acquire xtables lock before give up
+  --wait-interval -W <span style="color:#f92672">[</span>usecs<span style="color:#f92672">]</span>	wait time to try to acquire xtables lock
+				default is <span style="color:#ae81ff">1</span> second
+  --line-numbers		print line numbers when listing
+  --exact	-x		expand numbers <span style="color:#f92672">(</span>display exact values<span style="color:#f92672">)</span>
+<span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> --fragment	-f		match second or further fragments only
+  --modprobe<span style="color:#f92672">=</span>&lt;command&gt;		try to insert modules using this command
+  --set-counters PKTS BYTES	set the counter during insert/append
+<span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> --version	-V		print package version.
+</code></pre></div><p>默认是 filter 表</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">iptables -L -n
+
+iptables -t nat -L -n
+</code></pre></div><hr>
 <h2 id="教程">
   教程
   <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
@@ -1239,7 +1237,6 @@ iptables -t nat -L -n
   
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#基础命令">基础命令</a></li>
     <li><a href="#原理">原理</a></li>
     <li><a href="#状态">状态</a>
       <ul>
@@ -1277,6 +1274,7 @@ iptables -t nat -L -n
     <li><a href="#dnat">DNAT</a></li>
     <li><a href="#snat">SNAT</a></li>
     <li><a href="#保存-iptables-修改">保存 iptables 修改</a></li>
+    <li><a href="#基础命令">基础命令</a></li>
     <li><a href="#教程">教程</a>
       <ul>
         <li><a href="#超级详细的-iptable-教程文档httpswwwcnblogscomdicky-zhangp5904429html"><a href="https://www.cnblogs.com/Dicky-Zhang/p/5904429.html">超级详细的 iptable 教程文档</a></a></li>
