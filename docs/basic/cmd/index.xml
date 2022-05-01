@@ -12,7 +12,7 @@
       
       <guid>https://kingye.me/study-network/docs/basic/cmd/curl/</guid>
       <description>curl #  curl format #  curl -w @curl-format -o /dev/null -s http://www.baidu.com
-time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time_connect: %{time_connect} （从开始到tcp建连完成）\n time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n ----------\n DNS 解析耗时: %{time_namelookup} \n tcp 建连耗时: %{time_connect} - %{time_namelookup} \n ssl 耗时: %{time_appconnect} - %{time_connect} \n 服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n ----------\n time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n 详细参考: https://curl.haxx.se/docs/manpage.html \n </description>
+ time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n  time_connect: %{time_connect} （从开始到tcp建连完成）\n  time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n  time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n  time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n  ----------\n  DNS 解析耗时: %{time_namelookup} \n  tcp 建连耗时: %{time_connect} - %{time_namelookup} \n  ssl 耗时: %{time_appconnect} - %{time_connect} \n  服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n  ----------\n  time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n  详细参考: https://curl.</description>
     </item>
     
     <item>

@@ -2,14 +2,14 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="curl #  curl format #  curl -w @curl-format -o /dev/null -s http://www.baidu.com
-time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time_connect: %{time_connect} （从开始到tcp建连完成）\n time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n ----------\n DNS 解析耗时: %{time_namelookup} \n tcp 建连耗时: %{time_connect} - %{time_namelookup} \n ssl 耗时: %{time_appconnect} - %{time_connect} \n 服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n ----------\n time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n 详细参考: https://curl.haxx.se/docs/manpage.html \n ">
+ time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n  time_connect: %{time_connect} （从开始到tcp建连完成）\n  time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n  time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n  time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n  ----------\n  DNS 解析耗时: %{time_namelookup} \n  tcp 建连耗时: %{time_connect} - %{time_namelookup} \n  ssl 耗时: %{time_appconnect} - %{time_connect} \n  服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n  ----------\n  time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n  详细参考: https://curl.">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="curl" />
 <meta property="og:description" content="curl #  curl format #  curl -w @curl-format -o /dev/null -s http://www.baidu.com
-time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time_connect: %{time_connect} （从开始到tcp建连完成）\n time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n ----------\n DNS 解析耗时: %{time_namelookup} \n tcp 建连耗时: %{time_connect} - %{time_namelookup} \n ssl 耗时: %{time_appconnect} - %{time_connect} \n 服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n ----------\n time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n 详细参考: https://curl.haxx.se/docs/manpage.html \n " />
+ time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n  time_connect: %{time_connect} （从开始到tcp建连完成）\n  time_namelookup: %{time_namelookup} （从开始到域名解析完成）\n  time_pretransfer: %{time_pretransfer} （从开始到文件传输即将开始，不包括服务器处理时间）\n  time_redirect: %{time_redirect} （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）\n time_starttransfer: %{time_starttransfer} （从开始到第一个byte即将传输，包括服务器处理时间）\n  ----------\n  DNS 解析耗时: %{time_namelookup} \n  tcp 建连耗时: %{time_connect} - %{time_namelookup} \n  ssl 耗时: %{time_appconnect} - %{time_connect} \n  服务器处理耗时: %{time_starttransfer} - %{time_pretransfer} \n  ----------\n  time_total: %{time_total} （全部时间；以上单位都是 秒）\n\n  详细参考: https://curl." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-network/docs/basic/cmd/curl/" /><meta property="article:section" content="docs" />
 
@@ -19,7 +19,7 @@ time_appconnect: %{time_appconnect} （从开始到ssl/ssh连接完成）\n time
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-network/en.search.min.4ee5e965c328a2679a75e0aff1812b0ae5c5263043cccbc51f08e3b5b26099d0.js" integrity="sha256-TuXpZcMoomeadeCv8YErCuXFJjBDzMvFHwjjtbJgmdA="></script>
+<script defer src="/study-network/en.search.min.47bff0c6fbeb29db50f7298a4c98ff8ec049966950e7965391cf14e9ada034a3.js" integrity="sha256-R7/wxvvrKdtQ9ymKTJj/jsBJlmlQ55ZTkc8U6a2gNKM="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -567,7 +567,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -620,22 +620,22 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#curl-format">#</a>
 </h2>
 <p><code>curl -w @curl-format -o /dev/null -s http://www.baidu.com</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">   time_appconnect:  %<span style="color:#f92672">{</span>time_appconnect<span style="color:#f92672">}</span> （从开始到ssl/ssh连接完成）<span style="color:#ae81ff">\n</span>
-      time_connect:  %<span style="color:#f92672">{</span>time_connect<span style="color:#f92672">}</span> （从开始到tcp建连完成）<span style="color:#ae81ff">\n</span>
-   time_namelookup:  %<span style="color:#f92672">{</span>time_namelookup<span style="color:#f92672">}</span> （从开始到域名解析完成）<span style="color:#ae81ff">\n</span>
-  time_pretransfer:  %<span style="color:#f92672">{</span>time_pretransfer<span style="color:#f92672">}</span> （从开始到文件传输即将开始，不包括服务器处理时间）<span style="color:#ae81ff">\n</span>
-     time_redirect:  %<span style="color:#f92672">{</span>time_redirect<span style="color:#f92672">}</span> （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）<span style="color:#ae81ff">\n</span>
-time_starttransfer:  %<span style="color:#f92672">{</span>time_starttransfer<span style="color:#f92672">}</span> （从开始到第一个byte即将传输，包括服务器处理时间）<span style="color:#ae81ff">\n</span>
-                    ----------<span style="color:#ae81ff">\n</span>
-      DNS 解析耗时:  %<span style="color:#f92672">{</span>time_namelookup<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
-      tcp 建连耗时:  %<span style="color:#f92672">{</span>time_connect<span style="color:#f92672">}</span> - %<span style="color:#f92672">{</span>time_namelookup<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
-          ssl 耗时:  %<span style="color:#f92672">{</span>time_appconnect<span style="color:#f92672">}</span> - %<span style="color:#f92672">{</span>time_connect<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
-    服务器处理耗时:  %<span style="color:#f92672">{</span>time_starttransfer<span style="color:#f92672">}</span> - %<span style="color:#f92672">{</span>time_pretransfer<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
-                    ----------<span style="color:#ae81ff">\n</span>
-        time_total:  %<span style="color:#f92672">{</span>time_total<span style="color:#f92672">}</span> （全部时间；以上单位都是 秒）<span style="color:#ae81ff">\n\n</span>
-
-详细参考: https://curl.haxx.se/docs/manpage.html <span style="color:#ae81ff">\n</span>
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>   time_appconnect:  %<span style="color:#f92672">{</span>time_appconnect<span style="color:#f92672">}</span> （从开始到ssl/ssh连接完成）<span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>      time_connect:  %<span style="color:#f92672">{</span>time_connect<span style="color:#f92672">}</span> （从开始到tcp建连完成）<span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>   time_namelookup:  %<span style="color:#f92672">{</span>time_namelookup<span style="color:#f92672">}</span> （从开始到域名解析完成）<span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>  time_pretransfer:  %<span style="color:#f92672">{</span>time_pretransfer<span style="color:#f92672">}</span> （从开始到文件传输即将开始，不包括服务器处理时间）<span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>     time_redirect:  %<span style="color:#f92672">{</span>time_redirect<span style="color:#f92672">}</span> （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）<span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>time_starttransfer:  %<span style="color:#f92672">{</span>time_starttransfer<span style="color:#f92672">}</span> （从开始到第一个byte即将传输，包括服务器处理时间）<span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>                    ----------<span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>      DNS 解析耗时:  %<span style="color:#f92672">{</span>time_namelookup<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>      tcp 建连耗时:  %<span style="color:#f92672">{</span>time_connect<span style="color:#f92672">}</span> - %<span style="color:#f92672">{</span>time_namelookup<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>          ssl 耗时:  %<span style="color:#f92672">{</span>time_appconnect<span style="color:#f92672">}</span> - %<span style="color:#f92672">{</span>time_connect<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>    服务器处理耗时:  %<span style="color:#f92672">{</span>time_starttransfer<span style="color:#f92672">}</span> - %<span style="color:#f92672">{</span>time_pretransfer<span style="color:#f92672">}</span> <span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>                    ----------<span style="color:#ae81ff">\n</span>
+</span></span><span style="display:flex;"><span>        time_total:  %<span style="color:#f92672">{</span>time_total<span style="color:#f92672">}</span> （全部时间；以上单位都是 秒）<span style="color:#ae81ff">\n\n</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>详细参考: https://curl.haxx.se/docs/manpage.html <span style="color:#ae81ff">\n</span>
+</span></span></code></pre></div></article>
  
       
 

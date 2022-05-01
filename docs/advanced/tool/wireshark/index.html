@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.87.0" />
+  <meta name="generator" content="Hugo 0.98.0" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Wireshark #  安装 #  https://www.wireshark.org/download.html
@@ -25,7 +25,7 @@ yum install -y wireshark  教程 #  参考：
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-network/en.search.min.4ee5e965c328a2679a75e0aff1812b0ae5c5263043cccbc51f08e3b5b26099d0.js" integrity="sha256-TuXpZcMoomeadeCv8YErCuXFJjBDzMvFHwjjtbJgmdA="></script>
+<script defer src="/study-network/en.search.min.47bff0c6fbeb29db50f7298a4c98ff8ec049966950e7965391cf14e9ada034a3.js" integrity="sha256-R7/wxvvrKdtQ9ymKTJj/jsBJlmlQ55ZTkc8U6a2gNKM="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -573,7 +573,7 @@ https://github.com/alex-shpak/hugo-book
 
 
 
-  <script>(function(){var a=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(b){localStorage.setItem("menu.scrollTop",a.scrollTop)}),a.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+  <script>(function(){var e=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
 
 
  
@@ -639,8 +639,8 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e5%ae%89%e8%a3%85">#</a>
 </h2>
 <p><a href="https://www.wireshark.org/download.html">https://www.wireshark.org/download.html</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install -y wireshark
-</code></pre></div><hr>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum install -y wireshark
+</span></span></code></pre></div><hr>
 <h2 id="教程">
   教程
   <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
@@ -677,32 +677,31 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li><a href="https://www.wireshark.org/docs/man-pages/tshark.html">tshark - Dump and analyze network traffic</a></li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 列出当前存在的网络接口</span>
-tshark -D
-
-
-<span style="color:#75715e"># 实时打印当前http请求的url</span>
-$ tshark -s <span style="color:#ae81ff">512</span> -i eth0 -n -f <span style="color:#e6db74">&#39;tcp dst port 80&#39;</span> -R <span style="color:#e6db74">&#39;http.host and http.request.uri&#39;</span> -T fields -e http.host -e http.request.uri -l | tr -d <span style="color:#e6db74">&#39;\t&#39;</span>
-<span style="color:#75715e"># 参数含义：</span>
-<span style="color:#75715e">#     -s 512 :只抓取前512个字节数据</span>
-<span style="color:#75715e">#     -i eth0 :捕获eth0网卡</span>
-<span style="color:#75715e">#     -n :禁止网络对象名称解析</span>
-<span style="color:#75715e">#     -f &#39;tcp dst port 80&#39; :只捕捉协议为tcp,目的端口为80的数据包</span>
-<span style="color:#75715e">#     -R &#39;http.host and http.request.uri&#39; :过滤出http.host和http.request.uri</span>
-<span style="color:#75715e">#     -T fields -e http.host -e http.request.uri :打印http.host和http.request.uri</span>
-<span style="color:#75715e">#     -l ：输出到标准输出</span>
-
-<span style="color:#75715e"># 实时打印当前mysql查询语句</span>
-$ tshark -s <span style="color:#ae81ff">512</span> -i eth0 -n -f <span style="color:#e6db74">&#39;tcp dst port 3306&#39;</span> -R <span style="color:#e6db74">&#39;mysql.query&#39;</span> -T fields -e mysql.query
-<span style="color:#75715e"># 参数含义：</span>
-<span style="color:#75715e">#     -s 512 :只抓取前512个字节数据</span>
-<span style="color:#75715e">#     -i eth0 :捕获eth0网卡</span>
-<span style="color:#75715e">#     -n :禁止网络对象名称解析</span>
-<span style="color:#75715e">#     -f &#39;tcp dst port 3306&#39; :只捕捉协议为tcp,目的端口为3306的数据包</span>
-<span style="color:#75715e">#     -R &#39;mysql.query&#39; :过滤出mysql.query</span>
-<span style="color:#75715e">#     -T fields -e mysql.query :打印mysql查询语句</span>
-
-</code></pre></div><h3 id="linux-安装-wireshark">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 列出当前存在的网络接口</span>
+</span></span><span style="display:flex;"><span>tshark -D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 实时打印当前http请求的url</span>
+</span></span><span style="display:flex;"><span>$ tshark -s <span style="color:#ae81ff">512</span> -i eth0 -n -f <span style="color:#e6db74">&#39;tcp dst port 80&#39;</span> -R <span style="color:#e6db74">&#39;http.host and http.request.uri&#39;</span> -T fields -e http.host -e http.request.uri -l | tr -d <span style="color:#e6db74">&#39;\t&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 参数含义：</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -s 512 :只抓取前512个字节数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -i eth0 :捕获eth0网卡</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -n :禁止网络对象名称解析</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -f &#39;tcp dst port 80&#39; :只捕捉协议为tcp,目的端口为80的数据包</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -R &#39;http.host and http.request.uri&#39; :过滤出http.host和http.request.uri</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -T fields -e http.host -e http.request.uri :打印http.host和http.request.uri</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -l ：输出到标准输出</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 实时打印当前mysql查询语句</span>
+</span></span><span style="display:flex;"><span>$ tshark -s <span style="color:#ae81ff">512</span> -i eth0 -n -f <span style="color:#e6db74">&#39;tcp dst port 3306&#39;</span> -R <span style="color:#e6db74">&#39;mysql.query&#39;</span> -T fields -e mysql.query
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 参数含义：</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -s 512 :只抓取前512个字节数据</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -i eth0 :捕获eth0网卡</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -n :禁止网络对象名称解析</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -f &#39;tcp dst port 3306&#39; :只捕捉协议为tcp,目的端口为3306的数据包</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -R &#39;mysql.query&#39; :过滤出mysql.query</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -T fields -e mysql.query :打印mysql查询语句</span>
+</span></span></code></pre></div><h3 id="linux-安装-wireshark">
   Linux 安装 Wireshark
   <a class="anchor" href="#linux-%e5%ae%89%e8%a3%85-wireshark">#</a>
 </h3>
@@ -711,15 +710,14 @@ $ tshark -s <span style="color:#ae81ff">512</span> -i eth0 -n -f <span style="co
   查询
   <a class="anchor" href="#%e6%9f%a5%e8%af%a2">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">ip.addr <span style="color:#f92672">==</span> 192.168.137.109
-
-</code></pre></div><h2 id="macos-打开两个-wireshark">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ip.addr <span style="color:#f92672">==</span> 192.168.137.109
+</span></span></code></pre></div><h2 id="macos-打开两个-wireshark">
   MacOS 打开两个 Wireshark
   <a class="anchor" href="#macos-%e6%89%93%e5%bc%80%e4%b8%a4%e4%b8%aa-wireshark">#</a>
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e"># 使用 -n 可以打开多个</span>
-open -n /Applications/Wireshark.app
-</code></pre></div><p>参考：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 使用 -n 可以打开多个</span>
+</span></span><span style="display:flex;"><span>open -n /Applications/Wireshark.app
+</span></span></code></pre></div><p>参考：</p>
 <ul>
 <li><a href="https://ttlzero.wordpress.com/2017/07/13/first-blog-post/">Open Multiple Instances of Wireshark on MacOS</a></li>
 </ul>
