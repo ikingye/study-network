@@ -2,24 +2,24 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.98.0" />
+  <meta name="generator" content="Hugo 0.104.2" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="iptables #  Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。
+<meta name="description" content="iptables # Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。
 netfilter 组件位于内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。
 iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
- iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
+iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
 iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &ldquo;安全框架&rdquo; 中， 这个 &ldquo;安全框架&rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter。
 配套的常用命令有：
- iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。">
+iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。 原理 # 一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出 状态 # ESTABLISHED # 状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="iptables" />
-<meta property="og:description" content="iptables #  Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。
+<meta property="og:description" content="iptables # Linux 的包过滤功能，即 Linux 防火墙， 它由 netfilter 和 iptables 两个组件组成。
 netfilter 组件位于内核空间，是内核的一部分，由一些信息包过滤表组成，这些表包含内核用来控制信息包过滤处理的规则集。
 iptables 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。
- iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
+iptables 是 linux 系统下用来配置 netfilter 子系统的一个 client tool。
 iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &ldquo;安全框架&rdquo; 中， 这个 &ldquo;安全框架&rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter。
 配套的常用命令有：
- iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。   原理 #   一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出   状态 #  ESTABLISHED #  状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。" />
+iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规则，可以用 &gt; 重定向到一个文件中 iptables-restore: 从之前导出的 iptable 规则配置文件加载规则。 原理 # 一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去 如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链 数据包到了 INPUT 链后，任何进程都会收到它。 如果数据包是要转发出去的，且内核允许转发，数据包就会如图所示向右移动，经过 FORWARD 链， 然后到达 POSTROUTING 链输出。 本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链 然后到达 POSTROUTING 链输出 状态 # ESTABLISHED # 状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://kingye.me/study-network/docs/basic/cmd/iptables/" /><meta property="article:section" content="docs" />
 
@@ -29,7 +29,7 @@ iptables 其实不是真正的防火墙，我们可以把它理解成一个客�
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-network/en.search.min.47bff0c6fbeb29db50f7298a4c98ff8ec049966950e7965391cf14e9ada034a3.js" integrity="sha256-R7/wxvvrKdtQ9ymKTJj/jsBJlmlQ55ZTkc8U6a2gNKM="></script>
+<script defer src="/study-network/en.search.min.f04c06672ed236ccde0fa16d2a297ca9742ffc01e45e4210959ebabd8a64d795.js" integrity="sha256-8EwGZy7SNszeD6FtKil8qXQv/AHkXkIQlZ66vYpk15U="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
