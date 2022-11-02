@@ -11,7 +11,7 @@
     <loc>https://kingye.me/study-network/docs/advanced/</loc>
     <lastmod>2020-07-16T20:41:07+08:00</lastmod>
   </url><url>
-    <loc>https://kingye.me/study-network/docs/code/</loc>
+    <loc>https://kingye.me/study-network/docs/design/</loc>
     <lastmod>2020-07-16T20:41:07+08:00</lastmod>
   </url><url>
     <loc>https://kingye.me/study-network/docs/appendix/</loc>
@@ -23,8 +23,9 @@
     <loc>https://kingye.me/study-network/docs/advanced/code/</loc>
     <lastmod>2020-07-16T20:41:07+08:00</lastmod>
   </url><url>
-    <loc>https://kingye.me/study-network/docs/code/stack/</loc>
-    <lastmod>2020-07-16T20:41:07+08:00</lastmod>
+    <loc>https://kingye.me/study-network/docs/design/stack/</loc>
+  </url><url>
+    <loc>https://kingye.me/study-network/docs/design/code/netty-4.0.33/</loc>
   </url><url>
     <loc>https://kingye.me/study-network/docs/appendix/tutorial/</loc>
     <lastmod>2020-09-15T15:03:47+08:00</lastmod>
@@ -82,6 +83,8 @@
   </url><url>
     <loc>https://kingye.me/study-network/docs/basic/protocol/https/</loc>
     <lastmod>2020-05-25T21:37:53+08:00</lastmod>
+  </url><url>
+    <loc>https://kingye.me/study-network/docs/design/code/</loc>
   </url><url>
     <loc>https://kingye.me/study-network/categories/</loc>
   </url><url>
