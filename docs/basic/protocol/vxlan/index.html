@@ -5,18 +5,23 @@
   <meta name="generator" content="Hugo 0.99.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="源码分析 #  ">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="3.7 源码分析" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://kingye.me/study-network/docs/design/code/" />
+<meta name="description" content="VXLAN #  overlay 的核心其实就是打隧道（tunnel）
+ 突破 VLAN 的最多 4096 个终端的数量限制，以满足大规模云计算数据中心的需求 解决 STP 在大型 网路设备带宽浪费和收敛性能变慢的缺陷 解决 ToR (Top of Rack) 交换机 MAC 表耗尽问题 VXLAN 最大的贡献，就是实现了网络的扁平化管理，IP 地址不再与特定的 Site（某个数据中心）强行绑定在一起。  NOV3 技术（Network Virtualization Overlays）的实现原理其实非常简单，
+ VxLAN: MAC in UDP NvGRE: MAC in GRE STT: MAC in TCP（伪 TCP）  ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="VXLAN" />
+<meta property="og:description" content="VXLAN #  overlay 的核心其实就是打隧道（tunnel）
+ 突破 VLAN 的最多 4096 个终端的数量限制，以满足大规模云计算数据中心的需求 解决 STP 在大型 网路设备带宽浪费和收敛性能变慢的缺陷 解决 ToR (Top of Rack) 交换机 MAC 表耗尽问题 VXLAN 最大的贡献，就是实现了网络的扁平化管理，IP 地址不再与特定的 Site（某个数据中心）强行绑定在一起。  NOV3 技术（Network Virtualization Overlays）的实现原理其实非常简单，
+ VxLAN: MAC in UDP NvGRE: MAC in GRE STT: MAC in TCP（伪 TCP）  " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://kingye.me/study-network/docs/basic/protocol/vxlan/" /><meta property="article:section" content="docs" />
 
-<title>3.7 源码分析 | 网络学习笔记</title>
+
+
+<title>VXLAN | 网络学习笔记</title>
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
 <script defer src="/study-network/en.search.min.b434877893a0b458d566800bb29f6476700590f3e26009572c4326885f795a5b.js" integrity="sha256-tDSHeJOgtFjVZoALsp9kdnAFkPPiYAlXLEMmiF95Wls="></script>
-<link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-network/docs/design/code/index.xml" title="网络学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -159,7 +164,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-054c01723ce2098e7389d637924803ae" class="toggle"  />
+    <input type="checkbox" id="section-054c01723ce2098e7389d637924803ae" class="toggle" checked />
     <label for="section-054c01723ce2098e7389d637924803ae" class="flex justify-between">
       <a href="https://kingye.me/study-network/docs/basic/protocol/" class="">1.2 协议</a>
     </label>
@@ -188,7 +193,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://kingye.me/study-network/docs/basic/protocol/vxlan/" class="">VXLAN</a>
+    <a href="https://kingye.me/study-network/docs/basic/protocol/vxlan/" class=" active">VXLAN</a>
   
 
         </li>
@@ -486,7 +491,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://kingye.me/study-network/docs/design/code/" class=" active">3.7 源码分析</a>
+    <a href="https://kingye.me/study-network/docs/design/code/" class="">3.7 源码分析</a>
   
 
           
@@ -631,7 +636,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-network/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>3.7 源码分析</strong>
+  <strong>VXLAN</strong>
 
   <label for="toc-control">
     
@@ -656,10 +661,23 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article id="article" class="markdown"><h1 id="源码分析">
-  源码分析
-  <a class="anchor" href="#%e6%ba%90%e7%a0%81%e5%88%86%e6%9e%90">#</a>
+  <article id="article" class="markdown"><h1 id="vxlan">
+  VXLAN
+  <a class="anchor" href="#vxlan">#</a>
 </h1>
+<p>overlay 的核心其实就是打隧道（tunnel）</p>
+<ul>
+<li>突破 VLAN 的最多 4096 个终端的数量限制，以满足大规模云计算数据中心的需求</li>
+<li>解决 <a href="https://www.wikiwand.com/zh-cn/%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE">STP</a> 在大型 网路设备带宽浪费和收敛性能变慢的缺陷</li>
+<li>解决 ToR (Top of Rack) 交换机 MAC 表耗尽问题</li>
+<li>VXLAN 最大的贡献，就是实现了网络的扁平化管理，IP 地址不再与特定的 Site（某个数据中心）强行绑定在一起。</li>
+</ul>
+<p>NOV3 技术（<code>Network Virtualization Overlays</code>）的实现原理其实非常简单，</p>
+<ul>
+<li>VxLAN: MAC in UDP</li>
+<li>NvGRE: MAC in GRE</li>
+<li>STT: MAC in TCP（伪 TCP）</li>
+</ul>
 </article>
  
       
@@ -669,12 +687,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/16904c200760b6746c39979fc460f9a7018973aa" title='Last modified by yewang | 2022-11-02' target="_blank" rel="noopener">
-      <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2022-11-02</span>
-    </a>
-  </div>
 
 
 

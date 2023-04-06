@@ -62,6 +62,17 @@ iptables 其实不是真正的防火墙，我们可以把它理解成一个客�
     </item>
     
     <item>
+      <title>VXLAN</title>
+      <link>https://kingye.me/study-network/docs/basic/protocol/vxlan/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://kingye.me/study-network/docs/basic/protocol/vxlan/</guid>
+      <description>VXLAN #  overlay 的核心其实就是打隧道（tunnel）
+ 突破 VLAN 的最多 4096 个终端的数量限制，以满足大规模云计算数据中心的需求 解决 STP 在大型 网路设备带宽浪费和收敛性能变慢的缺陷 解决 ToR (Top of Rack) 交换机 MAC 表耗尽问题 VXLAN 最大的贡献，就是实现了网络的扁平化管理，IP 地址不再与特定的 Site（某个数据中心）强行绑定在一起。  NOV3 技术（Network Virtualization Overlays）的实现原理其实非常简单，
+ VxLAN: MAC in UDP NvGRE: MAC in GRE STT: MAC in TCP（伪 TCP）  </description>
+    </item>
+    
+    <item>
       <title>Wireshark</title>
       <link>https://kingye.me/study-network/docs/advanced/tool/wireshark/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
