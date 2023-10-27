@@ -5,7 +5,10 @@
   <meta name="generator" content="Hugo 0.99.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
+<meta name="description" content="服务器测试网速 #  sivel/speedtest-cli Command line interface for testing internet bandwidth using speedtest.net
+安装：
+pip install speedtest-cli  # 或者直接下载 wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py chmod &#43;x speedtest-cli 示例：
+$ ./speedtest.py Retrieving speedtest.net configuration... Testing from CNISP Group (36.110.199.49)... Retrieving speedtest.net server list... Selecting best server based on ping... Hosted by 江苏电信5G (Nanjing) [1.81 km]: 51.713 ms Testing download speed................................................................................ Download: 1063.20 Mbit/s Testing upload speed................................................................................................ Upload: 149.86 Mbit/s ">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="第一部分 基础入门" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -15,7 +18,7 @@
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-network/en.search.min.b434877893a0b458d566800bb29f6476700590f3e26009572c4326885f795a5b.js" integrity="sha256-tDSHeJOgtFjVZoALsp9kdnAFkPPiYAlXLEMmiF95Wls="></script>
+<script defer src="/study-network/en.search.min.2048c527784fc73ad54e601d54c2bd5237a42f756a98344fdb9a310472ce7c6f.js" integrity="sha256-IEjFJ3hPxzrVTmAdVMK9UjekL3VqmDRP25oxBHLOfG8="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-network/docs/basic/index.xml" title="网络学习笔记" />
 <!--
 Made with Book Theme
@@ -77,7 +80,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <span>第一部分 基础入门</span>
+    <a href="https://kingye.me/study-network/docs/basic/" class=" active">第一部分 基础入门</a>
   
 
           
@@ -276,6 +279,45 @@ https://github.com/alex-shpak/hugo-book
       
     
   </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-network/docs/basic/cxl/" class="">CXL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-network/docs/basic/pcie/" class="">PCIe</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="https://kingye.me/study-network/docs/basic/roce/" class="">RoCE 网络</a>
+  
 
         </li>
       
@@ -645,7 +687,11 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#服务器测试网速">服务器测试网速</a></li>
+  </ul>
+</nav>
 
 
 
@@ -656,7 +702,30 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article id="article" class="markdown"></article>
+  <article id="article" class="markdown"><h2 id="服务器测试网速">
+  服务器测试网速
+  <a class="anchor" href="#%e6%9c%8d%e5%8a%a1%e5%99%a8%e6%b5%8b%e8%af%95%e7%bd%91%e9%80%9f">#</a>
+</h2>
+<p><a href="https://github.com/sivel/speedtest-cli">sivel/speedtest-cli</a> <img src="https://img.shields.io/github/stars/sivel/speedtest-cli.svg" alt="Github stars" /></p>
+<p>Command line interface for testing internet bandwidth using speedtest.net</p>
+<p>安装：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>pip install speedtest-cli
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 或者直接下载</span>
+</span></span><span style="display:flex;"><span>wget -O speedtest-cli https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py
+</span></span><span style="display:flex;"><span>chmod +x speedtest-cli
+</span></span></code></pre></div><p>示例：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./speedtest.py
+</span></span><span style="display:flex;"><span>Retrieving speedtest.net configuration...
+</span></span><span style="display:flex;"><span>Testing from CNISP Group <span style="color:#f92672">(</span>36.110.199.49<span style="color:#f92672">)</span>...
+</span></span><span style="display:flex;"><span>Retrieving speedtest.net server list...
+</span></span><span style="display:flex;"><span>Selecting best server based on ping...
+</span></span><span style="display:flex;"><span>Hosted by 江苏电信5G <span style="color:#f92672">(</span>Nanjing<span style="color:#f92672">)</span> <span style="color:#f92672">[</span>1.81 km<span style="color:#f92672">]</span>: 51.713 ms
+</span></span><span style="display:flex;"><span>Testing download speed................................................................................
+</span></span><span style="display:flex;"><span>Download: 1063.20 Mbit/s
+</span></span><span style="display:flex;"><span>Testing upload speed................................................................................................
+</span></span><span style="display:flex;"><span>Upload: 149.86 Mbit/s
+</span></span></code></pre></div></article>
  
       
 
@@ -694,6 +763,29 @@ https://github.com/alex-shpak/hugo-book
 
       
   
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-network"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+<div id="footer">
+  <p>
+    <a href="https://kingye.me">叶王</a> &copy; 2013-2021
+    版权所有。如果本文档对你有所帮助，可以<a
+      href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200428110046.png"
+      target="_blank"
+      rel="noopener noreferrer"
+      >请作者喝饮料</a
+    >。
+  </p>
+</div>
+
+</div>
+  
  
 
       <label for="menu-control" class="hidden book-menu-overlay"></label>
@@ -704,7 +796,11 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents"></nav>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#服务器测试网速">服务器测试网速</a></li>
+  </ul>
+</nav>
 
 
  
