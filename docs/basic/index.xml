@@ -27,15 +27,5 @@
  PCIe 拥有更快的速率，所以几乎取代了以往所有的内部总线（包括 AGP 和 PCI）。现在英特尔和 AMD 已采用单芯片组技术，取代原有的南桥／北桥方案。  发展历史 #   ISA (Industry Standard Architecture)  第一代 ISA 插槽出现在第一代 IBM PC XT 机型上（1981），作为现代 PC 的盘古之作，8 位的 ISA 提供了 4.77MB/s 的带宽（或传输率）。   MCA (Micro Channel Architecture) EISA (Extended Industry Standard Architecture) VLB (VESA Local Bus) PCI (Peripheral Component Interconnect)  Intel 在 1992 年提出 PCI（Peripheral Component Interconnect）总线协议，并召集其它的小伙伴组成了名为 PCI-SIG (PCI Special Interest Group)（PCI 特殊兴趣组 J）的企业联盟。从那以后这个组织就负责 PCI 和其继承者们（PCI-X 和 PCIe）的标准制定和推广。   PCI-X (Peripheral Component Interconnect eXtended) AGP (Accelerated Graphics Port) PCI Express (Peripheral Component Interconnect Express)  </description>
     </item>
     
-    <item>
-      <title>RoCE 网络</title>
-      <link>https://kingye.me/study-network/docs/basic/roce/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://kingye.me/study-network/docs/basic/roce/</guid>
-      <description>RoCE 网络 #  分布式存储中常用的网络协议
- Infiniband（IB）：常用于 DPC 场景中的存储前端网络 RoCE：常用于存储后端网络 TCP/IP：常用于业务网络  RDMA #   传统的 TCP/IP 网络通信是通过内核发送消息，这种通信方式存在很高的数据移动和数据复制的开销。 RDMA (RemoteDirect Memory Access) 技术全称远程直接内存访问，就是为了解决网络传输中服务器端数据处理的延迟而产生的。  RDMA 技术能直接通过网络接口访问内存数据，无需操作系统内核的介入。这允许高吞吐、低延迟的网络通信，尤其适合在大规模并行计算机集群中使用。    目前有三种 RDMA 网络，分别是 Infiniband（IB）、RoCE (RDMA over Converged Ethernet)、iWARP  Infiniband 是一种专为 RDMA 设计的网络，从硬件级别保证可靠传输 ，技术先进，但是成本高昂  InfiniBand：设计之初就考虑了 RDMA，从硬件级别保证可靠传输，提供更高的带宽和更低的时延。但是成本高，需要支持 IB 网卡和交换机。   RoCE 和 iWARP 都是基于以太网的 RDMA 技术，这使高速、超低延时、极低 CPU 使用率的 RDMA 技术得以部署在目前使用最广泛的以太网上  iWARP：基于 TCP 的 RDMA 网络，利用 TCP 达到可靠传输。相比 RoCE，在大型组网的情况下，iWARP 的大量 TCP 连接会占用大量的内存资源，对系统规格要求更高。可以使用普通的以太网交换机，但是需要支持 iWARP 的网卡。     RoCE：基于 Ethernet 做 RDMA，消耗的资源比 iWARP 少，支持的特性比 iWARP 多。可以使用普通的以太网交换机，但是需要支持 RoCE 的网卡。      InfiniBand iWARP RoCE     成本 高 中 低   性能 最好 稍差（受 TCP 影响） 与 InfiniBand 相当   稳定性 好 差 较好   交换机 IB 交换机 以太网交换机 以太网交换机     RoCE #  RoCE 协议有 RoCEv1 和 RoCEv2 两个版本</description>
-    </item>
-    
   </channel>
 </rss>

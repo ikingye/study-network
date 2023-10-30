@@ -5,27 +5,19 @@
   <meta name="generator" content="Hugo 0.99.1" />
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Wireshark #  安装 #  https://www.wireshark.org/download.html
-yum install -y wireshark  教程 #  参考：
- Wireshark User’s Guide 命令 wireshark - Interactively dump and analyze network traffic  Capture filter #  参考：
- 4.10. Filtering while capturing Capture Filters wiki Man page of PCAP-FILTER  Display filter #  参考：
- Chapter 6. Working With Captured Packets wireshark-filter - Wireshark display filter syntax and reference  tshark #  教程：">
-<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="Wireshark" />
-<meta property="og:description" content="Wireshark #  安装 #  https://www.wireshark.org/download.html
-yum install -y wireshark  教程 #  参考：
- Wireshark User’s Guide 命令 wireshark - Interactively dump and analyze network traffic  Capture filter #  参考：
- 4.10. Filtering while capturing Capture Filters wiki Man page of PCAP-FILTER  Display filter #  参考：
- Chapter 6. Working With Captured Packets wireshark-filter - Wireshark display filter syntax and reference  tshark #  教程：" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://kingye.me/study-network/docs/advanced/tool/wireshark/" /><meta property="article:section" content="docs" />
+<meta name="description" content="RDMA #  分布式存储中常用的网络协议
+ Infiniband（IB）：常用于 DPC 场景中的存储前端网络 RoCE：常用于存储后端网络 TCP/IP：常用于业务网络    传统的 TCP/IP 网络通信是通过内核发送消息，这种通信方式存在很高的数据移动和数据复制的开销。 RDMA (RemoteDirect Memory Access) 技术全称远程直接内存访问，就是为了解决网络传输中服务器端数据处理的延迟而产生的。  RDMA 技术能直接通过网络接口访问内存数据，无需操作系统内核的介入。这允许高吞吐、低延迟的网络通信，尤其适合在大规模并行计算机集群中使用。    目前有三种 RDMA 网络，分别是 Infiniband（IB）、RoCE (RDMA over Converged Ethernet)、iWARP  Infiniband 是一种专为 RDMA 设计的网络，从硬件级别保证可靠传输 ，技术先进，但是成本高昂  InfiniBand：设计之初就考虑了 RDMA，从硬件级别保证可靠传输，提供更高的带宽和更低的时延。但是成本高，需要支持 IB 网卡和交换机。   RoCE 和 iWARP 都是基于以太网的 RDMA 技术，这使高速、超低延时、极低 CPU 使用率的 RDMA 技术得以部署在目前使用最广泛的以太网上  RoCE：基于 Ethernet 做 RDMA，消耗的资源比 iWARP 少，支持的特性比 iWARP 多。  可以使用普通的以太网交换机，但是需要支持 RoCE 的网卡。   iWARP：基于 TCP 做 RDMA，利用 TCP 达到可靠传输。相比 RoCE，在大型组网的情况下，iWARP 的大量 TCP 连接会占用大量的内存资源，对系统规格要求更高。  可以使用普通的以太网交换机，但是需要支持 iWARP 的网卡。            InfiniBand iWARP RoCE     成本 高 中 低   性能 最好 稍差（受 TCP 影响） 与 InfiniBand 相当   稳定性 好 差 较好   交换机 IB 交换机 以太网交换机 以太网交换机    ">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="RDMA" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://kingye.me/study-network/docs/basic/rdmd/" />
 
-<meta property="article:modified_time" content="2021-07-19T00:14:22+08:00" />
-
-<title>Wireshark | 网络学习笔记</title>
+<title>RDMA | 网络学习笔记</title>
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
 <script defer src="/study-network/en.search.min.8da4ab16023a4b7a3bd47bf4ee98c1d3160f585fa499cb7b41637763afc50011.js" integrity="sha256-jaSrFgI6S3o71Hv07pjB0xYPWF&#43;kmct7QWN3Y6/FABE="></script>
+<link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-network/docs/basic/rdmd/index.xml" title="网络学习笔记" />
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -322,7 +314,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <a href="https://kingye.me/study-network/docs/basic/rdmd/" class="">RDMA</a>
+    <a href="https://kingye.me/study-network/docs/basic/rdmd/" class=" active">RDMA</a>
   
 
           
@@ -489,7 +481,7 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-a784c11a68fca5d10a4ba33481b6822d" class="toggle" checked />
+    <input type="checkbox" id="section-a784c11a68fca5d10a4ba33481b6822d" class="toggle"  />
     <label for="section-a784c11a68fca5d10a4ba33481b6822d" class="flex justify-between">
       <a href="https://kingye.me/study-network/docs/advanced/tool/" class="">2.2 网络工具</a>
     </label>
@@ -505,9 +497,9 @@ https://github.com/alex-shpak/hugo-book
   
 
   
-    <input type="checkbox" id="section-80e54258fb2197a0a33f5da69717dee6" class="toggle" checked />
+    <input type="checkbox" id="section-80e54258fb2197a0a33f5da69717dee6" class="toggle"  />
     <label for="section-80e54258fb2197a0a33f5da69717dee6" class="flex justify-between">
-      <a href="https://kingye.me/study-network/docs/advanced/tool/wireshark/" class="active">Wireshark</a>
+      <a href="https://kingye.me/study-network/docs/advanced/tool/wireshark/" class="">Wireshark</a>
     </label>
   
 
@@ -710,7 +702,7 @@ https://github.com/alex-shpak/hugo-book
     <img src="/study-network/svg/menu.svg" class="book-icon" alt="Menu" />
   </label>
 
-  <strong>Wireshark</strong>
+  <strong>RDMA</strong>
 
   <label for="toc-control">
     
@@ -724,24 +716,7 @@ https://github.com/alex-shpak/hugo-book
   <aside class="hidden clearfix">
     
   
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#安装">安装</a></li>
-    <li><a href="#教程">教程</a>
-      <ul>
-        <li><a href="#capture-filter">Capture filter</a></li>
-        <li><a href="#display-filter">Display filter</a></li>
-      </ul>
-    </li>
-    <li><a href="#tshark">tshark</a>
-      <ul>
-        <li><a href="#linux-安装-wireshark">Linux 安装 Wireshark</a></li>
-      </ul>
-    </li>
-    <li><a href="#查询">查询</a></li>
-    <li><a href="#macos-打开两个-wireshark">MacOS 打开两个 Wireshark</a></li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
 
@@ -752,97 +727,85 @@ https://github.com/alex-shpak/hugo-book
 
       
       
-  <article id="article" class="markdown"><h1 id="wireshark">
-  Wireshark
-  <a class="anchor" href="#wireshark">#</a>
+  <article id="article" class="markdown"><h1 id="rdma">
+  RDMA
+  <a class="anchor" href="#rdma">#</a>
 </h1>
-<h2 id="安装">
-  安装
-  <a class="anchor" href="#%e5%ae%89%e8%a3%85">#</a>
-</h2>
-<p><a href="https://www.wireshark.org/download.html">https://www.wireshark.org/download.html</a></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum install -y wireshark
-</span></span></code></pre></div><hr>
-<h2 id="教程">
-  教程
-  <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
-</h2>
-<p>参考：</p>
+<p>分布式存储中常用的网络协议</p>
 <ul>
-<li><a href="https://www.wireshark.org/docs/wsug_html_chunked/">Wireshark User’s Guide</a></li>
-<li>命令 <a href="https://www.wireshark.org/docs/man-pages/wireshark.html">wireshark - Interactively dump and analyze network traffic</a></li>
+<li>Infiniband（IB）：常用于 DPC 场景中的存储前端网络</li>
+<li>RoCE：常用于存储后端网络</li>
+<li>TCP/IP：常用于业务网络</li>
 </ul>
-<h3 id="capture-filter">
-  Capture filter
-  <a class="anchor" href="#capture-filter">#</a>
-</h3>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html">4.10. Filtering while capturing</a></li>
-<li><a href="https://gitlab.com/wireshark/wireshark/-/wikis/CaptureFilters">Capture Filters wiki</a></li>
-<li><a href="https://www.tcpdump.org/manpages/pcap-filter.7.html">Man page of PCAP-FILTER</a></li>
-</ul>
-<h3 id="display-filter">
-  Display filter
-  <a class="anchor" href="#display-filter">#</a>
-</h3>
-<p>参考：</p>
-<ul>
-<li><a href="https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html">Chapter 6. Working With Captured Packets</a></li>
-<li><a href="https://www.wireshark.org/docs/man-pages/wireshark-filter.html">wireshark-filter - Wireshark display filter syntax and reference</a></li>
-</ul>
-<h2 id="tshark">
-  tshark
-  <a class="anchor" href="#tshark">#</a>
-</h2>
-<p>教程：</p>
-<ul>
-<li><a href="https://www.wireshark.org/docs/man-pages/tshark.html">tshark - Dump and analyze network traffic</a></li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 列出当前存在的网络接口</span>
-</span></span><span style="display:flex;"><span>tshark -D
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 实时打印当前http请求的url</span>
-</span></span><span style="display:flex;"><span>$ tshark -s <span style="color:#ae81ff">512</span> -i eth0 -n -f <span style="color:#e6db74">&#39;tcp dst port 80&#39;</span> -R <span style="color:#e6db74">&#39;http.host and http.request.uri&#39;</span> -T fields -e http.host -e http.request.uri -l | tr -d <span style="color:#e6db74">&#39;\t&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 参数含义：</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -s 512 :只抓取前512个字节数据</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -i eth0 :捕获eth0网卡</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -n :禁止网络对象名称解析</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -f &#39;tcp dst port 80&#39; :只捕捉协议为tcp,目的端口为80的数据包</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -R &#39;http.host and http.request.uri&#39; :过滤出http.host和http.request.uri</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -T fields -e http.host -e http.request.uri :打印http.host和http.request.uri</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -l ：输出到标准输出</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 实时打印当前mysql查询语句</span>
-</span></span><span style="display:flex;"><span>$ tshark -s <span style="color:#ae81ff">512</span> -i eth0 -n -f <span style="color:#e6db74">&#39;tcp dst port 3306&#39;</span> -R <span style="color:#e6db74">&#39;mysql.query&#39;</span> -T fields -e mysql.query
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 参数含义：</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -s 512 :只抓取前512个字节数据</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -i eth0 :捕获eth0网卡</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -n :禁止网络对象名称解析</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -f &#39;tcp dst port 3306&#39; :只捕捉协议为tcp,目的端口为3306的数据包</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -R &#39;mysql.query&#39; :过滤出mysql.query</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#     -T fields -e mysql.query :打印mysql查询语句</span>
-</span></span></code></pre></div><h3 id="linux-安装-wireshark">
-  Linux 安装 Wireshark
-  <a class="anchor" href="#linux-%e5%ae%89%e8%a3%85-wireshark">#</a>
-</h3>
 <hr>
-<h2 id="查询">
-  查询
-  <a class="anchor" href="#%e6%9f%a5%e8%af%a2">#</a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>ip.addr <span style="color:#f92672">==</span> 192.168.137.109
-</span></span></code></pre></div><h2 id="macos-打开两个-wireshark">
-  MacOS 打开两个 Wireshark
-  <a class="anchor" href="#macos-%e6%89%93%e5%bc%80%e4%b8%a4%e4%b8%aa-wireshark">#</a>
-</h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># 使用 -n 可以打开多个</span>
-</span></span><span style="display:flex;"><span>open -n /Applications/Wireshark.app
-</span></span></code></pre></div><p>参考：</p>
 <ul>
-<li><a href="https://ttlzero.wordpress.com/2017/07/13/first-blog-post/">Open Multiple Instances of Wireshark on MacOS</a></li>
+<li>传统的 TCP/IP 网络通信是通过内核发送消息，这种通信方式存在很高的数据移动和数据复制的开销。</li>
+<li>RDMA (<code>RemoteDirect Memory Access</code>) 技术全称远程直接内存访问，就是为了解决网络传输中服务器端数据处理的延迟而产生的。
+<ul>
+<li>RDMA 技术能直接通过网络接口访问内存数据，无需操作系统内核的介入。这允许高吞吐、低延迟的网络通信，尤其适合在大规模并行计算机集群中使用。
+<img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20230808143333.png" width=40%></li>
 </ul>
+</li>
+<li>目前有三种 RDMA 网络，分别是 <code>Infiniband</code>（<code>IB</code>）、<code>RoCE</code> (<code>RDMA over Converged Ethernet</code>)、<code>iWARP</code>
+<ul>
+<li><code>Infiniband</code> 是一种专为 RDMA 设计的网络，从硬件级别保证可靠传输 ，技术先进，但是成本高昂
+<ul>
+<li><code>InfiniBand</code>：设计之初就考虑了 RDMA，从硬件级别保证可靠传输，提供更高的带宽和更低的时延。但是成本高，需要支持 IB 网卡和交换机。</li>
+</ul>
+</li>
+<li>RoCE 和 iWARP 都是基于以太网的 RDMA 技术，这使高速、超低延时、极低 CPU 使用率的 RDMA 技术得以部署在目前使用最广泛的以太网上
+<ul>
+<li>RoCE：基于 Ethernet 做 RDMA，消耗的资源比 iWARP 少，支持的特性比 iWARP 多。
+<ul>
+<li>可以使用普通的以太网交换机，但是需要支持 RoCE 的网卡。</li>
+</ul>
+</li>
+<li>iWARP：基于 TCP 做 RDMA，利用 TCP 达到可靠传输。相比 RoCE，在大型组网的情况下，iWARP 的大量 TCP 连接会占用大量的内存资源，对系统规格要求更高。
+<ul>
+<li>可以使用普通的以太网交换机，但是需要支持 iWARP 的网卡。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>InfiniBand</th>
+<th>iWARP</th>
+<th>RoCE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成本</td>
+<td>高</td>
+<td>中</td>
+<td>低</td>
+</tr>
+<tr>
+<td>性能</td>
+<td>最好</td>
+<td>稍差（受 TCP 影响）</td>
+<td>与 InfiniBand 相当</td>
+</tr>
+<tr>
+<td>稳定性</td>
+<td>好</td>
+<td>差</td>
+<td>较好</td>
+</tr>
+<tr>
+<td>交换机</td>
+<td>IB 交换机</td>
+<td>以太网交换机</td>
+<td>以太网交换机</td>
+</tr>
+</tbody>
+</table>
 </article>
  
       
@@ -852,12 +815,6 @@ https://github.com/alex-shpak/hugo-book
   <div class="flex flex-wrap justify-between">
 
 
-
-  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/0d0f89e75fd9a7fdae39d41dd187d5b11f7fccd4" title='Last modified by yewang | 2021-07-19' target="_blank" rel="noopener">
-      <img src="/study-network/svg/calendar.svg" class="book-icon" alt="Calendar" />
-      <span>2021-07-19</span>
-    </a>
-  </div>
 
 
 
@@ -914,24 +871,7 @@ https://github.com/alex-shpak/hugo-book
       <div class="book-toc-content">
         
   
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#安装">安装</a></li>
-    <li><a href="#教程">教程</a>
-      <ul>
-        <li><a href="#capture-filter">Capture filter</a></li>
-        <li><a href="#display-filter">Display filter</a></li>
-      </ul>
-    </li>
-    <li><a href="#tshark">tshark</a>
-      <ul>
-        <li><a href="#linux-安装-wireshark">Linux 安装 Wireshark</a></li>
-      </ul>
-    </li>
-    <li><a href="#查询">查询</a></li>
-    <li><a href="#macos-打开两个-wireshark">MacOS 打开两个 Wireshark</a></li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
 
  
