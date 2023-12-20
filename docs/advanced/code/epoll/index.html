@@ -2,11 +2,11 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta name="generator" content="Hugo 0.99.1" />
+  <meta name="generator" content="Hugo 0.121.1">
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="epoll #  阻塞 #   多进程 多线程  非阻塞 #  忙轮询 #  while true {  for i in 流[] {  if i has 数据 {  读 或者 其他处理  }  } } select #  select 代收员 比较懒，她只会告诉你快递到了，但是是谁到的，你需要挨个快递员问一遍。
-while true {  select(流[]); # 阻塞   for i in 流[] {  if i has 数据 {  读 或者 其他处理  }  } } epoll #  while true {  可处理的流[] = epoll_wait(epoll_fd); # 阻塞   for i in 可处理的流[] {  读 或者 其他处理  } } epoll 编程框架 #  //创建 epoll int epfd = epoll_crete(1000);  //将 listen_fd 添加进 epoll 中 epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, &amp;listen_event);  while (1) {  //阻塞等待 epoll 中 的 fd 触发  int active_cnt = epoll_wait(epfd, events, 1000, -1);   for (i = 0 ; i &lt; active_cnt; i&#43;&#43;) {  if (evnets[i].">
+<meta name="description" content="epoll # 阻塞 # 多进程 多线程 非阻塞 # 忙轮询 # while true { for i in 流[] { if i has 数据 { 读 或者 其他处理 } } } select # select 代收员 比较懒，她只会告诉你快递到了，但是是谁到的，你需要挨个快递员问一遍。
+while true { select(流[]); # 阻塞 for i in 流[] { if i has 数据 { 读 或者 其他处理 } } } epoll # while true { 可处理的流[] = epoll_wait(epoll_fd); # 阻塞 for i in 可处理的流[] { 读 或者 其他处理 } } epoll 编程框架 # //创建 epoll int epfd = epoll_crete(1000); //将 listen_fd 添加进 epoll 中 epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, &amp;listen_event); while (1) { //阻塞等待 epoll 中 的 fd 触发 int active_cnt = epoll_wait(epfd, events, 1000, -1); for (i = 0 ; i &lt; active_cnt; i&#43;&#43;) { if (evnets[i].">
 <meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="epoll" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
@@ -16,7 +16,7 @@ while true {  select(流[]); # 阻塞   for i in 流[] {  if i has 数据 {  读
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-network/en.search.min.8da4ab16023a4b7a3bd47bf4ee98c1d3160f585fa499cb7b41637763afc50011.js" integrity="sha256-jaSrFgI6S3o71Hv07pjB0xYPWF&#43;kmct7QWN3Y6/FABE="></script>
+<script defer src="/study-network/en.search.min.0aaf5f3c92c80741cb014f2fefc32124f88a0c3e87fe758098562b175d239067.js" integrity="sha256-Cq9fPJLIB0HLAU8v78MhJPiKDD6H/nWAmFYrF10jkGc="></script>
 <link rel="alternate" type="application/rss+xml" href="https://kingye.me/study-network/docs/advanced/code/epoll/index.xml" title="网络学习笔记" />
 <!--
 Made with Book Theme

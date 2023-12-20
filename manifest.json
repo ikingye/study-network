@@ -1,14 +1,14 @@
 {
   "name": "网络学习笔记",
   "short_name": "网络学习笔记",
-  "start_url": "/study-network/",
-  "scope": "/study-network/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#000000",
   "icons": [
     {
-      "src": "/study-network/favicon.svg",
+      "src": "/favicon.svg",
       "sizes": "512x512"
     }
   ]

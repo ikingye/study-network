@@ -4,28 +4,22 @@
     <title>第一部分 基础入门 on 网络学习笔记</title>
     <link>https://kingye.me/study-network/docs/basic/</link>
     <description>Recent content in 第一部分 基础入门 on 网络学习笔记</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://kingye.me/study-network/docs/basic/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <atom:link href="https://kingye.me/study-network/docs/basic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CXL</title>
       <link>https://kingye.me/study-network/docs/basic/cxl/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://kingye.me/study-network/docs/basic/cxl/</guid>
-      <description>CXL #  Compute Express Link
- 以下是 CXL 和 PCIe 之间的一些区别：
- 带宽：CXL 提供比 PCIe 高得多的带宽。该标准的最新版本 CXL 3.0 每通道提供高达 64 GT/s 的带宽，是 PCIe 5.0 带宽的 2 倍。这使得 CXL 成为需要快速传输大量数据的应用程序的更好选择，例如人工智能和机器学习。 可扩展性：CXL 的设计比 PCIe 更具可扩展性。PCIe 仅限于最多 16 个通道，而 CXL 最多可支持 32 个通道。这意味着 CXL 可以用来连接更多的设备并提供比 PCIe 更多的带宽。 内存共享：CXL 支持设备之间的内存共享，使它们能够更有效地协同工作。这可以提高性能并减少通过互连在设备之间传输数据的需要。 兼容性：PCIe 是一种广泛采用的标准，与多种设备兼容，而 CXL 是一种较新的标准，仍在不断获得采用。这意味着 CXL 兼容设备可能需要一些时间才能广泛使用。成本：由于标准的附加功能和特性，支持 CXL 的设备可能比支持 PCIe 的设备更昂贵。  最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。</description>
+      <description>CXL # Compute Express Link&#xA;以下是 CXL 和 PCIe 之间的一些区别：&#xA;带宽：CXL 提供比 PCIe 高得多的带宽。该标准的最新版本 CXL 3.0 每通道提供高达 64 GT/s 的带宽，是 PCIe 5.0 带宽的 2 倍。这使得 CXL 成为需要快速传输大量数据的应用程序的更好选择，例如人工智能和机器学习。 可扩展性：CXL 的设计比 PCIe 更具可扩展性。PCIe 仅限于最多 16 个通道，而 CXL 最多可支持 32 个通道。这意味着 CXL 可以用来连接更多的设备并提供比 PCIe 更多的带宽。 内存共享：CXL 支持设备之间的内存共享，使它们能够更有效地协同工作。这可以提高性能并减少通过互连在设备之间传输数据的需要。 兼容性：PCIe 是一种广泛采用的标准，与多种设备兼容，而 CXL 是一种较新的标准，仍在不断获得采用。这意味着 CXL 兼容设备可能需要一些时间才能广泛使用。成本：由于标准的附加功能和特性，支持 CXL 的设备可能比支持 PCIe 的设备更昂贵。 最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。</description>
     </item>
-    
     <item>
       <title>PCIe</title>
       <link>https://kingye.me/study-network/docs/basic/pcie/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
       <guid>https://kingye.me/study-network/docs/basic/pcie/</guid>
-      <description>PCIe #  Peripheral Component Interconnect Express，简称 PCI-E，官方简称 PCIe
-是计算机总线的一个重要分支，它沿用既有的 PCI 编程概念及信号标准，并且构建了更加高速的串行通信系统标准。
- PCIe 拥有更快的速率，所以几乎取代了以往所有的内部总线（包括 AGP 和 PCI）。现在英特尔和 AMD 已采用单芯片组技术，取代原有的南桥／北桥方案。  发展历史 #   ISA (Industry Standard Architecture)  第一代 ISA 插槽出现在第一代 IBM PC XT 机型上（1981），作为现代 PC 的盘古之作，8 位的 ISA 提供了 4.77MB/s 的带宽（或传输率）。   MCA (Micro Channel Architecture) EISA (Extended Industry Standard Architecture) VLB (VESA Local Bus) PCI (Peripheral Component Interconnect)  Intel 在 1992 年提出 PCI（Peripheral Component Interconnect）总线协议，并召集其它的小伙伴组成了名为 PCI-SIG (PCI Special Interest Group)（PCI 特殊兴趣组 J）的企业联盟。从那以后这个组织就负责 PCI 和其继承者们（PCI-X 和 PCIe）的标准制定和推广。   PCI-X (Peripheral Component Interconnect eXtended) AGP (Accelerated Graphics Port) PCI Express (Peripheral Component Interconnect Express)  </description>
+      <description> PCIe # Peripheral Component Interconnect Express，简称 PCI-E，官方简称 PCIe&#xA;是计算机总线的一个重要分支，它沿用既有的 PCI 编程概念及信号标准，并且构建了更加高速的串行通信系统标准。&#xA;PCIe 拥有更快的速率，所以几乎取代了以往所有的内部总线（包括 AGP 和 PCI）。现在英特尔和 AMD 已采用单芯片组技术，取代原有的南桥／北桥方案。 发展历史 # ISA (Industry Standard Architecture) 第一代 ISA 插槽出现在第一代 IBM PC XT 机型上（1981），作为现代 PC 的盘古之作，8 位的 ISA 提供了 4.77MB/s 的带宽（或传输率）。 MCA (Micro Channel Architecture) EISA (Extended Industry Standard Architecture) VLB (VESA Local Bus) PCI (Peripheral Component Interconnect) Intel 在 1992 年提出 PCI（Peripheral Component Interconnect）总线协议，并召集其它的小伙伴组成了名为 PCI-SIG (PCI Special Interest Group)（PCI 特殊兴趣组 J）的企业联盟。从那以后这个组织就负责 PCI 和其继承者们（PCI-X 和 PCIe）的标准制定和推广。 PCI-X (Peripheral Component Interconnect eXtended) AGP (Accelerated Graphics Port) PCI Express (Peripheral Component Interconnect Express) </description>
     </item>
-    
   </channel>
 </rss>
