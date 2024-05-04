@@ -29,7 +29,7 @@ iptables: 对表、链、规则进行配置 iptables-save: dump 已配置的规�
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-network/en.search.min.9caaa3aebbf4ea78072f3b4308d6d3b276c586e1a250ac6b8f1335e3cf21c4b2.js" integrity="sha256-nKqjrrv06ngHLztDCNbTsnbFhuGiUKxrjxM1488hxLI="></script>
+<script defer src="/study-network/en.search.min.d276da933dada64b7f4e836a7e9c1b4d3b6582fdb265741b312fee1975128ff9.js" integrity="sha256-0nbakz2tpkt/ToNqfpwbTTtlgv2yZXQbMS/uGXUSj/k="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -1274,6 +1274,45 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>iptables -t nat -L -n
 </span></span></code></pre></div><hr>
+<pre tabindex="0"><code>iptables 是一个非常强大且复杂的工具，用于在 Linux 上设置、维护和检查 IPv4 数据包过滤规则。它拥有许多参数和选项，允许用户精确控制网络流量。以下是一些主要的 iptables 参数和选项：
+
+主要命令选项
+-A, --append：向链末尾添加一条或多条规则。
+-D, --delete：删除一条或多条规则。
+-I, --insert：向指定位置插入一条或多条规则。
+-R, --replace：替换指定位置的规则。
+-L, --list：列出链中的所有规则。
+-F, --flush：删除链中的所有规则。
+-Z, --zero：将链中所有规则的计数器归零。
+-N, --new-chain：创建一个新的链。
+-X, --delete-chain：删除一个空链。
+-P, --policy：为链设置默认策略（ACCEPT、DROP 等）。
+-E, --rename-chain：重命名链。
+匹配选项
+-p, --protocol：协议（tcp, udp, icmp 等）。
+-s, --source：来源地址。
+-d, --destination：目标地址。
+--sport, --source-port：源端口（用于 tcp 和 udp）。
+--dport, --destination-port：目标端口（用于 tcp 和 udp）。
+-i, --in-interface：输入网卡接口。
+-o, --out-interface：输出网卡接口。
+-m, --match：加载额外的匹配模块。
+目标选项
+-j, --jump：跳转到指定的目标（如 ACCEPT, DROP, REJECT, LOG 等）。
+--to-ports：用于 REDIRECT 目标的端口转发。
+--to-destination：用于 DNAT 目标的地址转发。
+--to-source：用于 SNAT 目标的地址转发。
+专用于 NAT 表的选项
+--to-ports：用于 REDIRECT 和 MASQUERADE 目标，指定改写目标端口。
+--to-destination：用于 DNAT，指定目的地址和端口。
+--to-source：用于 SNAT 和 MASQUERADE，指定源地址。
+专用于控制日志记录的选项
+--log-prefix：指定日志条目的前缀字符串。
+--log-level：指定日志记录级别。
+其他
+-t, --table：指定要操作的表（如 filter, nat, mangle, raw）。
+这只是 iptables 功能的一个概览，每个选项都有其详细用法和上下文。iptables 也支持通过扩展和模块来增强功能，如 conntrack、state 等，这些可以用来执行更复杂的条件匹配。通过组合这些选项和参数，您可以创建强大且灵活的网络策略来保护和管理您的网络环境。
+</code></pre><hr>
 <h2 id="教程">
   教程
   <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
