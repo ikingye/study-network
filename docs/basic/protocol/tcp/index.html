@@ -25,7 +25,7 @@ SRTT = (α * SRTT) &#43; ((1- α) * RTT)" />
 <link rel="manifest" href="/study-network/manifest.json">
 <link rel="icon" href="/study-network/favicon.png" type="image/x-icon">
 <link rel="stylesheet" href="/study-network/book.min.e3d401e975fe9e04a41f82b0c90be4c8773f2541f197dba3ff2ae80293cb78c2.css" integrity="sha256-49QB6XX&#43;ngSkH4KwyQvkyHc/JUHxl9uj/yroApPLeMI=">
-<script defer src="/study-network/en.search.min.d276da933dada64b7f4e836a7e9c1b4d3b6582fdb265741b312fee1975128ff9.js" integrity="sha256-0nbakz2tpkt/ToNqfpwbTTtlgv2yZXQbMS/uGXUSj/k="></script>
+<script defer src="/study-network/en.search.min.4ef5767048f85d604497918bb6326f81e08534305292935eb4d75c4df370b3cf.js" integrity="sha256-TvV2cEj4XWBEl5GLtjJvgeCFNDBSkpNetNdcTfNws88="></script>
 <!--
 Made with Book Theme
 https://github.com/alex-shpak/hugo-book
@@ -789,7 +789,7 @@ https://github.com/alex-shpak/hugo-book
                 <li><a href="#统计-time_wait-连接的本地地址">统计 TIME_WAIT 连接的本地地址</a></li>
               </ul>
             </li>
-            <li><a href="#如何尽量处理-timewait-过多的问题">如何尽量处理 TIMEWAIT 过多的问题？</a>
+            <li><a href="#如何尽量处理-time-wait-过多的问题">如何尽量处理 TIME-WAIT 过多的问题？</a>
               <ul>
                 <li><a href="#修改内核文件-etcsysctlconf">修改内核文件 /etc/sysctl.conf</a></li>
                 <li><a href="#nginx-配置问题">nginx 配置问题</a>
@@ -1124,7 +1124,7 @@ https://github.com/alex-shpak/hugo-book
 <ul>
 <li>在<strong>高并发短连接</strong>的 TCP 服务器上，当服务器处理完请求后立刻主动正常关闭连接。
 <ul>
-<li><strong>短连接</strong>表示 “业务处理 + 传输数据的时间 远远小于 TIMEWAIT 超时的时间” 的连接</li>
+<li><strong>短连接</strong>表示 “业务处理 + 传输数据的时间 远远小于 TIME-WAIT 超时的时间” 的连接</li>
 <li><strong>高并发</strong>可以让服务器在短时间范围内同时占用大量端口，
 <ul>
 <li>而端口有个 0~65535 的范围，并不是很多，刨除系统和其他服务要用的，剩下的就更少了。</li>
@@ -1229,9 +1229,9 @@ https://github.com/alex-shpak/hugo-book
   <a class="anchor" href="#%e7%bb%9f%e8%ae%a1-time_wait-%e8%bf%9e%e6%8e%a5%e7%9a%84%e6%9c%ac%e5%9c%b0%e5%9c%b0%e5%9d%80">#</a>
 </h5>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>netstat -an | grep TIME_WAIT | awk <span style="color:#e6db74">&#39;{print $4}&#39;</span> | sort | uniq -c | sort -rn -k1 | head
-</span></span></code></pre></div><h4 id="如何尽量处理-timewait-过多的问题">
-  如何尽量处理 TIMEWAIT 过多的问题？
-  <a class="anchor" href="#%e5%a6%82%e4%bd%95%e5%b0%bd%e9%87%8f%e5%a4%84%e7%90%86-timewait-%e8%bf%87%e5%a4%9a%e7%9a%84%e9%97%ae%e9%a2%98">#</a>
+</span></span></code></pre></div><h4 id="如何尽量处理-time-wait-过多的问题">
+  如何尽量处理 TIME-WAIT 过多的问题？
+  <a class="anchor" href="#%e5%a6%82%e4%bd%95%e5%b0%bd%e9%87%8f%e5%a4%84%e7%90%86-time-wait-%e8%bf%87%e5%a4%9a%e7%9a%84%e9%97%ae%e9%a2%98">#</a>
 </h4>
 <h5 id="修改内核文件-etcsysctlconf">
   修改内核文件 /etc/sysctl.conf
@@ -1243,7 +1243,7 @@ https://github.com/alex-shpak/hugo-book
 </span></span><span style="display:flex;"><span>net.ipv4.tcp_fin_timeout 修改系默认的 TIMEOUT 时间
 </span></span></code></pre></div><p>然后执行 /sbin/sysctl -p 让参数生效。</p>
 <p>/etc/sysctl.conf 是一个允许改变正在运行中的 Linux 系统的接口，它包含一些 TCP/IP 堆栈和虚拟内存系统的高级选项，修改内核参数永久生效。</p>
-<p>简单来说，就是打开系统的 TIMEWAIT 重用和快速回收。</p>
+<p>简单来说，就是打开系统的 TIME-WAIT 重用和快速回收。</p>
 <p>如果以上配置调优后性能还不理想，可继续修改一下配置：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>net.ipv4.tcp_keepalive_time <span style="color:#f92672">=</span> <span style="color:#ae81ff">1200</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#表示当keepalive起用的时候，TCP发送keepalive消息的频度。缺省是2小时，改为20分钟。</span>
@@ -1461,7 +1461,7 @@ https://github.com/alex-shpak/hugo-book
                 <li><a href="#统计-time_wait-连接的本地地址">统计 TIME_WAIT 连接的本地地址</a></li>
               </ul>
             </li>
-            <li><a href="#如何尽量处理-timewait-过多的问题">如何尽量处理 TIMEWAIT 过多的问题？</a>
+            <li><a href="#如何尽量处理-time-wait-过多的问题">如何尽量处理 TIME-WAIT 过多的问题？</a>
               <ul>
                 <li><a href="#修改内核文件-etcsysctlconf">修改内核文件 /etc/sysctl.conf</a></li>
                 <li><a href="#nginx-配置问题">nginx 配置问题</a>
