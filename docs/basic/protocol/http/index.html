@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="generator" content="Hugo 0.140.1">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="
+  HTTP
+  #
+
+
+  教程
+  #
+
+
+  EZLippi/Tinyhttpd    
+  #
+
+Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。
+官网:http://tinyhttpd.sourceforge.net">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#343a40">
+<meta name="color-scheme" content="light dark"><meta property="og:url" content="https://kingye.me/study-network/docs/basic/protocol/http/">
+  <meta property="og:site_name" content="网络学习笔记">
+  <meta property="og:title" content="HTTP">
+  <meta property="og:description" content="HTTP # 教程 # EZLippi/Tinyhttpd # Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。 官网:http://tinyhttpd.sourceforge.net">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="docs">
+    <meta property="article:modified_time" content="2020-12-09T00:10:40+08:00">
+<title>HTTP | 网络学习笔记</title>
+<link rel="manifest" href="/study-network/manifest.json">
+<link rel="icon" href="/study-network/favicon.png" >
+<link rel="canonical" href="https://kingye.me/study-network/docs/basic/protocol/http/">
+<link rel="stylesheet" href="/study-network/book.min.45ab58199f84c9a33853fdef2e41664c57a49ca55c9badf2dd2dd071f39975a3.css" integrity="sha256-RatYGZ&#43;EyaM4U/3vLkFmTFeknKVcm63y3S3QcfOZdaM=" crossorigin="anonymous">
+  <script defer src="/study-network/fuse.min.js"></script>
+  <script defer src="/study-network/en.search.min.33d1daa04a5e26c27bb4a513d766063bc51380cd36715bfaa2338c414cc57bb2.js" integrity="sha256-M9HaoEpeJsJ7tKUT12YGO8UTgM02cVv6ojOMQUzFe7I=" crossorigin="anonymous"></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+  
+</head>
+
+<body dir="ltr">
+  <input type="checkbox" class="hidden toggle" id="menu-control" />
+  <input type="checkbox" class="hidden toggle" id="toc-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      <div class="book-menu-content">
+        
+  <nav>
+<h2 class="book-brand">
+  <a class="flex align-center" href="/study-network/"><span>网络学习笔记</span>
+  </a>
+</h2>
+
+
+<div class="book-search hidden">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+<script>document.querySelector(".book-search").classList.remove("hidden")</script>
+
+
+
+
+<ul>
+  <li><a href="https://kingye.me" target="_blank" rel="noopener noreferrer">博客</a></li>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417021727.png" target="_blank" rel="noopener noreferrer">公众号</a></li>
+  <li><a href="https://github.com/ikingye" target="_blank" rel="noopener noreferrer">Github</a></li>
+  <li><a href="https://weibo.com/kingyip15215" target="_blank" rel="noopener noreferrer">微博</a></li>
+  <li><a href="https://www.zhihu.com/people/wutongyip" target="_blank" rel="noopener noreferrer">知乎</a></li>
+</ul>
+<hr />
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/" class="">第一部分 基础入门</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-97385a14f4d235b34dece6a73c3e4827" class="toggle"  />
+    <label for="section-97385a14f4d235b34dece6a73c3e4827" class="flex justify-between">
+      <a href="/study-network/docs/basic/cmd/" class="">1.1 命令</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-08d7e06a303c819677a315457793f57b" class="toggle"  />
+    <label for="section-08d7e06a303c819677a315457793f57b" class="flex justify-between">
+      <a href="/study-network/docs/basic/cmd/curl/" class="">curl</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-6761536016191206ad171c2ae7b44f5b" class="toggle"  />
+    <label for="section-6761536016191206ad171c2ae7b44f5b" class="flex justify-between">
+      <a href="/study-network/docs/basic/cmd/iptables/" class="">iptables</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-99f90980f3f4a33487bb9d2cda862055" class="toggle"  />
+    <label for="section-99f90980f3f4a33487bb9d2cda862055" class="flex justify-between">
+      <a href="/study-network/docs/basic/cmd/netfilter/" class="">netfilter</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-42e04e838cadaf441db702ab49e57f19" class="toggle" checked />
+    <label for="section-42e04e838cadaf441db702ab49e57f19" class="flex justify-between">
+      <a href="/study-network/docs/basic/protocol/" class="">1.2 协议</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/protocol/tcp/" class="">TCP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/protocol/vxlan/" class="">VXLAN</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/protocol/udp/" class="">UDP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/protocol/dns/" class="">DNS</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/protocol/http/" class="active">HTTP</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/protocol/ssl/" class="">SSL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-8db76594db9478139951c806cc84d632" class="toggle"  />
+    <label for="section-8db76594db9478139951c806cc84d632" class="flex justify-between">
+      <a href="/study-network/docs/basic/protocol/websocket/" class="">WebSocket</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/protocol/https/" class="">HTTPs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/cxl/" class="">CXL</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/pcie/" class="">PCIe</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/rdmd/" class="">RDMA</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/rdmd/ib/" class="">Infiniband</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/basic/rdmd/roce/" class="">RoCE 网络</a>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第二部分 进阶实战</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-571733eb4fbb2867c7ed34c3b99d1b1b" class="toggle"  />
+    <label for="section-571733eb4fbb2867c7ed34c3b99d1b1b" class="flex justify-between">
+      <a href="/study-network/docs/advanced/code/" class="">2.1 网络编程</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-48d48f3cd93ac59a3273b1dff6a9e3ec" class="toggle"  />
+    <label for="section-48d48f3cd93ac59a3273b1dff6a9e3ec" class="flex justify-between">
+      <a href="/study-network/docs/advanced/code/spec/" class="">编程规范</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-665ced64640f6b105b75767ad0515f1e" class="toggle"  />
+    <label for="section-665ced64640f6b105b75767ad0515f1e" class="flex justify-between">
+      <a href="/study-network/docs/advanced/code/epoll/" class="">epoll</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-94cb59539222815cb464ad4907e02781" class="toggle"  />
+    <label for="section-94cb59539222815cb464ad4907e02781" class="flex justify-between">
+      <a href="/study-network/docs/advanced/code/libevent/" class="">libevent</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-044c14889879337b0201e9e6e2cb4563" class="toggle"  />
+    <label for="section-044c14889879337b0201e9e6e2cb4563" class="flex justify-between">
+      <a href="/study-network/docs/advanced/code/select/" class="">select</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-eef0fac43de358f1ceb08a39ae907661" class="toggle"  />
+    <label for="section-eef0fac43de358f1ceb08a39ae907661" class="flex justify-between">
+      <a href="/study-network/docs/advanced/tool/" class="">2.2 网络工具</a>
+    </label>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-c17defae00837f8e79a734376104e5bc" class="toggle"  />
+    <label for="section-c17defae00837f8e79a734376104e5bc" class="flex justify-between">
+      <a href="/study-network/docs/advanced/tool/wireshark/" class="">Wireshark</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第三部分 设计与实现</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-3b75cb47a74ba0f3aaa84fa765e0d04c" class="toggle"  />
+    <label for="section-3b75cb47a74ba0f3aaa84fa765e0d04c" class="flex justify-between">
+      <a href="/study-network/docs/design/stack/" class="">3.1 协议栈</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <a href="/study-network/docs/design/code/" class="">3.7 源码分析</a>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-7738f10bf428ff899fcb3a2494e364a7" class="toggle"  />
+    <label for="section-7738f10bf428ff899fcb3a2494e364a7" class="flex justify-between">
+      <a href="/study-network/docs/design/code/netty-4.0.33/" class="">4.0.33</a>
+    </label>
+  
+
+          
+  <ul>
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <span>第四部分 附录</span>
+  
+
+          
+  <ul>
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-43f109315fc0560be97ec705c5160f2d" class="toggle"  />
+    <label for="section-43f109315fc0560be97ec705c5160f2d" class="flex justify-between">
+      <a href="/study-network/docs/appendix/tutorial/" class="">4.1 教程</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-daf565a7209267a897b394fece9a1d92" class="toggle"  />
+    <label for="section-daf565a7209267a897b394fece9a1d92" class="flex justify-between">
+      <a href="/study-network/docs/appendix/interview/" class="">4.2 面试题</a>
+    </label>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+  
+
+  
+    <input type="checkbox" id="section-5f97ff9cd71802992c08705161310a8f" class="toggle"  />
+    <label for="section-5f97ff9cd71802992c08705161310a8f" class="flex justify-between">
+      <a href="/study-network/docs/appendix/attention/" class="">4.3 关注项目</a>
+    </label>
+  
+
+        </li>
+      
+    
+  </ul>
+
+        </li>
+      
+    
+  </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<hr />
+<ul>
+  <li><a href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417022040.png" target="_blank" rel="noopener noreferrer">微信</a></li>
+  <li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=EUhzg0UwUksxpQnwEmPngRLezlC6qrnn&jump_from=webapi" target="_blank" rel="noopener noreferrer"><img src="//pub.idqqimg.com/wpa/images/group.png"></a></li>
+</ul>
+
+
+</nav>
+
+
+
+
+  <script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script>
+
+
+ 
+      </div>
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/study-network/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>HTTP</strong>
+
+  <label for="toc-control">
+    
+    <img src="/study-network/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+  <aside class="hidden clearfix">
+    
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#教程">教程</a>
+      <ul>
+        <li><a href="#ezlippitinyhttpdhttpsgithubcomezlippitinyhttpd-github-starshttpsimgshieldsiogithubstarsezlippitinyhttpdsvg-languagehttpsimgshieldsiogithublanguagestopezlippitinyhttpdsvg-last-taghttpsimgshieldsiogithubvtagezlippitinyhttpdsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitezlippitinyhttpdsvg"><a href="https://github.com/EZLippi/Tinyhttpd">EZLippi/Tinyhttpd</a> <img src="https://img.shields.io/github/stars/EZLippi/Tinyhttpd.svg" alt="Github stars"> <img src="https://img.shields.io/github/languages/top/EZLippi/Tinyhttpd.svg" alt="Language"> <img src="https://img.shields.io/github/v/tag/EZLippi/Tinyhttpd.svg?sort=semver" alt="Last Tag"> <img src="https://img.shields.io/github/last-commit/EZLippi/Tinyhttpd.svg" alt="Last commit"></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+
+  </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article id="article" class="markdown"><h1 id="http">
+  HTTP
+  <a class="anchor" href="#http">#</a>
+</h1>
+<h2 id="教程">
+  教程
+  <a class="anchor" href="#%e6%95%99%e7%a8%8b">#</a>
+</h2>
+<h3 id="ezlippitinyhttpdhttpsgithubcomezlippitinyhttpd-github-starshttpsimgshieldsiogithubstarsezlippitinyhttpdsvg-languagehttpsimgshieldsiogithublanguagestopezlippitinyhttpdsvg-last-taghttpsimgshieldsiogithubvtagezlippitinyhttpdsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitezlippitinyhttpdsvg">
+  <a href="https://github.com/EZLippi/Tinyhttpd">EZLippi/Tinyhttpd</a> <img src="https://img.shields.io/github/stars/EZLippi/Tinyhttpd.svg" alt="Github stars" /> <img src="https://img.shields.io/github/languages/top/EZLippi/Tinyhttpd.svg" alt="Language" /> <img src="https://img.shields.io/github/v/tag/EZLippi/Tinyhttpd.svg?sort=semver" alt="Last Tag" /> <img src="https://img.shields.io/github/last-commit/EZLippi/Tinyhttpd.svg" alt="Last commit" />
+  <a class="anchor" href="#ezlippitinyhttpdhttpsgithubcomezlippitinyhttpd-github-starshttpsimgshieldsiogithubstarsezlippitinyhttpdsvg-languagehttpsimgshieldsiogithublanguagestopezlippitinyhttpdsvg-last-taghttpsimgshieldsiogithubvtagezlippitinyhttpdsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitezlippitinyhttpdsvg">#</a>
+</h3>
+<p>Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。
+官网:http://tinyhttpd.sourceforge.net</p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+  <div><a class="flex align-center" href="https://github.com/ikingye/study-network/commit/f1236d2e50c54920a0ec4bf62318acd1a37d68e9" title='Last modified by yewang | 2020-12-09' target="_blank" rel="noopener">
+      <img src="/study-network/svg/calendar.svg" class="book-icon" alt="" />
+      <span>2020-12-09</span>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+
+  <script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script>
+
+
+ 
+        <div>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <p><span id="busuanzi_container_page_pv">本文访问量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
+    <p><span id="busuanzi_container_site_pv">本站总访问量 <span id="busuanzi_value_site_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span></p>
+    <p><span id="busuanzi_container_site_uv">本站总访客数 <span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span> 人</span></p>
+</div>
+
+
+
+
+
+      </footer>
+
+      
+  
+  <div class="book-comments">
+<script src="https://utteranc.es/client.js"
+  repo="ikingye/study-network"
+  issue-term="pathname"
+  theme="github-light"
+  crossorigin="anonymous"
+  async
+></script>
+
+<div id="footer">
+  <p>
+    <a href="https://kingye.me">叶王</a> &copy; 2013-2024
+    版权所有。如果本文档对你有所帮助，可以<a
+      href="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200428110046.png"
+      target="_blank"
+      rel="noopener noreferrer"
+      >请作者喝饮料</a
+    >。
+  </p>
+</div>
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      <div class="book-toc-content">
+        
+  
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#教程">教程</a>
+      <ul>
+        <li><a href="#ezlippitinyhttpdhttpsgithubcomezlippitinyhttpd-github-starshttpsimgshieldsiogithubstarsezlippitinyhttpdsvg-languagehttpsimgshieldsiogithublanguagestopezlippitinyhttpdsvg-last-taghttpsimgshieldsiogithubvtagezlippitinyhttpdsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitezlippitinyhttpdsvg"><a href="https://github.com/EZLippi/Tinyhttpd">EZLippi/Tinyhttpd</a> <img src="https://img.shields.io/github/stars/EZLippi/Tinyhttpd.svg" alt="Github stars"> <img src="https://img.shields.io/github/languages/top/EZLippi/Tinyhttpd.svg" alt="Language"> <img src="https://img.shields.io/github/v/tag/EZLippi/Tinyhttpd.svg?sort=semver" alt="Last Tag"> <img src="https://img.shields.io/github/last-commit/EZLippi/Tinyhttpd.svg" alt="Last commit"></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+ 
+      </div>
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
