@@ -1,32 +1,70 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>1.1 命令 on 网络学习笔记</title>
-    <link>https://kingye.me/study-network/docs/basic/cmd/</link>
-    <description>Recent content in 1.1 命令 on 网络学习笔记</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="https://kingye.me/study-network/docs/basic/cmd/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>curl</title>
-      <link>https://kingye.me/study-network/docs/basic/cmd/curl/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://kingye.me/study-network/docs/basic/cmd/curl/</guid>
-      <description>&lt;h1 id=&#34;curl&#34;&gt;&#xA;  curl&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#curl&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;curl-format&#34;&gt;&#xA;  curl format&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#curl-format&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;code&gt;curl -w @curl-format -o /dev/null -s http://www.baidu.com&lt;/code&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   time_appconnect:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_appconnect&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; （从开始到ssl/ssh连接完成）&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      time_connect:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_connect&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; （从开始到tcp建连完成）&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;   time_namelookup:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_namelookup&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; （从开始到域名解析完成）&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  time_pretransfer:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_pretransfer&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; （从开始到文件传输即将开始，不包括服务器处理时间）&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;     time_redirect:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_redirect&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;time_starttransfer:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_starttransfer&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; （从开始到第一个byte即将传输，包括服务器处理时间）&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    ----------&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      DNS 解析耗时:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_namelookup&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      tcp 建连耗时:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_connect&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; - %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_namelookup&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;          ssl 耗时:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_appconnect&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; - %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_connect&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    服务器处理耗时:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_starttransfer&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; - %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_pretransfer&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                    ----------&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        time_total:  %&lt;span style=&#34;color:#f92672&#34;&gt;{&lt;/span&gt;time_total&lt;span style=&#34;color:#f92672&#34;&gt;}&lt;/span&gt; （全部时间；以上单位都是 秒）&lt;span style=&#34;color:#ae81ff&#34;&gt;\n\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;详细参考: https://curl.haxx.se/docs/manpage.html &lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
-    </item>
-    <item>
-      <title>iptables</title>
-      <link>https://kingye.me/study-network/docs/basic/cmd/iptables/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://kingye.me/study-network/docs/basic/cmd/iptables/</guid>
-      <description>&lt;h1 id=&#34;iptables&#34;&gt;&#xA;  iptables&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#iptables&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;p&gt;Linux 的包过滤功能，即 Linux 防火墙，&#xA;它由 &lt;code&gt;netfilter&lt;/code&gt; 和 &lt;code&gt;iptables&lt;/code&gt; 两个组件组成。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;netfilter&lt;/code&gt; 组件位于内核空间，是内核的一部分，由一些&lt;code&gt;信息包过滤表&lt;/code&gt;组成，这些表包含内核用来控制信息包过滤处理的规则集。&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;iptables&lt;/code&gt; 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;iptables 是 linux 系统下用来配置 netfilter 子系统的一个 &lt;code&gt;client tool&lt;/code&gt;。&lt;/p&gt;&#xA;&lt;p&gt;iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &amp;ldquo;安全框架&amp;rdquo; 中，&#xA;这个 &amp;ldquo;安全框架&amp;rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter。&lt;/p&gt;&#xA;&lt;p&gt;配套的常用命令有：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;code&gt;iptables&lt;/code&gt;: 对表、链、规则进行配置&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;iptables-save&lt;/code&gt;: dump 已配置的规则，可以用 &lt;code&gt;&amp;gt;&lt;/code&gt; 重定向到一个文件中&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;iptables-restore&lt;/code&gt;: 从之前导出的 iptable 规则配置文件加载规则。&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;原理&#34;&gt;&#xA;  原理&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%8e%9f%e7%90%86&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506113258.png&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去&lt;/li&gt;&#xA;&lt;li&gt;如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链&lt;/li&gt;&#xA;&lt;li&gt;数据包到了 INPUT 链后，任何进程都会收到它。&lt;/li&gt;&#xA;&lt;li&gt;如果数据包是要转发出去的，且&lt;strong&gt;内核允许转发&lt;/strong&gt;，数据包就会如图所示向右移动，经过 FORWARD 链，&lt;/li&gt;&#xA;&lt;li&gt;然后到达 POSTROUTING 链输出。&lt;/li&gt;&#xA;&lt;li&gt;本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链&lt;/li&gt;&#xA;&lt;li&gt;然后到达 POSTROUTING 链输出&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;状态&#34;&gt;&#xA;  状态&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e7%8a%b6%e6%80%81&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;established&#34;&gt;&#xA;  ESTABLISHED&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#established&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>netfilter</title>
-      <link>https://kingye.me/study-network/docs/basic/cmd/netfilter/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://kingye.me/study-network/docs/basic/cmd/netfilter/</guid>
-      <description>&lt;h1 id=&#34;netfilter&#34;&gt;&#xA;  netfilter&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#netfilter&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>1.1 命令 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/cmd/</link><description>Recent content in 1.1 命令 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/cmd/index.xml" rel="self" type="application/rss+xml"/><item><title>curl</title><link>https://kingye.me/study-network/docs/basic/cmd/curl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/curl/</guid><description>&lt;h1 id="curl">
+ curl
+ &lt;a class="anchor" href="#curl">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="curl-format">
+ curl format
+ &lt;a class="anchor" href="#curl-format">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;code>curl -w @curl-format -o /dev/null -s http://www.baidu.com&lt;/code>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span> time_appconnect: %&lt;span style="color:#f92672">{&lt;/span>time_appconnect&lt;span style="color:#f92672">}&lt;/span> （从开始到ssl/ssh连接完成）&lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time_connect: %&lt;span style="color:#f92672">{&lt;/span>time_connect&lt;span style="color:#f92672">}&lt;/span> （从开始到tcp建连完成）&lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time_namelookup: %&lt;span style="color:#f92672">{&lt;/span>time_namelookup&lt;span style="color:#f92672">}&lt;/span> （从开始到域名解析完成）&lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time_pretransfer: %&lt;span style="color:#f92672">{&lt;/span>time_pretransfer&lt;span style="color:#f92672">}&lt;/span> （从开始到文件传输即将开始，不包括服务器处理时间）&lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time_redirect: %&lt;span style="color:#f92672">{&lt;/span>time_redirect&lt;span style="color:#f92672">}&lt;/span> （包括最后一次传输前的所有重定向，包括DNS解析，连接，预传输）&lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>time_starttransfer: %&lt;span style="color:#f92672">{&lt;/span>time_starttransfer&lt;span style="color:#f92672">}&lt;/span> （从开始到第一个byte即将传输，包括服务器处理时间）&lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ----------&lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> DNS 解析耗时: %&lt;span style="color:#f92672">{&lt;/span>time_namelookup&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tcp 建连耗时: %&lt;span style="color:#f92672">{&lt;/span>time_connect&lt;span style="color:#f92672">}&lt;/span> - %&lt;span style="color:#f92672">{&lt;/span>time_namelookup&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ssl 耗时: %&lt;span style="color:#f92672">{&lt;/span>time_appconnect&lt;span style="color:#f92672">}&lt;/span> - %&lt;span style="color:#f92672">{&lt;/span>time_connect&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 服务器处理耗时: %&lt;span style="color:#f92672">{&lt;/span>time_starttransfer&lt;span style="color:#f92672">}&lt;/span> - %&lt;span style="color:#f92672">{&lt;/span>time_pretransfer&lt;span style="color:#f92672">}&lt;/span> &lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ----------&lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> time_total: %&lt;span style="color:#f92672">{&lt;/span>time_total&lt;span style="color:#f92672">}&lt;/span> （全部时间；以上单位都是 秒）&lt;span style="color:#ae81ff">\n\n&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>详细参考: https://curl.haxx.se/docs/manpage.html &lt;span style="color:#ae81ff">\n&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>iptables</title><link>https://kingye.me/study-network/docs/basic/cmd/iptables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/iptables/</guid><description>&lt;h1 id="iptables">
+ iptables
+ &lt;a class="anchor" href="#iptables">#&lt;/a>
+&lt;/h1>
+&lt;p>Linux 的包过滤功能，即 Linux 防火墙，
+它由 &lt;code>netfilter&lt;/code> 和 &lt;code>iptables&lt;/code> 两个组件组成。&lt;/p>
+&lt;p>&lt;code>netfilter&lt;/code> 组件位于内核空间，是内核的一部分，由一些&lt;code>信息包过滤表&lt;/code>组成，这些表包含内核用来控制信息包过滤处理的规则集。&lt;/p>
+&lt;p>&lt;code>iptables&lt;/code> 组件是一种工具，位于用户空间，它使插入、修改和除去信息包过滤表中的规则变得容易。&lt;/p>
+&lt;hr>
+&lt;p>iptables 是 linux 系统下用来配置 netfilter 子系统的一个 &lt;code>client tool&lt;/code>。&lt;/p>
+&lt;p>iptables 其实不是真正的防火墙，我们可以把它理解成一个客户端代理，用户通过 iptables 这个代理，将用户的安全设定执行到对应的 &amp;ldquo;安全框架&amp;rdquo; 中，
+这个 &amp;ldquo;安全框架&amp;rdquo; 才是真正的防火墙，这个框架的名字叫 netfilter。&lt;/p>
+&lt;p>配套的常用命令有：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>iptables&lt;/code>: 对表、链、规则进行配置&lt;/li>
+&lt;li>&lt;code>iptables-save&lt;/code>: dump 已配置的规则，可以用 &lt;code>&amp;gt;&lt;/code> 重定向到一个文件中&lt;/li>
+&lt;li>&lt;code>iptables-restore&lt;/code>: 从之前导出的 iptable 规则配置文件加载规则。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="原理">
+ 原理
+ &lt;a class="anchor" href="#%e5%8e%9f%e7%90%86">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506113258.png" alt="" />&lt;/p>
+&lt;ul>
+&lt;li>一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去&lt;/li>
+&lt;li>如果数据包就是进入本机的，它就会沿着图向下移动，到达 INPUT 链&lt;/li>
+&lt;li>数据包到了 INPUT 链后，任何进程都会收到它。&lt;/li>
+&lt;li>如果数据包是要转发出去的，且&lt;strong>内核允许转发&lt;/strong>，数据包就会如图所示向右移动，经过 FORWARD 链，&lt;/li>
+&lt;li>然后到达 POSTROUTING 链输出。&lt;/li>
+&lt;li>本机上运行的程序可以发送数据包，这些数据包会经 过 OUTPUT 链&lt;/li>
+&lt;li>然后到达 POSTROUTING 链输出&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="状态">
+ 状态
+ &lt;a class="anchor" href="#%e7%8a%b6%e6%80%81">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="established">
+ ESTABLISHED
+ &lt;a class="anchor" href="#established">#&lt;/a>
+&lt;/h3>
+&lt;p>状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。&lt;/p></description></item><item><title>netfilter</title><link>https://kingye.me/study-network/docs/basic/cmd/netfilter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/netfilter/</guid><description>&lt;h1 id="netfilter">
+ netfilter
+ &lt;a class="anchor" href="#netfilter">#&lt;/a>
+&lt;/h1></description></item></channel></rss>

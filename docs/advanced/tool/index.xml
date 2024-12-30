@@ -1,18 +1,88 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>2.2 网络工具 on 网络学习笔记</title>
-    <link>https://kingye.me/study-network/docs/advanced/tool/</link>
-    <description>Recent content in 2.2 网络工具 on 网络学习笔记</description>
-    <generator>Hugo</generator>
-    <language>en</language>
-    <atom:link href="https://kingye.me/study-network/docs/advanced/tool/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Wireshark</title>
-      <link>https://kingye.me/study-network/docs/advanced/tool/wireshark/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://kingye.me/study-network/docs/advanced/tool/wireshark/</guid>
-      <description>&lt;h1 id=&#34;wireshark&#34;&gt;&#xA;  Wireshark&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#wireshark&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h1&gt;&#xA;&lt;h2 id=&#34;安装&#34;&gt;&#xA;  安装&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e5%ae%89%e8%a3%85&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.wireshark.org/download.html&#34;&gt;https://www.wireshark.org/download.html&lt;/a&gt;&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;yum install -y wireshark&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;&#xA;&lt;h2 id=&#34;教程&#34;&gt;&#xA;  教程&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%95%99%e7%a8%8b&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;参考：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.wireshark.org/docs/wsug_html_chunked/&#34;&gt;Wireshark User’s Guide&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;命令 &lt;a href=&#34;https://www.wireshark.org/docs/man-pages/wireshark.html&#34;&gt;wireshark - Interactively dump and analyze network traffic&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;capture-filter&#34;&gt;&#xA;  Capture filter&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#capture-filter&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;参考：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html&#34;&gt;4.10. Filtering while capturing&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://gitlab.com/wireshark/wireshark/-/wikis/CaptureFilters&#34;&gt;Capture Filters wiki&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.tcpdump.org/manpages/pcap-filter.7.html&#34;&gt;Man page of PCAP-FILTER&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;display-filter&#34;&gt;&#xA;  Display filter&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#display-filter&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;参考：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html&#34;&gt;Chapter 6. Working With Captured Packets&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.wireshark.org/docs/man-pages/wireshark-filter.html&#34;&gt;wireshark-filter - Wireshark display filter syntax and reference&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;tshark&#34;&gt;&#xA;  tshark&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#tshark&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;教程：&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.wireshark.org/docs/man-pages/tshark.html&#34;&gt;tshark - Dump and analyze network traffic&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 列出当前存在的网络接口&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;tshark -D&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 实时打印当前http请求的url&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tshark -s &lt;span style=&#34;color:#ae81ff&#34;&gt;512&lt;/span&gt; -i eth0 -n -f &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;tcp dst port 80&amp;#39;&lt;/span&gt; -R &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;http.host and http.request.uri&amp;#39;&lt;/span&gt; -T fields -e http.host -e http.request.uri -l | tr -d &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;\t&amp;#39;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 参数含义：&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -s 512 :只抓取前512个字节数据&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -i eth0 :捕获eth0网卡&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -n :禁止网络对象名称解析&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -f &amp;#39;tcp dst port 80&amp;#39; :只捕捉协议为tcp,目的端口为80的数据包&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -R &amp;#39;http.host and http.request.uri&amp;#39; :过滤出http.host和http.request.uri&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -T fields -e http.host -e http.request.uri :打印http.host和http.request.uri&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -l ：输出到标准输出&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 实时打印当前mysql查询语句&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ tshark -s &lt;span style=&#34;color:#ae81ff&#34;&gt;512&lt;/span&gt; -i eth0 -n -f &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;tcp dst port 3306&amp;#39;&lt;/span&gt; -R &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;mysql.query&amp;#39;&lt;/span&gt; -T fields -e mysql.query&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 参数含义：&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -s 512 :只抓取前512个字节数据&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -i eth0 :捕获eth0网卡&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -n :禁止网络对象名称解析&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -f &amp;#39;tcp dst port 3306&amp;#39; :只捕捉协议为tcp,目的端口为3306的数据包&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -R &amp;#39;mysql.query&amp;#39; :过滤出mysql.query&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#     -T fields -e mysql.query :打印mysql查询语句&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;linux-安装-wireshark&#34;&gt;&#xA;  Linux 安装 Wireshark&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#linux-%e5%ae%89%e8%a3%85-wireshark&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;查询&#34;&gt;&#xA;  查询&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#%e6%9f%a5%e8%af%a2&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;ip.addr &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; 192.168.137.109&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;macos-打开两个-wireshark&#34;&gt;&#xA;  MacOS 打开两个 Wireshark&#xA;  &lt;a class=&#34;anchor&#34; href=&#34;#macos-%e6%89%93%e5%bc%80%e4%b8%a4%e4%b8%aa-wireshark&#34;&gt;#&lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# 使用 -n 可以打开多个&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;open -n /Applications/Wireshark.app&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考：&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2.2 网络工具 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/advanced/tool/</link><description>Recent content in 2.2 网络工具 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/advanced/tool/index.xml" rel="self" type="application/rss+xml"/><item><title>Wireshark</title><link>https://kingye.me/study-network/docs/advanced/tool/wireshark/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/advanced/tool/wireshark/</guid><description>&lt;h1 id="wireshark">
+ Wireshark
+ &lt;a class="anchor" href="#wireshark">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="安装">
+ 安装
+ &lt;a class="anchor" href="#%e5%ae%89%e8%a3%85">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://www.wireshark.org/download.html">https://www.wireshark.org/download.html&lt;/a>&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>yum install -y wireshark
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;hr>
+&lt;h2 id="教程">
+ 教程
+ &lt;a class="anchor" href="#%e6%95%99%e7%a8%8b">#&lt;/a>
+&lt;/h2>
+&lt;p>参考：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.wireshark.org/docs/wsug_html_chunked/">Wireshark User’s Guide&lt;/a>&lt;/li>
+&lt;li>命令 &lt;a href="https://www.wireshark.org/docs/man-pages/wireshark.html">wireshark - Interactively dump and analyze network traffic&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="capture-filter">
+ Capture filter
+ &lt;a class="anchor" href="#capture-filter">#&lt;/a>
+&lt;/h3>
+&lt;p>参考：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html">4.10. Filtering while capturing&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://gitlab.com/wireshark/wireshark/-/wikis/CaptureFilters">Capture Filters wiki&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.tcpdump.org/manpages/pcap-filter.7.html">Man page of PCAP-FILTER&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h3 id="display-filter">
+ Display filter
+ &lt;a class="anchor" href="#display-filter">#&lt;/a>
+&lt;/h3>
+&lt;p>参考：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html">Chapter 6. Working With Captured Packets&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.wireshark.org/docs/man-pages/wireshark-filter.html">wireshark-filter - Wireshark display filter syntax and reference&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="tshark">
+ tshark
+ &lt;a class="anchor" href="#tshark">#&lt;/a>
+&lt;/h2>
+&lt;p>教程：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.wireshark.org/docs/man-pages/tshark.html">tshark - Dump and analyze network traffic&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 列出当前存在的网络接口&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tshark -D
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 实时打印当前http请求的url&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ tshark -s &lt;span style="color:#ae81ff">512&lt;/span> -i eth0 -n -f &lt;span style="color:#e6db74">&amp;#39;tcp dst port 80&amp;#39;&lt;/span> -R &lt;span style="color:#e6db74">&amp;#39;http.host and http.request.uri&amp;#39;&lt;/span> -T fields -e http.host -e http.request.uri -l | tr -d &lt;span style="color:#e6db74">&amp;#39;\t&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 参数含义：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -s 512 :只抓取前512个字节数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -i eth0 :捕获eth0网卡&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -n :禁止网络对象名称解析&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -f &amp;#39;tcp dst port 80&amp;#39; :只捕捉协议为tcp,目的端口为80的数据包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -R &amp;#39;http.host and http.request.uri&amp;#39; :过滤出http.host和http.request.uri&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -T fields -e http.host -e http.request.uri :打印http.host和http.request.uri&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -l ：输出到标准输出&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 实时打印当前mysql查询语句&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$ tshark -s &lt;span style="color:#ae81ff">512&lt;/span> -i eth0 -n -f &lt;span style="color:#e6db74">&amp;#39;tcp dst port 3306&amp;#39;&lt;/span> -R &lt;span style="color:#e6db74">&amp;#39;mysql.query&amp;#39;&lt;/span> -T fields -e mysql.query
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 参数含义：&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -s 512 :只抓取前512个字节数据&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -i eth0 :捕获eth0网卡&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -n :禁止网络对象名称解析&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -f &amp;#39;tcp dst port 3306&amp;#39; :只捕捉协议为tcp,目的端口为3306的数据包&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -R &amp;#39;mysql.query&amp;#39; :过滤出mysql.query&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># -T fields -e mysql.query :打印mysql查询语句&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="linux-安装-wireshark">
+ Linux 安装 Wireshark
+ &lt;a class="anchor" href="#linux-%e5%ae%89%e8%a3%85-wireshark">#&lt;/a>
+&lt;/h3>
+&lt;hr>
+&lt;h2 id="查询">
+ 查询
+ &lt;a class="anchor" href="#%e6%9f%a5%e8%af%a2">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>ip.addr &lt;span style="color:#f92672">==&lt;/span> 192.168.137.109
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="macos-打开两个-wireshark">
+ MacOS 打开两个 Wireshark
+ &lt;a class="anchor" href="#macos-%e6%89%93%e5%bc%80%e4%b8%a4%e4%b8%aa-wireshark">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 使用 -n 可以打开多个&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>open -n /Applications/Wireshark.app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>参考：&lt;/p></description></item></channel></rss>
