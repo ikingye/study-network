@@ -471,7 +471,10 @@
 &lt;li>内存共享：CXL 支持设备之间的内存共享，使它们能够更有效地协同工作。这可以提高性能并减少通过互连在设备之间传输数据的需要。&lt;/li>
 &lt;li>兼容性：PCIe 是一种广泛采用的标准，与多种设备兼容，而 CXL 是一种&lt;em>较新&lt;/em>的标准，仍在不断获得采用。这意味着 CXL 兼容设备可能需要一些时间才能广泛使用。成本：由于标准的附加功能和特性，支持 CXL 的设备可能比支持 PCIe 的设备更昂贵。&lt;/li>
 &lt;/ul>
-&lt;p>最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。&lt;/p></description></item><item><title>Infiniband</title><link>https://kingye.me/study-network/docs/basic/rdmd/ib/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ib/</guid><description>&lt;h1 id="infiniband">
+&lt;p>最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。&lt;/p></description></item><item><title>ibstat</title><link>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</guid><description>&lt;h1 id="ibstat">
+ ibstat
+ &lt;a class="anchor" href="#ibstat">#&lt;/a>
+&lt;/h1></description></item><item><title>Infiniband</title><link>https://kingye.me/study-network/docs/basic/rdmd/ib/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ib/</guid><description>&lt;h1 id="infiniband">
  Infiniband
  &lt;a class="anchor" href="#infiniband">#&lt;/a>
 &lt;/h1>
