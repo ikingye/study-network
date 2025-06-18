@@ -1,0 +1,679 @@
+<!doctype html><html lang=en dir=ltr><head><meta name=generator content="Hugo 0.140.1"><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content='
+  epoll
+  #
+
+
+  阻塞
+  #
+
+
+多进程
+多线程
+
+
+  非阻塞
+  #
+
+
+  忙轮询
+  #
+
+while true {
+    for i in 流[] {
+        if i has 数据 {
+            读 或者 其他处理
+        }
+    }
+}
+
+  select
+  #
+
+select 代收员 比较懒，她只会告诉你快递到了，但是是谁到的，你需要挨个快递员问一遍。
+while true {
+    select(流[]);  # 阻塞
+
+    for i in 流[] {
+        if i has 数据 {
+            读 或者 其他处理
+        }
+    }
+}
+
+  epoll
+  #
+
+while true {
+    可处理的流[] = epoll_wait(epoll_fd);  # 阻塞
+
+    for i in 可处理的流[] {
+        读 或者 其他处理
+   }
+}
+
+  epoll 编程框架
+  #
+
+//创建 epoll
+int epfd = epoll_crete(1000);
+
+//将 listen_fd 添加进 epoll 中
+epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, &amp;listen_event);
+
+while (1) {
+    //阻塞等待 epoll 中 的 fd 触发
+    int active_cnt = epoll_wait(epfd, events, 1000, -1);
+
+    for (i = 0 ; i < active_cnt; i++) {
+        if (evnets[i].data.fd == listen_fd) {
+            //accept. 并且将新 accept 的 fd 加进 epoll 中.
+        }
+        else if (events[i].events & EPOLLIN) {
+            //对此 fd 进行读操作
+        }
+        else if (events[i].events & EPOLLOUT) {
+            //对此 fd 进行写操作
+        }
+    }
+}
+
+  服务端
+  #
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <string.h>
+
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+
+#include <sys/epoll.h>
+
+
+#define SERVER_PORT         (7778)
+#define EPOLL_MAX_NUM       (2048)
+#define BUFFER_MAX_LEN      (4096)
+
+char buffer[BUFFER_MAX_LEN];
+
+void str_toupper(char *str)
+{
+    int i;
+    for (i = 0; i < strlen(str); i ++) {
+        str[i] = toupper(str[i]);
+    }
+}
+
+int main(int argc, char **argv)
+{
+    int listen_fd = 0;
+    int client_fd = 0;
+    struct sockaddr_in server_addr;
+    struct sockaddr_in client_addr;
+    socklen_t           client_len;
+
+    int epfd = 0;
+    struct epoll_event event, *my_events;
+
+    // socket
+    listen_fd = socket(AF_INET, SOCK_STREAM, 0);
+
+    // bind
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_addr.s_addr = htonl(INADDR_ANY);
+    server_addr.sin_port = htons(SERVER_PORT);
+    bind(listen_fd, (struct sockaddr*)&amp;server_addr, sizeof(server_addr));
+
+    // listen
+    listen(listen_fd, 10);
+
+    // epoll create
+    epfd = epoll_create(EPOLL_MAX_NUM);
+    if (epfd < 0) {
+        perror("epoll create");
+        goto END;
+    }
+
+    // listen_fd -> epoll
+    event.events = EPOLLIN;
+    event.data.fd = listen_fd;
+    if (epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, &amp;event) < 0) {
+        perror("epoll ctl add listen_fd ");
+        goto END;
+    }
+
+    my_events = malloc(sizeof(struct epoll_event) * EPOLL_MAX_NUM);
+
+
+    while (1) {
+        // epoll wait
+        int active_fds_cnt = epoll_wait(epfd, my_events, EPOLL_MAX_NUM, -1);
+        int i = 0;
+        for (i = 0; i < active_fds_cnt; i++) {
+            // if fd == listen_fd
+            if (my_events[i].data.fd == listen_fd) {
+                //accept
+                client_fd = accept(listen_fd, (struct sockaddr*)&amp;client_addr, &amp;client_len);
+                if (client_fd < 0) {
+                    perror("accept");
+                    continue;
+                }
+
+                char ip[20];
+                printf("new connection[%s:%d]\n", inet_ntop(AF_INET, &amp;client_addr.sin_addr, ip, sizeof(ip)), ntohs(client_addr.sin_port));
+
+                event.events = EPOLLIN | EPOLLET;
+                event.data.fd = client_fd;
+                epoll_ctl(epfd, EPOLL_CTL_ADD, client_fd, &amp;event);
+            }
+            else if (my_events[i].events & EPOLLIN) {
+                printf("EPOLLIN\n");
+                client_fd = my_events[i].data.fd;
+
+                // do read
+
+                buffer[0] = &#39;\0&#39;;
+                int n = read(client_fd, buffer, 5);
+                if (n < 0) {
+                    perror("read");
+                    continue;
+                }
+                else if (n == 0) {
+                    epoll_ctl(epfd, EPOLL_CTL_DEL, client_fd, &amp;event);
+                    close(client_fd);
+                }
+                else {
+                    printf("[read]: %s\n", buffer);
+                    buffer[n] = &#39;\0&#39;;
+#if 1
+                    str_toupper(buffer);
+                    write(client_fd, buffer, strlen(buffer));
+                    printf("[write]: %s\n", buffer);
+                    memset(buffer, 0, BUFFER_MAX_LEN);
+#endif
+
+/*
+                    event.events = EPOLLOUT;
+                    event.data.fd = client_fd;
+                    epoll_ctl(epfd, EPOLL_CTL_MOD, client_fd, &amp;event);
+*/
+                }
+            }
+            else if (my_events[i].events & EPOLLOUT) {
+                printf("EPOLLOUT\n");
+/*
+                client_fd = my_events[i].data.fd;
+                str_toupper(buffer);
+                write(client_fd, buffer, strlen(buffer));
+                printf("[write]: %s\n", buffer);
+                memset(buffer, 0, BUFFER_MAX_LEN);
+
+                event.events = EPOLLIN;
+                event.data.fd = client_fd;
+                epoll_ctl(epfd, EPOLL_CTL_MOD, client_fd, &amp;event);
+*/
+            }
+        }
+    }
+
+
+
+END:
+    close(epfd);
+    close(listen_fd);
+    return 0;
+}
+
+  客户端
+  #
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include <fcntl.h>
+
+#define MAX_LINE (1024)
+#define SERVER_PORT (7778)
+
+void setnoblocking(int fd)
+{
+    int opts = 0;
+    opts = fcntl(fd, F_GETFL);
+    opts = opts | O_NONBLOCK;
+    fcntl(fd, F_SETFL);
+}
+
+int main(int argc, char **argv)
+{
+    int  sockfd;
+    char recvline[MAX_LINE + 1] = {0};
+
+    struct sockaddr_in server_addr;
+
+    if (argc != 2) {
+        fprintf(stderr, "usage ./client <SERVER_IP>\n");
+        exit(0);
+    }
+
+
+    // 创建socket
+    if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) {
+        fprintf(stderr, "socket error");
+        exit(0);
+    }
+
+
+    // server addr 赋值
+    bzero(&amp;server_addr, sizeof(server_addr));
+    server_addr.sin_family = AF_INET;
+    server_addr.sin_port = htons(SERVER_PORT);
+
+    if (inet_pton(AF_INET, argv[1], &amp;server_addr.sin_addr) <= 0) {
+        fprintf(stderr, "inet_pton error for %s", argv[1]);
+        exit(0);
+    }
+
+
+    // 链接服务端
+    if (connect(sockfd, (struct sockaddr*) &amp;server_addr, sizeof(server_addr)) < 0) {
+        perror("connect");
+        fprintf(stderr, "connect error\n");
+        exit(0);
+    }
+
+    setnoblocking(sockfd);
+
+    char input[100];
+    int n = 0;
+    int count = 0;
+
+
+
+    // 不断的从标准输入字符串
+    while (fgets(input, 100, stdin) != NULL)
+    {
+        printf("[send] %s\n", input);
+        n = 0;
+        // 把输入的字符串发送 到 服务器中去
+        n = send(sockfd, input, strlen(input), 0);
+        if (n < 0) {
+            perror("send");
+        }
+
+        n = 0;
+        count = 0;
+
+
+        // 读取 服务器返回的数据
+        while (1)
+        {
+            n = read(sockfd, recvline + count, MAX_LINE);
+            if (n == MAX_LINE)
+            {
+                count += n;
+                continue;
+            }
+            else if (n < 0){
+                perror("recv");
+                break;
+            }
+            else {
+                count += n;
+                recvline[count] = &#39;\0&#39;;
+                printf("[recv] %s\n", recvline);
+                break;
+            }
+        }
+    }
+
+    return 0;
+}
+
+  参考
+  #
+
+
+Libevent 深入浅出
+'><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="https://kingye.me/study-network/docs/advanced/code/epoll/"><meta property="og:site_name" content="网络学习笔记"><meta property="og:title" content="epoll"><meta property="og:description" content='epoll # 阻塞 # 多进程 多线程 非阻塞 # 忙轮询 # while true { for i in 流[] { if i has 数据 { 读 或者 其他处理 } } } select # select 代收员 比较懒，她只会告诉你快递到了，但是是谁到的，你需要挨个快递员问一遍。
+while true { select(流[]); # 阻塞 for i in 流[] { if i has 数据 { 读 或者 其他处理 } } } epoll # while true { 可处理的流[] = epoll_wait(epoll_fd); # 阻塞 for i in 可处理的流[] { 读 或者 其他处理 } } epoll 编程框架 # //创建 epoll int epfd = epoll_crete(1000); //将 listen_fd 添加进 epoll 中 epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, &amp;listen_event); while (1) { //阻塞等待 epoll 中 的 fd 触发 int active_cnt = epoll_wait(epfd, events, 1000, -1); for (i = 0 ; i < active_cnt; i++) { if (evnets[i].data.fd == listen_fd) { //accept. 并且将新 accept 的 fd 加进 epoll 中. } else if (events[i].events & EPOLLIN) { //对此 fd 进行读操作 } else if (events[i].events & EPOLLOUT) { //对此 fd 进行写操作 } } } 服务端 # #include <stdio.h> #include <stdlib.h> #include <ctype.h> #include <string.h> #include <unistd.h> #include <sys/types.h> #include <sys/socket.h> #include <arpa/inet.h> #include <sys/epoll.h> #define SERVER_PORT (7778) #define EPOLL_MAX_NUM (2048) #define BUFFER_MAX_LEN (4096) char buffer[BUFFER_MAX_LEN]; void str_toupper(char *str) { int i; for (i = 0; i < strlen(str); i ++) { str[i] = toupper(str[i]); } } int main(int argc, char **argv) { int listen_fd = 0; int client_fd = 0; struct sockaddr_in server_addr; struct sockaddr_in client_addr; socklen_t client_len; int epfd = 0; struct epoll_event event, *my_events; // socket listen_fd = socket(AF_INET, SOCK_STREAM, 0); // bind server_addr.sin_family = AF_INET; server_addr.sin_addr.s_addr = htonl(INADDR_ANY); server_addr.sin_port = htons(SERVER_PORT); bind(listen_fd, (struct sockaddr*)&amp;server_addr, sizeof(server_addr)); // listen listen(listen_fd, 10); // epoll create epfd = epoll_create(EPOLL_MAX_NUM); if (epfd < 0) { perror("epoll create"); goto END; } // listen_fd -> epoll event.events = EPOLLIN; event.data.fd = listen_fd; if (epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, &amp;event) < 0) { perror("epoll ctl add listen_fd "); goto END; } my_events = malloc(sizeof(struct epoll_event) * EPOLL_MAX_NUM); while (1) { // epoll wait int active_fds_cnt = epoll_wait(epfd, my_events, EPOLL_MAX_NUM, -1); int i = 0; for (i = 0; i < active_fds_cnt; i++) { // if fd == listen_fd if (my_events[i].data.fd == listen_fd) { //accept client_fd = accept(listen_fd, (struct sockaddr*)&amp;client_addr, &amp;client_len); if (client_fd < 0) { perror("accept"); continue; } char ip[20]; printf("new connection[%s:%d]\n", inet_ntop(AF_INET, &amp;client_addr.sin_addr, ip, sizeof(ip)), ntohs(client_addr.sin_port)); event.events = EPOLLIN | EPOLLET; event.data.fd = client_fd; epoll_ctl(epfd, EPOLL_CTL_ADD, client_fd, &amp;event); } else if (my_events[i].events & EPOLLIN) { printf("EPOLLIN\n"); client_fd = my_events[i].data.fd; // do read buffer[0] = &#39;\0&#39;; int n = read(client_fd, buffer, 5); if (n < 0) { perror("read"); continue; } else if (n == 0) { epoll_ctl(epfd, EPOLL_CTL_DEL, client_fd, &amp;event); close(client_fd); } else { printf("[read]: %s\n", buffer); buffer[n] = &#39;\0&#39;; #if 1 str_toupper(buffer); write(client_fd, buffer, strlen(buffer)); printf("[write]: %s\n", buffer); memset(buffer, 0, BUFFER_MAX_LEN); #endif /* event.events = EPOLLOUT; event.data.fd = client_fd; epoll_ctl(epfd, EPOLL_CTL_MOD, client_fd, &amp;event); */ } } else if (my_events[i].events & EPOLLOUT) { printf("EPOLLOUT\n"); /* client_fd = my_events[i].data.fd; str_toupper(buffer); write(client_fd, buffer, strlen(buffer)); printf("[write]: %s\n", buffer); memset(buffer, 0, BUFFER_MAX_LEN); event.events = EPOLLIN; event.data.fd = client_fd; epoll_ctl(epfd, EPOLL_CTL_MOD, client_fd, &amp;event); */ } } } END: close(epfd); close(listen_fd); return 0; } 客户端 # #include <stdio.h> #include <stdlib.h> #include <string.h> #include <strings.h> #include <sys/types.h> #include <sys/socket.h> #include <arpa/inet.h> #include <unistd.h> #include <fcntl.h> #define MAX_LINE (1024) #define SERVER_PORT (7778) void setnoblocking(int fd) { int opts = 0; opts = fcntl(fd, F_GETFL); opts = opts | O_NONBLOCK; fcntl(fd, F_SETFL); } int main(int argc, char **argv) { int sockfd; char recvline[MAX_LINE + 1] = {0}; struct sockaddr_in server_addr; if (argc != 2) { fprintf(stderr, "usage ./client <SERVER_IP>\n"); exit(0); } // 创建socket if ( (sockfd = socket(AF_INET, SOCK_STREAM, 0)) < 0) { fprintf(stderr, "socket error"); exit(0); } // server addr 赋值 bzero(&amp;server_addr, sizeof(server_addr)); server_addr.sin_family = AF_INET; server_addr.sin_port = htons(SERVER_PORT); if (inet_pton(AF_INET, argv[1], &amp;server_addr.sin_addr) <= 0) { fprintf(stderr, "inet_pton error for %s", argv[1]); exit(0); } // 链接服务端 if (connect(sockfd, (struct sockaddr*) &amp;server_addr, sizeof(server_addr)) < 0) { perror("connect"); fprintf(stderr, "connect error\n"); exit(0); } setnoblocking(sockfd); char input[100]; int n = 0; int count = 0; // 不断的从标准输入字符串 while (fgets(input, 100, stdin) != NULL) { printf("[send] %s\n", input); n = 0; // 把输入的字符串发送 到 服务器中去 n = send(sockfd, input, strlen(input), 0); if (n < 0) { perror("send"); } n = 0; count = 0; // 读取 服务器返回的数据 while (1) { n = read(sockfd, recvline + count, MAX_LINE); if (n == MAX_LINE) { count += n; continue; } else if (n < 0){ perror("recv"); break; } else { count += n; recvline[count] = &#39;\0&#39;; printf("[recv] %s\n", recvline); break; } } } return 0; } 参考 # Libevent 深入浅出'><meta property="og:locale" content="en"><meta property="og:type" content="website"><title>epoll | 网络学习笔记</title>
+<link rel=manifest href=/study-network/manifest.json><link rel=icon href=/study-network/favicon.png><link rel=canonical href=https://kingye.me/study-network/docs/advanced/code/epoll/><link rel=stylesheet href=/study-network/book.min.45ab58199f84c9a33853fdef2e41664c57a49ca55c9badf2dd2dd071f39975a3.css integrity="sha256-RatYGZ+EyaM4U/3vLkFmTFeknKVcm63y3S3QcfOZdaM=" crossorigin=anonymous><script defer src=/study-network/fuse.min.js></script><script defer src=/study-network/en.search.min.25c7c5b56ab51c4dceaa570e58263c19294c987b0884c6262665c3e6898ea85e.js integrity="sha256-JcfFtWq1HE3OqlcOWCY8GSlMmHsIhMYmJmXD5omOqF4=" crossorigin=anonymous></script><link rel=alternate type=application/rss+xml href=https://kingye.me/study-network/docs/advanced/code/epoll/index.xml title=网络学习笔记></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/study-network/><span>网络学习笔记</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul><li><a href=https://kingye.me target=_blank rel="noopener noreferrer">博客</a></li><li><a href=https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417021727.png target=_blank rel="noopener noreferrer">公众号</a></li><li><a href=https://github.com/ikingye target=_blank rel="noopener noreferrer">Github</a></li><li><a href=https://weibo.com/kingyip15215 target=_blank rel="noopener noreferrer">微博</a></li><li><a href=https://www.zhihu.com/people/wutongyip target=_blank rel="noopener noreferrer">知乎</a></li></ul><hr><ul><li><a href=/study-network/docs/basic/>第一部分 基础入门</a><ul><li><input type=checkbox id=section-97385a14f4d235b34dece6a73c3e4827 class=toggle>
+<label for=section-97385a14f4d235b34dece6a73c3e4827 class="flex justify-between"><a href=/study-network/docs/basic/cmd/>1.1 命令</a></label><ul><li><input type=checkbox id=section-08d7e06a303c819677a315457793f57b class=toggle>
+<label for=section-08d7e06a303c819677a315457793f57b class="flex justify-between"><a href=/study-network/docs/basic/cmd/curl/>curl</a></label></li><li><input type=checkbox id=section-6761536016191206ad171c2ae7b44f5b class=toggle>
+<label for=section-6761536016191206ad171c2ae7b44f5b class="flex justify-between"><a href=/study-network/docs/basic/cmd/iptables/>iptables</a></label></li><li><input type=checkbox id=section-99f90980f3f4a33487bb9d2cda862055 class=toggle>
+<label for=section-99f90980f3f4a33487bb9d2cda862055 class="flex justify-between"><a href=/study-network/docs/basic/cmd/netfilter/>netfilter</a></label></li></ul></li><li><input type=checkbox id=section-42e04e838cadaf441db702ab49e57f19 class=toggle>
+<label for=section-42e04e838cadaf441db702ab49e57f19 class="flex justify-between"><a href=/study-network/docs/basic/protocol/>1.2 协议</a></label><ul><li><a href=/study-network/docs/basic/protocol/tcp/>TCP</a></li><li><a href=/study-network/docs/basic/protocol/vxlan/>VXLAN</a></li><li><a href=/study-network/docs/basic/protocol/udp/>UDP</a></li><li><a href=/study-network/docs/basic/protocol/dns/>DNS</a></li><li><a href=/study-network/docs/basic/protocol/http/>HTTP</a></li><li><a href=/study-network/docs/basic/protocol/ssl/>SSL</a></li><li><input type=checkbox id=section-8db76594db9478139951c806cc84d632 class=toggle>
+<label for=section-8db76594db9478139951c806cc84d632 class="flex justify-between"><a href=/study-network/docs/basic/protocol/websocket/>WebSocket</a></label></li><li><a href=/study-network/docs/basic/protocol/https/>HTTPs</a></li></ul></li><li><a href=/study-network/docs/basic/cxl/>CXL</a></li><li><a href=/study-network/docs/basic/pcie/>PCIe</a></li><li><a href=/study-network/docs/basic/rdmd/>RDMA</a><ul><li><a href=/study-network/docs/basic/rdmd/ibstat/>ibstat</a></li><li><a href=/study-network/docs/basic/rdmd/ib/>Infiniband</a></li><li><a href=/study-network/docs/basic/rdmd/roce/>RoCE 网络</a></li></ul></li></ul></li><li><span>第二部分 进阶实战</span><ul><li><input type=checkbox id=section-571733eb4fbb2867c7ed34c3b99d1b1b class=toggle checked>
+<label for=section-571733eb4fbb2867c7ed34c3b99d1b1b class="flex justify-between"><a href=/study-network/docs/advanced/code/>2.1 网络编程</a></label><ul><li><input type=checkbox id=section-48d48f3cd93ac59a3273b1dff6a9e3ec class=toggle>
+<label for=section-48d48f3cd93ac59a3273b1dff6a9e3ec class="flex justify-between"><a href=/study-network/docs/advanced/code/spec/>编程规范</a></label><ul></ul></li><li><input type=checkbox id=section-665ced64640f6b105b75767ad0515f1e class=toggle checked>
+<label for=section-665ced64640f6b105b75767ad0515f1e class="flex justify-between"><a href=/study-network/docs/advanced/code/epoll/ class=active>epoll</a></label><ul></ul></li><li><input type=checkbox id=section-94cb59539222815cb464ad4907e02781 class=toggle>
+<label for=section-94cb59539222815cb464ad4907e02781 class="flex justify-between"><a href=/study-network/docs/advanced/code/libevent/>libevent</a></label><ul></ul></li><li><input type=checkbox id=section-044c14889879337b0201e9e6e2cb4563 class=toggle>
+<label for=section-044c14889879337b0201e9e6e2cb4563 class="flex justify-between"><a href=/study-network/docs/advanced/code/select/>select</a></label><ul></ul></li></ul></li><li><input type=checkbox id=section-eef0fac43de358f1ceb08a39ae907661 class=toggle>
+<label for=section-eef0fac43de358f1ceb08a39ae907661 class="flex justify-between"><a href=/study-network/docs/advanced/tool/>2.2 网络工具</a></label><ul><li><input type=checkbox id=section-c17defae00837f8e79a734376104e5bc class=toggle>
+<label for=section-c17defae00837f8e79a734376104e5bc class="flex justify-between"><a href=/study-network/docs/advanced/tool/wireshark/>Wireshark</a></label></li></ul></li></ul></li><li><span>第三部分 设计与实现</span><ul><li><input type=checkbox id=section-3b75cb47a74ba0f3aaa84fa765e0d04c class=toggle>
+<label for=section-3b75cb47a74ba0f3aaa84fa765e0d04c class="flex justify-between"><a href=/study-network/docs/design/stack/>3.1 协议栈</a></label><ul></ul></li><li><a href=/study-network/docs/design/code/>3.7 源码分析</a><ul><li><input type=checkbox id=section-7738f10bf428ff899fcb3a2494e364a7 class=toggle>
+<label for=section-7738f10bf428ff899fcb3a2494e364a7 class="flex justify-between"><a href=/study-network/docs/design/code/netty-4.0.33/>4.0.33</a></label><ul></ul></li></ul></li></ul></li><li><span>第四部分 附录</span><ul><li><input type=checkbox id=section-43f109315fc0560be97ec705c5160f2d class=toggle>
+<label for=section-43f109315fc0560be97ec705c5160f2d class="flex justify-between"><a href=/study-network/docs/appendix/tutorial/>4.1 教程</a></label></li><li><input type=checkbox id=section-daf565a7209267a897b394fece9a1d92 class=toggle>
+<label for=section-daf565a7209267a897b394fece9a1d92 class="flex justify-between"><a href=/study-network/docs/appendix/interview/>4.2 面试题</a></label></li><li><input type=checkbox id=section-5f97ff9cd71802992c08705161310a8f class=toggle>
+<label for=section-5f97ff9cd71802992c08705161310a8f class="flex justify-between"><a href=/study-network/docs/appendix/attention/>4.3 关注项目</a></label></li></ul></li></ul><hr><ul><li><a href=https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200417022040.png target=_blank rel="noopener noreferrer">微信</a></li><li><a href="https://qm.qq.com/cgi-bin/qm/qr?k=EUhzg0UwUksxpQnwEmPngRLezlC6qrnn&jump_from=webapi" target=_blank rel="noopener noreferrer"><img src=//pub.idqqimg.com/wpa/images/group.png></a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/study-network/svg/menu.svg class=book-icon alt=Menu>
+</label><strong>epoll</strong>
+<label for=toc-control><img src=/study-network/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#阻塞>阻塞</a></li><li><a href=#非阻塞>非阻塞</a><ul><li><a href=#忙轮询>忙轮询</a></li><li><a href=#select>select</a></li><li><a href=#epoll-1>epoll</a></li></ul></li><li><a href=#epoll-编程框架>epoll 编程框架</a><ul><li><a href=#服务端>服务端</a></li><li><a href=#客户端>客户端</a></li></ul></li><li><a href=#参考>参考</a></li></ul></nav></aside></header><article id=article class=markdown><h1 id=epoll>epoll
+<a class=anchor href=#epoll>#</a></h1><h2 id=阻塞>阻塞
+<a class=anchor href=#%e9%98%bb%e5%a1%9e>#</a></h2><ul><li>多进程</li><li>多线程</li></ul><h2 id=非阻塞>非阻塞
+<a class=anchor href=#%e9%9d%9e%e9%98%bb%e5%a1%9e>#</a></h2><h3 id=忙轮询>忙轮询
+<a class=anchor href=#%e5%bf%99%e8%bd%ae%e8%af%a2>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>while</span> true {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> 流[] {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> i has 数据 {
+</span></span><span style=display:flex><span>            读 或者 其他处理
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=select>select
+<a class=anchor href=#select>#</a></h3><p>select 代收员 比较懒，她只会告诉你快递到了，但是是谁到的，你需要挨个快递员问一遍。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>while</span> true {
+</span></span><span style=display:flex><span>    select(流[]);  <span style=color:#75715e># 阻塞</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> 流[] {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> i has 数据 {
+</span></span><span style=display:flex><span>            读 或者 其他处理
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=epoll-1>epoll
+<a class=anchor href=#epoll-1>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>while</span> true {
+</span></span><span style=display:flex><span>    可处理的流[] <span style=color:#f92672>=</span> epoll_wait(epoll_fd);  <span style=color:#75715e># 阻塞</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> 可处理的流[] {
+</span></span><span style=display:flex><span>        读 或者 其他处理
+</span></span><span style=display:flex><span>   }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=epoll-编程框架>epoll 编程框架
+<a class=anchor href=#epoll-%e7%bc%96%e7%a8%8b%e6%a1%86%e6%9e%b6>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>//创建 epoll
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>int</span> epfd <span style=color:#f92672>=</span> epoll_crete(<span style=color:#ae81ff>1000</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>//将 listen_fd 添加进 epoll 中
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, <span style=color:#f92672>&amp;</span>listen_event);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>while</span> (<span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>    <span style=color:#75715e>//阻塞等待 epoll 中 的 fd 触发
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>int</span> active_cnt <span style=color:#f92672>=</span> epoll_wait(epfd, events, <span style=color:#ae81ff>1000</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span> ; i <span style=color:#f92672>&lt;</span> active_cnt; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (evnets[i].data.fd <span style=color:#f92672>==</span> listen_fd) {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>//accept. 并且将新 accept 的 fd 加进 epoll 中.
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span> <span style=color:#a6e22e>if</span> (events[i].events <span style=color:#f92672>&amp;</span> EPOLLIN) {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>//对此 fd 进行读操作
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        }
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span> <span style=color:#a6e22e>if</span> (events[i].events <span style=color:#f92672>&amp;</span> EPOLLOUT) {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>//对此 fd 进行写操作
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=服务端>服务端
+<a class=anchor href=#%e6%9c%8d%e5%8a%a1%e7%ab%af>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;ctype.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;unistd.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;sys/types.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;sys/socket.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;arpa/inet.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;sys/epoll.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define SERVER_PORT         (7778)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define EPOLL_MAX_NUM       (2048)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define BUFFER_MAX_LEN      (4096)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>char</span> buffer[BUFFER_MAX_LEN];
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>str_toupper</span>(<span style=color:#66d9ef>char</span> <span style=color:#f92672>*</span>str)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> i;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> (i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> strlen(str); i <span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>        str[i] <span style=color:#f92672>=</span> toupper(str[i]);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>argv)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> listen_fd <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> client_fd <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>sockaddr_in</span> server_addr;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>sockaddr_in</span> client_addr;
+</span></span><span style=display:flex><span>    socklen_t           client_len;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> epfd <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>epoll_event</span> event, <span style=color:#f92672>*</span>my_events;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// socket
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    listen_fd <span style=color:#f92672>=</span> socket(AF_INET, SOCK_STREAM, <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// bind
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    server_addr.sin_family <span style=color:#f92672>=</span> AF_INET;
+</span></span><span style=display:flex><span>    server_addr.sin_addr.s_addr <span style=color:#f92672>=</span> htonl(INADDR_ANY);
+</span></span><span style=display:flex><span>    server_addr.sin_port <span style=color:#f92672>=</span> htons(SERVER_PORT);
+</span></span><span style=display:flex><span>    bind(listen_fd, (<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>sockaddr</span><span style=color:#f92672>*</span>)<span style=color:#f92672>&amp;</span>server_addr, <span style=color:#66d9ef>sizeof</span>(server_addr));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// listen
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    listen(listen_fd, <span style=color:#ae81ff>10</span>);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// epoll create
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    epfd <span style=color:#f92672>=</span> epoll_create(EPOLL_MAX_NUM);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (epfd <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>        perror(<span style=color:#e6db74>&#34;epoll create&#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>goto</span> END;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// listen_fd -&gt; epoll
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    event.events <span style=color:#f92672>=</span> EPOLLIN;
+</span></span><span style=display:flex><span>    event.data.fd <span style=color:#f92672>=</span> listen_fd;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (epoll_ctl(epfd, EPOLL_CTL_ADD, listen_fd, <span style=color:#f92672>&amp;</span>event) <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>        perror(<span style=color:#e6db74>&#34;epoll ctl add listen_fd &#34;</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>goto</span> END;
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    my_events <span style=color:#f92672>=</span> malloc(<span style=color:#66d9ef>sizeof</span>(<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>epoll_event</span>) <span style=color:#f92672>*</span> EPOLL_MAX_NUM);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> (<span style=color:#ae81ff>1</span>) {
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// epoll wait
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>int</span> active_fds_cnt <span style=color:#f92672>=</span> epoll_wait(epfd, my_events, EPOLL_MAX_NUM, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>int</span> i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> (i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; i <span style=color:#f92672>&lt;</span> active_fds_cnt; i<span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>            <span style=color:#75715e>// if fd == listen_fd
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>            <span style=color:#66d9ef>if</span> (my_events[i].data.fd <span style=color:#f92672>==</span> listen_fd) {
+</span></span><span style=display:flex><span>                <span style=color:#75715e>//accept
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                client_fd <span style=color:#f92672>=</span> accept(listen_fd, (<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>sockaddr</span><span style=color:#f92672>*</span>)<span style=color:#f92672>&amp;</span>client_addr, <span style=color:#f92672>&amp;</span>client_len);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (client_fd <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>                    perror(<span style=color:#e6db74>&#34;accept&#34;</span>);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>continue</span>;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>char</span> ip[<span style=color:#ae81ff>20</span>];
+</span></span><span style=display:flex><span>                printf(<span style=color:#e6db74>&#34;new connection[%s:%d]</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, inet_ntop(AF_INET, <span style=color:#f92672>&amp;</span>client_addr.sin_addr, ip, <span style=color:#66d9ef>sizeof</span>(ip)), ntohs(client_addr.sin_port));
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                event.events <span style=color:#f92672>=</span> EPOLLIN <span style=color:#f92672>|</span> EPOLLET;
+</span></span><span style=display:flex><span>                event.data.fd <span style=color:#f92672>=</span> client_fd;
+</span></span><span style=display:flex><span>                epoll_ctl(epfd, EPOLL_CTL_ADD, client_fd, <span style=color:#f92672>&amp;</span>event);
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (my_events[i].events <span style=color:#f92672>&amp;</span> EPOLLIN) {
+</span></span><span style=display:flex><span>                printf(<span style=color:#e6db74>&#34;EPOLLIN</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>                client_fd <span style=color:#f92672>=</span> my_events[i].data.fd;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>                <span style=color:#75715e>// do read
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>                buffer[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\0&#39;</span>;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> read(client_fd, buffer, <span style=color:#ae81ff>5</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>                    perror(<span style=color:#e6db74>&#34;read&#34;</span>);
+</span></span><span style=display:flex><span>                    <span style=color:#66d9ef>continue</span>;
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>                    epoll_ctl(epfd, EPOLL_CTL_DEL, client_fd, <span style=color:#f92672>&amp;</span>event);
+</span></span><span style=display:flex><span>                    close(client_fd);
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>                    printf(<span style=color:#e6db74>&#34;[read]: %s</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, buffer);
+</span></span><span style=display:flex><span>                    buffer[n] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\0&#39;</span>;
+</span></span><span style=display:flex><span><span style=color:#75715e>#if 1
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                    str_toupper(buffer);
+</span></span><span style=display:flex><span>                    write(client_fd, buffer, strlen(buffer));
+</span></span><span style=display:flex><span>                    printf(<span style=color:#e6db74>&#34;[write]: %s</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, buffer);
+</span></span><span style=display:flex><span>                    memset(buffer, <span style=color:#ae81ff>0</span>, BUFFER_MAX_LEN);
+</span></span><span style=display:flex><span><span style=color:#75715e>#endif
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                    event.events = EPOLLOUT;
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                    event.data.fd = client_fd;
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                    epoll_ctl(epfd, EPOLL_CTL_MOD, client_fd, &amp;event);
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span>                }
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (my_events[i].events <span style=color:#f92672>&amp;</span> EPOLLOUT) {
+</span></span><span style=display:flex><span>                printf(<span style=color:#e6db74>&#34;EPOLLOUT</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span><span style=color:#75715e>/*
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                client_fd = my_events[i].data.fd;
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                str_toupper(buffer);
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                write(client_fd, buffer, strlen(buffer));
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                printf(&#34;[write]: %s\n&#34;, buffer);
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                memset(buffer, 0, BUFFER_MAX_LEN);
+</span></span></span><span style=display:flex><span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                event.events = EPOLLIN;
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                event.data.fd = client_fd;
+</span></span></span><span style=display:flex><span><span style=color:#75715e>                epoll_ctl(epfd, EPOLL_CTL_MOD, client_fd, &amp;event);
+</span></span></span><span style=display:flex><span><span style=color:#75715e>*/</span>
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>END:
+</span></span><span style=display:flex><span>    close(epfd);
+</span></span><span style=display:flex><span>    close(listen_fd);
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h3 id=客户端>客户端
+<a class=anchor href=#%e5%ae%a2%e6%88%b7%e7%ab%af>#</a></h3><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-cpp data-lang=cpp><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdio.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;stdlib.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;string.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;strings.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;sys/types.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;sys/socket.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;arpa/inet.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;unistd.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#include</span> <span style=color:#75715e>&lt;fcntl.h&gt;</span><span style=color:#75715e>
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#define MAX_LINE (1024)
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#define SERVER_PORT (7778)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>void</span> <span style=color:#a6e22e>setnoblocking</span>(<span style=color:#66d9ef>int</span> fd)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> opts <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    opts <span style=color:#f92672>=</span> fcntl(fd, F_GETFL);
+</span></span><span style=display:flex><span>    opts <span style=color:#f92672>=</span> opts <span style=color:#f92672>|</span> O_NONBLOCK;
+</span></span><span style=display:flex><span>    fcntl(fd, F_SETFL);
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>int</span> <span style=color:#a6e22e>main</span>(<span style=color:#66d9ef>int</span> argc, <span style=color:#66d9ef>char</span> <span style=color:#f92672>**</span>argv)
+</span></span><span style=display:flex><span>{
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span>  sockfd;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>char</span> recvline[MAX_LINE <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> {<span style=color:#ae81ff>0</span>};
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>sockaddr_in</span> server_addr;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (argc <span style=color:#f92672>!=</span> <span style=color:#ae81ff>2</span>) {
+</span></span><span style=display:flex><span>        fprintf(stderr, <span style=color:#e6db74>&#34;usage ./client &lt;SERVER_IP&gt;</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>        exit(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 创建socket
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> ( (sockfd <span style=color:#f92672>=</span> socket(AF_INET, SOCK_STREAM, <span style=color:#ae81ff>0</span>)) <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>        fprintf(stderr, <span style=color:#e6db74>&#34;socket error&#34;</span>);
+</span></span><span style=display:flex><span>        exit(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// server addr 赋值
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    bzero(<span style=color:#f92672>&amp;</span>server_addr, <span style=color:#66d9ef>sizeof</span>(server_addr));
+</span></span><span style=display:flex><span>    server_addr.sin_family <span style=color:#f92672>=</span> AF_INET;
+</span></span><span style=display:flex><span>    server_addr.sin_port <span style=color:#f92672>=</span> htons(SERVER_PORT);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (inet_pton(AF_INET, argv[<span style=color:#ae81ff>1</span>], <span style=color:#f92672>&amp;</span>server_addr.sin_addr) <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>        fprintf(stderr, <span style=color:#e6db74>&#34;inet_pton error for %s&#34;</span>, argv[<span style=color:#ae81ff>1</span>]);
+</span></span><span style=display:flex><span>        exit(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 链接服务端
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>if</span> (connect(sockfd, (<span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>sockaddr</span><span style=color:#f92672>*</span>) <span style=color:#f92672>&amp;</span>server_addr, <span style=color:#66d9ef>sizeof</span>(server_addr)) <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>        perror(<span style=color:#e6db74>&#34;connect&#34;</span>);
+</span></span><span style=display:flex><span>        fprintf(stderr, <span style=color:#e6db74>&#34;connect error</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>);
+</span></span><span style=display:flex><span>        exit(<span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    setnoblocking(sockfd);
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>char</span> input[<span style=color:#ae81ff>100</span>];
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> n <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>int</span> count <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e>// 不断的从标准输入字符串
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#66d9ef>while</span> (fgets(input, <span style=color:#ae81ff>100</span>, stdin) <span style=color:#f92672>!=</span> NULL)
+</span></span><span style=display:flex><span>    {
+</span></span><span style=display:flex><span>        printf(<span style=color:#e6db74>&#34;[send] %s</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, input);
+</span></span><span style=display:flex><span>        n <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 把输入的字符串发送 到 服务器中去
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        n <span style=color:#f92672>=</span> send(sockfd, input, strlen(input), <span style=color:#ae81ff>0</span>);
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>) {
+</span></span><span style=display:flex><span>            perror(<span style=color:#e6db74>&#34;send&#34;</span>);
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        n <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>        count <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e>// 读取 服务器返回的数据
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#66d9ef>while</span> (<span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>        {
+</span></span><span style=display:flex><span>            n <span style=color:#f92672>=</span> read(sockfd, recvline <span style=color:#f92672>+</span> count, MAX_LINE);
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>==</span> MAX_LINE)
+</span></span><span style=display:flex><span>            {
+</span></span><span style=display:flex><span>                count <span style=color:#f92672>+=</span> n;
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>continue</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>0</span>){
+</span></span><span style=display:flex><span>                perror(<span style=color:#e6db74>&#34;recv&#34;</span>);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>                count <span style=color:#f92672>+=</span> n;
+</span></span><span style=display:flex><span>                recvline[count] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;\0&#39;</span>;
+</span></span><span style=display:flex><span>                printf(<span style=color:#e6db74>&#34;[recv] %s</span><span style=color:#ae81ff>\n</span><span style=color:#e6db74>&#34;</span>, recvline);
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>;
+</span></span><span style=display:flex><span>            }
+</span></span><span style=display:flex><span>        }
+</span></span><span style=display:flex><span>    }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>;
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=参考>参考
+<a class=anchor href=#%e5%8f%82%e8%80%83>#</a></h2><ul><li><a href=https://aceld.gitbooks.io/libevent/content/>Libevent 深入浅出</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/ikingye/study-network/commit/04661a33ce448777eca0077353f83fd6d0a3e02b title='Last modified by yewang | 2020-07-16' target=_blank rel=noopener><img src=/study-network/svg/calendar.svg class=book-icon alt>
+<span>2020-07-16</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><div><br><script async src=//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><link rel=stylesheet href=//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css><p><span id=busuanzi_container_page_pv>本文访问量 <span id=busuanzi_value_page_pv><i class="fa fa-spinner fa-spin"></i></span> 次</span></p><p><span id=busuanzi_container_site_pv>本站总访问量 <span id=busuanzi_value_site_pv><i class="fa fa-spinner fa-spin"></i></span> 次</span></p><p><span id=busuanzi_container_site_uv>本站总访客数 <span id=busuanzi_value_site_uv><i class="fa fa-spinner fa-spin"></i></span> 人</span></p></div></footer><div class=book-comments><script src=https://utteranc.es/client.js repo=ikingye/study-network issue-term=pathname theme=github-light crossorigin=anonymous async></script><div id=footer><p><a href=https://kingye.me>叶王</a> &copy; 2013-2024
+版权所有。如果本文档对你有所帮助，可以<a href=https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200428110046.png target=_blank rel="noopener noreferrer">请作者喝饮料</a>。</p></div></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#阻塞>阻塞</a></li><li><a href=#非阻塞>非阻塞</a><ul><li><a href=#忙轮询>忙轮询</a></li><li><a href=#select>select</a></li><li><a href=#epoll-1>epoll</a></li></ul></li><li><a href=#epoll-编程框架>epoll 编程框架</a><ul><li><a href=#服务端>服务端</a></li><li><a href=#客户端>客户端</a></li></ul></li><li><a href=#参考>参考</a></li></ul></nav></div></aside></main></body></html>

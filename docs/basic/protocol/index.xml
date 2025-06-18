@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>1.2 协议 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/protocol/</link><description>Recent content in 1.2 协议 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/protocol/index.xml" rel="self" type="application/rss+xml"/><item><title>TCP</title><link>https://kingye.me/study-network/docs/basic/protocol/tcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/tcp/</guid><description>&lt;h1 id="tcp">
+ TCP
+ &lt;a class="anchor" href="#tcp">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="tcp-报文格式">
+ TCP 报文格式
+ &lt;a class="anchor" href="#tcp-%e6%8a%a5%e6%96%87%e6%a0%bc%e5%bc%8f">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525230243.png" alt="" />&lt;/p>
+&lt;ul>
+&lt;li>序号：Seq 序号，占 32 位，用来标识从 TCP 源端向目的端发送的字节流，发起方发送数据时对此进行标记。&lt;/li>
+&lt;li>确认序号：Ack 序号，占 32 位，只有 ACK 标志位为 1 时，确认序号字段才有效，Ack=Seq+1。&lt;/li>
+&lt;li>标志位：共 6 个，即 &lt;code>URG&lt;/code>、&lt;code>ACK&lt;/code>、&lt;code>PSH&lt;/code>、&lt;code>RST&lt;/code>、&lt;code>SYN&lt;/code>、&lt;code>FIN&lt;/code> 等，具体含义如下：
+&lt;ul>
+&lt;li>&lt;code>URG&lt;/code>：紧急指针（urgent pointer）有效。&lt;/li>
+&lt;li>&lt;code>ACK&lt;/code>：确认序号有效。&lt;/li>
+&lt;li>&lt;code>PSH&lt;/code>：接收方应该尽快将这个报文交给应用层。&lt;/li>
+&lt;li>&lt;code>RST&lt;/code>：重置连接。&lt;/li>
+&lt;li>&lt;code>SYN&lt;/code>：发起一个新连接。&lt;/li>
+&lt;li>&lt;code>FIN&lt;/code>：释放一个连接。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525230718.png" alt="" />&lt;/p>
+&lt;h2 id="三次握手">
+ 三次握手
+ &lt;a class="anchor" href="#%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231319.png" alt="" />&lt;/p>
+&lt;h2 id="四次挥手">
+ 四次挥手
+ &lt;a class="anchor" href="#%e5%9b%9b%e6%ac%a1%e6%8c%a5%e6%89%8b">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231259.png" alt="" />&lt;/p>
+&lt;p>实际中还会出现同时发起主动关闭的情况&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231407.png" alt="" />&lt;/p>
+&lt;hr>
+&lt;h2 id="tcp-有限状态机">
+ TCP 有限状态机
+ &lt;a class="anchor" href="#tcp-%e6%9c%89%e9%99%90%e7%8a%b6%e6%80%81%e6%9c%ba">#&lt;/a>
+&lt;/h2>
+&lt;p>The TCP Finite State Machine (FSM)&lt;/p>
+&lt;p>&lt;a href="http://www.tcpipguide.com/free/t_TCPOperationalOverviewandtheTCPFiniteStateMachineF-2.htm">&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231924.png" alt="" />&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2 id="tcp-状态变迁图">
+ TCP 状态变迁图
+ &lt;a class="anchor" href="#tcp-%e7%8a%b6%e6%80%81%e5%8f%98%e8%bf%81%e5%9b%be">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="http://docs.52im.net/extend/docs/book/tcpip/vol1/18/#h18_6">&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525235421.png" alt="" />&lt;/a>&lt;/p>
+&lt;hr>
+&lt;h2 id="tcp-是全双工的">
+ TCP 是全双工的
+ &lt;a class="anchor" href="#tcp-%e6%98%af%e5%85%a8%e5%8f%8c%e5%b7%a5%e7%9a%84">#&lt;/a>
+&lt;/h2>
+&lt;hr>
+&lt;h2 id="tcp-的-rtt-算法">
+ TCP 的 RTT 算法
+ &lt;a class="anchor" href="#tcp-%e7%9a%84-rtt-%e7%ae%97%e6%b3%95">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="经典算法rfc793httptoolsietforghtmlrfc793">
+ 经典算法（&lt;a href="http://tools.ietf.org/html/rfc793">RFC793&lt;/a>）
+ &lt;a class="anchor" href="#%e7%bb%8f%e5%85%b8%e7%ae%97%e6%b3%95rfc793httptoolsietforghtmlrfc793">#&lt;/a>
+&lt;/h3>
+&lt;ol>
+&lt;li>
+&lt;p>首先，先采样 RTT，记下最近好几次的 RTT 值。&lt;/p></description></item><item><title>VXLAN</title><link>https://kingye.me/study-network/docs/basic/protocol/vxlan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/vxlan/</guid><description>&lt;h1 id="vxlan">
+ VXLAN
+ &lt;a class="anchor" href="#vxlan">#&lt;/a>
+&lt;/h1>
+&lt;p>overlay 的核心其实就是打隧道（tunnel）&lt;/p>
+&lt;ul>
+&lt;li>突破 VLAN 的最多 4096 个终端的数量限制，以满足大规模云计算数据中心的需求&lt;/li>
+&lt;li>解决 &lt;a href="https://www.wikiwand.com/zh-cn/%E7%94%9F%E6%88%90%E6%A0%91%E5%8D%8F%E8%AE%AE">STP&lt;/a> 在大型 网路设备带宽浪费和收敛性能变慢的缺陷&lt;/li>
+&lt;li>解决 ToR (Top of Rack) 交换机 MAC 表耗尽问题&lt;/li>
+&lt;li>VXLAN 最大的贡献，就是实现了网络的扁平化管理，IP 地址不再与特定的 Site（某个数据中心）强行绑定在一起。&lt;/li>
+&lt;/ul>
+&lt;p>NOV3 技术（&lt;code>Network Virtualization Overlays&lt;/code>）的实现原理其实非常简单，&lt;/p>
+&lt;ul>
+&lt;li>VxLAN: MAC in UDP&lt;/li>
+&lt;li>NvGRE: MAC in GRE&lt;/li>
+&lt;li>STT: MAC in TCP（伪 TCP）&lt;/li>
+&lt;/ul></description></item><item><title>UDP</title><link>https://kingye.me/study-network/docs/basic/protocol/udp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/udp/</guid><description>&lt;h1 id="udp">
+ UDP
+ &lt;a class="anchor" href="#udp">#&lt;/a>
+&lt;/h1></description></item><item><title>DNS</title><link>https://kingye.me/study-network/docs/basic/protocol/dns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/dns/</guid><description>&lt;h1 id="dns">
+ DNS
+ &lt;a class="anchor" href="#dns">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="etchosts">
+ &lt;code>/etc/hosts&lt;/code>
+ &lt;a class="anchor" href="#etchosts">#&lt;/a>
+&lt;/h2>
+&lt;p>hosts 文件是 Linux 系统中一个负责 IP 地址与域名快速解析的文件&lt;/p>
+&lt;h2 id="etcresolvconf">
+ &lt;code>/etc/resolv.conf&lt;/code>
+ &lt;a class="anchor" href="#etcresolvconf">#&lt;/a>
+&lt;/h2>
+&lt;p>该文件是 DNS 域名解析的配置文件，它的格式很简单，
+每行以一个关键字开头，后接配置参数。&lt;/p>
+&lt;p>resolv.conf 的关键字主要有四个：&lt;/p>
+&lt;ul>
+&lt;li>nameserver # 定义 DNS 服务器的 IP 地址&lt;/li>
+&lt;li>domain # 定义本地域名&lt;/li>
+&lt;li>search # 定义域名的搜索列表&lt;/li>
+&lt;li>sortlist # 对返回的域名进行排序&lt;/li>
+&lt;/ul>
+&lt;p>最主要是 nameserver 关键字，如果没指定 nameserver 就找不到 DNS 服务器，其它关键字是可选的。&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>domain centoscn.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>search www.centocn.com www.wgjlb.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nameserver 202.96.128.86
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>nameserver 202.96.128.166
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="etchostconf">
+ &lt;code>/etc/host.conf&lt;/code>
+ &lt;a class="anchor" href="#etchostconf">#&lt;/a>
+&lt;/h2>
+&lt;p>解析器查询顺序配置文件&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># 表示先查询本地 hosts 文件，如果没有结果，再尝试查找 BIND dns 服务器&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>order hosts bind
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>HTTP</title><link>https://kingye.me/study-network/docs/basic/protocol/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/http/</guid><description>&lt;h1 id="http">
+ HTTP
+ &lt;a class="anchor" href="#http">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="教程">
+ 教程
+ &lt;a class="anchor" href="#%e6%95%99%e7%a8%8b">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="ezlippitinyhttpdhttpsgithubcomezlippitinyhttpd-github-starshttpsimgshieldsiogithubstarsezlippitinyhttpdsvg-languagehttpsimgshieldsiogithublanguagestopezlippitinyhttpdsvg-last-taghttpsimgshieldsiogithubvtagezlippitinyhttpdsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitezlippitinyhttpdsvg">
+ &lt;a href="https://github.com/EZLippi/Tinyhttpd">EZLippi/Tinyhttpd&lt;/a> &lt;img src="https://img.shields.io/github/stars/EZLippi/Tinyhttpd.svg" alt="Github stars" /> &lt;img src="https://img.shields.io/github/languages/top/EZLippi/Tinyhttpd.svg" alt="Language" /> &lt;img src="https://img.shields.io/github/v/tag/EZLippi/Tinyhttpd.svg?sort=semver" alt="Last Tag" /> &lt;img src="https://img.shields.io/github/last-commit/EZLippi/Tinyhttpd.svg" alt="Last commit" />
+ &lt;a class="anchor" href="#ezlippitinyhttpdhttpsgithubcomezlippitinyhttpd-github-starshttpsimgshieldsiogithubstarsezlippitinyhttpdsvg-languagehttpsimgshieldsiogithublanguagestopezlippitinyhttpdsvg-last-taghttpsimgshieldsiogithubvtagezlippitinyhttpdsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitezlippitinyhttpdsvg">#&lt;/a>
+&lt;/h3>
+&lt;p>Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。
+官网:http://tinyhttpd.sourceforge.net&lt;/p></description></item><item><title>SSL</title><link>https://kingye.me/study-network/docs/basic/protocol/ssl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/ssl/</guid><description>&lt;h1 id="ssl">
+ SSL
+ &lt;a class="anchor" href="#ssl">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>&lt;code>SSL&lt;/code>，&lt;code>Secure Socket Layer&lt;/code>，安全套接字层&lt;/li>
+&lt;li>&lt;code>TLS&lt;/code>，&lt;code>Transport Layer Security&lt;/code>，传输层安全协议&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="版本">
+ 版本
+ &lt;a class="anchor" href="#%e7%89%88%e6%9c%ac">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525104221.png" alt="" />&lt;/p>
+&lt;ul>
+&lt;li>1994 年，NetScape 公司设计了 SSL 协议（Secure Sockets Layer）的 1.0 版，但是未发布。&lt;/li>
+&lt;li>1995 年，NetScape 公司发布 SSL 2.0 版，很快发现有严重漏洞。&lt;/li>
+&lt;li>1996 年，SSL 3.0 版问世，得到大规模应用。&lt;/li>
+&lt;li>1999 年，互联网标准化组织 ISOC 接替 NetScape 公司，发布了 SSL 的升级版 TLS 1.0 版。&lt;/li>
+&lt;li>2006 年和 2008 年，TLS 进行了两次升级，分别为 TLS 1.1 版和 TLS 1.2 版。最新的变动是 2018 年 TLS 1.3 的&lt;a href="https://tools.ietf.org/html/rfc8447">修订版&lt;/a>。&lt;/li>
+&lt;/ul>
+&lt;table>
+ &lt;thead>
+ &lt;tr>
+ &lt;th>Protocol&lt;/th>
+ &lt;th>Published&lt;/th>
+ &lt;th>Status&lt;/th>
+ &lt;/tr>
+ &lt;/thead>
+ &lt;tbody>
+ &lt;tr>
+ &lt;td>SSL 1.0&lt;/td>
+ &lt;td>Unpublished&lt;/td>
+ &lt;td>Unpublished&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>SSL 2.0&lt;/td>
+ &lt;td>1995&lt;/td>
+ &lt;td>Deprecated in 2011 (&lt;a href="https://tools.ietf.org/html/rfc6176">RFC 6176&lt;/a>)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>SSL 3.0&lt;/td>
+ &lt;td>1996&lt;/td>
+ &lt;td>Deprecated in 2015 (&lt;a href="https://tools.ietf.org/html/rfc7568">RFC 7568&lt;/a>)&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>TLS 1.0&lt;/td>
+ &lt;td>1999&lt;/td>
+ &lt;td>Deprecated in 2020&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>TLS 1.1&lt;/td>
+ &lt;td>2006&lt;/td>
+ &lt;td>Deprecated in 2020&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>TLS 1.2&lt;/td>
+ &lt;td>2008&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;tr>
+ &lt;td>TLS 1.3&lt;/td>
+ &lt;td>2018&lt;/td>
+ &lt;td>&lt;/td>
+ &lt;/tr>
+ &lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="握手流程">
+ 握手流程
+ &lt;a class="anchor" href="#%e6%8f%a1%e6%89%8b%e6%b5%81%e7%a8%8b">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>Client-hello 阶段&lt;/li>
+&lt;li>Server-hello 阶段&lt;/li>
+&lt;/ol>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525110303.png" alt="" />&lt;/p></description></item><item><title>WebSocket</title><link>https://kingye.me/study-network/docs/basic/protocol/websocket/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/websocket/</guid><description>&lt;h1 id="websocket">
+ WebSocket
+ &lt;a class="anchor" href="#websocket">#&lt;/a>
+&lt;/h1>
+&lt;p>WebSocket 的目标是在一个单独的持久连接上提供全双工、双向通信。&lt;/p>
+&lt;p>在 Javascript 创建了 Web Socket 之后，会有一个 HTTP 请求发送到浏览器以发起连接。
+在取得服务器响应后，建立的连接会将 HTTP &lt;strong>升级&lt;/strong>为 WebSocket 协议。&lt;/p>
+&lt;p>由于 WebSocket 使用自定义的协议，所以 URL 模式也略有不同。&lt;/p>
+&lt;p>未加密的连接不再是 http://，而是 &lt;code>ws://&lt;/code>; 加密的连接也不是 https://，而是 &lt;code>wss://&lt;/code>。&lt;/p>
+&lt;p>使用自定义协议而非 HTTP 协议的好处是，能够在客户端和服务器之间&lt;strong>发送非常少量的数据&lt;/strong>，而不必担心 HTTP 那样&lt;strong>字节级&lt;/strong>的开销。&lt;/p>
+&lt;p>由于传递的数据包很小，所以 WebSocket 非常适合移动应用。&lt;/p>
+&lt;h2 id="特点">
+ 特点
+ &lt;a class="anchor" href="#%e7%89%b9%e7%82%b9">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>可以发送文本，也可以发送二进制数据。&lt;/li>
+&lt;li>没有同源限制，客户端可以与任意服务器通信。&lt;/li>
+&lt;/ul>
+&lt;p>参考：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.wikiwand.com/zh-cn/%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF">推送技术&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://www.ruanyifeng.com/blog/2017/05/websocket.html">阮一峰 - WebSocket 教程&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>HTTPs</title><link>https://kingye.me/study-network/docs/basic/protocol/https/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/https/</guid><description>&lt;h1 id="https">
+ HTTPs
+ &lt;a class="anchor" href="#https">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="从-http-切换到-https-需要几步">
+ 从 HTTP 切换到 HTTPs 需要几步
+ &lt;a class="anchor" href="#%e4%bb%8e-http-%e5%88%87%e6%8d%a2%e5%88%b0-https-%e9%9c%80%e8%a6%81%e5%87%a0%e6%ad%a5">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>EVALUATE YOUR WEBSITE FOR SECURITY RISKS&lt;/li>
+&lt;li>PERFORM FULL WEBSITE BACKUP&lt;/li>
+&lt;li>MAKE THE RIGHTCERTIFICATE CHOICE&lt;/li>
+&lt;li>INSTALL AND TESTCERTIFICATES&lt;/li>
+&lt;li>REMOVE MIXED CONTENT&lt;/li>
+&lt;li>MAINTAIN CERTIFICATE COMPLIANCE&lt;/li>
+&lt;li>REDIRECT HTTP TRAFFIC TO HTTPS&lt;/li>
+&lt;li>IMPLEMENT AN AUTOMATED SCANNING SYSTEM&lt;/li>
+&lt;li>SECURE YOUR COOKIES&lt;/li>
+&lt;li>IMPLEMENT HTTP STRICT TRANSPORT SECURITY&lt;/li>
+&lt;/ol>
+&lt;p>参考&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://www.websecurity.digicert.com/content/dam/websitesecurity/digitalassets/desktop/pdfs/Infographics/10_Steps_Switch_HTTP_to_HTTPS_infographic_en_us.pdf">10 STEPS TO SWITCH FROM HTTP TO HTTPS&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>
