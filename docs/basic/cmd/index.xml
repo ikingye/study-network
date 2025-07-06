@@ -26,6 +26,8 @@
  iptables
  &lt;a class="anchor" href="#iptables">#&lt;/a>
 &lt;/h1>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250706111649.png" alt="" />&lt;/p>
+&lt;hr>
 &lt;p>Linux 的包过滤功能，即 Linux 防火墙，
 它由 &lt;code>netfilter&lt;/code> 和 &lt;code>iptables&lt;/code> 两个组件组成。&lt;/p>
 &lt;p>&lt;code>netfilter&lt;/code> 组件位于内核空间，是内核的一部分，由一些&lt;code>信息包过滤表&lt;/code>组成，这些表包含内核用来控制信息包过滤处理的规则集。&lt;/p>
