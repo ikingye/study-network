@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第一部分 基础入门 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/</link><description>Recent content in 第一部分 基础入门 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>CXL</title><link>https://kingye.me/study-network/docs/basic/cxl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cxl/</guid><description>&lt;h1 id="cxlhttpsenwikipediaorgwikicompute_express_link">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第一部分 基础入门 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/</link><description>Recent content in 第一部分 基础入门 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="open-vswitch">
+ Open vSwitch
+ &lt;a class="anchor" href="#open-vswitch">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="open-vswitch-的架构">
+ Open vSwitch 的架构
+ &lt;a class="anchor" href="#open-vswitch-%e7%9a%84%e6%9e%b6%e6%9e%84">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250707112144.png" alt="" />&lt;/p></description></item><item><title>openflow</title><link>https://kingye.me/study-network/docs/basic/openflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/openflow/</guid><description>&lt;h1 id="openflow">
+ openflow
+ &lt;a class="anchor" href="#openflow">#&lt;/a>
+&lt;/h1>
+&lt;p>sdn 即软件控制网络。控制网络的，是独立于网络中的路由器及交换机的一个设备，即 sdn 控制器。sdn 控制器与网络中其他设备通信，对设备进行控制，诸如写入路由表之类，其余设备也向 sdn 控制器汇报，诸如报告发现了新的网络流量。&lt;/p>
+&lt;p>此过程中，通信协议是 openflow，网络中的 switch 支持这个协议。&lt;/p>
+&lt;p>openvswitch 是一个软件（程序组件），它在网络模拟系统中表现为一个支持 openflow 协议的 switch。&lt;/p></description></item><item><title>CXL</title><link>https://kingye.me/study-network/docs/basic/cxl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cxl/</guid><description>&lt;h1 id="cxlhttpsenwikipediaorgwikicompute_express_link">
  &lt;a href="https://en.wikipedia.org/wiki/Compute_Express_Link">CXL&lt;/a>
  &lt;a class="anchor" href="#cxlhttpsenwikipediaorgwikicompute_express_link">#&lt;/a>
 &lt;/h1>
