@@ -352,7 +352,39 @@
 &lt;/h1>
 &lt;p>sdn 即软件控制网络。控制网络的，是独立于网络中的路由器及交换机的一个设备，即 sdn 控制器。sdn 控制器与网络中其他设备通信，对设备进行控制，诸如写入路由表之类，其余设备也向 sdn 控制器汇报，诸如报告发现了新的网络流量。&lt;/p>
 &lt;p>此过程中，通信协议是 openflow，网络中的 switch 支持这个协议。&lt;/p>
-&lt;p>openvswitch 是一个软件（程序组件），它在网络模拟系统中表现为一个支持 openflow 协议的 switch。&lt;/p></description></item><item><title>SSL</title><link>https://kingye.me/study-network/docs/basic/protocol/ssl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/ssl/</guid><description>&lt;h1 id="ssl">
+&lt;p>openvswitch 是一个软件（程序组件），它在网络模拟系统中表现为一个支持 openflow 协议的 switch。&lt;/p></description></item><item><title>SR-IOV</title><link>https://kingye.me/study-network/docs/basic/sriov/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/sriov/</guid><description>&lt;h1 id="sr-iov">
+ SR-IOV
+ &lt;a class="anchor" href="#sr-iov">#&lt;/a>
+&lt;/h1>
+&lt;p>&lt;code>Single Root I/O Virtualization&lt;/code>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>VT-D&lt;/code> 可以将物理的 &lt;code>PCIe&lt;/code> 设备直接分配给虚拟机，让虚拟机直接控制硬件，大大减轻宿主机的 CPU 负荷，提高网络性能，降低网络时延等&lt;/li>
+&lt;li>&lt;code>SR-IOV&lt;/code> 最初应用在网卡（&lt;code>NIC&lt;/code>）上，一个物理网卡可以虚拟出来多个轻量化的 &lt;code>PCIe&lt;/code> 物理设备，从而可以分配给多个虚拟机使用
+&lt;ul>
+&lt;li>通过 &lt;code>SR-IOV&lt;/code> 技术，一个单一的物理 PCIe 网卡可以被虚拟化成多个独立的&lt;code>虚拟功能&lt;/code>（VFs）。每个虚拟功能表现得就像是一个独立的物理 PCIe 设备，可以被单独分配给不同的虚拟机或容器。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200915113927.png" alt="" />&lt;/p>
+&lt;hr>
+&lt;ul>
+&lt;li>PF（Physical Function）是支持 SR - IOV 的 ​​ 物理网卡本身 ​​，它既是硬件实体，也是管理虚拟功能（VF）的控制中心。&lt;/li>
+&lt;li>​​VF 与 PF 的直接通信 ​​ 若物理网卡支持 ​​ 嵌入式硬件交换 ​​（常见于高端网卡如 Intel X710、Mellanox ConnectX），则 VF 可通过网卡内部的交换芯片与 PF 通信，​​ 无需软件网桥 ​​。&lt;/li>
+&lt;li>即使网卡硬件支持 SR - IOV，若未在 BIOS / 系统中启用，它仅作为 ​​ 普通物理网卡 ​​ 运行，不承担 PF 角色，无法创建 VF。
+&lt;ul>
+&lt;li>Intel 平台：启用 Intel VT-d 和 SR-IOV（路径：Advanced &amp;gt; CPU Configuration）。&lt;/li>
+&lt;li>AMD 平台：启用 AMD-Vi（&lt;code>IOMMU&lt;/code>）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>查看驱动是否支持 sriov
+&lt;ul>
+&lt;li>ethtool -i &amp;lt;网卡名&amp;gt; | grep driver # 查看驱动名称&lt;/li>
+&lt;li>modinfo &amp;lt;驱动名&amp;gt; | grep -i sriov # 确认驱动支持 SR-IOV&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>参考：&lt;/p></description></item><item><title>SSL</title><link>https://kingye.me/study-network/docs/basic/protocol/ssl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/ssl/</guid><description>&lt;h1 id="ssl">
  SSL
  &lt;a class="anchor" href="#ssl">#&lt;/a>
 &lt;/h1>
