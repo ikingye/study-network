@@ -338,15 +338,16 @@
  &lt;a class="anchor" href="#ezlippitinyhttpdhttpsgithubcomezlippitinyhttpd-github-starshttpsimgshieldsiogithubstarsezlippitinyhttpdsvg-languagehttpsimgshieldsiogithublanguagestopezlippitinyhttpdsvg-last-taghttpsimgshieldsiogithubvtagezlippitinyhttpdsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitezlippitinyhttpdsvg">#&lt;/a>
 &lt;/h3>
 &lt;p>Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。
-官网:http://tinyhttpd.sourceforge.net&lt;/p></description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="open-vswitch">
- Open vSwitch
- &lt;a class="anchor" href="#open-vswitch">#&lt;/a>
+官网:http://tinyhttpd.sourceforge.net&lt;/p></description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="ovs-open-vswitch">
+ ovs (Open vSwitch)
+ &lt;a class="anchor" href="#ovs-open-vswitch">#&lt;/a>
 &lt;/h1>
 &lt;h2 id="open-vswitch-的架构">
  Open vSwitch 的架构
  &lt;a class="anchor" href="#open-vswitch-%e7%9a%84%e6%9e%b6%e6%9e%84">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250707112144.png" alt="" />&lt;/p></description></item><item><title>openflow</title><link>https://kingye.me/study-network/docs/basic/openflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/openflow/</guid><description>&lt;h1 id="openflow">
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250707112144.png" alt="" />&lt;/p>
+&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250718143010.png" alt="" />&lt;/p></description></item><item><title>openflow</title><link>https://kingye.me/study-network/docs/basic/openflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/openflow/</guid><description>&lt;h1 id="openflow">
  openflow
  &lt;a class="anchor" href="#openflow">#&lt;/a>
 &lt;/h1>
