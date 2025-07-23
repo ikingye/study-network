@@ -338,7 +338,32 @@
  &lt;a class="anchor" href="#ezlippitinyhttpdhttpsgithubcomezlippitinyhttpd-github-starshttpsimgshieldsiogithubstarsezlippitinyhttpdsvg-languagehttpsimgshieldsiogithublanguagestopezlippitinyhttpdsvg-last-taghttpsimgshieldsiogithubvtagezlippitinyhttpdsvgsortsemver-last-commithttpsimgshieldsiogithublast-commitezlippitinyhttpdsvg">#&lt;/a>
 &lt;/h3>
 &lt;p>Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。
-官网:http://tinyhttpd.sourceforge.net&lt;/p></description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="ovs-open-vswitch">
+官网:http://tinyhttpd.sourceforge.net&lt;/p></description></item><item><title>LAN</title><link>https://kingye.me/study-network/docs/basic/lan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/lan/</guid><description>&lt;h1 id="lan-局域网">
+ LAN 局域网
+ &lt;a class="anchor" href="#lan-%e5%b1%80%e5%9f%9f%e7%bd%91">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>A 类 &lt;code>10.0.0.0/8&lt;/code>
+&lt;ul>
+&lt;li>10.0.0.0 - 10.255.255.255&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>B 类 &lt;code>172.16.0.0/12&lt;/code>
+&lt;ul>
+&lt;li>172.16.0.0 - 172.31.255.255&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>C 类 &lt;code>192.168.0.0/16&lt;/code>
+&lt;ul>
+&lt;li>192.168.0.0 - 192.168.255.255&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Carrier-grade NAT（运营商级 NAT）&lt;code>100.64.0.0/10&lt;/code>
+&lt;ul>
+&lt;li>100.64.0.0 - 100.127.255.255&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="ovs-open-vswitch">
  ovs (Open vSwitch)
  &lt;a class="anchor" href="#ovs-open-vswitch">#&lt;/a>
 &lt;/h1>
