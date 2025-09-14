@@ -1,56 +1,60 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>dev on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/dev/</link><description>Recent content in dev on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>tap</title><link>https://kingye.me/study-network/docs/basic/dev/tap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tap/</guid><description>&lt;h1 id="tap">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>dev on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/dev/</link><description>Recent content in dev on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>tap</title><link>https://kingye.me/study-network/docs/basic/dev/tap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tap/</guid><description>&lt;h1 id="tap"&gt;
  tap
- &lt;a class="anchor" href="#tap">#&lt;/a>
-&lt;/h1>
-&lt;ul>
-&lt;li>TAP​​：模拟以太网设备，处理 ​​ 二层帧 ​​（含 MAC 头），适用于桥接、虚拟交换机等场景。&lt;/li>
-&lt;li>TUN​​：模拟点对点设备，处理 ​​ 三层 IP 包 ​​（无 MAC 头），适用于路由、VPN 隧道（如 OpenVPN）。&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;ul>
-&lt;li>
-&lt;p>作为网络设备，tap/tun 也需要配套相应的驱动程序才能工作。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>tap/tun 驱动程序包括两个部分&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>字符设备&lt;/code>驱动
-&lt;ul>
-&lt;li>字符驱动负责数据包在内核空间和用户空间的传送&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>&lt;code>网卡&lt;/code>驱动
-&lt;ul>
-&lt;li>网卡驱动负责数据包在 TCP/IP 网络协议栈上的传输和处理&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>tap / tun 对应的字符设备文件分别为：&lt;/p>
-&lt;ul>
-&lt;li>tap: &lt;code>/dev/tap0&lt;/code>&lt;/li>
-&lt;li>tun: &lt;code>/dev/net/tun&lt;/code>&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>
-&lt;p>物理网卡一端是连接物理网络，而 tap/tun 虚拟网卡一般连接到用户空间。&lt;/p>
-&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250706110429.png" alt="" />&lt;/p>
-&lt;p>基于上图，我们看看数据包的流程：&lt;/p>
-&lt;ol>
-&lt;li>
-&lt;p>应用程序 A 构造数据包，目的 IP 是 192.168.1.1，通过 socket A 将这个数据包发给协议栈。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>协议栈根据数据包的目的 IP 地址，匹配路由规则，发现要从 tun0 出去。&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>tun0 发现自己的另一端被应用程序 B 打开了，于是将数据发给程序 B.&lt;/p>
-&lt;/li>
-&lt;li>
-&lt;p>程序 B 收到数据后，做一些跟业务相关的操作，然后构造一个新的数据包，源 IP 是 eth0 的 IP，目的 IP 是 10.1.1.0/24 的网关 10.1.1.1，封装原来的数据的数据包，重新发给协议栈。&lt;/p></description></item><item><title>tun</title><link>https://kingye.me/study-network/docs/basic/dev/tun/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tun/</guid><description>&lt;h1 id="tun">
+ 
+ &lt;a class="anchor" href="#tap"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;TAP​​：模拟以太网设备，处理 ​​ 二层帧 ​​（含 MAC 头），适用于桥接、虚拟交换机等场景。&lt;/li&gt;
+&lt;li&gt;TUN​​：模拟点对点设备，处理 ​​ 三层 IP 包 ​​（无 MAC 头），适用于路由、VPN 隧道（如 OpenVPN）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;作为网络设备，tap/tun 也需要配套相应的驱动程序才能工作。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tap/tun 驱动程序包括两个部分&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;字符设备&lt;/code&gt;驱动
+&lt;ul&gt;
+&lt;li&gt;字符驱动负责数据包在内核空间和用户空间的传送&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;网卡&lt;/code&gt;驱动
+&lt;ul&gt;
+&lt;li&gt;网卡驱动负责数据包在 TCP/IP 网络协议栈上的传输和处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tap / tun 对应的字符设备文件分别为：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;tap: &lt;code&gt;/dev/tap0&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;tun: &lt;code&gt;/dev/net/tun&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;物理网卡一端是连接物理网络，而 tap/tun 虚拟网卡一般连接到用户空间。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250706110429.png" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;基于上图，我们看看数据包的流程：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;应用程序 A 构造数据包，目的 IP 是 192.168.1.1，通过 socket A 将这个数据包发给协议栈。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;协议栈根据数据包的目的 IP 地址，匹配路由规则，发现要从 tun0 出去。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;tun0 发现自己的另一端被应用程序 B 打开了，于是将数据发给程序 B.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;程序 B 收到数据后，做一些跟业务相关的操作，然后构造一个新的数据包，源 IP 是 eth0 的 IP，目的 IP 是 10.1.1.0/24 的网关 10.1.1.1，封装原来的数据的数据包，重新发给协议栈。&lt;/p&gt;</description></item><item><title>tun</title><link>https://kingye.me/study-network/docs/basic/dev/tun/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tun/</guid><description>&lt;h1 id="tun"&gt;
  tun
- &lt;a class="anchor" href="#tun">#&lt;/a>
-&lt;/h1></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#tun"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;</description></item></channel></rss>

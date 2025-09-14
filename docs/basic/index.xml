@@ -1,117 +1,133 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第一部分 基础入门 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/</link><description>Recent content in 第一部分 基础入门 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>LAN</title><link>https://kingye.me/study-network/docs/basic/lan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/lan/</guid><description>&lt;h1 id="lan-局域网">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第一部分 基础入门 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/</link><description>Recent content in 第一部分 基础入门 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>LAN</title><link>https://kingye.me/study-network/docs/basic/lan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/lan/</guid><description>&lt;h1 id="lan-局域网"&gt;
  LAN 局域网
- &lt;a class="anchor" href="#lan-%e5%b1%80%e5%9f%9f%e7%bd%91">#&lt;/a>
-&lt;/h1>
-&lt;ul>
-&lt;li>A 类 &lt;code>10.0.0.0/8&lt;/code>
-&lt;ul>
-&lt;li>10.0.0.0 - 10.255.255.255&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>B 类 &lt;code>172.16.0.0/12&lt;/code>
-&lt;ul>
-&lt;li>172.16.0.0 - 172.31.255.255&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>C 类 &lt;code>192.168.0.0/16&lt;/code>
-&lt;ul>
-&lt;li>192.168.0.0 - 192.168.255.255&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>Carrier-grade NAT（运营商级 NAT）&lt;code>100.64.0.0/10&lt;/code>
-&lt;ul>
-&lt;li>100.64.0.0 - 100.127.255.255&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul></description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="ovs-open-vswitch">
+ 
+ &lt;a class="anchor" href="#lan-%e5%b1%80%e5%9f%9f%e7%bd%91"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;A 类 &lt;code&gt;10.0.0.0/8&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;10.0.0.0 - 10.255.255.255&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;B 类 &lt;code&gt;172.16.0.0/12&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;172.16.0.0 - 172.31.255.255&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;C 类 &lt;code&gt;192.168.0.0/16&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;192.168.0.0 - 192.168.255.255&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Carrier-grade NAT（运营商级 NAT）&lt;code&gt;100.64.0.0/10&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;100.64.0.0 - 100.127.255.255&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="ovs-open-vswitch"&gt;
  ovs (Open vSwitch)
- &lt;a class="anchor" href="#ovs-open-vswitch">#&lt;/a>
-&lt;/h1>
-&lt;h2 id="open-vswitch-的架构">
+ 
+ &lt;a class="anchor" href="#ovs-open-vswitch"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;h2 id="open-vswitch-的架构"&gt;
  Open vSwitch 的架构
- &lt;a class="anchor" href="#open-vswitch-%e7%9a%84%e6%9e%b6%e6%9e%84">#&lt;/a>
-&lt;/h2>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250707112144.png" alt="" />&lt;/p>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250718143010.png" alt="" />&lt;/p></description></item><item><title>openflow</title><link>https://kingye.me/study-network/docs/basic/openflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/openflow/</guid><description>&lt;h1 id="openflow">
+ 
+ &lt;a class="anchor" href="#open-vswitch-%e7%9a%84%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250707112144.png" alt="" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250718143010.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>openflow</title><link>https://kingye.me/study-network/docs/basic/openflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/openflow/</guid><description>&lt;h1 id="openflow"&gt;
  openflow
- &lt;a class="anchor" href="#openflow">#&lt;/a>
-&lt;/h1>
-&lt;p>sdn 即软件控制网络。控制网络的，是独立于网络中的路由器及交换机的一个设备，即 sdn 控制器。sdn 控制器与网络中其他设备通信，对设备进行控制，诸如写入路由表之类，其余设备也向 sdn 控制器汇报，诸如报告发现了新的网络流量。&lt;/p>
-&lt;p>此过程中，通信协议是 openflow，网络中的 switch 支持这个协议。&lt;/p>
-&lt;p>openvswitch 是一个软件（程序组件），它在网络模拟系统中表现为一个支持 openflow 协议的 switch。&lt;/p></description></item><item><title>SR-IOV</title><link>https://kingye.me/study-network/docs/basic/sriov/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/sriov/</guid><description>&lt;h1 id="sr-iov">
+ 
+ &lt;a class="anchor" href="#openflow"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;sdn 即软件控制网络。控制网络的，是独立于网络中的路由器及交换机的一个设备，即 sdn 控制器。sdn 控制器与网络中其他设备通信，对设备进行控制，诸如写入路由表之类，其余设备也向 sdn 控制器汇报，诸如报告发现了新的网络流量。&lt;/p&gt;
+&lt;p&gt;此过程中，通信协议是 openflow，网络中的 switch 支持这个协议。&lt;/p&gt;
+&lt;p&gt;openvswitch 是一个软件（程序组件），它在网络模拟系统中表现为一个支持 openflow 协议的 switch。&lt;/p&gt;</description></item><item><title>SR-IOV</title><link>https://kingye.me/study-network/docs/basic/sriov/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/sriov/</guid><description>&lt;h1 id="sr-iov"&gt;
  SR-IOV
- &lt;a class="anchor" href="#sr-iov">#&lt;/a>
-&lt;/h1>
-&lt;p>&lt;code>Single Root I/O Virtualization&lt;/code>&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>VT-D&lt;/code> 可以将物理的 &lt;code>PCIe&lt;/code> 设备直接分配给虚拟机，让虚拟机直接控制硬件，大大减轻宿主机的 CPU 负荷，提高网络性能，降低网络时延等&lt;/li>
-&lt;li>&lt;code>SR-IOV&lt;/code> 最初应用在网卡（&lt;code>NIC&lt;/code>）上，一个物理网卡可以虚拟出来多个轻量化的 &lt;code>PCIe&lt;/code> 物理设备，从而可以分配给多个虚拟机使用
-&lt;ul>
-&lt;li>通过 &lt;code>SR-IOV&lt;/code> 技术，一个单一的物理 PCIe 网卡可以被虚拟化成多个独立的&lt;code>虚拟功能&lt;/code>（VFs）。每个虚拟功能表现得就像是一个独立的物理 PCIe 设备，可以被单独分配给不同的虚拟机或容器。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200915113927.png" alt="" />&lt;/p>
-&lt;hr>
-&lt;ul>
-&lt;li>PF（Physical Function）是支持 SR - IOV 的 ​​ 物理网卡本身 ​​，它既是硬件实体，也是管理虚拟功能（VF）的控制中心。&lt;/li>
-&lt;li>​​VF 与 PF 的直接通信 ​​ 若物理网卡支持 ​​ 嵌入式硬件交换 ​​（常见于高端网卡如 Intel X710、Mellanox ConnectX），则 VF 可通过网卡内部的交换芯片与 PF 通信，​​ 无需软件网桥 ​​。&lt;/li>
-&lt;li>即使网卡硬件支持 SR - IOV，若未在 BIOS / 系统中启用，它仅作为 ​​ 普通物理网卡 ​​ 运行，不承担 PF 角色，无法创建 VF。
-&lt;ul>
-&lt;li>Intel 平台：启用 Intel VT-d 和 SR-IOV（路径：Advanced &amp;gt; CPU Configuration）。&lt;/li>
-&lt;li>AMD 平台：启用 AMD-Vi（&lt;code>IOMMU&lt;/code>）。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>查看驱动是否支持 sriov
-&lt;ul>
-&lt;li>ethtool -i &amp;lt;网卡名&amp;gt; | grep driver # 查看驱动名称&lt;/li>
-&lt;li>modinfo &amp;lt;驱动名&amp;gt; | grep -i sriov # 确认驱动支持 SR-IOV&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;hr>
-&lt;p>参考：&lt;/p></description></item><item><title>CXL</title><link>https://kingye.me/study-network/docs/basic/cxl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cxl/</guid><description>&lt;h1 id="cxlhttpsenwikipediaorgwikicompute_express_link">
- &lt;a href="https://en.wikipedia.org/wiki/Compute_Express_Link">CXL&lt;/a>
- &lt;a class="anchor" href="#cxlhttpsenwikipediaorgwikicompute_express_link">#&lt;/a>
-&lt;/h1>
-&lt;p>&lt;code>Compute Express Link&lt;/code>&lt;/p>
-&lt;hr>
-&lt;p>以下是 CXL 和 PCIe 之间的一些区别：&lt;/p>
-&lt;ul>
-&lt;li>带宽：CXL 提供比 PCIe 高得多的带宽。该标准的最新版本 CXL 3.0 每通道提供高达 64 GT/s 的带宽，是 PCIe 5.0 带宽的 2 倍。这使得 CXL 成为需要快速传输大量数据的应用程序的更好选择，例如人工智能和机器学习。&lt;/li>
-&lt;li>可扩展性：CXL 的设计比 PCIe 更具可扩展性。PCIe 仅限于最多 16 个通道，而 CXL 最多可支持 &lt;strong>32 个通道&lt;/strong>。这意味着 CXL 可以用来连接更多的设备并提供比 PCIe 更多的带宽。&lt;/li>
-&lt;li>内存共享：CXL 支持设备之间的内存共享，使它们能够更有效地协同工作。这可以提高性能并减少通过互连在设备之间传输数据的需要。&lt;/li>
-&lt;li>兼容性：PCIe 是一种广泛采用的标准，与多种设备兼容，而 CXL 是一种&lt;em>较新&lt;/em>的标准，仍在不断获得采用。这意味着 CXL 兼容设备可能需要一些时间才能广泛使用。成本：由于标准的附加功能和特性，支持 CXL 的设备可能比支持 PCIe 的设备更昂贵。&lt;/li>
-&lt;/ul>
-&lt;p>最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。&lt;/p></description></item><item><title>PCIe</title><link>https://kingye.me/study-network/docs/basic/pcie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/pcie/</guid><description>&lt;h1 id="pciehttpswwwwikiwandcomzh-cnpci_express">
- &lt;a href="https://www.wikiwand.com/zh-cn/PCI_Express">PCIe&lt;/a>
- &lt;a class="anchor" href="#pciehttpswwwwikiwandcomzh-cnpci_express">#&lt;/a>
-&lt;/h1>
-&lt;p>&lt;code>Peripheral Component Interconnect Express&lt;/code>，简称 &lt;code>PCI-E&lt;/code>，官方简称 &lt;code>PCIe&lt;/code>&lt;/p>
-&lt;p>是计算机总线的一个重要分支，它沿用既有的 PCI 编程概念及信号标准，并且构建了更加高速的串行通信系统标准。&lt;/p>
-&lt;ul>
-&lt;li>PCIe 拥有更快的速率，所以几乎取代了以往所有的内部总线（包括 AGP 和 PCI）。现在英特尔和 AMD 已采用&lt;em>单芯片组&lt;/em>技术，取代原有的&lt;em>南桥／北桥&lt;/em>方案。&lt;/li>
-&lt;/ul>
-&lt;h2 id="发展历史">
+ 
+ &lt;a class="anchor" href="#sr-iov"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Single Root I/O Virtualization&lt;/code&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;VT-D&lt;/code&gt; 可以将物理的 &lt;code&gt;PCIe&lt;/code&gt; 设备直接分配给虚拟机，让虚拟机直接控制硬件，大大减轻宿主机的 CPU 负荷，提高网络性能，降低网络时延等&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;SR-IOV&lt;/code&gt; 最初应用在网卡（&lt;code&gt;NIC&lt;/code&gt;）上，一个物理网卡可以虚拟出来多个轻量化的 &lt;code&gt;PCIe&lt;/code&gt; 物理设备，从而可以分配给多个虚拟机使用
+&lt;ul&gt;
+&lt;li&gt;通过 &lt;code&gt;SR-IOV&lt;/code&gt; 技术，一个单一的物理 PCIe 网卡可以被虚拟化成多个独立的&lt;code&gt;虚拟功能&lt;/code&gt;（VFs）。每个虚拟功能表现得就像是一个独立的物理 PCIe 设备，可以被单独分配给不同的虚拟机或容器。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200915113927.png" alt="" /&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;PF（Physical Function）是支持 SR - IOV 的 ​​ 物理网卡本身 ​​，它既是硬件实体，也是管理虚拟功能（VF）的控制中心。&lt;/li&gt;
+&lt;li&gt;​​VF 与 PF 的直接通信 ​​ 若物理网卡支持 ​​ 嵌入式硬件交换 ​​（常见于高端网卡如 Intel X710、Mellanox ConnectX），则 VF 可通过网卡内部的交换芯片与 PF 通信，​​ 无需软件网桥 ​​。&lt;/li&gt;
+&lt;li&gt;即使网卡硬件支持 SR - IOV，若未在 BIOS / 系统中启用，它仅作为 ​​ 普通物理网卡 ​​ 运行，不承担 PF 角色，无法创建 VF。
+&lt;ul&gt;
+&lt;li&gt;Intel 平台：启用 Intel VT-d 和 SR-IOV（路径：Advanced &amp;gt; CPU Configuration）。&lt;/li&gt;
+&lt;li&gt;AMD 平台：启用 AMD-Vi（&lt;code&gt;IOMMU&lt;/code&gt;）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;查看驱动是否支持 sriov
+&lt;ul&gt;
+&lt;li&gt;ethtool -i &amp;lt;网卡名&amp;gt; | grep driver # 查看驱动名称&lt;/li&gt;
+&lt;li&gt;modinfo &amp;lt;驱动名&amp;gt; | grep -i sriov # 确认驱动支持 SR-IOV&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;参考：&lt;/p&gt;</description></item><item><title>CXL</title><link>https://kingye.me/study-network/docs/basic/cxl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cxl/</guid><description>&lt;h1 id="cxl"&gt;
+ &lt;a href="https://en.wikipedia.org/wiki/Compute_Express_Link"&gt;CXL&lt;/a&gt;
+ 
+ &lt;a class="anchor" href="#cxl"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Compute Express Link&lt;/code&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;以下是 CXL 和 PCIe 之间的一些区别：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;带宽：CXL 提供比 PCIe 高得多的带宽。该标准的最新版本 CXL 3.0 每通道提供高达 64 GT/s 的带宽，是 PCIe 5.0 带宽的 2 倍。这使得 CXL 成为需要快速传输大量数据的应用程序的更好选择，例如人工智能和机器学习。&lt;/li&gt;
+&lt;li&gt;可扩展性：CXL 的设计比 PCIe 更具可扩展性。PCIe 仅限于最多 16 个通道，而 CXL 最多可支持 &lt;strong&gt;32 个通道&lt;/strong&gt;。这意味着 CXL 可以用来连接更多的设备并提供比 PCIe 更多的带宽。&lt;/li&gt;
+&lt;li&gt;内存共享：CXL 支持设备之间的内存共享，使它们能够更有效地协同工作。这可以提高性能并减少通过互连在设备之间传输数据的需要。&lt;/li&gt;
+&lt;li&gt;兼容性：PCIe 是一种广泛采用的标准，与多种设备兼容，而 CXL 是一种&lt;em&gt;较新&lt;/em&gt;的标准，仍在不断获得采用。这意味着 CXL 兼容设备可能需要一些时间才能广泛使用。成本：由于标准的附加功能和特性，支持 CXL 的设备可能比支持 PCIe 的设备更昂贵。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。&lt;/p&gt;</description></item><item><title>PCIe</title><link>https://kingye.me/study-network/docs/basic/pcie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/pcie/</guid><description>&lt;h1 id="pcie"&gt;
+ &lt;a href="https://www.wikiwand.com/zh-cn/PCI_Express"&gt;PCIe&lt;/a&gt;
+ 
+ &lt;a class="anchor" href="#pcie"&gt;#&lt;/a&gt;
+ 
+&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Peripheral Component Interconnect Express&lt;/code&gt;，简称 &lt;code&gt;PCI-E&lt;/code&gt;，官方简称 &lt;code&gt;PCIe&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;是计算机总线的一个重要分支，它沿用既有的 PCI 编程概念及信号标准，并且构建了更加高速的串行通信系统标准。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PCIe 拥有更快的速率，所以几乎取代了以往所有的内部总线（包括 AGP 和 PCI）。现在英特尔和 AMD 已采用&lt;em&gt;单芯片组&lt;/em&gt;技术，取代原有的&lt;em&gt;南桥／北桥&lt;/em&gt;方案。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="发展历史"&gt;
  发展历史
- &lt;a class="anchor" href="#%e5%8f%91%e5%b1%95%e5%8e%86%e5%8f%b2">#&lt;/a>
-&lt;/h2>
-&lt;ol>
-&lt;li>ISA (&lt;code>Industry Standard Architecture&lt;/code>)
-&lt;ul>
-&lt;li>第一代 ISA 插槽出现在第一代 IBM PC XT 机型上（1981），作为现代 PC 的盘古之作，8 位的 ISA 提供了 4.77MB/s 的带宽（或传输率）。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>MCA (Micro Channel Architecture)&lt;/li>
-&lt;li>EISA (Extended Industry Standard Architecture)&lt;/li>
-&lt;li>VLB (VESA Local Bus)&lt;/li>
-&lt;li>PCI (Peripheral Component Interconnect)
-&lt;ul>
-&lt;li>Intel 在 1992 年提出 PCI（Peripheral Component Interconnect）总线协议，并召集其它的小伙伴组成了名为 PCI-SIG (PCI Special Interest Group)（PCI 特殊兴趣组 J）的企业联盟。从那以后这个组织就负责 PCI 和其继承者们（PCI-X 和 PCIe）的标准制定和推广。&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>PCI-X (Peripheral Component Interconnect eXtended)&lt;/li>
-&lt;li>AGP (Accelerated Graphics Port)&lt;/li>
-&lt;li>PCIe (Peripheral Component Interconnect Express)&lt;/li>
-&lt;/ol>
-&lt;p>&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20231025175929.png" alt="" />&lt;/p></description></item></channel></rss>
+ 
+ &lt;a class="anchor" href="#%e5%8f%91%e5%b1%95%e5%8e%86%e5%8f%b2"&gt;#&lt;/a&gt;
+ 
+&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;ISA (&lt;code&gt;Industry Standard Architecture&lt;/code&gt;)
+&lt;ul&gt;
+&lt;li&gt;第一代 ISA 插槽出现在第一代 IBM PC XT 机型上（1981），作为现代 PC 的盘古之作，8 位的 ISA 提供了 4.77MB/s 的带宽（或传输率）。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;MCA (Micro Channel Architecture)&lt;/li&gt;
+&lt;li&gt;EISA (Extended Industry Standard Architecture)&lt;/li&gt;
+&lt;li&gt;VLB (VESA Local Bus)&lt;/li&gt;
+&lt;li&gt;PCI (Peripheral Component Interconnect)
+&lt;ul&gt;
+&lt;li&gt;Intel 在 1992 年提出 PCI（Peripheral Component Interconnect）总线协议，并召集其它的小伙伴组成了名为 PCI-SIG (PCI Special Interest Group)（PCI 特殊兴趣组 J）的企业联盟。从那以后这个组织就负责 PCI 和其继承者们（PCI-X 和 PCIe）的标准制定和推广。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;PCI-X (Peripheral Component Interconnect eXtended)&lt;/li&gt;
+&lt;li&gt;AGP (Accelerated Graphics Port)&lt;/li&gt;
+&lt;li&gt;PCIe (Peripheral Component Interconnect Express)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20231025175929.png" alt="" /&gt;&lt;/p&gt;</description></item></channel></rss>
