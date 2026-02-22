@@ -1,21 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>RDMA on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/rdmd/</link><description>Recent content in RDMA on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/rdmd/index.xml" rel="self" type="application/rss+xml"/><item><title>ibstat</title><link>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</guid><description>&lt;h1 id="ibstat"&gt;
- ibstat
- 
- &lt;a class="anchor" href="#ibstat"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;</description></item><item><title>Infiniband</title><link>https://kingye.me/study-network/docs/basic/rdmd/ib/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ib/</guid><description>&lt;h1 id="infiniband"&gt;
- Infiniband
- 
- &lt;a class="anchor" href="#infiniband"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>RDMA on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/rdmd/</link><description>Recent content in RDMA on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/rdmd/index.xml" rel="self" type="application/rss+xml"/><item><title>ibstat</title><link>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</guid><description>&lt;h1 id="ibstat"&gt;ibstat&lt;a class="anchor" href="#ibstat"&gt;#&lt;/a&gt;&lt;/h1&gt;</description></item><item><title>Infiniband</title><link>https://kingye.me/study-network/docs/basic/rdmd/ib/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ib/</guid><description>&lt;h1 id="infiniband"&gt;Infiniband&lt;a class="anchor" href="#infiniband"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;hr&gt;
-&lt;h2 id="ipoib"&gt;
- IPoIB
- 
- &lt;a class="anchor" href="#ipoib"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="ipoib"&gt;IPoIB&lt;a class="anchor" href="#ipoib"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Internet Protocol over InfiniBand&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -32,13 +17,7 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip link show type ipoib
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>RoCE 网络</title><link>https://kingye.me/study-network/docs/basic/rdmd/roce/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/roce/</guid><description>&lt;h1 id="roce-网络"&gt;
- RoCE 网络
- 
- &lt;a class="anchor" href="#roce-%e7%bd%91%e7%bb%9c"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip link show type ipoib&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>RoCE 网络</title><link>https://kingye.me/study-network/docs/basic/rdmd/roce/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/roce/</guid><description>&lt;h1 id="roce-网络"&gt;RoCE 网络&lt;a class="anchor" href="#roce-%e7%bd%91%e7%bb%9c"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;RoCE 协议有 RoCEv1 和 RoCEv2 两个版本&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;RoCEv1 是基于以太网链路层实现的 RDMA 协议 (交换机需要支持 PFC 等流控技术，在物理层保证可靠传输)

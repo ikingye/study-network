@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>dev on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/dev/</link><description>Recent content in dev on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>tap</title><link>https://kingye.me/study-network/docs/basic/dev/tap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tap/</guid><description>&lt;h1 id="tap"&gt;
- tap
- 
- &lt;a class="anchor" href="#tap"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>dev on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/dev/</link><description>Recent content in dev on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/dev/index.xml" rel="self" type="application/rss+xml"/><item><title>tap</title><link>https://kingye.me/study-network/docs/basic/dev/tap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tap/</guid><description>&lt;h1 id="tap"&gt;tap&lt;a class="anchor" href="#tap"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;TAP​​：模拟以太网设备，处理 ​​ 二层帧 ​​（含 MAC 头），适用于桥接、虚拟交换机等场景。&lt;/li&gt;
 &lt;li&gt;TUN​​：模拟点对点设备，处理 ​​ 三层 IP 包 ​​（无 MAC 头），适用于路由、VPN 隧道（如 OpenVPN）。&lt;/li&gt;
@@ -52,9 +47,4 @@
 &lt;p&gt;tun0 发现自己的另一端被应用程序 B 打开了，于是将数据发给程序 B.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;程序 B 收到数据后，做一些跟业务相关的操作，然后构造一个新的数据包，源 IP 是 eth0 的 IP，目的 IP 是 10.1.1.0/24 的网关 10.1.1.1，封装原来的数据的数据包，重新发给协议栈。&lt;/p&gt;</description></item><item><title>tun</title><link>https://kingye.me/study-network/docs/basic/dev/tun/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tun/</guid><description>&lt;h1 id="tun"&gt;
- tun
- 
- &lt;a class="anchor" href="#tun"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;</description></item></channel></rss>
+&lt;p&gt;程序 B 收到数据后，做一些跟业务相关的操作，然后构造一个新的数据包，源 IP 是 eth0 的 IP，目的 IP 是 10.1.1.0/24 的网关 10.1.1.1，封装原来的数据的数据包，重新发给协议栈。&lt;/p&gt;</description></item><item><title>tun</title><link>https://kingye.me/study-network/docs/basic/dev/tun/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tun/</guid><description>&lt;h1 id="tun"&gt;tun&lt;a class="anchor" href="#tun"&gt;#&lt;/a&gt;&lt;/h1&gt;</description></item></channel></rss>

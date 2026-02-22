@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第一部分 基础入门 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/</link><description>Recent content in 第一部分 基础入门 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>LAN</title><link>https://kingye.me/study-network/docs/basic/lan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/lan/</guid><description>&lt;h1 id="lan-局域网"&gt;
- LAN 局域网
- 
- &lt;a class="anchor" href="#lan-%e5%b1%80%e5%9f%9f%e7%bd%91"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>第一部分 基础入门 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/</link><description>Recent content in 第一部分 基础入门 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/index.xml" rel="self" type="application/rss+xml"/><item><title>LAN</title><link>https://kingye.me/study-network/docs/basic/lan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/lan/</guid><description>&lt;h1 id="lan-局域网"&gt;LAN 局域网&lt;a class="anchor" href="#lan-%e5%b1%80%e5%9f%9f%e7%bd%91"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;A 类 &lt;code&gt;10.0.0.0/8&lt;/code&gt;
 &lt;ul&gt;
@@ -25,33 +20,13 @@
 &lt;li&gt;100.64.0.0 - 100.127.255.255&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="ovs-open-vswitch"&gt;
- ovs (Open vSwitch)
- 
- &lt;a class="anchor" href="#ovs-open-vswitch"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="open-vswitch-的架构"&gt;
- Open vSwitch 的架构
- 
- &lt;a class="anchor" href="#open-vswitch-%e7%9a%84%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="ovs-open-vswitch"&gt;ovs (Open vSwitch)&lt;a class="anchor" href="#ovs-open-vswitch"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="open-vswitch-的架构"&gt;Open vSwitch 的架构&lt;a class="anchor" href="#open-vswitch-%e7%9a%84%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250707112144.png" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250718143010.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>openflow</title><link>https://kingye.me/study-network/docs/basic/openflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/openflow/</guid><description>&lt;h1 id="openflow"&gt;
- openflow
- 
- &lt;a class="anchor" href="#openflow"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250718143010.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>openflow</title><link>https://kingye.me/study-network/docs/basic/openflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/openflow/</guid><description>&lt;h1 id="openflow"&gt;openflow&lt;a class="anchor" href="#openflow"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;sdn 即软件控制网络。控制网络的，是独立于网络中的路由器及交换机的一个设备，即 sdn 控制器。sdn 控制器与网络中其他设备通信，对设备进行控制，诸如写入路由表之类，其余设备也向 sdn 控制器汇报，诸如报告发现了新的网络流量。&lt;/p&gt;
 &lt;p&gt;此过程中，通信协议是 openflow，网络中的 switch 支持这个协议。&lt;/p&gt;
-&lt;p&gt;openvswitch 是一个软件（程序组件），它在网络模拟系统中表现为一个支持 openflow 协议的 switch。&lt;/p&gt;</description></item><item><title>SR-IOV</title><link>https://kingye.me/study-network/docs/basic/sriov/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/sriov/</guid><description>&lt;h1 id="sr-iov"&gt;
- SR-IOV
- 
- &lt;a class="anchor" href="#sr-iov"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;openvswitch 是一个软件（程序组件），它在网络模拟系统中表现为一个支持 openflow 协议的 switch。&lt;/p&gt;</description></item><item><title>SR-IOV</title><link>https://kingye.me/study-network/docs/basic/sriov/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/sriov/</guid><description>&lt;h1 id="sr-iov"&gt;SR-IOV&lt;a class="anchor" href="#sr-iov"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;Single Root I/O Virtualization&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;VT-D&lt;/code&gt; 可以将物理的 &lt;code&gt;PCIe&lt;/code&gt; 设备直接分配给虚拟机，让虚拟机直接控制硬件，大大减轻宿主机的 CPU 负荷，提高网络性能，降低网络时延等&lt;/li&gt;
@@ -80,12 +55,7 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt;参考：&lt;/p&gt;</description></item><item><title>CXL</title><link>https://kingye.me/study-network/docs/basic/cxl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cxl/</guid><description>&lt;h1 id="cxl"&gt;
- &lt;a href="https://en.wikipedia.org/wiki/Compute_Express_Link"&gt;CXL&lt;/a&gt;
- 
- &lt;a class="anchor" href="#cxl"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;参考：&lt;/p&gt;</description></item><item><title>CXL</title><link>https://kingye.me/study-network/docs/basic/cxl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cxl/</guid><description>&lt;h1 id="cxl"&gt;&lt;a href="https://en.wikipedia.org/wiki/Compute_Express_Link"&gt;CXL&lt;/a&gt;&lt;a class="anchor" href="#cxl"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;Compute Express Link&lt;/code&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;以下是 CXL 和 PCIe 之间的一些区别：&lt;/p&gt;
@@ -95,23 +65,13 @@
 &lt;li&gt;内存共享：CXL 支持设备之间的内存共享，使它们能够更有效地协同工作。这可以提高性能并减少通过互连在设备之间传输数据的需要。&lt;/li&gt;
 &lt;li&gt;兼容性：PCIe 是一种广泛采用的标准，与多种设备兼容，而 CXL 是一种&lt;em&gt;较新&lt;/em&gt;的标准，仍在不断获得采用。这意味着 CXL 兼容设备可能需要一些时间才能广泛使用。成本：由于标准的附加功能和特性，支持 CXL 的设备可能比支持 PCIe 的设备更昂贵。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。&lt;/p&gt;</description></item><item><title>PCIe</title><link>https://kingye.me/study-network/docs/basic/pcie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/pcie/</guid><description>&lt;h1 id="pcie"&gt;
- &lt;a href="https://www.wikiwand.com/zh-cn/PCI_Express"&gt;PCIe&lt;/a&gt;
- 
- &lt;a class="anchor" href="#pcie"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。&lt;/p&gt;</description></item><item><title>PCIe</title><link>https://kingye.me/study-network/docs/basic/pcie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/pcie/</guid><description>&lt;h1 id="pcie"&gt;&lt;a href="https://www.wikiwand.com/zh-cn/PCI_Express"&gt;PCIe&lt;/a&gt;&lt;a class="anchor" href="#pcie"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;Peripheral Component Interconnect Express&lt;/code&gt;，简称 &lt;code&gt;PCI-E&lt;/code&gt;，官方简称 &lt;code&gt;PCIe&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;是计算机总线的一个重要分支，它沿用既有的 PCI 编程概念及信号标准，并且构建了更加高速的串行通信系统标准。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;PCIe 拥有更快的速率，所以几乎取代了以往所有的内部总线（包括 AGP 和 PCI）。现在英特尔和 AMD 已采用&lt;em&gt;单芯片组&lt;/em&gt;技术，取代原有的&lt;em&gt;南桥／北桥&lt;/em&gt;方案。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="发展历史"&gt;
- 发展历史
- 
- &lt;a class="anchor" href="#%e5%8f%91%e5%b1%95%e5%8e%86%e5%8f%b2"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="发展历史"&gt;发展历史&lt;a class="anchor" href="#%e5%8f%91%e5%b1%95%e5%8e%86%e5%8f%b2"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;ISA (&lt;code&gt;Industry Standard Architecture&lt;/code&gt;)
 &lt;ul&gt;

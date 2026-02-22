@@ -1,58 +1,27 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2.2 网络工具 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/advanced/tool/</link><description>Recent content in 2.2 网络工具 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/advanced/tool/index.xml" rel="self" type="application/rss+xml"/><item><title>Wireshark</title><link>https://kingye.me/study-network/docs/advanced/tool/wireshark/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/advanced/tool/wireshark/</guid><description>&lt;h1 id="wireshark"&gt;
- Wireshark
- 
- &lt;a class="anchor" href="#wireshark"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="安装"&gt;
- 安装
- 
- &lt;a class="anchor" href="#%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>2.2 网络工具 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/advanced/tool/</link><description>Recent content in 2.2 网络工具 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/advanced/tool/index.xml" rel="self" type="application/rss+xml"/><item><title>Wireshark</title><link>https://kingye.me/study-network/docs/advanced/tool/wireshark/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/advanced/tool/wireshark/</guid><description>&lt;h1 id="wireshark"&gt;Wireshark&lt;a class="anchor" href="#wireshark"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="安装"&gt;安装&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://www.wireshark.org/download.html"&gt;https://www.wireshark.org/download.html&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install -y wireshark
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id="教程"&gt;
- 教程
- 
- &lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install -y wireshark&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="教程"&gt;教程&lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/wsug_html_chunked/"&gt;Wireshark User’s Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;命令 &lt;a href="https://www.wireshark.org/docs/man-pages/wireshark.html"&gt;wireshark - Interactively dump and analyze network traffic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="capture-filter"&gt;
- Capture filter
- 
- &lt;a class="anchor" href="#capture-filter"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="capture-filter"&gt;Capture filter&lt;a class="anchor" href="#capture-filter"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html"&gt;4.10. Filtering while capturing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://gitlab.com/wireshark/wireshark/-/wikis/CaptureFilters"&gt;Capture Filters wiki&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.tcpdump.org/manpages/pcap-filter.7.html"&gt;Man page of PCAP-FILTER&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="display-filter"&gt;
- Display filter
- 
- &lt;a class="anchor" href="#display-filter"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="display-filter"&gt;Display filter&lt;a class="anchor" href="#display-filter"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html"&gt;Chapter 6. Working With Captured Packets&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/man-pages/wireshark-filter.html"&gt;wireshark-filter - Wireshark display filter syntax and reference&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="tshark"&gt;
- tshark
- 
- &lt;a class="anchor" href="#tshark"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="tshark"&gt;tshark&lt;a class="anchor" href="#tshark"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;教程：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/man-pages/tshark.html"&gt;tshark - Dump and analyze network traffic&lt;/a&gt;&lt;/li&gt;
@@ -80,27 +49,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -n :禁止网络对象名称解析&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -f &amp;#39;tcp dst port 3306&amp;#39; :只捕捉协议为tcp,目的端口为3306的数据包&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -R &amp;#39;mysql.query&amp;#39; :过滤出mysql.query&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -T fields -e mysql.query :打印mysql查询语句&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="linux-安装-wireshark"&gt;
- Linux 安装 Wireshark
- 
- &lt;a class="anchor" href="#linux-%e5%ae%89%e8%a3%85-wireshark"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -T fields -e mysql.query :打印mysql查询语句&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="linux-安装-wireshark"&gt;Linux 安装 Wireshark&lt;a class="anchor" href="#linux-%e5%ae%89%e8%a3%85-wireshark"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
-&lt;h2 id="查询"&gt;
- 查询
- 
- &lt;a class="anchor" href="#%e6%9f%a5%e8%af%a2"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip.addr &lt;span style="color:#f92672"&gt;==&lt;/span&gt; 192.168.137.109
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="macos-打开两个-wireshark"&gt;
- MacOS 打开两个 Wireshark
- 
- &lt;a class="anchor" href="#macos-%e6%89%93%e5%bc%80%e4%b8%a4%e4%b8%aa-wireshark"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="查询"&gt;查询&lt;a class="anchor" href="#%e6%9f%a5%e8%af%a2"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip.addr &lt;span style="color:#f92672"&gt;==&lt;/span&gt; 192.168.137.109&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="macos-打开两个-wireshark"&gt;MacOS 打开两个 Wireshark&lt;a class="anchor" href="#macos-%e6%89%93%e5%bc%80%e4%b8%a4%e4%b8%aa-wireshark"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 使用 -n 可以打开多个&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;open -n /Applications/Wireshark.app
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考：&lt;/p&gt;</description></item></channel></rss>
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;open -n /Applications/Wireshark.app&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考：&lt;/p&gt;</description></item></channel></rss>

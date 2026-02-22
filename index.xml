@@ -1,39 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>首页 on 网络学习笔记</title><link>https://kingye.me/study-network/</link><description>Recent content in 首页 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/index.xml" rel="self" type="application/rss+xml"/><item><title>4.1 教程</title><link>https://kingye.me/study-network/docs/appendix/tutorial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/appendix/tutorial/</guid><description>&lt;h1 id="教程"&gt;
- 教程
- 
- &lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="基础"&gt;
- 基础
- 
- &lt;a class="anchor" href="#%e5%9f%ba%e7%a1%80"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h2 id="进阶"&gt;
- 进阶
- 
- &lt;a class="anchor" href="#%e8%bf%9b%e9%98%b6"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="tonydengsdn-handbook-github-stars"&gt;
- &lt;a href="https://github.com/tonydeng/sdn-handbook"&gt;tonydeng/sdn-handbook&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/tonydeng/sdn-handbook.svg" alt="Github stars" /&gt;
- 
- &lt;a class="anchor" href="#tonydengsdn-handbook-github-stars"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;p&gt;SDN 手册&lt;/p&gt;</description></item><item><title>curl</title><link>https://kingye.me/study-network/docs/basic/cmd/curl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/curl/</guid><description>&lt;h1 id="curl"&gt;
- curl
- 
- &lt;a class="anchor" href="#curl"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="curl-format"&gt;
- curl format
- 
- &lt;a class="anchor" href="#curl-format"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>首页 on 网络学习笔记</title><link>https://kingye.me/study-network/</link><description>Recent content in 首页 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/index.xml" rel="self" type="application/rss+xml"/><item><title>4.1 教程</title><link>https://kingye.me/study-network/docs/appendix/tutorial/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/appendix/tutorial/</guid><description>&lt;h1 id="教程"&gt;教程&lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="基础"&gt;基础&lt;a class="anchor" href="#%e5%9f%ba%e7%a1%80"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="进阶"&gt;进阶&lt;a class="anchor" href="#%e8%bf%9b%e9%98%b6"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="tonydengsdn-handbook-github-stars"&gt;&lt;a href="https://github.com/tonydeng/sdn-handbook"&gt;tonydeng/sdn-handbook&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/tonydeng/sdn-handbook.svg" alt="Github stars" /&gt;&lt;a class="anchor" href="#tonydengsdn-handbook-github-stars"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;SDN 手册&lt;/p&gt;</description></item><item><title>curl</title><link>https://kingye.me/study-network/docs/basic/cmd/curl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/curl/</guid><description>&lt;h1 id="curl"&gt;curl&lt;a class="anchor" href="#curl"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="curl-format"&gt;curl format&lt;a class="anchor" href="#curl-format"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;curl -w @curl-format -o /dev/null -s http://www.baidu.com&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; time_appconnect: %&lt;span style="color:#f92672"&gt;{&lt;/span&gt;time_appconnect&lt;span style="color:#f92672"&gt;}&lt;/span&gt; （从开始到ssl/ssh连接完成）&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; time_connect: %&lt;span style="color:#f92672"&gt;{&lt;/span&gt;time_connect&lt;span style="color:#f92672"&gt;}&lt;/span&gt; （从开始到tcp建连完成）&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;
@@ -49,13 +19,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ----------&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; time_total: %&lt;span style="color:#f92672"&gt;{&lt;/span&gt;time_total&lt;span style="color:#f92672"&gt;}&lt;/span&gt; （全部时间；以上单位都是 秒）&lt;span style="color:#ae81ff"&gt;\n\n&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;详细参考: https://curl.haxx.se/docs/manpage.html &lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>iptables</title><link>https://kingye.me/study-network/docs/basic/cmd/iptables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/iptables/</guid><description>&lt;h1 id="iptables"&gt;
- iptables
- 
- &lt;a class="anchor" href="#iptables"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;详细参考: https://curl.haxx.se/docs/manpage.html &lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>iptables</title><link>https://kingye.me/study-network/docs/basic/cmd/iptables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/iptables/</guid><description>&lt;h1 id="iptables"&gt;iptables&lt;a class="anchor" href="#iptables"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250706111649.png" alt="" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Linux 的包过滤功能，即 Linux 防火墙，
@@ -73,12 +37,7 @@
 &lt;li&gt;&lt;code&gt;iptables-restore&lt;/code&gt;: 从之前导出的 iptable 规则配置文件加载规则。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id="原理"&gt;
- 原理
- 
- &lt;a class="anchor" href="#%e5%8e%9f%e7%90%86"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="原理"&gt;原理&lt;a class="anchor" href="#%e5%8e%9f%e7%90%86"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506113258.png" alt="" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去&lt;/li&gt;
@@ -90,35 +49,10 @@
 &lt;li&gt;然后到达 POSTROUTING 链输出&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id="状态"&gt;
- 状态
- 
- &lt;a class="anchor" href="#%e7%8a%b6%e6%80%81"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="established"&gt;
- ESTABLISHED
- 
- &lt;a class="anchor" href="#established"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;p&gt;状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。&lt;/p&gt;</description></item><item><title>netfilter</title><link>https://kingye.me/study-network/docs/basic/cmd/netfilter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/netfilter/</guid><description>&lt;h1 id="netfilter"&gt;
- netfilter
- 
- &lt;a class="anchor" href="#netfilter"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;</description></item><item><title>TCP</title><link>https://kingye.me/study-network/docs/basic/protocol/tcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/tcp/</guid><description>&lt;h1 id="tcp"&gt;
- TCP
- 
- &lt;a class="anchor" href="#tcp"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="tcp-报文格式"&gt;
- TCP 报文格式
- 
- &lt;a class="anchor" href="#tcp-%e6%8a%a5%e6%96%87%e6%a0%bc%e5%bc%8f"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="状态"&gt;状态&lt;a class="anchor" href="#%e7%8a%b6%e6%80%81"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="established"&gt;ESTABLISHED&lt;a class="anchor" href="#established"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。&lt;/p&gt;</description></item><item><title>netfilter</title><link>https://kingye.me/study-network/docs/basic/cmd/netfilter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/netfilter/</guid><description>&lt;h1 id="netfilter"&gt;netfilter&lt;a class="anchor" href="#netfilter"&gt;#&lt;/a&gt;&lt;/h1&gt;</description></item><item><title>TCP</title><link>https://kingye.me/study-network/docs/basic/protocol/tcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/tcp/</guid><description>&lt;h1 id="tcp"&gt;TCP&lt;a class="anchor" href="#tcp"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="tcp-报文格式"&gt;TCP 报文格式&lt;a class="anchor" href="#tcp-%e6%8a%a5%e6%96%87%e6%a0%bc%e5%bc%8f"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525230243.png" alt="" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;序号：Seq 序号，占 32 位，用来标识从 TCP 源端向目的端发送的字节流，发起方发送数据时对此进行标记。&lt;/li&gt;
@@ -135,67 +69,30 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525230718.png" alt="" /&gt;&lt;/p&gt;
-&lt;h2 id="三次握手"&gt;
- 三次握手
- 
- &lt;a class="anchor" href="#%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="三次握手"&gt;三次握手&lt;a class="anchor" href="#%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231319.png" alt="" /&gt;&lt;/p&gt;
-&lt;h2 id="四次挥手"&gt;
- 四次挥手
- 
- &lt;a class="anchor" href="#%e5%9b%9b%e6%ac%a1%e6%8c%a5%e6%89%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="四次挥手"&gt;四次挥手&lt;a class="anchor" href="#%e5%9b%9b%e6%ac%a1%e6%8c%a5%e6%89%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231259.png" alt="" /&gt;&lt;/p&gt;
 &lt;p&gt;实际中还会出现同时发起主动关闭的情况&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231407.png" alt="" /&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="tcp-有限状态机"&gt;
- TCP 有限状态机
- 
- &lt;a class="anchor" href="#tcp-%e6%9c%89%e9%99%90%e7%8a%b6%e6%80%81%e6%9c%ba"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="tcp-有限状态机"&gt;TCP 有限状态机&lt;a class="anchor" href="#tcp-%e6%9c%89%e9%99%90%e7%8a%b6%e6%80%81%e6%9c%ba"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The TCP Finite State Machine (FSM)&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.tcpipguide.com/free/t_TCPOperationalOverviewandtheTCPFiniteStateMachineF-2.htm"&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231924.png" alt="" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="tcp-状态变迁图"&gt;
- TCP 状态变迁图
- 
- &lt;a class="anchor" href="#tcp-%e7%8a%b6%e6%80%81%e5%8f%98%e8%bf%81%e5%9b%be"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="tcp-状态变迁图"&gt;TCP 状态变迁图&lt;a class="anchor" href="#tcp-%e7%8a%b6%e6%80%81%e5%8f%98%e8%bf%81%e5%9b%be"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://docs.52im.net/extend/docs/book/tcpip/vol1/18/#h18_6"&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525235421.png" alt="" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="tcp-是全双工的"&gt;
- TCP 是全双工的
- 
- &lt;a class="anchor" href="#tcp-%e6%98%af%e5%85%a8%e5%8f%8c%e5%b7%a5%e7%9a%84"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="tcp-是全双工的"&gt;TCP 是全双工的&lt;a class="anchor" href="#tcp-%e6%98%af%e5%85%a8%e5%8f%8c%e5%b7%a5%e7%9a%84"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;hr&gt;
-&lt;h2 id="tcp-的-rtt-算法"&gt;
- TCP 的 RTT 算法
- 
- &lt;a class="anchor" href="#tcp-%e7%9a%84-rtt-%e7%ae%97%e6%b3%95"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="经典算法rfc793"&gt;
- 经典算法（&lt;a href="http://tools.ietf.org/html/rfc793"&gt;RFC793&lt;/a&gt;）
- 
- &lt;a class="anchor" href="#%e7%bb%8f%e5%85%b8%e7%ae%97%e6%b3%95rfc793"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h2 id="tcp-的-rtt-算法"&gt;TCP 的 RTT 算法&lt;a class="anchor" href="#tcp-%e7%9a%84-rtt-%e7%ae%97%e6%b3%95"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="经典算法rfc793"&gt;经典算法（&lt;a href="http://tools.ietf.org/html/rfc793"&gt;RFC793&lt;/a&gt;）&lt;a class="anchor" href="#%e7%bb%8f%e5%85%b8%e7%ae%97%e6%b3%95rfc793"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;首先，先采样 RTT，记下最近好几次的 RTT 值。&lt;/p&gt;</description></item><item><title>VXLAN</title><link>https://kingye.me/study-network/docs/basic/protocol/vxlan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/vxlan/</guid><description>&lt;h1 id="vxlan"&gt;
- VXLAN
- 
- &lt;a class="anchor" href="#vxlan"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;首先，先采样 RTT，记下最近好几次的 RTT 值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后做平滑计算 SRTT（&lt;code&gt;Smoothed RTT&lt;/code&gt;），公式为：&lt;/p&gt;</description></item><item><title>VXLAN</title><link>https://kingye.me/study-network/docs/basic/protocol/vxlan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/vxlan/</guid><description>&lt;h1 id="vxlan"&gt;VXLAN&lt;a class="anchor" href="#vxlan"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;overlay 的核心其实就是打隧道（tunnel）&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;突破 VLAN 的最多 4096 个终端的数量限制，以满足大规模云计算数据中心的需求&lt;/li&gt;
@@ -208,61 +105,30 @@
 &lt;li&gt;VxLAN: MAC in UDP&lt;/li&gt;
 &lt;li&gt;NvGRE: MAC in GRE&lt;/li&gt;
 &lt;li&gt;STT: MAC in TCP（伪 TCP）&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Wireshark</title><link>https://kingye.me/study-network/docs/advanced/tool/wireshark/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/advanced/tool/wireshark/</guid><description>&lt;h1 id="wireshark"&gt;
- Wireshark
- 
- &lt;a class="anchor" href="#wireshark"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="安装"&gt;
- 安装
- 
- &lt;a class="anchor" href="#%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Wireshark</title><link>https://kingye.me/study-network/docs/advanced/tool/wireshark/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/advanced/tool/wireshark/</guid><description>&lt;h1 id="wireshark"&gt;Wireshark&lt;a class="anchor" href="#wireshark"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="安装"&gt;安装&lt;a class="anchor" href="#%e5%ae%89%e8%a3%85"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://www.wireshark.org/download.html"&gt;https://www.wireshark.org/download.html&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install -y wireshark
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id="教程"&gt;
- 教程
- 
- &lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;yum install -y wireshark&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id="教程"&gt;教程&lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/wsug_html_chunked/"&gt;Wireshark User’s Guide&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;命令 &lt;a href="https://www.wireshark.org/docs/man-pages/wireshark.html"&gt;wireshark - Interactively dump and analyze network traffic&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="capture-filter"&gt;
- Capture filter
- 
- &lt;a class="anchor" href="#capture-filter"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="capture-filter"&gt;Capture filter&lt;a class="anchor" href="#capture-filter"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/wsug_html_chunked/ChCapCaptureFilterSection.html"&gt;4.10. Filtering while capturing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://gitlab.com/wireshark/wireshark/-/wikis/CaptureFilters"&gt;Capture Filters wiki&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.tcpdump.org/manpages/pcap-filter.7.html"&gt;Man page of PCAP-FILTER&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id="display-filter"&gt;
- Display filter
- 
- &lt;a class="anchor" href="#display-filter"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="display-filter"&gt;Display filter&lt;a class="anchor" href="#display-filter"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;参考：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/wsug_html_chunked/ChapterWork.html"&gt;Chapter 6. Working With Captured Packets&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/man-pages/wireshark-filter.html"&gt;wireshark-filter - Wireshark display filter syntax and reference&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="tshark"&gt;
- tshark
- 
- &lt;a class="anchor" href="#tshark"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="tshark"&gt;tshark&lt;a class="anchor" href="#tshark"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;教程：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wireshark.org/docs/man-pages/tshark.html"&gt;tshark - Dump and analyze network traffic&lt;/a&gt;&lt;/li&gt;
@@ -290,70 +156,17 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -n :禁止网络对象名称解析&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -f &amp;#39;tcp dst port 3306&amp;#39; :只捕捉协议为tcp,目的端口为3306的数据包&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -R &amp;#39;mysql.query&amp;#39; :过滤出mysql.query&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -T fields -e mysql.query :打印mysql查询语句&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="linux-安装-wireshark"&gt;
- Linux 安装 Wireshark
- 
- &lt;a class="anchor" href="#linux-%e5%ae%89%e8%a3%85-wireshark"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# -T fields -e mysql.query :打印mysql查询语句&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="linux-安装-wireshark"&gt;Linux 安装 Wireshark&lt;a class="anchor" href="#linux-%e5%ae%89%e8%a3%85-wireshark"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;hr&gt;
-&lt;h2 id="查询"&gt;
- 查询
- 
- &lt;a class="anchor" href="#%e6%9f%a5%e8%af%a2"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip.addr &lt;span style="color:#f92672"&gt;==&lt;/span&gt; 192.168.137.109
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="macos-打开两个-wireshark"&gt;
- MacOS 打开两个 Wireshark
- 
- &lt;a class="anchor" href="#macos-%e6%89%93%e5%bc%80%e4%b8%a4%e4%b8%aa-wireshark"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="查询"&gt;查询&lt;a class="anchor" href="#%e6%9f%a5%e8%af%a2"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip.addr &lt;span style="color:#f92672"&gt;==&lt;/span&gt; 192.168.137.109&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="macos-打开两个-wireshark"&gt;MacOS 打开两个 Wireshark&lt;a class="anchor" href="#macos-%e6%89%93%e5%bc%80%e4%b8%a4%e4%b8%aa-wireshark"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 使用 -n 可以打开多个&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;open -n /Applications/Wireshark.app
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考：&lt;/p&gt;</description></item><item><title>UDP</title><link>https://kingye.me/study-network/docs/basic/protocol/udp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/udp/</guid><description>&lt;h1 id="udp"&gt;
- UDP
- 
- &lt;a class="anchor" href="#udp"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;</description></item><item><title>4.2 面试题</title><link>https://kingye.me/study-network/docs/appendix/interview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/appendix/interview/</guid><description>&lt;h1 id="计算机网络面试题"&gt;
- 计算机网络面试题
- 
- &lt;a class="anchor" href="#%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c%e9%9d%a2%e8%af%95%e9%a2%98"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="基础题"&gt;
- 基础题
- 
- &lt;a class="anchor" href="#%e5%9f%ba%e7%a1%80%e9%a2%98"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h2 id="进阶题"&gt;
- 进阶题
- 
- &lt;a class="anchor" href="#%e8%bf%9b%e9%98%b6%e9%a2%98"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;</description></item><item><title>DNS</title><link>https://kingye.me/study-network/docs/basic/protocol/dns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/dns/</guid><description>&lt;h1 id="dns"&gt;
- DNS
- 
- &lt;a class="anchor" href="#dns"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="etchosts"&gt;
- &lt;code&gt;/etc/hosts&lt;/code&gt;
- 
- &lt;a class="anchor" href="#etchosts"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;open -n /Applications/Wireshark.app&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;参考：&lt;/p&gt;</description></item><item><title>UDP</title><link>https://kingye.me/study-network/docs/basic/protocol/udp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/udp/</guid><description>&lt;h1 id="udp"&gt;UDP&lt;a class="anchor" href="#udp"&gt;#&lt;/a&gt;&lt;/h1&gt;</description></item><item><title>4.2 面试题</title><link>https://kingye.me/study-network/docs/appendix/interview/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/appendix/interview/</guid><description>&lt;h1 id="计算机网络面试题"&gt;计算机网络面试题&lt;a class="anchor" href="#%e8%ae%a1%e7%ae%97%e6%9c%ba%e7%bd%91%e7%bb%9c%e9%9d%a2%e8%af%95%e9%a2%98"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="基础题"&gt;基础题&lt;a class="anchor" href="#%e5%9f%ba%e7%a1%80%e9%a2%98"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="进阶题"&gt;进阶题&lt;a class="anchor" href="#%e8%bf%9b%e9%98%b6%e9%a2%98"&gt;#&lt;/a&gt;&lt;/h2&gt;</description></item><item><title>DNS</title><link>https://kingye.me/study-network/docs/basic/protocol/dns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/dns/</guid><description>&lt;h1 id="dns"&gt;DNS&lt;a class="anchor" href="#dns"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="etchosts"&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;&lt;a class="anchor" href="#etchosts"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;hosts 文件是 Linux 系统中一个负责 IP 地址与域名快速解析的文件&lt;/p&gt;
-&lt;h2 id="etcresolvconf"&gt;
- &lt;code&gt;/etc/resolv.conf&lt;/code&gt;
- 
- &lt;a class="anchor" href="#etcresolvconf"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="etcresolvconf"&gt;&lt;code&gt;/etc/resolv.conf&lt;/code&gt;&lt;a class="anchor" href="#etcresolvconf"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;该文件是 DNS 域名解析的配置文件，它的格式很简单，
 每行以一个关键字开头，后接配置参数。&lt;/p&gt;
 &lt;p&gt;resolv.conf 的关键字主要有四个：&lt;/p&gt;
@@ -367,75 +180,23 @@
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;domain centoscn.com
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;search www.centocn.com www.wgjlb.com
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nameserver 202.96.128.86
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nameserver 202.96.128.166
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="etchostconf"&gt;
- &lt;code&gt;/etc/host.conf&lt;/code&gt;
- 
- &lt;a class="anchor" href="#etchostconf"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nameserver 202.96.128.166&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="etchostconf"&gt;&lt;code&gt;/etc/host.conf&lt;/code&gt;&lt;a class="anchor" href="#etchostconf"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;解析器查询顺序配置文件&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 表示先查询本地 hosts 文件，如果没有结果，再尝试查找 BIND dns 服务器&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;order hosts bind
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>4.3 关注项目</title><link>https://kingye.me/study-network/docs/appendix/attention/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/appendix/attention/</guid><description>&lt;h1 id="关注"&gt;
- 关注
- 
- &lt;a class="anchor" href="#%e5%85%b3%e6%b3%a8"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="其他"&gt;
- 其他
- 
- &lt;a class="anchor" href="#%e5%85%b6%e4%bb%96"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="nettynetty-github-stars"&gt;
- &lt;a href="https://github.com/netty/netty"&gt;netty/netty&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/netty/netty.svg" alt="Github stars" /&gt;
- 
- &lt;a class="anchor" href="#nettynetty-github-stars"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;order hosts bind&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>4.3 关注项目</title><link>https://kingye.me/study-network/docs/appendix/attention/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/appendix/attention/</guid><description>&lt;h1 id="关注"&gt;关注&lt;a class="anchor" href="#%e5%85%b3%e6%b3%a8"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="其他"&gt;其他&lt;a class="anchor" href="#%e5%85%b6%e4%bb%96"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="nettynetty-github-stars"&gt;&lt;a href="https://github.com/netty/netty"&gt;netty/netty&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/netty/netty.svg" alt="Github stars" /&gt;&lt;a class="anchor" href="#nettynetty-github-stars"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Netty project - an event-driven asynchronous network application framework &lt;a href="http://netty.io/"&gt;http://netty.io/&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="libuvlibuv-github-stars"&gt;
- &lt;a href="https://github.com/libuv/libuv"&gt;libuv/libuv&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/libuv/libuv.svg" alt="Github stars" /&gt;
- 
- &lt;a class="anchor" href="#libuvlibuv-github-stars"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="libuvlibuv-github-stars"&gt;&lt;a href="https://github.com/libuv/libuv"&gt;libuv/libuv&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/libuv/libuv.svg" alt="Github stars" /&gt;&lt;a class="anchor" href="#libuvlibuv-github-stars"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Cross-platform asynchronous I/O &lt;a href="https://libuv.org/"&gt;https://libuv.org/&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id="panjf2000gnet-github-stars-go-version"&gt;
- &lt;a href="https://github.com/panjf2000/gnet"&gt;panjf2000/gnet&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/panjf2000/gnet.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/go-mod/go-version/panjf2000/gnet" alt="Go version" /&gt;
- 
- &lt;a class="anchor" href="#panjf2000gnet-github-stars-go-version"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h3 id="panjf2000gnet-github-stars-go-version"&gt;&lt;a href="https://github.com/panjf2000/gnet"&gt;panjf2000/gnet&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/panjf2000/gnet.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/go-mod/go-version/panjf2000/gnet" alt="Go version" /&gt;&lt;a class="anchor" href="#panjf2000gnet-github-stars-go-version"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;gnet 是一个基于事件驱动的高性能和轻量级网络框架。它直接使用 epoll 和 kqueue 系统调用而非标准 Go 网络包：net 来构建网络应用，它的工作原理类似两个开源的网络库：&lt;a href="https://github.com/netty/netty"&gt;netty/netty&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/netty/netty.svg" alt="Github stars" /&gt; 和 &lt;a href="https://github.com/libuv/libuv"&gt;libuv/libuv&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/libuv/libuv.svg" alt="Github stars" /&gt;。&lt;/p&gt;
 &lt;p&gt;gnet 设计开发的初衷不是为了取代 Go 的标准网络库：net，而是为了创造出一个类似于 &lt;a href="https://github.com/antirez/redis"&gt;antirez/redis&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/antirez/redis.svg" alt="Github stars" /&gt;、&lt;a href="https://github.com/haproxy/haproxy"&gt;haproxy/haproxy&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/haproxy/haproxy.svg" alt="Github stars" /&gt; 能高效处理网络包的 Go 语言网络服务器框架。&lt;/p&gt;
-&lt;p&gt;gnet 的卖点在于它是一个高性能、轻量级、非阻塞的纯 Go 实现的传输层（TCP/UDP/Unix Domain Socket）网络框架，开发者可以使用 gnet 来实现自己的应用层网络协议 (HTTP、RPC、Redis、WebSocket 等等)，从而构建出自己的应用层网络应用：比如在 gnet 上实现 HTTP 协议就可以创建出一个 HTTP 服务器 或者 Web 开发框架，实现 Redis 协议就可以创建出自己的 Redis 服务器等等。&lt;/p&gt;</description></item><item><title>HTTP</title><link>https://kingye.me/study-network/docs/basic/protocol/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/http/</guid><description>&lt;h1 id="http"&gt;
- HTTP
- 
- &lt;a class="anchor" href="#http"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="教程"&gt;
- 教程
- 
- &lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="ezlippitinyhttpd-github-stars-language-last-tag-last-commit"&gt;
- &lt;a href="https://github.com/EZLippi/Tinyhttpd"&gt;EZLippi/Tinyhttpd&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/EZLippi/Tinyhttpd.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/EZLippi/Tinyhttpd.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/EZLippi/Tinyhttpd.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/EZLippi/Tinyhttpd.svg" alt="Last commit" /&gt;
- 
- &lt;a class="anchor" href="#ezlippitinyhttpd-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;p&gt;gnet 的卖点在于它是一个高性能、轻量级、非阻塞的纯 Go 实现的传输层（TCP/UDP/Unix Domain Socket）网络框架，开发者可以使用 gnet 来实现自己的应用层网络协议 (HTTP、RPC、Redis、WebSocket 等等)，从而构建出自己的应用层网络应用：比如在 gnet 上实现 HTTP 协议就可以创建出一个 HTTP 服务器 或者 Web 开发框架，实现 Redis 协议就可以创建出自己的 Redis 服务器等等。&lt;/p&gt;</description></item><item><title>HTTP</title><link>https://kingye.me/study-network/docs/basic/protocol/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/http/</guid><description>&lt;h1 id="http"&gt;HTTP&lt;a class="anchor" href="#http"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="教程"&gt;教程&lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="ezlippitinyhttpd-github-stars-language-last-tag-last-commit"&gt;&lt;a href="https://github.com/EZLippi/Tinyhttpd"&gt;EZLippi/Tinyhttpd&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/EZLippi/Tinyhttpd.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/EZLippi/Tinyhttpd.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/EZLippi/Tinyhttpd.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/EZLippi/Tinyhttpd.svg" alt="Last commit" /&gt;&lt;a class="anchor" href="#ezlippitinyhttpd-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。
-官网:http://tinyhttpd.sourceforge.net&lt;/p&gt;</description></item><item><title>LAN</title><link>https://kingye.me/study-network/docs/basic/lan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/lan/</guid><description>&lt;h1 id="lan-局域网"&gt;
- LAN 局域网
- 
- &lt;a class="anchor" href="#lan-%e5%b1%80%e5%9f%9f%e7%bd%91"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+官网:http://tinyhttpd.sourceforge.net&lt;/p&gt;</description></item><item><title>LAN</title><link>https://kingye.me/study-network/docs/basic/lan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/lan/</guid><description>&lt;h1 id="lan-局域网"&gt;LAN 局域网&lt;a class="anchor" href="#lan-%e5%b1%80%e5%9f%9f%e7%bd%91"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;A 类 &lt;code&gt;10.0.0.0/8&lt;/code&gt;
 &lt;ul&gt;
@@ -457,33 +218,13 @@
 &lt;li&gt;100.64.0.0 - 100.127.255.255&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="ovs-open-vswitch"&gt;
- ovs (Open vSwitch)
- 
- &lt;a class="anchor" href="#ovs-open-vswitch"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="open-vswitch-的架构"&gt;
- Open vSwitch 的架构
- 
- &lt;a class="anchor" href="#open-vswitch-%e7%9a%84%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>Open vSwitch</title><link>https://kingye.me/study-network/docs/basic/ovs/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/ovs/</guid><description>&lt;h1 id="ovs-open-vswitch"&gt;ovs (Open vSwitch)&lt;a class="anchor" href="#ovs-open-vswitch"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="open-vswitch-的架构"&gt;Open vSwitch 的架构&lt;a class="anchor" href="#open-vswitch-%e7%9a%84%e6%9e%b6%e6%9e%84"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250707112144.png" alt="" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250718143010.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>openflow</title><link>https://kingye.me/study-network/docs/basic/openflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/openflow/</guid><description>&lt;h1 id="openflow"&gt;
- openflow
- 
- &lt;a class="anchor" href="#openflow"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250718143010.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>openflow</title><link>https://kingye.me/study-network/docs/basic/openflow/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/openflow/</guid><description>&lt;h1 id="openflow"&gt;openflow&lt;a class="anchor" href="#openflow"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;sdn 即软件控制网络。控制网络的，是独立于网络中的路由器及交换机的一个设备，即 sdn 控制器。sdn 控制器与网络中其他设备通信，对设备进行控制，诸如写入路由表之类，其余设备也向 sdn 控制器汇报，诸如报告发现了新的网络流量。&lt;/p&gt;
 &lt;p&gt;此过程中，通信协议是 openflow，网络中的 switch 支持这个协议。&lt;/p&gt;
-&lt;p&gt;openvswitch 是一个软件（程序组件），它在网络模拟系统中表现为一个支持 openflow 协议的 switch。&lt;/p&gt;</description></item><item><title>SR-IOV</title><link>https://kingye.me/study-network/docs/basic/sriov/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/sriov/</guid><description>&lt;h1 id="sr-iov"&gt;
- SR-IOV
- 
- &lt;a class="anchor" href="#sr-iov"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;openvswitch 是一个软件（程序组件），它在网络模拟系统中表现为一个支持 openflow 协议的 switch。&lt;/p&gt;</description></item><item><title>SR-IOV</title><link>https://kingye.me/study-network/docs/basic/sriov/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/sriov/</guid><description>&lt;h1 id="sr-iov"&gt;SR-IOV&lt;a class="anchor" href="#sr-iov"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;Single Root I/O Virtualization&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;VT-D&lt;/code&gt; 可以将物理的 &lt;code&gt;PCIe&lt;/code&gt; 设备直接分配给虚拟机，让虚拟机直接控制硬件，大大减轻宿主机的 CPU 负荷，提高网络性能，降低网络时延等&lt;/li&gt;
@@ -512,23 +253,13 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;p&gt;参考：&lt;/p&gt;</description></item><item><title>SSL</title><link>https://kingye.me/study-network/docs/basic/protocol/ssl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/ssl/</guid><description>&lt;h1 id="ssl"&gt;
- SSL
- 
- &lt;a class="anchor" href="#ssl"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;参考：&lt;/p&gt;</description></item><item><title>SSL</title><link>https://kingye.me/study-network/docs/basic/protocol/ssl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/ssl/</guid><description>&lt;h1 id="ssl"&gt;SSL&lt;a class="anchor" href="#ssl"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;SSL&lt;/code&gt;，&lt;code&gt;Secure Socket Layer&lt;/code&gt;，安全套接字层&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;TLS&lt;/code&gt;，&lt;code&gt;Transport Layer Security&lt;/code&gt;，传输层安全协议&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id="版本"&gt;
- 版本
- 
- &lt;a class="anchor" href="#%e7%89%88%e6%9c%ac"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="版本"&gt;版本&lt;a class="anchor" href="#%e7%89%88%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525104221.png" alt="" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;1994 年，NetScape 公司设计了 SSL 协议（Secure Sockets Layer）的 1.0 版，但是未发布。&lt;/li&gt;
@@ -584,22 +315,12 @@
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2 id="握手流程"&gt;
- 握手流程
- 
- &lt;a class="anchor" href="#%e6%8f%a1%e6%89%8b%e6%b5%81%e7%a8%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="握手流程"&gt;握手流程&lt;a class="anchor" href="#%e6%8f%a1%e6%89%8b%e6%b5%81%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Client-hello 阶段&lt;/li&gt;
 &lt;li&gt;Server-hello 阶段&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525110303.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>WebSocket</title><link>https://kingye.me/study-network/docs/basic/protocol/websocket/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/websocket/</guid><description>&lt;h1 id="websocket"&gt;
- WebSocket
- 
- &lt;a class="anchor" href="#websocket"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525110303.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>WebSocket</title><link>https://kingye.me/study-network/docs/basic/protocol/websocket/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/websocket/</guid><description>&lt;h1 id="websocket"&gt;WebSocket&lt;a class="anchor" href="#websocket"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;WebSocket 的目标是在一个单独的持久连接上提供全双工、双向通信。&lt;/p&gt;
 &lt;p&gt;在 Javascript 创建了 Web Socket 之后，会有一个 HTTP 请求发送到浏览器以发起连接。
 在取得服务器响应后，建立的连接会将 HTTP &lt;strong&gt;升级&lt;/strong&gt;为 WebSocket 协议。&lt;/p&gt;
@@ -607,12 +328,7 @@
 &lt;p&gt;未加密的连接不再是 http://，而是 &lt;code&gt;ws://&lt;/code&gt;; 加密的连接也不是 https://，而是 &lt;code&gt;wss://&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;使用自定义协议而非 HTTP 协议的好处是，能够在客户端和服务器之间&lt;strong&gt;发送非常少量的数据&lt;/strong&gt;，而不必担心 HTTP 那样&lt;strong&gt;字节级&lt;/strong&gt;的开销。&lt;/p&gt;
 &lt;p&gt;由于传递的数据包很小，所以 WebSocket 非常适合移动应用。&lt;/p&gt;
-&lt;h2 id="特点"&gt;
- 特点
- 
- &lt;a class="anchor" href="#%e7%89%b9%e7%82%b9"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="特点"&gt;特点&lt;a class="anchor" href="#%e7%89%b9%e7%82%b9"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;可以发送文本，也可以发送二进制数据。&lt;/li&gt;
 &lt;li&gt;没有同源限制，客户端可以与任意服务器通信。&lt;/li&gt;
@@ -621,18 +337,8 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wikiwand.com/zh-cn/%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF"&gt;推送技术&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.ruanyifeng.com/blog/2017/05/websocket.html"&gt;阮一峰 - WebSocket 教程&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>HTTPs</title><link>https://kingye.me/study-network/docs/basic/protocol/https/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/https/</guid><description>&lt;h1 id="https"&gt;
- HTTPs
- 
- &lt;a class="anchor" href="#https"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="从-http-切换到-https-需要几步"&gt;
- 从 HTTP 切换到 HTTPs 需要几步
- 
- &lt;a class="anchor" href="#%e4%bb%8e-http-%e5%88%87%e6%8d%a2%e5%88%b0-https-%e9%9c%80%e8%a6%81%e5%87%a0%e6%ad%a5"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>HTTPs</title><link>https://kingye.me/study-network/docs/basic/protocol/https/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/https/</guid><description>&lt;h1 id="https"&gt;HTTPs&lt;a class="anchor" href="#https"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="从-http-切换到-https-需要几步"&gt;从 HTTP 切换到 HTTPs 需要几步&lt;a class="anchor" href="#%e4%bb%8e-http-%e5%88%87%e6%8d%a2%e5%88%b0-https-%e9%9c%80%e8%a6%81%e5%87%a0%e6%ad%a5"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;EVALUATE YOUR WEBSITE FOR SECURITY RISKS&lt;/li&gt;
 &lt;li&gt;PERFORM FULL WEBSITE BACKUP&lt;/li&gt;
@@ -648,12 +354,7 @@
 &lt;p&gt;参考&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.websecurity.digicert.com/content/dam/websitesecurity/digitalassets/desktop/pdfs/Infographics/10_Steps_Switch_HTTP_to_HTTPS_infographic_en_us.pdf"&gt;10 STEPS TO SWITCH FROM HTTP TO HTTPS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>CXL</title><link>https://kingye.me/study-network/docs/basic/cxl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cxl/</guid><description>&lt;h1 id="cxl"&gt;
- &lt;a href="https://en.wikipedia.org/wiki/Compute_Express_Link"&gt;CXL&lt;/a&gt;
- 
- &lt;a class="anchor" href="#cxl"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;/ul&gt;</description></item><item><title>CXL</title><link>https://kingye.me/study-network/docs/basic/cxl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cxl/</guid><description>&lt;h1 id="cxl"&gt;&lt;a href="https://en.wikipedia.org/wiki/Compute_Express_Link"&gt;CXL&lt;/a&gt;&lt;a class="anchor" href="#cxl"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;Compute Express Link&lt;/code&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;以下是 CXL 和 PCIe 之间的一些区别：&lt;/p&gt;
@@ -663,24 +364,9 @@
 &lt;li&gt;内存共享：CXL 支持设备之间的内存共享，使它们能够更有效地协同工作。这可以提高性能并减少通过互连在设备之间传输数据的需要。&lt;/li&gt;
 &lt;li&gt;兼容性：PCIe 是一种广泛采用的标准，与多种设备兼容，而 CXL 是一种&lt;em&gt;较新&lt;/em&gt;的标准，仍在不断获得采用。这意味着 CXL 兼容设备可能需要一些时间才能广泛使用。成本：由于标准的附加功能和特性，支持 CXL 的设备可能比支持 PCIe 的设备更昂贵。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。&lt;/p&gt;</description></item><item><title>ibstat</title><link>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</guid><description>&lt;h1 id="ibstat"&gt;
- ibstat
- 
- &lt;a class="anchor" href="#ibstat"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;</description></item><item><title>Infiniband</title><link>https://kingye.me/study-network/docs/basic/rdmd/ib/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ib/</guid><description>&lt;h1 id="infiniband"&gt;
- Infiniband
- 
- &lt;a class="anchor" href="#infiniband"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;最终，CXL 和 PCIe 之间的选择将取决于应用程序的具体需求和要求，以及支持每个标准的设备的可用性和兼容性。&lt;/p&gt;</description></item><item><title>ibstat</title><link>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ibstat/</guid><description>&lt;h1 id="ibstat"&gt;ibstat&lt;a class="anchor" href="#ibstat"&gt;#&lt;/a&gt;&lt;/h1&gt;</description></item><item><title>Infiniband</title><link>https://kingye.me/study-network/docs/basic/rdmd/ib/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/ib/</guid><description>&lt;h1 id="infiniband"&gt;Infiniband&lt;a class="anchor" href="#infiniband"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;hr&gt;
-&lt;h2 id="ipoib"&gt;
- IPoIB
- 
- &lt;a class="anchor" href="#ipoib"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="ipoib"&gt;IPoIB&lt;a class="anchor" href="#ipoib"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;Internet Protocol over InfiniBand&lt;/code&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -697,24 +383,13 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip link show type ipoib
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>PCIe</title><link>https://kingye.me/study-network/docs/basic/pcie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/pcie/</guid><description>&lt;h1 id="pcie"&gt;
- &lt;a href="https://www.wikiwand.com/zh-cn/PCI_Express"&gt;PCIe&lt;/a&gt;
- 
- &lt;a class="anchor" href="#pcie"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ip link show type ipoib&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>PCIe</title><link>https://kingye.me/study-network/docs/basic/pcie/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/pcie/</guid><description>&lt;h1 id="pcie"&gt;&lt;a href="https://www.wikiwand.com/zh-cn/PCI_Express"&gt;PCIe&lt;/a&gt;&lt;a class="anchor" href="#pcie"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;Peripheral Component Interconnect Express&lt;/code&gt;，简称 &lt;code&gt;PCI-E&lt;/code&gt;，官方简称 &lt;code&gt;PCIe&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;是计算机总线的一个重要分支，它沿用既有的 PCI 编程概念及信号标准，并且构建了更加高速的串行通信系统标准。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;PCIe 拥有更快的速率，所以几乎取代了以往所有的内部总线（包括 AGP 和 PCI）。现在英特尔和 AMD 已采用&lt;em&gt;单芯片组&lt;/em&gt;技术，取代原有的&lt;em&gt;南桥／北桥&lt;/em&gt;方案。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id="发展历史"&gt;
- 发展历史
- 
- &lt;a class="anchor" href="#%e5%8f%91%e5%b1%95%e5%8e%86%e5%8f%b2"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="发展历史"&gt;发展历史&lt;a class="anchor" href="#%e5%8f%91%e5%b1%95%e5%8e%86%e5%8f%b2"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;ISA (&lt;code&gt;Industry Standard Architecture&lt;/code&gt;)
 &lt;ul&gt;
@@ -733,12 +408,7 @@
 &lt;li&gt;AGP (Accelerated Graphics Port)&lt;/li&gt;
 &lt;li&gt;PCIe (Peripheral Component Interconnect Express)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20231025175929.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>RoCE 网络</title><link>https://kingye.me/study-network/docs/basic/rdmd/roce/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/roce/</guid><description>&lt;h1 id="roce-网络"&gt;
- RoCE 网络
- 
- &lt;a class="anchor" href="#roce-%e7%bd%91%e7%bb%9c"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20231025175929.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>RoCE 网络</title><link>https://kingye.me/study-network/docs/basic/rdmd/roce/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/rdmd/roce/</guid><description>&lt;h1 id="roce-网络"&gt;RoCE 网络&lt;a class="anchor" href="#roce-%e7%bd%91%e7%bb%9c"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;RoCE 协议有 RoCEv1 和 RoCEv2 两个版本&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;RoCEv1 是基于以太网链路层实现的 RDMA 协议 (交换机需要支持 PFC 等流控技术，在物理层保证可靠传输)
@@ -748,12 +418,7 @@
 &lt;/li&gt;
 &lt;li&gt;RoCEv2 是以太网 TCP/IP 协议中 UDP 层实现， 引入 IP 解决了扩展性问题&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20230808143803.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>tap</title><link>https://kingye.me/study-network/docs/basic/dev/tap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tap/</guid><description>&lt;h1 id="tap"&gt;
- tap
- 
- &lt;a class="anchor" href="#tap"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20230808143803.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>tap</title><link>https://kingye.me/study-network/docs/basic/dev/tap/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tap/</guid><description>&lt;h1 id="tap"&gt;tap&lt;a class="anchor" href="#tap"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;TAP​​：模拟以太网设备，处理 ​​ 二层帧 ​​（含 MAC 头），适用于桥接、虚拟交换机等场景。&lt;/li&gt;
 &lt;li&gt;TUN​​：模拟点对点设备，处理 ​​ 三层 IP 包 ​​（无 MAC 头），适用于路由、VPN 隧道（如 OpenVPN）。&lt;/li&gt;
@@ -802,9 +467,4 @@
 &lt;p&gt;tun0 发现自己的另一端被应用程序 B 打开了，于是将数据发给程序 B.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;程序 B 收到数据后，做一些跟业务相关的操作，然后构造一个新的数据包，源 IP 是 eth0 的 IP，目的 IP 是 10.1.1.0/24 的网关 10.1.1.1，封装原来的数据的数据包，重新发给协议栈。&lt;/p&gt;</description></item><item><title>tun</title><link>https://kingye.me/study-network/docs/basic/dev/tun/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tun/</guid><description>&lt;h1 id="tun"&gt;
- tun
- 
- &lt;a class="anchor" href="#tun"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;</description></item></channel></rss>
+&lt;p&gt;程序 B 收到数据后，做一些跟业务相关的操作，然后构造一个新的数据包，源 IP 是 eth0 的 IP，目的 IP 是 10.1.1.0/24 的网关 10.1.1.1，封装原来的数据的数据包，重新发给协议栈。&lt;/p&gt;</description></item><item><title>tun</title><link>https://kingye.me/study-network/docs/basic/dev/tun/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/dev/tun/</guid><description>&lt;h1 id="tun"&gt;tun&lt;a class="anchor" href="#tun"&gt;#&lt;/a&gt;&lt;/h1&gt;</description></item></channel></rss>

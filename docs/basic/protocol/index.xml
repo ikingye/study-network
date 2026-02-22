@@ -1,15 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>1.2 协议 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/protocol/</link><description>Recent content in 1.2 协议 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/protocol/index.xml" rel="self" type="application/rss+xml"/><item><title>TCP</title><link>https://kingye.me/study-network/docs/basic/protocol/tcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/tcp/</guid><description>&lt;h1 id="tcp"&gt;
- TCP
- 
- &lt;a class="anchor" href="#tcp"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="tcp-报文格式"&gt;
- TCP 报文格式
- 
- &lt;a class="anchor" href="#tcp-%e6%8a%a5%e6%96%87%e6%a0%bc%e5%bc%8f"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>1.2 协议 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/protocol/</link><description>Recent content in 1.2 协议 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/protocol/index.xml" rel="self" type="application/rss+xml"/><item><title>TCP</title><link>https://kingye.me/study-network/docs/basic/protocol/tcp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/tcp/</guid><description>&lt;h1 id="tcp"&gt;TCP&lt;a class="anchor" href="#tcp"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="tcp-报文格式"&gt;TCP 报文格式&lt;a class="anchor" href="#tcp-%e6%8a%a5%e6%96%87%e6%a0%bc%e5%bc%8f"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525230243.png" alt="" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;序号：Seq 序号，占 32 位，用来标识从 TCP 源端向目的端发送的字节流，发起方发送数据时对此进行标记。&lt;/li&gt;
@@ -26,67 +16,30 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525230718.png" alt="" /&gt;&lt;/p&gt;
-&lt;h2 id="三次握手"&gt;
- 三次握手
- 
- &lt;a class="anchor" href="#%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="三次握手"&gt;三次握手&lt;a class="anchor" href="#%e4%b8%89%e6%ac%a1%e6%8f%a1%e6%89%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231319.png" alt="" /&gt;&lt;/p&gt;
-&lt;h2 id="四次挥手"&gt;
- 四次挥手
- 
- &lt;a class="anchor" href="#%e5%9b%9b%e6%ac%a1%e6%8c%a5%e6%89%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="四次挥手"&gt;四次挥手&lt;a class="anchor" href="#%e5%9b%9b%e6%ac%a1%e6%8c%a5%e6%89%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231259.png" alt="" /&gt;&lt;/p&gt;
 &lt;p&gt;实际中还会出现同时发起主动关闭的情况&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231407.png" alt="" /&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="tcp-有限状态机"&gt;
- TCP 有限状态机
- 
- &lt;a class="anchor" href="#tcp-%e6%9c%89%e9%99%90%e7%8a%b6%e6%80%81%e6%9c%ba"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="tcp-有限状态机"&gt;TCP 有限状态机&lt;a class="anchor" href="#tcp-%e6%9c%89%e9%99%90%e7%8a%b6%e6%80%81%e6%9c%ba"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;The TCP Finite State Machine (FSM)&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.tcpipguide.com/free/t_TCPOperationalOverviewandtheTCPFiniteStateMachineF-2.htm"&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525231924.png" alt="" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="tcp-状态变迁图"&gt;
- TCP 状态变迁图
- 
- &lt;a class="anchor" href="#tcp-%e7%8a%b6%e6%80%81%e5%8f%98%e8%bf%81%e5%9b%be"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="tcp-状态变迁图"&gt;TCP 状态变迁图&lt;a class="anchor" href="#tcp-%e7%8a%b6%e6%80%81%e5%8f%98%e8%bf%81%e5%9b%be"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href="http://docs.52im.net/extend/docs/book/tcpip/vol1/18/#h18_6"&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525235421.png" alt="" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id="tcp-是全双工的"&gt;
- TCP 是全双工的
- 
- &lt;a class="anchor" href="#tcp-%e6%98%af%e5%85%a8%e5%8f%8c%e5%b7%a5%e7%9a%84"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="tcp-是全双工的"&gt;TCP 是全双工的&lt;a class="anchor" href="#tcp-%e6%98%af%e5%85%a8%e5%8f%8c%e5%b7%a5%e7%9a%84"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;hr&gt;
-&lt;h2 id="tcp-的-rtt-算法"&gt;
- TCP 的 RTT 算法
- 
- &lt;a class="anchor" href="#tcp-%e7%9a%84-rtt-%e7%ae%97%e6%b3%95"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="经典算法rfc793"&gt;
- 经典算法（&lt;a href="http://tools.ietf.org/html/rfc793"&gt;RFC793&lt;/a&gt;）
- 
- &lt;a class="anchor" href="#%e7%bb%8f%e5%85%b8%e7%ae%97%e6%b3%95rfc793"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;h2 id="tcp-的-rtt-算法"&gt;TCP 的 RTT 算法&lt;a class="anchor" href="#tcp-%e7%9a%84-rtt-%e7%ae%97%e6%b3%95"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="经典算法rfc793"&gt;经典算法（&lt;a href="http://tools.ietf.org/html/rfc793"&gt;RFC793&lt;/a&gt;）&lt;a class="anchor" href="#%e7%bb%8f%e5%85%b8%e7%ae%97%e6%b3%95rfc793"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;首先，先采样 RTT，记下最近好几次的 RTT 值。&lt;/p&gt;</description></item><item><title>VXLAN</title><link>https://kingye.me/study-network/docs/basic/protocol/vxlan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/vxlan/</guid><description>&lt;h1 id="vxlan"&gt;
- VXLAN
- 
- &lt;a class="anchor" href="#vxlan"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;首先，先采样 RTT，记下最近好几次的 RTT 值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;然后做平滑计算 SRTT（&lt;code&gt;Smoothed RTT&lt;/code&gt;），公式为：&lt;/p&gt;</description></item><item><title>VXLAN</title><link>https://kingye.me/study-network/docs/basic/protocol/vxlan/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/vxlan/</guid><description>&lt;h1 id="vxlan"&gt;VXLAN&lt;a class="anchor" href="#vxlan"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;overlay 的核心其实就是打隧道（tunnel）&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;突破 VLAN 的最多 4096 个终端的数量限制，以满足大规模云计算数据中心的需求&lt;/li&gt;
@@ -99,30 +52,10 @@
 &lt;li&gt;VxLAN: MAC in UDP&lt;/li&gt;
 &lt;li&gt;NvGRE: MAC in GRE&lt;/li&gt;
 &lt;li&gt;STT: MAC in TCP（伪 TCP）&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>UDP</title><link>https://kingye.me/study-network/docs/basic/protocol/udp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/udp/</guid><description>&lt;h1 id="udp"&gt;
- UDP
- 
- &lt;a class="anchor" href="#udp"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;</description></item><item><title>DNS</title><link>https://kingye.me/study-network/docs/basic/protocol/dns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/dns/</guid><description>&lt;h1 id="dns"&gt;
- DNS
- 
- &lt;a class="anchor" href="#dns"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="etchosts"&gt;
- &lt;code&gt;/etc/hosts&lt;/code&gt;
- 
- &lt;a class="anchor" href="#etchosts"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>UDP</title><link>https://kingye.me/study-network/docs/basic/protocol/udp/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/udp/</guid><description>&lt;h1 id="udp"&gt;UDP&lt;a class="anchor" href="#udp"&gt;#&lt;/a&gt;&lt;/h1&gt;</description></item><item><title>DNS</title><link>https://kingye.me/study-network/docs/basic/protocol/dns/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/dns/</guid><description>&lt;h1 id="dns"&gt;DNS&lt;a class="anchor" href="#dns"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="etchosts"&gt;&lt;code&gt;/etc/hosts&lt;/code&gt;&lt;a class="anchor" href="#etchosts"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;hosts 文件是 Linux 系统中一个负责 IP 地址与域名快速解析的文件&lt;/p&gt;
-&lt;h2 id="etcresolvconf"&gt;
- &lt;code&gt;/etc/resolv.conf&lt;/code&gt;
- 
- &lt;a class="anchor" href="#etcresolvconf"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="etcresolvconf"&gt;&lt;code&gt;/etc/resolv.conf&lt;/code&gt;&lt;a class="anchor" href="#etcresolvconf"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;该文件是 DNS 域名解析的配置文件，它的格式很简单，
 每行以一个关键字开头，后接配置参数。&lt;/p&gt;
 &lt;p&gt;resolv.conf 的关键字主要有四个：&lt;/p&gt;
@@ -136,52 +69,20 @@
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;domain centoscn.com
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;search www.centocn.com www.wgjlb.com
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nameserver 202.96.128.86
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nameserver 202.96.128.166
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="etchostconf"&gt;
- &lt;code&gt;/etc/host.conf&lt;/code&gt;
- 
- &lt;a class="anchor" href="#etchostconf"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nameserver 202.96.128.166&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="etchostconf"&gt;&lt;code&gt;/etc/host.conf&lt;/code&gt;&lt;a class="anchor" href="#etchostconf"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;解析器查询顺序配置文件&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# 表示先查询本地 hosts 文件，如果没有结果，再尝试查找 BIND dns 服务器&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;order hosts bind
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>HTTP</title><link>https://kingye.me/study-network/docs/basic/protocol/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/http/</guid><description>&lt;h1 id="http"&gt;
- HTTP
- 
- &lt;a class="anchor" href="#http"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="教程"&gt;
- 教程
- 
- &lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="ezlippitinyhttpd-github-stars-language-last-tag-last-commit"&gt;
- &lt;a href="https://github.com/EZLippi/Tinyhttpd"&gt;EZLippi/Tinyhttpd&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/EZLippi/Tinyhttpd.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/EZLippi/Tinyhttpd.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/EZLippi/Tinyhttpd.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/EZLippi/Tinyhttpd.svg" alt="Last commit" /&gt;
- 
- &lt;a class="anchor" href="#ezlippitinyhttpd-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;order hosts bind&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>HTTP</title><link>https://kingye.me/study-network/docs/basic/protocol/http/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/http/</guid><description>&lt;h1 id="http"&gt;HTTP&lt;a class="anchor" href="#http"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="教程"&gt;教程&lt;a class="anchor" href="#%e6%95%99%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="ezlippitinyhttpd-github-stars-language-last-tag-last-commit"&gt;&lt;a href="https://github.com/EZLippi/Tinyhttpd"&gt;EZLippi/Tinyhttpd&lt;/a&gt; &lt;img src="https://img.shields.io/github/stars/EZLippi/Tinyhttpd.svg" alt="Github stars" /&gt; &lt;img src="https://img.shields.io/github/languages/top/EZLippi/Tinyhttpd.svg" alt="Language" /&gt; &lt;img src="https://img.shields.io/github/v/tag/EZLippi/Tinyhttpd.svg?sort=semver" alt="Last Tag" /&gt; &lt;img src="https://img.shields.io/github/last-commit/EZLippi/Tinyhttpd.svg" alt="Last commit" /&gt;&lt;a class="anchor" href="#ezlippitinyhttpd-github-stars-language-last-tag-last-commit"&gt;#&lt;/a&gt;&lt;/h3&gt;
 &lt;p&gt;Tinyhttpd 是 J. David Blackstone 在 1999 年写的一个不到 500 行的超轻量型 Http Server，用来学习非常不错，可以帮助我们真正理解服务器程序的本质。
-官网:http://tinyhttpd.sourceforge.net&lt;/p&gt;</description></item><item><title>SSL</title><link>https://kingye.me/study-network/docs/basic/protocol/ssl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/ssl/</guid><description>&lt;h1 id="ssl"&gt;
- SSL
- 
- &lt;a class="anchor" href="#ssl"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+官网:http://tinyhttpd.sourceforge.net&lt;/p&gt;</description></item><item><title>SSL</title><link>https://kingye.me/study-network/docs/basic/protocol/ssl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/ssl/</guid><description>&lt;h1 id="ssl"&gt;SSL&lt;a class="anchor" href="#ssl"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;SSL&lt;/code&gt;，&lt;code&gt;Secure Socket Layer&lt;/code&gt;，安全套接字层&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;TLS&lt;/code&gt;，&lt;code&gt;Transport Layer Security&lt;/code&gt;，传输层安全协议&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id="版本"&gt;
- 版本
- 
- &lt;a class="anchor" href="#%e7%89%88%e6%9c%ac"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="版本"&gt;版本&lt;a class="anchor" href="#%e7%89%88%e6%9c%ac"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525104221.png" alt="" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;1994 年，NetScape 公司设计了 SSL 协议（Secure Sockets Layer）的 1.0 版，但是未发布。&lt;/li&gt;
@@ -237,22 +138,12 @@
  &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;hr&gt;
-&lt;h2 id="握手流程"&gt;
- 握手流程
- 
- &lt;a class="anchor" href="#%e6%8f%a1%e6%89%8b%e6%b5%81%e7%a8%8b"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="握手流程"&gt;握手流程&lt;a class="anchor" href="#%e6%8f%a1%e6%89%8b%e6%b5%81%e7%a8%8b"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Client-hello 阶段&lt;/li&gt;
 &lt;li&gt;Server-hello 阶段&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525110303.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>WebSocket</title><link>https://kingye.me/study-network/docs/basic/protocol/websocket/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/websocket/</guid><description>&lt;h1 id="websocket"&gt;
- WebSocket
- 
- &lt;a class="anchor" href="#websocket"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200525110303.png" alt="" /&gt;&lt;/p&gt;</description></item><item><title>WebSocket</title><link>https://kingye.me/study-network/docs/basic/protocol/websocket/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/websocket/</guid><description>&lt;h1 id="websocket"&gt;WebSocket&lt;a class="anchor" href="#websocket"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;WebSocket 的目标是在一个单独的持久连接上提供全双工、双向通信。&lt;/p&gt;
 &lt;p&gt;在 Javascript 创建了 Web Socket 之后，会有一个 HTTP 请求发送到浏览器以发起连接。
 在取得服务器响应后，建立的连接会将 HTTP &lt;strong&gt;升级&lt;/strong&gt;为 WebSocket 协议。&lt;/p&gt;
@@ -260,12 +151,7 @@
 &lt;p&gt;未加密的连接不再是 http://，而是 &lt;code&gt;ws://&lt;/code&gt;; 加密的连接也不是 https://，而是 &lt;code&gt;wss://&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;使用自定义协议而非 HTTP 协议的好处是，能够在客户端和服务器之间&lt;strong&gt;发送非常少量的数据&lt;/strong&gt;，而不必担心 HTTP 那样&lt;strong&gt;字节级&lt;/strong&gt;的开销。&lt;/p&gt;
 &lt;p&gt;由于传递的数据包很小，所以 WebSocket 非常适合移动应用。&lt;/p&gt;
-&lt;h2 id="特点"&gt;
- 特点
- 
- &lt;a class="anchor" href="#%e7%89%b9%e7%82%b9"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="特点"&gt;特点&lt;a class="anchor" href="#%e7%89%b9%e7%82%b9"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;可以发送文本，也可以发送二进制数据。&lt;/li&gt;
 &lt;li&gt;没有同源限制，客户端可以与任意服务器通信。&lt;/li&gt;
@@ -274,18 +160,8 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://www.wikiwand.com/zh-cn/%E6%8E%A8%E9%80%81%E6%8A%80%E6%9C%AF"&gt;推送技术&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="http://www.ruanyifeng.com/blog/2017/05/websocket.html"&gt;阮一峰 - WebSocket 教程&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>HTTPs</title><link>https://kingye.me/study-network/docs/basic/protocol/https/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/https/</guid><description>&lt;h1 id="https"&gt;
- HTTPs
- 
- &lt;a class="anchor" href="#https"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="从-http-切换到-https-需要几步"&gt;
- 从 HTTP 切换到 HTTPs 需要几步
- 
- &lt;a class="anchor" href="#%e4%bb%8e-http-%e5%88%87%e6%8d%a2%e5%88%b0-https-%e9%9c%80%e8%a6%81%e5%87%a0%e6%ad%a5"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;/ul&gt;</description></item><item><title>HTTPs</title><link>https://kingye.me/study-network/docs/basic/protocol/https/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/protocol/https/</guid><description>&lt;h1 id="https"&gt;HTTPs&lt;a class="anchor" href="#https"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="从-http-切换到-https-需要几步"&gt;从 HTTP 切换到 HTTPs 需要几步&lt;a class="anchor" href="#%e4%bb%8e-http-%e5%88%87%e6%8d%a2%e5%88%b0-https-%e9%9c%80%e8%a6%81%e5%87%a0%e6%ad%a5"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;EVALUATE YOUR WEBSITE FOR SECURITY RISKS&lt;/li&gt;
 &lt;li&gt;PERFORM FULL WEBSITE BACKUP&lt;/li&gt;

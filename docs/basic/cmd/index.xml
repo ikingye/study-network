@@ -1,15 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>1.1 命令 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/cmd/</link><description>Recent content in 1.1 命令 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/cmd/index.xml" rel="self" type="application/rss+xml"/><item><title>curl</title><link>https://kingye.me/study-network/docs/basic/cmd/curl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/curl/</guid><description>&lt;h1 id="curl"&gt;
- curl
- 
- &lt;a class="anchor" href="#curl"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
-&lt;h2 id="curl-format"&gt;
- curl format
- 
- &lt;a class="anchor" href="#curl-format"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>1.1 命令 on 网络学习笔记</title><link>https://kingye.me/study-network/docs/basic/cmd/</link><description>Recent content in 1.1 命令 on 网络学习笔记</description><generator>Hugo</generator><language>en</language><atom:link href="https://kingye.me/study-network/docs/basic/cmd/index.xml" rel="self" type="application/rss+xml"/><item><title>curl</title><link>https://kingye.me/study-network/docs/basic/cmd/curl/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/curl/</guid><description>&lt;h1 id="curl"&gt;curl&lt;a class="anchor" href="#curl"&gt;#&lt;/a&gt;&lt;/h1&gt;
+&lt;h2 id="curl-format"&gt;curl format&lt;a class="anchor" href="#curl-format"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;curl -w @curl-format -o /dev/null -s http://www.baidu.com&lt;/code&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-shell" data-lang="shell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; time_appconnect: %&lt;span style="color:#f92672"&gt;{&lt;/span&gt;time_appconnect&lt;span style="color:#f92672"&gt;}&lt;/span&gt; （从开始到ssl/ssh连接完成）&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; time_connect: %&lt;span style="color:#f92672"&gt;{&lt;/span&gt;time_connect&lt;span style="color:#f92672"&gt;}&lt;/span&gt; （从开始到tcp建连完成）&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;
@@ -25,13 +15,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ----------&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; time_total: %&lt;span style="color:#f92672"&gt;{&lt;/span&gt;time_total&lt;span style="color:#f92672"&gt;}&lt;/span&gt; （全部时间；以上单位都是 秒）&lt;span style="color:#ae81ff"&gt;\n\n&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;详细参考: https://curl.haxx.se/docs/manpage.html &lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>iptables</title><link>https://kingye.me/study-network/docs/basic/cmd/iptables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/iptables/</guid><description>&lt;h1 id="iptables"&gt;
- iptables
- 
- &lt;a class="anchor" href="#iptables"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;详细参考: https://curl.haxx.se/docs/manpage.html &lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>iptables</title><link>https://kingye.me/study-network/docs/basic/cmd/iptables/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/iptables/</guid><description>&lt;h1 id="iptables"&gt;iptables&lt;a class="anchor" href="#iptables"&gt;#&lt;/a&gt;&lt;/h1&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20250706111649.png" alt="" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 &lt;p&gt;Linux 的包过滤功能，即 Linux 防火墙，
@@ -49,12 +33,7 @@
 &lt;li&gt;&lt;code&gt;iptables-restore&lt;/code&gt;: 从之前导出的 iptable 规则配置文件加载规则。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id="原理"&gt;
- 原理
- 
- &lt;a class="anchor" href="#%e5%8e%9f%e7%90%86"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
+&lt;h2 id="原理"&gt;原理&lt;a class="anchor" href="#%e5%8e%9f%e7%90%86"&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="https://cdn.jsdelivr.net/gh/ikingye/imagehost/picgo/20200506113258.png" alt="" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;一个数据包进入网卡时，它首先进入 PREROUTING 链，内核根据数据包目的 IP 判断是否需要转发出去&lt;/li&gt;
@@ -66,21 +45,6 @@
 &lt;li&gt;然后到达 POSTROUTING 链输出&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
-&lt;h2 id="状态"&gt;
- 状态
- 
- &lt;a class="anchor" href="#%e7%8a%b6%e6%80%81"&gt;#&lt;/a&gt;
- 
-&lt;/h2&gt;
-&lt;h3 id="established"&gt;
- ESTABLISHED
- 
- &lt;a class="anchor" href="#established"&gt;#&lt;/a&gt;
- 
-&lt;/h3&gt;
-&lt;p&gt;状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。&lt;/p&gt;</description></item><item><title>netfilter</title><link>https://kingye.me/study-network/docs/basic/cmd/netfilter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/netfilter/</guid><description>&lt;h1 id="netfilter"&gt;
- netfilter
- 
- &lt;a class="anchor" href="#netfilter"&gt;#&lt;/a&gt;
- 
-&lt;/h1&gt;</description></item></channel></rss>
+&lt;h2 id="状态"&gt;状态&lt;a class="anchor" href="#%e7%8a%b6%e6%80%81"&gt;#&lt;/a&gt;&lt;/h2&gt;
+&lt;h3 id="established"&gt;ESTABLISHED&lt;a class="anchor" href="#established"&gt;#&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;状态 ESTABLISHED 指出该信息包属于已建立的连接，该连接一直用于发送和接收信息包并且完全有效。&lt;/p&gt;</description></item><item><title>netfilter</title><link>https://kingye.me/study-network/docs/basic/cmd/netfilter/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://kingye.me/study-network/docs/basic/cmd/netfilter/</guid><description>&lt;h1 id="netfilter"&gt;netfilter&lt;a class="anchor" href="#netfilter"&gt;#&lt;/a&gt;&lt;/h1&gt;</description></item></channel></rss>
